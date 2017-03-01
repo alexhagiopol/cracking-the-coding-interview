@@ -28,6 +28,7 @@ def makeBST(array):
     return node
 
 if __name__ == "__main__":
+    print "printing graph"
     array = [8, 9, 10, 11, 12, 13]
     root = makeBST(array)
     print_graph(root)
