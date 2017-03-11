@@ -1,4 +1,7 @@
+# Implementations of structures and functions related to trees and graphs.
+
 import Queue
+
 
 class Node:
     def __init__(self, name, children):
@@ -7,15 +10,18 @@ class Node:
         self.visited = False
         self.inFrontier = False
 
+
 class BinaryNode:
     def __init__(self, name, left, right):
         self.name = name
         self.left = left
         self.right = right
 
+
 class Tree:
     def __init__(self, root):
         self.root = root
+
 
 def visit(node):
     print node.name
