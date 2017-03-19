@@ -4,16 +4,16 @@ import Queue
 
 
 class Node:
-    def __init__(self, name, children):
-        self.name = name
+    def __init__(self, val, children):
+        self.val = val
         self.children = children
         self.visited = False
         self.inFrontier = False
 
 
 class BinaryNode:
-    def __init__(self, name, left, right):
-        self.name = name
+    def __init__(self, val, left, right):
+        self.val = val
         self.left = left
         self.right = right
 
@@ -24,7 +24,7 @@ class Tree:
 
 
 def visit(node):
-    print node.name
+    print node.val
     node.visited = True
 
 
@@ -69,4 +69,20 @@ def bfs(root):
             if not child.inFrontier:
                 child.inFrontier = True
                 frontier.put(child)
+
+
+def print_bin_tree(root):
+    """print out binary tree given its root"""
+    frontier = [root]
+    next_frontier = []
+    while len(frontier) > 0:
+        for node in frontier:
+            if node is not None:
+                print node.val,
+                next_frontier += [node.left, node.right]
+            else:
+                print '_',
+        print
+        frontier = next_frontier
+        next_frontier = []
 

@@ -1,4 +1,4 @@
-from print_graph import print_bin_tree
+from tree_basics import print_bin_tree
 
 
 class Node:
