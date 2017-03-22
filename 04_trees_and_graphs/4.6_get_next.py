@@ -16,8 +16,6 @@ def get_next(node):
         return node.right
     if node.parent is None:
         return None
-    if node is node.parent.left:
-        return node.parent
     candidate = node
     while candidate != candidate.parent.left:
         candidate = candidate.parent
@@ -25,7 +23,7 @@ def get_next(node):
             return None
         if candidate.parent.left == candidate:
             return candidate.parent
-
+    return candidate.parent
 
 if __name__ == "__main__":
     node2 = Node(2)
