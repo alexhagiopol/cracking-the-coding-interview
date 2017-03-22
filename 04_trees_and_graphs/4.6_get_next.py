@@ -12,10 +12,9 @@ class Node:
 
 
 def get_leftmost(node):
-    candidate = node
-    while candidate.left is not None:
-        candidate = candidate.left
-    return candidate
+    while node.left is not None:
+        node = node.left
+    return node
 
 
 def get_next(node):
@@ -23,14 +22,13 @@ def get_next(node):
         return get_leftmost(node.right)
     if node.parent is None:
         return None
-    candidate = node
-    while candidate != candidate.parent.left:
-        candidate = candidate.parent
-        if candidate.parent is None:
+    while node != node.parent.left:
+        node = node.parent
+        if node.parent is None:
             return None
-        if candidate.parent.left == candidate:
-            return candidate.parent
-    return candidate.parent
+        if node.parent.left == node:
+            return node.parent
+    return node.parent
 
 if __name__ == "__main__":
     node1 = Node(1)
@@ -58,7 +56,7 @@ if __name__ == "__main__":
     node2.right = node3
     node6.left = node5
 
-    print "Successor to Node 6 is Node " + str(get_next(node6).val)
-    print "Successor to Node 4 is Node " + str(get_next(node4).val)
-    print "Successor to Node 2 is Node " + str(get_next(node2).val)
-    print "Successor to Node 13 is " + str(get_next(node10))
+    print "Node " + str(get_next(node6).val) + " is the successor to Node " + str(node6.val)
+    print "Node " + str(get_next(node4).val) + " is the successor to Node " + str(node4.val)
+    print "Node " + str(get_next(node2).val) + " is the successor to Node " + str(node2.val)
+    print "Node " + str(get_next(node10)) + " is the successor to Node " + str(node10.val)
