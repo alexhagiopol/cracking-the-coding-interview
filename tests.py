@@ -3,6 +3,7 @@ from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
 from chapter_03_stacks_queues import Stack
+from chapter_03_stacks_queues import Queue
 
 
 class Tests(unittest.TestCase):
@@ -19,7 +20,20 @@ class Tests(unittest.TestCase):
         test_array = []
         for i in range(4):
             test_array += [my_stack.pop()]
-        self.assertEqual(test_array, [4,3,2,1])
+        self.assertEqual(test_array, [4, 3, 2, 1])
+        self.assertEqual(my_stack.is_empty(), True)
+
+    def test_queue(self):
+        my_q = Queue.Queue()
+        my_q.add(1)
+        my_q.add(2)
+        my_q.add(3)
+        my_q.add(4)
+        test_array = []
+        for i in range(4):
+            test_array += [my_q.remove().value]
+        self.assertEqual(test_array, [1, 2, 3, 4])
+        self.assertEqual(my_q.is_empty(), True)
 
     def test_problem_2_4(self):
         n1 = ll.Node(1, None)

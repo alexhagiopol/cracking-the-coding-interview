@@ -11,11 +11,12 @@ class Queue:
 
     def add(self, value):
         new = Node(value, None)
-        if self.last is not None:
-            self.last.next_node = new
-        else:
+        if self.is_empty():
             self.first = new
-            self.last = new
+            self.last = self.first
+        else:
+            self.last.next_node = new
+            self.last = self.last.next_node
 
     def remove(self):
         if self.first is None:
@@ -23,3 +24,6 @@ class Queue:
         to_be_returned = self.first
         self.first = self.first.next_node
         return to_be_returned
+
+    def is_empty(self):
+        return self.first is None
