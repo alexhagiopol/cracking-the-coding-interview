@@ -2,12 +2,24 @@ import unittest
 from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
+from chapter_03_stacks_queues import Stack
 
 
 class Tests(unittest.TestCase):
 
     def setUp(self):
         pass
+
+    def test_stack(self):
+        my_stack = Stack.Stack()
+        my_stack.push(1)
+        my_stack.push(2)
+        my_stack.push(3)
+        my_stack.push(4)
+        test_array = []
+        for i in range(4):
+            test_array += [my_stack.pop()]
+        self.assertEqual(test_array, [4,3,2,1])
 
     def test_problem_2_4(self):
         n1 = ll.Node(1, None)

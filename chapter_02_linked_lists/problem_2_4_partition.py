@@ -1,4 +1,4 @@
-import LinkedList as ll
+from . import LinkedList as ll
 
 
 def partition(node, k):
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     n5_0 = ll.Node(5, n8)
     n3 = ll.Node(3, n5_0)
     # my_new_head = partition(n3)
-    print "input linked list:"
+    print("input linked list:")
     ll.print_list(n3)
-    print "output linked list:"
+    print("output linked list:")
     ll.print_list(partition(n3, 5))

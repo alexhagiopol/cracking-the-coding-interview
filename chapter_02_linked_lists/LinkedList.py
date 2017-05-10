@@ -6,7 +6,7 @@ class Node:
 
 def print_list(head):
     while head is not None:
-        print str(head.value) + " ",
+        print(str(head.value) + " ")
         head = head.next_node
     print
 

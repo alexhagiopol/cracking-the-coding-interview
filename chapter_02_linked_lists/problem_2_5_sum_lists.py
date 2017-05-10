@@ -1,4 +1,4 @@
-import LinkedList as ll
+from . import LinkedList as ll
 
 
 def pad_zeros(head, num_zeros):
