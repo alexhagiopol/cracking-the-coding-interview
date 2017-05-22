@@ -1,10 +1,11 @@
 import unittest
-from chapter_01_arrays_strings import is_unique
+from chapter_01_arrays_strings import problem_1_1_is_unique as p_1_1
 from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
 from chapter_03_stacks_queues import Stack
 from chapter_03_stacks_queues import Queue
+from chapter_05_bit_manipulation import problem_5_0_convert_binary as p_5_0
 
 
 class Tests(unittest.TestCase):
@@ -15,8 +16,8 @@ class Tests(unittest.TestCase):
     def test_is_unique(self):
         s1 = "alex"
         s2 = "aalex"
-        self.assertEqual(is_unique.is_unique(s1), True)
-        self.assertEqual(is_unique.is_unique(s2), False)
+        self.assertEqual(p_1_1.is_unique(s1), True)
+        self.assertEqual(p_1_1.is_unique(s2), False)
 
     def test_stack(self):
         my_stack = Stack.Stack()
@@ -87,6 +88,9 @@ class Tests(unittest.TestCase):
             sum_head = sum_head.next_node
 
         self.assertEqual(list_num, '10374')
+
+    def test_problem_5_0(self):
+        self.assertEqual(p_5_0.convert_to_base2(122), '1111010')
 
     def tearDown(self):
         pass
