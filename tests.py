@@ -1,4 +1,5 @@
 import unittest
+from chapter_01_arrays_strings import is_unique
 from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
@@ -10,6 +11,12 @@ class Tests(unittest.TestCase):
 
     def setUp(self):
         pass
+
+    def test_is_unique(self):
+        s1 = "alex"
+        s2 = "aalex"
+        self.assertEqual(is_unique.is_unique(s1), True)
+        self.assertEqual(is_unique.is_unique(s2), False)
 
     def test_stack(self):
         my_stack = Stack.Stack()
