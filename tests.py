@@ -13,7 +13,7 @@ class Tests(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_is_unique(self):
+    def test_problem_1_1(self):
         s1 = "alex"
         s2 = "aalex"
         self.assertEqual(p_1_1.is_unique(s1), True)
@@ -91,6 +91,8 @@ class Tests(unittest.TestCase):
 
     def test_problem_5_0(self):
         self.assertEqual(p_5_0.convert_to_base2(122), '1111010')
+        self.assertEqual(p_5_0.convert_to_base(255, 10, 16), 'ff')
+        self.assertEqual(p_5_0.convert_to_base('11110100', 2, 16), 'f4')
 
     def tearDown(self):
         pass
