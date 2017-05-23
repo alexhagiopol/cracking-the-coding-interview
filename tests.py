@@ -6,6 +6,7 @@ from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
 from chapter_03_stacks_queues import Stack
 from chapter_03_stacks_queues import Queue
 from chapter_05_bit_manipulation import problem_5_0_convert_binary as p_5_0
+from chapter_05_bit_manipulation import problem_5_1_insertion as p_5_1
 
 
 class Tests(unittest.TestCase):
@@ -93,6 +94,9 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_0.convert_to_base2(122), '1111010')
         self.assertEqual(p_5_0.convert_to_base(255, 10, 16), 'ff')
         self.assertEqual(p_5_0.convert_to_base('11110100', 2, 16), 'f4')
+
+    def test_problem_5_1(self):
+        self.assertEqual(p_5_1.insertion('10000000000', '10011', 2, 6), '10001001100')
 
     def tearDown(self):
         pass
