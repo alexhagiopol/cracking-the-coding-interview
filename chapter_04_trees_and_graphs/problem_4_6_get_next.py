@@ -30,6 +30,7 @@ def get_next(node):
             return node.parent
     return node.parent
 
+
 if __name__ == "__main__":
     node1 = Node(1)
     node2 = Node(2)

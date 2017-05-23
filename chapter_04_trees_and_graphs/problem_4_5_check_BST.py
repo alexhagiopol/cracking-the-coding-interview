@@ -4,12 +4,14 @@ class Node:
         self.left = left
         self.right = right
 
+
 def check_BST(node, min, max):
     if node is None:
         return True
     if node.val < min or node.val > max:
         return False
     return check_BST(node.left, min, node.val) and check_BST(node.right, node.val, max)
+
 
 if __name__ == "__main__":
     node1 = Node(1)

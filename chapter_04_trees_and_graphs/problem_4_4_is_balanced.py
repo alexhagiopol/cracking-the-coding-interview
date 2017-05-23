@@ -13,6 +13,7 @@ def check_height(root):
 def is_balanced(root):
     return check_height(root)[0]
 
+
 if __name__ == "__main__":
     # balanced tree
 
