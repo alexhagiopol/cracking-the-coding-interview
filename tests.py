@@ -1,5 +1,6 @@
 import unittest
 from chapter_01_arrays_strings import problem_1_1_is_unique as p_1_1
+from chapter_01_arrays_strings import problem_1_2_are_permuations as p_1_2
 from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
@@ -20,6 +21,13 @@ class Tests(unittest.TestCase):
         s2 = "aalex"
         self.assertEqual(p_1_1.is_unique(s1), True)
         self.assertEqual(p_1_1.is_unique(s2), False)
+
+    def test_problem_1_2(self):
+        s1 = "alex"
+        s2 = "aalex"
+        s3 = "xela"
+        self.assertEqual(p_1_2.are_permuations(s1, s2), False)
+        self.assertEqual(p_1_2.are_permuations(s1, s3), True)
 
     def test_stack(self):
         my_stack = Stack.Stack()

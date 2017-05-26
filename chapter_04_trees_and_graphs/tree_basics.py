@@ -85,4 +85,3 @@ def print_bin_tree(root):
         print
         frontier = next_frontier
         next_frontier = []
-
