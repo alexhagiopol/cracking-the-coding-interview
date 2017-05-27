@@ -2,6 +2,7 @@ import unittest
 from chapter_01_arrays_strings import problem_1_1_is_unique as p_1_1
 from chapter_01_arrays_strings import problem_1_2_are_permuations as p_1_2
 from chapter_02_linked_lists import LinkedList as ll
+from chapter_02_linked_lists import problem_2_3_delete_middle as p_2_3
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
 from chapter_03_stacks_queues import Stack
@@ -52,6 +53,19 @@ class Tests(unittest.TestCase):
             test_array += [my_q.remove().value]
         self.assertEqual(test_array, [1, 2, 3, 4])
         self.assertEqual(my_q.is_empty(), True)
+
+    def test_problem_2_3(self):
+        n1 = ll.Node(1, None)
+        n2 = ll.Node(2, n1)
+        n10 = ll.Node(10, n2)
+        n5 = ll.Node(5, n10)
+        string_representation = ''
+        head = n5
+        p_2_3.delete_middle(n10)
+        while head is not None:
+            string_representation += str(head.value)
+            head = head.next_node
+        self.assertEqual(string_representation, '521')
 
     def test_problem_2_4(self):
         n1 = ll.Node(1, None)
