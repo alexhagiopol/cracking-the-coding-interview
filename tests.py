@@ -2,6 +2,7 @@ import unittest
 from chapter_01_arrays_strings import problem_1_1_is_unique as p_1_1
 from chapter_01_arrays_strings import problem_1_2_are_permuations as p_1_2
 from chapter_01_arrays_strings import problem_1_3_URLify as p_1_3
+from chapter_01_arrays_strings import problem_1_4_palindrome_permutation as p_1_4
 from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_3_delete_middle as p_2_3
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
@@ -36,6 +37,12 @@ class Tests(unittest.TestCase):
         # Expect 'Mr. John Smith' -> 'Mr.%20John%20Smith'
         self.assertEqual(['M', 'r', '.', '%', '2', '0', 'J', 'o', 'h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h'],
                          p_1_3.URLify(['M', 'r', '.', ' ', 'J', 'o', 'h', 'n', ' ', 'S', 'm', 'i', 't', 'h']))
+
+    def test_problem_1_4(self):
+        # spaces don't matter
+        self.assertEqual(True, p_1_4.palindrome_permuation('tact coa'))  # calitalization matters
+        self.assertEqual(False, p_1_4.palindrome_permuation('Tact Coa'))  # capitalization matters
+        self.assertEqual(False, p_1_4.palindrome_permuation('xyz'))
 
     def test_stack(self):
         my_stack = Stack.Stack()
