@@ -3,6 +3,7 @@ from chapter_01_arrays_strings import problem_1_1_is_unique as p_1_1
 from chapter_01_arrays_strings import problem_1_2_are_permuations as p_1_2
 from chapter_01_arrays_strings import problem_1_3_URLify as p_1_3
 from chapter_01_arrays_strings import problem_1_4_palindrome_permutation as p_1_4
+from chapter_01_arrays_strings import problem_1_5_one_away as p_1_5
 from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_3_delete_middle as p_2_3
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
@@ -43,6 +44,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(True, p_1_4.palindrome_permuation('tact coa'))  # calitalization matters
         self.assertEqual(False, p_1_4.palindrome_permuation('Tact Coa'))  # capitalization matters
         self.assertEqual(False, p_1_4.palindrome_permuation('xyz'))
+
+    def test_problem_1_5(self):
+        self.assertEqual(True, p_1_5.one_away('pale', 'ple'))
+        self.assertEqual(True, p_1_5.one_away('pale', 'pale'))
+        self.assertEqual(True, p_1_5.one_away('pale', 'bale'))
+        self.assertEqual(False, p_1_5.one_away('pale', 'bae'))
+        self.assertEqual(False, p_1_5.one_away('alex', 'al'))
 
     def test_stack(self):
         my_stack = Stack.Stack()
