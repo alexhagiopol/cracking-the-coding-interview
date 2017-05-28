@@ -4,6 +4,7 @@ from chapter_01_arrays_strings import problem_1_2_are_permuations as p_1_2
 from chapter_01_arrays_strings import problem_1_3_URLify as p_1_3
 from chapter_01_arrays_strings import problem_1_4_palindrome_permutation as p_1_4
 from chapter_01_arrays_strings import problem_1_5_one_away as p_1_5
+from chapter_01_arrays_strings import problem_1_6_string_compression as p_1_6
 from chapter_01_arrays_strings import problem_1_9_string_rotation as p_1_9
 from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_3_delete_middle as p_2_3
@@ -52,6 +53,11 @@ class Tests(unittest.TestCase):
         self.assertEqual(True, p_1_5.one_away('pale', 'bale'))
         self.assertEqual(False, p_1_5.one_away('pale', 'bae'))
         self.assertEqual(False, p_1_5.one_away('alex', 'al'))
+
+    def test_problem_1_6(self):
+        self.assertEqual('a2b1c5a3', p_1_6.string_compression('aabcccccaaa'))
+        self.assertEqual('alex', p_1_6.string_compression('alex'))  # strings that don't benefit from compression don't get compressed
+
 
     def test_problem_1_9(self):
         self.assertEqual(True, p_1_9.string_rotation('waterbottle', 'erbottlewat'))
