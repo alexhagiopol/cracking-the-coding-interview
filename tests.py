@@ -5,6 +5,7 @@ from chapter_01_arrays_strings import problem_1_3_URLify as p_1_3
 from chapter_01_arrays_strings import problem_1_4_palindrome_permutation as p_1_4
 from chapter_01_arrays_strings import problem_1_5_one_away as p_1_5
 from chapter_01_arrays_strings import problem_1_6_string_compression as p_1_6
+from chapter_01_arrays_strings import problem_1_7_rotate_matrix as p_1_7
 from chapter_01_arrays_strings import problem_1_9_string_rotation as p_1_9
 from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_3_delete_middle as p_2_3
@@ -25,15 +26,15 @@ class Tests(unittest.TestCase):
     def test_problem_1_1(self):
         s1 = "alex"
         s2 = "aalex"
-        self.assertEqual(p_1_1.is_unique(s1), True)
-        self.assertEqual(p_1_1.is_unique(s2), False)
+        self.assertTrue(p_1_1.is_unique(s1))
+        self.assertFalse(p_1_1.is_unique(s2))
 
     def test_problem_1_2(self):
         s1 = "alex"
         s2 = "aalex"
         s3 = "xela"
-        self.assertEqual(p_1_2.are_permuations(s1, s2), False)
-        self.assertEqual(p_1_2.are_permuations(s1, s3), True)
+        self.assertFalse(p_1_2.are_permuations(s1, s2))
+        self.assertTrue(p_1_2.are_permuations(s1, s3))
 
     def test_problem_1_3(self):
         # python strings are immutable, so we use a list of chars to do this "in place"
@@ -44,24 +45,47 @@ class Tests(unittest.TestCase):
     def test_problem_1_4(self):
         # spaces don't matter
         self.assertEqual(True, p_1_4.palindrome_permuation('tact coa'))  # calitalization matters
-        self.assertEqual(False, p_1_4.palindrome_permuation('Tact Coa'))  # capitalization matters
-        self.assertEqual(False, p_1_4.palindrome_permuation('xyz'))
+        self.assertFalse(p_1_4.palindrome_permuation('Tact Coa'))  # capitalization matters
+        self.assertFalse(p_1_4.palindrome_permuation('xyz'))
 
     def test_problem_1_5(self):
-        self.assertEqual(True, p_1_5.one_away('pale', 'ple'))
-        self.assertEqual(True, p_1_5.one_away('pale', 'pale'))
-        self.assertEqual(True, p_1_5.one_away('pale', 'bale'))
-        self.assertEqual(False, p_1_5.one_away('pale', 'bae'))
-        self.assertEqual(False, p_1_5.one_away('alex', 'al'))
+        self.assertTrue(p_1_5.one_away('pale', 'ple'))
+        self.assertTrue(p_1_5.one_away('pale', 'pale'))
+        self.assertTrue(p_1_5.one_away('pale', 'bale'))
+        self.assertFalse(p_1_5.one_away('pale', 'bae'))
+        self.assertFalse(p_1_5.one_away('alex', 'al'))
 
     def test_problem_1_6(self):
         self.assertEqual('a2b1c5a3', p_1_6.string_compression('aabcccccaaa'))
         self.assertEqual('alex', p_1_6.string_compression('alex'))  # strings that don't benefit from compression don't get compressed
 
+    def test_problem_1_7(self):
+        import numpy as np
+        input_4x4 = np.array([[1, 2, 3, 4],
+                              [1, 2, 3, 4],
+                              [1, 2, 3, 4],
+                              [1, 2, 3, 4]])
+        input_5x5 = np.array([[1, 2, 3, 4, 5],
+                              [1, 2, 3, 4, 5],
+                              [1, 2, 3, 4, 5],
+                              [1, 2, 3, 4, 5],
+                              [1, 2, 3, 4, 5]])
+        # assume rotations are clockwise
+        output_4x4 = np.array([[1, 1, 1, 1],
+                               [2, 2, 2, 2],
+                               [3, 3, 3, 3],
+                               [4, 4, 4, 4]])
+        output_5x5 = np.array([[1, 1, 1, 1, 1],
+                               [2, 2, 2, 2, 2],
+                               [3, 3, 3, 3, 3],
+                               [4, 4, 4, 4, 4],
+                               [5, 5, 5, 5, 5]])
+        self.assertTrue(np.array_equal(p_1_7.rotate_matrix(input_4x4), output_4x4))
+        self.assertTrue(np.array_equal(p_1_7.rotate_matrix(input_5x5), output_5x5))
 
     def test_problem_1_9(self):
-        self.assertEqual(True, p_1_9.string_rotation('waterbottle', 'erbottlewat'))
-        self.assertEqual(False, p_1_9.string_rotation('waterbottlex', 'erbottlewat'))
+        self.assertTrue(p_1_9.string_rotation('waterbottle', 'erbottlewat'))
+        self.assertFalse(p_1_9.string_rotation('waterbottlex', 'erbottlewat'))
 
     def test_stack(self):
         my_stack = Stack.Stack()
@@ -85,7 +109,7 @@ class Tests(unittest.TestCase):
         for i in range(4):
             test_array += [my_q.remove().value]
         self.assertEqual(test_array, [1, 2, 3, 4])
-        self.assertEqual(my_q.is_empty(), True)
+        self.assertTrue(my_q.is_empty())
 
     def test_problem_2_3(self):
         n1 = ll.Node(1, None)
