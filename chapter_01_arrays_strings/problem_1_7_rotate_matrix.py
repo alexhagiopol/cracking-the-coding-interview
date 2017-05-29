@@ -17,5 +17,4 @@ def rotate_matrix(matrix):
 
             # from right column to bottom row
             matrix[-1 - l, N - 1 - i] = right_col_temp
-            print(matrix)
     return matrix
