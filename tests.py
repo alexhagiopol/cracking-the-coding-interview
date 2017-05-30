@@ -20,6 +20,7 @@ from chapter_04_trees_and_graphs import problem_4_1_path_exists as p_4_1
 from chapter_04_trees_and_graphs import problem_4_2_make_bst as p_4_2
 from chapter_04_trees_and_graphs import problem_4_3_make_ll as p_4_3
 from chapter_04_trees_and_graphs import problem_4_4_is_balanced as p_4_4
+from chapter_04_trees_and_graphs import problem_4_5_validate_BST as p_4_5
 from chapter_05_bit_manipulation import problem_5_0_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_5_1_insertion as p_5_1
 
@@ -295,7 +296,28 @@ class Tests(unittest.TestCase):
         self.assertFalse(p_4_4.is_balanced(root2))
 
     def test_problem_4_5(self):
-        pass
+        # contstruct a binary tree
+        node1 = tb.BinaryNode(1)
+        node2 = tb.BinaryNode(2)
+        node3 = tb.BinaryNode(3)
+        node4 = tb.BinaryNode(4)
+        node5 = tb.BinaryNode(5)
+        node6 = tb.BinaryNode(6)
+        node8 = tb.BinaryNode(8)
+        node10 = tb.BinaryNode(10)
+
+        node8.left = node4
+        node8.right = node10
+        node4.left = node2
+        node4.right = node6
+        node2.left = node1
+        node2.right = node3
+        node6.left = node5
+        self.assertTrue(p_4_5.validate_BST(node8))
+        # add node that breaks BST rule
+        node9 = tb.BinaryNode(9)
+        node6.right = node9
+        self.assertFalse(p_4_5.validate_BST(node8))
 
     def test_problem_4_6(self):
         pass
