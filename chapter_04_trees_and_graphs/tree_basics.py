@@ -1,6 +1,6 @@
 # Implementations of structures and functions related to trees and graphs.
 
-import Queue
+import queue
 
 
 class Node:
@@ -24,7 +24,7 @@ class Tree:
 
 
 def visit(node):
-    print node.val
+    print(node.val)
     node.visited = True
 
 
@@ -59,7 +59,7 @@ def dfs(root):
 
 
 def bfs(root):
-    frontier = Queue.Queue()
+    frontier = queue.Queue()
     frontier.put(root)
     visit(root)
     while not frontier.empty():
@@ -75,13 +75,15 @@ def print_bin_tree(root):
     """print out binary tree given its root"""
     frontier = [root]
     next_frontier = []
+    display_str = ''
     while len(frontier) > 0:
         for node in frontier:
             if node is not None:
-                print node.val,
+                display_str += str(node.val)
                 next_frontier += [node.left, node.right]
             else:
-                print '_',
-        print
+                display_str += '_'
+        display_str += '\n'
         frontier = next_frontier
         next_frontier = []
+    print(display_str)

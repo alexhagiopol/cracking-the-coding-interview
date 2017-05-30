@@ -199,6 +199,21 @@ class Tests(unittest.TestCase):
         p_4_1.reset(my_graph)
         self.assertEqual(p_4_1.path_exists(my_graph, my_graph.get_node(1), my_graph.get_node(8)), True)
 
+    def test_problem_4_2(self):
+        pass
+
+    def test_problem_4_3(self):
+        pass
+
+    def test_problem_4_4(self):
+        pass
+
+    def test_problem_4_5(self):
+        pass
+
+    def test_problem_4_6(self):
+        pass
+
     def test_problem_5_0(self):
         self.assertEqual(p_5_0.convert_to_base2(122), '1111010')
         self.assertEqual(p_5_0.convert_to_base(255, 10, 16), 'ff')

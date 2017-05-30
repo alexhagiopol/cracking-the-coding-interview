@@ -17,6 +17,6 @@ def make_bst(sorted_list):
 
 if __name__ == "__main__":
     my_list = [8, 9, 10, 11, 12, 13, 14]
-    print "Problem 4.2: Making BST from list " + str(my_list)
+    print("Problem 4.2: Making BST from list " + str(my_list))
     root = make_bst(my_list)
     print_bin_tree(root)
