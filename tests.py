@@ -18,12 +18,12 @@ from chapter_04_trees_and_graphs import tree_basics as tb
 from chapter_04_trees_and_graphs import problem_4_1_path_exists as p_4_1
 from chapter_04_trees_and_graphs import problem_4_2_make_bst as p_4_2
 from chapter_04_trees_and_graphs import problem_4_3_make_ll as p_4_3
+from chapter_04_trees_and_graphs import problem_4_4_is_balanced as p_4_4
 from chapter_05_bit_manipulation import problem_5_0_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_5_1_insertion as p_5_1
 
 
 class Tests(unittest.TestCase):
-
     def setUp(self):
         pass
 
@@ -61,7 +61,8 @@ class Tests(unittest.TestCase):
 
     def test_problem_1_6(self):
         self.assertEqual('a2b1c5a3', p_1_6.string_compression('aabcccccaaa'))
-        self.assertEqual('alex', p_1_6.string_compression('alex'))  # strings that don't benefit from compression don't get compressed
+        self.assertEqual('alex', p_1_6.string_compression(
+            'alex'))  # strings that don't benefit from compression don't get compressed
 
     def test_problem_1_7(self):
         import numpy as np
@@ -215,12 +216,12 @@ class Tests(unittest.TestCase):
         1,7,_,9,
         _,_,_,_,_,_,
         """
-        root = p_4_3.Node(10)
-        n5 = p_4_3.Node(5)
-        n8 = p_4_3.Node(8)
-        n1 = p_4_3.Node(1)
-        n7 = p_4_3.Node(7)
-        n9 = p_4_3.Node(9)
+        root = tb.BinaryNode(10)
+        n5 = tb.BinaryNode(5)
+        n8 = tb.BinaryNode(8)
+        n1 = tb.BinaryNode(1)
+        n7 = tb.BinaryNode(7)
+        n9 = tb.BinaryNode(9)
         root.left = n5
         root.right = n8
         n5.left = n1
@@ -230,7 +231,38 @@ class Tests(unittest.TestCase):
         self.assertEqual('10,\n5,8,\n1,7,9,\n', tb.stringify_list_of_linked_lists(linked_lists))
 
     def test_problem_4_4(self):
-        pass
+        """
+        For the purposes of this question, a balanced tree is defined to be a tree
+        such that the heights of the two subtrees of any node never differ by more than one.
+        """
+        '''
+        balanced tree:
+        root,
+        node,leaf,
+        leaf,leaf,_,_,
+        _,_,_,_,
+        '''
+        node131 = tb.BinaryNode("leaf", None, None)
+        node132 = tb.BinaryNode("leaf", None, None)
+        node121 = tb.BinaryNode("node", node131, node132)
+        node122 = tb.BinaryNode("leaf", None, None)
+        root1 = tb.BinaryNode("root", node121, node122)
+        self.assertTrue(p_4_4.is_balanced(root1))
+        '''
+        unbalanced tree:
+        root,
+        node,leaf,
+        node,leaf,_,_,
+        leaf,_,_,_,
+        _,_,
+        '''
+        node241 = tb.BinaryNode("leaf", None, None)
+        node231 = tb.BinaryNode("node", node241, None)
+        node232 = tb.BinaryNode("leaf", None, None)
+        node221 = tb.BinaryNode("node", node231, node232)
+        node222 = tb.BinaryNode("leaf", None, None)
+        root2 = tb.BinaryNode("root", node221, node222)
+        self.assertFalse(p_4_4.is_balanced(root2))
 
     def test_problem_4_5(self):
         pass
@@ -248,6 +280,7 @@ class Tests(unittest.TestCase):
 
     def tearDown(self):
         pass
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -11,8 +11,21 @@ class Node:
         self.inFrontier = False
 
 
-class BinaryNode:
+class BinaryNode_Old:
     def __init__(self, val, left, right):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class LLElem:  # linked list element. Used for P 4.3 that demands linked list
+    def __init__(self, val, next_elem=None):
+        self.val = val
+        self.next_elem = next_elem
+
+
+class BinaryNode:  # binary tree node
+    def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right

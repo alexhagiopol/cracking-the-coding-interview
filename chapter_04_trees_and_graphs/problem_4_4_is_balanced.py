@@ -1,7 +1,3 @@
-from tree_basics import BinaryNode
-from tree_basics import print_bin_tree
-
-
 def check_height(root):
     if root is None:
         return [True, 0]
@@ -11,33 +7,8 @@ def check_height(root):
 
 
 def is_balanced(root):
+    """
+    For the purposes of this question, a balanced tree is defined to be a tree
+    such that the heights of the two subtrees of any node never differ by more than one.
+    """
     return check_height(root)[0]
-
-
-if __name__ == "__main__":
-    # balanced tree
-
-    node131 = BinaryNode("leaf", None, None)
-    node132 = BinaryNode("leaf", None, None)
-    node121 = BinaryNode("node", node131, node132)
-    node122 = BinaryNode("leaf", None, None)
-    node111 = BinaryNode("root", node121, node122)
-    print "***************************************"
-    print "balanced tree: \n"
-    print_bin_tree(node111)
-    print "balance check: ",
-    print is_balanced(node111)
-    print
-
-    # unbalanced tree
-    node241 = BinaryNode("leaf", None, None)
-    node231 = BinaryNode("node", node241, None)
-    node232 = BinaryNode("leaf", None, None)
-    node221 = BinaryNode("node", node231, node232)
-    node222 = BinaryNode("leaf", None, None)
-    node211 = BinaryNode("root", node221, node222)
-    print "***************************************"
-    print "unbalanced tree: \n"
-    print_bin_tree(node211)
-    print "balance check: ",
-    print is_balanced(node211)
