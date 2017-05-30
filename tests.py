@@ -17,6 +17,7 @@ from chapter_03_stacks_queues import Queue
 from chapter_04_trees_and_graphs import tree_basics as tb
 from chapter_04_trees_and_graphs import problem_4_1_path_exists as p_4_1
 from chapter_04_trees_and_graphs import problem_4_2_make_bst as p_4_2
+from chapter_04_trees_and_graphs import problem_4_3_make_ll as p_4_3
 from chapter_05_bit_manipulation import problem_5_0_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_5_1_insertion as p_5_1
 
@@ -204,11 +205,29 @@ class Tests(unittest.TestCase):
     def test_problem_4_2(self):
         my_list = [8, 9, 10, 11, 12, 13, 14]
         root = p_4_2.make_bst(my_list)
-        str = tb.stringify_bin_tree(root)
-        self.assertEqual('11\n913\n8101214\n________\n', str)
+        self.assertEqual('11,\n9,13,\n8,10,12,14,\n_,_,_,_,_,_,_,_,\n', tb.stringify_bin_tree(root))
 
     def test_problem_4_3(self):
-        pass
+        """
+        create binary tree:
+        10,
+        5,8,
+        1,7,_,9,
+        _,_,_,_,_,_,
+        """
+        root = p_4_3.Node(10)
+        n5 = p_4_3.Node(5)
+        n8 = p_4_3.Node(8)
+        n1 = p_4_3.Node(1)
+        n7 = p_4_3.Node(7)
+        n9 = p_4_3.Node(9)
+        root.left = n5
+        root.right = n8
+        n5.left = n1
+        n5.right = n7
+        n8.right = n9
+        linked_lists = p_4_3.make_ll(root)
+        self.assertEqual('10,\n5,8,\n1,7,9,\n', tb.stringify_list_of_linked_lists(linked_lists))
 
     def test_problem_4_4(self):
         pass

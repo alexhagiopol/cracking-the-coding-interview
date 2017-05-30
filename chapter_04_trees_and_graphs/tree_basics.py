@@ -72,18 +72,28 @@ def bfs(root):
 
 
 def stringify_bin_tree(root):
-    """print out binary tree given its root"""
     frontier = [root]
     next_frontier = []
     display_str = ''
     while len(frontier) > 0:
         for node in frontier:
             if node is not None:
-                display_str += str(node.val)
+                display_str += str(node.val) + ','
                 next_frontier += [node.left, node.right]
             else:
-                display_str += '_'
+                display_str += '_,'
         display_str += '\n'
         frontier = next_frontier
         next_frontier = []
+    return display_str
+
+
+def stringify_list_of_linked_lists(linked_lists):
+    display_str = ''
+    for ll in linked_lists:
+        elem = ll[0]
+        while elem is not None:
+            display_str += str(elem.val) + ','
+            elem = elem.next_elem
+        display_str += '\n'
     return display_str
