@@ -71,7 +71,7 @@ def bfs(root):
                 frontier.put(child)
 
 
-def print_bin_tree(root):
+def stringify_bin_tree(root):
     """print out binary tree given its root"""
     frontier = [root]
     next_frontier = []
@@ -86,4 +86,4 @@ def print_bin_tree(root):
         display_str += '\n'
         frontier = next_frontier
         next_frontier = []
-    print(display_str)
+    return display_str

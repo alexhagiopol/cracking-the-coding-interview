@@ -14,7 +14,9 @@ from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
 from chapter_03_stacks_queues import Stack
 from chapter_03_stacks_queues import Queue
+from chapter_04_trees_and_graphs import tree_basics as tb
 from chapter_04_trees_and_graphs import problem_4_1_path_exists as p_4_1
+from chapter_04_trees_and_graphs import problem_4_2_make_bst as p_4_2
 from chapter_05_bit_manipulation import problem_5_0_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_5_1_insertion as p_5_1
 
@@ -200,7 +202,10 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_4_1.path_exists(my_graph, my_graph.get_node(1), my_graph.get_node(8)), True)
 
     def test_problem_4_2(self):
-        pass
+        my_list = [8, 9, 10, 11, 12, 13, 14]
+        root = p_4_2.make_bst(my_list)
+        str = tb.stringify_bin_tree(root)
+        self.assertEqual('11\n913\n8101214\n________\n', str)
 
     def test_problem_4_3(self):
         pass
