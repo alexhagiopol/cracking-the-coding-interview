@@ -21,6 +21,7 @@ from chapter_04_trees_and_graphs import problem_4_2_make_bst as p_4_2
 from chapter_04_trees_and_graphs import problem_4_3_make_ll as p_4_3
 from chapter_04_trees_and_graphs import problem_4_4_is_balanced as p_4_4
 from chapter_04_trees_and_graphs import problem_4_5_validate_BST as p_4_5
+from chapter_04_trees_and_graphs import problem_4_6_successor as p_4_6
 from chapter_05_bit_manipulation import problem_5_0_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_5_1_insertion as p_5_1
 
@@ -320,7 +321,35 @@ class Tests(unittest.TestCase):
         self.assertFalse(p_4_5.validate_BST(node8))
 
     def test_problem_4_6(self):
-        pass
+        node1 = tb.BinaryNodeLP(1)
+        node2 = tb.BinaryNodeLP(2)
+        node3 = tb.BinaryNodeLP(3)
+        node4 = tb.BinaryNodeLP(4)
+        node5 = tb.BinaryNodeLP(5)
+        node6 = tb.BinaryNodeLP(6)
+        node8 = tb.BinaryNodeLP(8)
+        node10 = tb.BinaryNodeLP(10)
+
+        node1.parent = node2
+        node3.parent = node2
+        node2.parent = node4
+        node5.parent = node6
+        node6.parent = node4
+        node4.parent = node8
+        node10.parent = node8
+
+        node8.left = node4
+        node8.right = node10
+        node4.left = node2
+        node4.right = node6
+        node2.left = node1
+        node2.right = node3
+        node6.left = node5
+
+        self.assertEqual(node8, p_4_6.successor(node6))
+        self.assertEqual(node5, p_4_6.successor(node4))
+        self.assertEqual(node3, p_4_6.successor(node2))
+        self.assertEqual(None, p_4_6.successor(node10))
 
     def test_problem_5_0(self):
         self.assertEqual(p_5_0.convert_to_base2(122), '1111010')

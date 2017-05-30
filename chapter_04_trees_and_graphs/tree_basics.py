@@ -11,17 +11,30 @@ class Node:
         self.inFrontier = False
 
 
-class LLElem:  # linked list element. Used for P 4.3 that demands linked list
-    def __init__(self, val, next_elem=None):
-        self.val = val
-        self.next_elem = next_elem
-
-
 class BinaryNode:  # binary tree node
     def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
+
+class BinaryNodeLP:  # binary node with link to parent
+    def __init__(self, val, left=None, right=None, parent=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.parent = parent
+
+    def __eq__(self, other):
+        if self.val == other.val:
+            return True
+        return False
+
+
+class LLElem:  # linked list element. Used for P 4.3 that demands linked list
+    def __init__(self, val, next_elem=None):
+        self.val = val
+        self.next_elem = next_elem
 
 
 class Tree:
