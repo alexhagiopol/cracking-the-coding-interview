@@ -12,6 +12,7 @@ from chapter_02_linked_lists import LinkedList as ll
 from chapter_02_linked_lists import problem_2_3_delete_middle as p_2_3
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
+from chapter_02_linked_lists import problem_2_8_find_loop as p_2_8
 from chapter_03_stacks_queues import Stack
 from chapter_03_stacks_queues import Queue
 from chapter_04_trees_and_graphs import tree_basics as tb
@@ -193,6 +194,35 @@ class Tests(unittest.TestCase):
             list_num = str(sum_head.value) + list_num  # careful to reverse order!
             sum_head = sum_head.next_node
         self.assertEqual(list_num, '10374')
+
+    def test_problem_2_8(self):
+        # see problem_2_8_explanation.pdf
+        # example #1
+        node1_7 = ll.Node(7, None)
+        node1_6 = ll.Node(6, node1_7)
+        node1_5 = ll.Node(5, node1_6)
+        node1_4 = ll.Node(4, node1_5)
+        node1_3 = ll.Node(3, node1_4)
+        node1_2 = ll.Node(2, node1_3)
+        node1_1 = ll.Node(1, node1_2)
+        node1_0 = ll.Node(0, node1_1)
+        node1_7.next_node = node1_5
+        self.assertEqual(p_2_8.find_loop(node1_0), node1_5)
+
+        # example #2
+        node2_10 = ll.Node(7, None)
+        node2_9 = ll.Node(7, node2_10)
+        node2_8 = ll.Node(7, node2_9)
+        node2_7 = ll.Node(7, node2_8)
+        node2_6 = ll.Node(6, node2_7)
+        node2_5 = ll.Node(5, node2_6)
+        node2_4 = ll.Node(4, node2_5)
+        node2_3 = ll.Node(3, node2_4)
+        node2_2 = ll.Node(2, node2_3)
+        node2_1 = ll.Node(1, node2_2)
+        node2_0 = ll.Node(0, node2_1)
+        node2_10.next_node = node2_3
+        self.assertEqual(p_2_8.find_loop(node2_0), node2_3)
 
     def test_problem_4_1(self):
         my_graph = p_4_1.Graph()
