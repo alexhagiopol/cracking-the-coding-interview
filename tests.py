@@ -19,6 +19,12 @@ from chapter_02_linked_lists import problem_2_7_intersection as p_2_7
 from chapter_02_linked_lists import problem_2_8_find_loop as p_2_8
 from chapter_03_stacks_queues import Stack
 from chapter_03_stacks_queues import Queue
+from chapter_03_stacks_queues import problem_3_1_three_in_one as p_3_1
+from chapter_03_stacks_queues import problem_3_2_stack_min as p_3_2
+from chapter_03_stacks_queues import problem_3_3_stack_of_plates as p_3_3
+from chapter_03_stacks_queues import problem_3_4_queue_via_stacks as p_3_4
+from chapter_03_stacks_queues import problem_3_5_sort_stack as p_3_5
+from chapter_03_stacks_queues import problem_3_6_animal_shelter as p_3_6
 from chapter_04_trees_and_graphs import tree_basics as tb
 from chapter_04_trees_and_graphs import problem_4_1_path_exists as p_4_1
 from chapter_04_trees_and_graphs import problem_4_2_make_bst as p_4_2
@@ -312,6 +318,24 @@ class Tests(unittest.TestCase):
             test_array += [my_q.remove().value]
         self.assertEqual(test_array, [1, 2, 3, 4])
         self.assertTrue(my_q.is_empty())
+
+    def test_problem_3_1(self):
+        pass
+
+    def test_problem_3_2(self):
+        pass
+
+    def test_problem_3_3(self):
+        pass
+
+    def test_problem_3_4(self):
+        pass
+
+    def test_problem_3_5(self):
+        pass
+
+    def test_problem_3_6(self):
+        pass
 
     def test_problem_4_1(self):
         my_graph = p_4_1.Graph()
