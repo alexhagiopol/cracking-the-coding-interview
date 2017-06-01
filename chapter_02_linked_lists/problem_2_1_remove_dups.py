@@ -1,7 +1,6 @@
 def remove_dups(head):  # O(n) speed with O(n) space for hash table
     hash_table = {head.value: True}
     while head is not None:
-        print(hash_table)
         if head.next_node is not None:
             if hash_table.get(head.next_node.value, None) is not None:
                 head.next_node = head.next_node.next_node
