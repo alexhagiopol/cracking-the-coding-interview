@@ -14,6 +14,8 @@ from chapter_02_linked_lists import problem_2_2_return_kth_to_last as p_2_2
 from chapter_02_linked_lists import problem_2_3_delete_middle as p_2_3
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
+from chapter_02_linked_lists import problem_2_6_palindrome as p_2_6
+from chapter_02_linked_lists import problem_2_7_intersection as p_2_7
 from chapter_02_linked_lists import problem_2_8_find_loop as p_2_8
 from chapter_03_stacks_queues import Stack
 from chapter_03_stacks_queues import Queue
@@ -210,6 +212,26 @@ class Tests(unittest.TestCase):
             list_num = str(sum_head.value) + list_num  # careful to reverse order!
             sum_head = sum_head.next_node
         self.assertEqual(list_num, '10374')
+
+    def test_problem_2_6(self):
+        pass
+
+    def test_problem_2_7(self):
+        # list 1
+        node1_7 = ll.Node(7, None)
+        node1_6 = ll.Node(6, node1_7)
+        node1_5 = ll.Node(5, node1_6)
+        node1_4 = ll.Node(4, node1_5)
+        node1_3 = ll.Node(3, node1_4)
+        node1_2 = ll.Node(2, node1_3)
+        node1_1 = ll.Node(1, node1_2)
+        node1_0 = ll.Node(0, node1_1)
+        # list 2
+        node2_5 = ll.Node(5, node1_6)  # intersection point
+        node2_4 = ll.Node(4, node2_5)
+        node2_3 = ll.Node(3, node2_4)
+        node2_2 = ll.Node(2, node2_3)
+        self.assertEqual(node1_6, p_2_7.intersection(node2_2, node1_0))
 
     def test_problem_2_8(self):
         # see problem_2_8_explanation.pdf
