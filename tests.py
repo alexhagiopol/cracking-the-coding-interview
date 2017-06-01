@@ -214,7 +214,34 @@ class Tests(unittest.TestCase):
         self.assertEqual(list_num, '10374')
 
     def test_problem_2_6(self):
-        pass
+        # list 1
+        node1_7 = ll.Node(0, None)
+        node1_6 = ll.Node(4, node1_7)
+        node1_5 = ll.Node(7, node1_6)
+        node1_4 = ll.Node(0, node1_5)
+        node1_3 = ll.Node(0, node1_4)
+        node1_2 = ll.Node(7, node1_3)
+        node1_1 = ll.Node(4, node1_2)
+        node1_0 = ll.Node(0, node1_1)
+
+        # list 2
+        node2_4 = ll.Node(3, None)
+        node2_3 = ll.Node(5, node2_4)
+        node2_2 = ll.Node(2, node2_3)
+        node2_1 = ll.Node(5, node2_2)
+        node2_0 = ll.Node(3, node2_1)
+
+        # list 3
+        node3_5 = ll.Node(1, None)
+        node3_4 = ll.Node(0, node3_5)
+        node3_3 = ll.Node(1, node3_4)
+        node3_2 = ll.Node(0, node3_3)
+        node3_1 = ll.Node(1, node3_2)
+        node3_0 = ll.Node(0, node3_1)
+
+        self.assertTrue(p_2_6.palindrome(node1_0))
+        self.assertTrue(p_2_6.palindrome(node2_0))
+        self.assertFalse(p_2_6.palindrome(node3_0))
 
     def test_problem_2_7(self):
         # list 1
