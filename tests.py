@@ -9,6 +9,7 @@ from chapter_01_arrays_strings import problem_1_7_rotate_matrix as p_1_7
 from chapter_01_arrays_strings import problem_1_8_set_zero as p_1_8
 from chapter_01_arrays_strings import problem_1_9_string_rotation as p_1_9
 from chapter_02_linked_lists import LinkedList as ll
+from chapter_02_linked_lists import problem_2_1_remove_dups as p_2_1
 from chapter_02_linked_lists import problem_2_3_delete_middle as p_2_3
 from chapter_02_linked_lists import problem_2_4_partition as p_2_4
 from chapter_02_linked_lists import problem_2_5_sum_lists as p_2_5
@@ -119,29 +120,17 @@ class Tests(unittest.TestCase):
         self.assertTrue(p_1_9.string_rotation('waterbottle', 'erbottlewat'))
         self.assertFalse(p_1_9.string_rotation('waterbottlex', 'erbottlewat'))
 
-    def test_stack(self):
-        my_stack = Stack.Stack()
-        my_stack.push(1)
-        my_stack.push(2)
-        my_stack.push(3)
-        my_stack.push(4)
-        test_array = []
-        for i in range(4):
-            test_array += [my_stack.pop()]
-        self.assertEqual(test_array, [4, 3, 2, 1])
-        self.assertEqual(my_stack.is_empty(), True)
-
-    def test_queue(self):
-        my_q = Queue.Queue()
-        my_q.add(1)
-        my_q.add(2)
-        my_q.add(3)
-        my_q.add(4)
-        test_array = []
-        for i in range(4):
-            test_array += [my_q.remove().value]
-        self.assertEqual(test_array, [1, 2, 3, 4])
-        self.assertTrue(my_q.is_empty())
+    def test_problem_2_1(self):
+        n0 = ll.Node(9, None)
+        n1 = ll.Node(7, n0)
+        n2 = ll.Node(2, n1)
+        n3 = ll.Node(5, n2)
+        n4 = ll.Node(3, n3)
+        n5 = ll.Node(3, n4)
+        n6 = ll.Node(7, n5)
+        self.assertEqual('7,3,3,5,2,7,9,', ll.stringify_linked_list(n6))
+        p_2_1.remove_dups(n6)
+        self.assertEqual('7,3,5,2,9,', ll.stringify_linked_list(n6))
 
     def test_problem_2_3(self):
         n1 = ll.Node(1, None)
@@ -225,6 +214,30 @@ class Tests(unittest.TestCase):
         node2_0 = ll.Node(0, node2_1)
         node2_10.next_node = node2_3
         self.assertEqual(p_2_8.find_loop(node2_0), node2_3)
+
+    def test_stack(self):
+        my_stack = Stack.Stack()
+        my_stack.push(1)
+        my_stack.push(2)
+        my_stack.push(3)
+        my_stack.push(4)
+        test_array = []
+        for i in range(4):
+            test_array += [my_stack.pop()]
+        self.assertEqual(test_array, [4, 3, 2, 1])
+        self.assertEqual(my_stack.is_empty(), True)
+
+    def test_queue(self):
+        my_q = Queue.Queue()
+        my_q.add(1)
+        my_q.add(2)
+        my_q.add(3)
+        my_q.add(4)
+        test_array = []
+        for i in range(4):
+            test_array += [my_q.remove().value]
+        self.assertEqual(test_array, [1, 2, 3, 4])
+        self.assertTrue(my_q.is_empty())
 
     def test_problem_4_1(self):
         my_graph = p_4_1.Graph()

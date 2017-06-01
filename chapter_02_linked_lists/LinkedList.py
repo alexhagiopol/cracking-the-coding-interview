@@ -4,11 +4,12 @@ class Node:
         self.next_node = next_node
 
 
-def print_list(head):
+def stringify_linked_list(head):
+    display_str = ''
     while head is not None:
-        print(str(head.value) + " ")
+        display_str += str(head.value) + ","
         head = head.next_node
-    print
+    return display_str
 
 
 def list_length(node):
