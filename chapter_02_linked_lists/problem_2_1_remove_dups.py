@@ -1,22 +1,16 @@
-def remove_dups(head):
-    prev_node = head  # keep track of previous and current node to retain ability to remove current node
-    hash_table = {prev_node.value: True}
-    node = prev_node.next_node
-    while node is not None:
-        if hash_table.get(node.value, None) is None:  # update hash table with each new value
-            hash_table[node.value] = True
-            prev_node = node  # advance node
-            node = node.next_node  # advance node
-        else:
-            if node.next_node is None:
-                prev_node.next_node = None
-                break
+def remove_dups(head):  # O(n) speed with O(n) space for hash table
+    hash_table = {head.value: True}
+    while head is not None:
+        print(hash_table)
+        if head.next_node is not None:
+            if hash_table.get(head.next_node.value, None) is not None:
+                head.next_node = head.next_node.next_node
             else:
-                prev_node.next_node = node.next_node
-                node = prev_node.next_node.next_node
+                hash_table[head.next_node.value] = True
+        head = head.next_node
 
 
-def remove_dups_no_extra_space(head):
+def remove_dups_alternative(head):  # O(n^2) speed with O(1) space due to no hash table
     while head is not None:
         runner = head
         while runner is not None:
