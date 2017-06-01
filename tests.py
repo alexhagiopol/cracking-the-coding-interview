@@ -132,6 +132,18 @@ class Tests(unittest.TestCase):
         p_2_1.remove_dups(n6)
         self.assertEqual('7,3,5,2,9,', ll.stringify_linked_list(n6))
 
+    def test_problem_2_1_alternative(self):
+        n0 = ll.Node(9, None)
+        n1 = ll.Node(7, n0)
+        n2 = ll.Node(2, n1)
+        n3 = ll.Node(5, n2)
+        n4 = ll.Node(3, n3)
+        n5 = ll.Node(3, n4)
+        n6 = ll.Node(7, n5)
+        self.assertEqual('7,3,3,5,2,7,9,', ll.stringify_linked_list(n6))
+        p_2_1.remove_dups_no_extra_space(n6)
+        self.assertEqual('7,3,5,2,9,', ll.stringify_linked_list(n6))
+
     def test_problem_2_3(self):
         n1 = ll.Node(1, None)
         n2 = ll.Node(2, n1)

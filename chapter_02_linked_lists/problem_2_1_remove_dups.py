@@ -14,3 +14,16 @@ def remove_dups(head):
             else:
                 prev_node.next_node = node.next_node
                 node = prev_node.next_node.next_node
+
+
+def remove_dups_no_extra_space(head):
+    while head is not None:
+        runner = head
+        while runner is not None:
+            if runner.next_node is not None and runner.next_node.value == head.value:
+                if runner.next_node is None:
+                    break
+                else:
+                    runner.next_node = runner.next_node.next_node
+            runner = runner.next_node
+        head = head.next_node
