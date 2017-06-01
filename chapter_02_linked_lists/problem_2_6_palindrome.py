@@ -21,8 +21,6 @@ def palindrome(head):
         runner = runner.next_node
     runner2 = rev_first
     while runner2 is not None:  # traverse second half of input list simultaneously with reversed list
-        print("runner2 value = ", runner2.value)
-        print("runner value = ", runner.value)
         if runner2.value != runner.value:  # equality check
             return False
         runner2 = runner2.next_node
