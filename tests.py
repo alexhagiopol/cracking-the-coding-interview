@@ -320,7 +320,20 @@ class Tests(unittest.TestCase):
         self.assertTrue(my_q.is_empty())
 
     def test_problem_3_1(self):
-        pass
+        stack = p_3_1.TripleStack()
+        actual_list = []
+        correct_list = [7, 6, 5, 4, 3, 2, 1, 7, 7, 6, 6, 5, 5, 4, 4, 3, 3, 2, 2, 1, 1]
+        for i in range(1, 8):
+            stack.push(0, i)
+        for i in range(1, 8):
+            actual_list += [stack.pop(0)]
+        for i in range(1, 8):
+            stack.push(1, i)
+            stack.push(2, i)
+        for i in range(1, 8):
+            actual_list += [stack.pop(1)]
+            actual_list += [stack.pop(2)]
+        self.assertEqual(actual_list, correct_list)
 
     def test_problem_3_2(self):
         pass
