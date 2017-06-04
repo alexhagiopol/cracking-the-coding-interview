@@ -336,7 +336,19 @@ class Tests(unittest.TestCase):
         self.assertEqual(actual_list, correct_list)
 
     def test_problem_3_2(self):
-        pass
+        stack_min = p_3_2.StackMin()
+        stack_min.push(-8)
+        stack_min.push(-5)
+        stack_min.push(1)
+        stack_min.push(-6)
+        self.assertEqual(stack_min.see_min(), -8)
+        stack_min.push(-9)
+        self.assertEqual(stack_min.see_min(), -9)
+        stack_min.push(-15)
+        stack_min.push(-30)
+        stack_min.pop()
+        stack_min.pop()
+        self.assertEqual(stack_min.see_min(), -9)
 
     def test_problem_3_3(self):
         pass
