@@ -361,7 +361,15 @@ class Tests(unittest.TestCase):
         self.assertEqual(9, stacks.pop())
 
     def test_problem_3_4(self):
-        pass
+        queue = p_3_4.QueueViaStacks()
+        for i in range(10):
+            queue.enqueue(i)
+        for i in range(5):
+            self.assertEqual(i, queue.dequeue())
+        for i in range(5):
+            queue.enqueue(i)
+        for i in range(10):
+            self.assertEqual(i, queue.dequeue())
 
     def test_problem_3_5(self):
         pass
