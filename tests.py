@@ -351,6 +351,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(stack_min.see_min(), -9)
 
     def test_problem_3_3(self):
+        #set_of_stacks = p_3_3
         pass
 
     def test_problem_3_4(self):
@@ -360,7 +361,17 @@ class Tests(unittest.TestCase):
         pass
 
     def test_problem_3_6(self):
-        pass
+        shelter = p_3_6.AnimalShelter()
+        shelter.enqueue("cat", "a")
+        shelter.enqueue("dog", "b")
+        shelter.enqueue("dog", "c")
+        shelter.enqueue("cat", "d")
+        self.assertEqual("a", shelter.dequeue_any().name)
+        self.assertEqual("b", shelter.dequeue_any().name)
+        self.assertEqual("c", shelter.dequeue_dog().name)
+        self.assertEqual("d", shelter.dequeue_cat().name)
+        self.assertEqual(None, shelter.dequeue_cat())
+
 
     def test_problem_4_1(self):
         my_graph = p_4_1.Graph()
