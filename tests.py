@@ -351,8 +351,14 @@ class Tests(unittest.TestCase):
         self.assertEqual(stack_min.see_min(), -9)
 
     def test_problem_3_3(self):
-        #set_of_stacks = p_3_3
-        pass
+        stacks = p_3_3.SetOfStacks(3)
+        for i in range(10):
+            stacks.push(i)
+        self.assertEqual([3, 3, 3, 1], [len(x.data) for x in stacks.stacks])
+        for i in [5, 4, 3, 2]:
+            self.assertEqual(i, stacks.pop_at(1))
+        self.assertEqual([2, 3, 1], [len(x.data) for x in stacks.stacks])
+        self.assertEqual(9, stacks.pop())
 
     def test_problem_3_4(self):
         pass
