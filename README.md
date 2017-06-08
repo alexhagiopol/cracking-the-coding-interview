@@ -1,5 +1,5 @@
 ## CTCI Solutions with Unit Tests
-This repository contains my optimal solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). The #1 rule for this repo is that every solution must have a unit test in `tests.py` using the Python [`unittest`](https://docs.python.org/3.6/library/unittest.html) framework.
+This repository contains my solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). The #1 rule for this repo is that every solution must have a unit test in `tests.py` using the Python [`unittest`](https://docs.python.org/3.6/library/unittest.html) framework.
 
 ### Running the Tests:
 In the root directory, execute the following to run all of the tests:
