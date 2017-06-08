@@ -8,7 +8,7 @@ class Stack(object):
         return self.data.pop()
 
     def push(self, val):
-        self.data += [val]
+        self.data.append(val)
 
     def peek(self):
         if self.is_empty():
@@ -17,3 +17,9 @@ class Stack(object):
 
     def is_empty(self):
         return len(self.data) == 0
+
+    def __str__(self):
+        string = ''
+        for x in self.data:
+            string += str(x) + ' '
+        return string

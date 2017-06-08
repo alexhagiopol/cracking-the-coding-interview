@@ -372,7 +372,12 @@ class Tests(unittest.TestCase):
             self.assertEqual(i, queue.dequeue())
 
     def test_problem_3_5(self):
-        pass
+        stack = Stack.Stack()
+        for i in [7, 6, 3, 5, 1, 2, 4]:
+            stack.push(i)
+        p_3_5.sort_stack(stack)
+        for i in range(7, 0, -1):
+            self.assertEqual(i, stack.pop())
 
     def test_problem_3_6(self):
         shelter = p_3_6.AnimalShelter()
