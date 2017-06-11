@@ -32,6 +32,12 @@ from chapter_04_trees_and_graphs import problem_4_3_make_ll as p_4_3
 from chapter_04_trees_and_graphs import problem_4_4_is_balanced as p_4_4
 from chapter_04_trees_and_graphs import problem_4_5_validate_BST as p_4_5
 from chapter_04_trees_and_graphs import problem_4_6_successor as p_4_6
+from chapter_04_trees_and_graphs import problem_4_7_build_order as p_4_7
+from chapter_04_trees_and_graphs import problem_4_8_first_common_ancestor as p_4_8
+from chapter_04_trees_and_graphs import problem_4_9_BST_sequences as p_4_9
+from chapter_04_trees_and_graphs import problem_4_10_check_subtree as p_4_10
+from chapter_04_trees_and_graphs import problem_4_11_random_node as p_4_11
+from chapter_04_trees_and_graphs import problem_4_11_random_node as p_4_12
 from chapter_05_bit_manipulation import problem_5_0_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_5_1_insertion as p_5_1
 
@@ -391,7 +397,6 @@ class Tests(unittest.TestCase):
         self.assertEqual("d", shelter.dequeue_cat().name)
         self.assertEqual(None, shelter.dequeue_cat())
 
-
     def test_problem_4_1(self):
         my_graph = p_4_1.Graph()
         p_4_1.reset(my_graph)
@@ -516,6 +521,26 @@ class Tests(unittest.TestCase):
         self.assertEqual(node5, p_4_6.successor(node4))
         self.assertEqual(node3, p_4_6.successor(node2))
         self.assertEqual(None, p_4_6.successor(node10))
+
+    def test_problem_4_7(self):
+        projects = ['a', 'b', 'c', 'd', 'e', 'f']
+        dependencies = [['a', 'd'], ['f', 'b'], ['b', 'd'], ['f', 'a'], ['d', 'c']]
+        pass
+
+    def test_problem_4_8(self):
+        pass
+
+    def test_problem_4_9(self):
+        pass
+
+    def test_problem_4_10(self):
+        pass
+
+    def test_problem_4_11(self):
+        pass
+
+    def test_problem_4_12(self):
+        pass
 
     def test_problem_5_0(self):
         self.assertEqual(p_5_0.convert_to_base2(122), '1111010')
