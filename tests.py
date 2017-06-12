@@ -523,9 +523,12 @@ class Tests(unittest.TestCase):
         self.assertEqual(None, p_4_6.successor(node10))
 
     def test_problem_4_7(self):
-        projects = ['a', 'b', 'c', 'd', 'e', 'f']
-        dependencies = [['a', 'd'], ['f', 'b'], ['b', 'd'], ['f', 'a'], ['d', 'c']]
-        pass
+        project1 = ['a', 'b', 'c', 'd', 'e', 'f']
+        dependencies1 = [('a', 'd'), ('f', 'b'), ('b', 'd'), ('f', 'a'), ('d', 'c')]
+        project2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        dependencies2 = [('f', 'c'), ('f', 'b'), ('f', 'a'), ('c', 'a'), ('b', 'a'), ('a', 'e'), ('b', 'e'), ('d', 'g')]
+        self.assertEqual(['e', 'f', 'b', 'a', 'd', 'c'], p_4_7.build_order(project1, dependencies1))
+        self.assertEqual(['d', 'f', 'g', 'c', 'b', 'a', 'e'], p_4_7.build_order(project2, dependencies2))
 
     def test_problem_4_8(self):
         pass
