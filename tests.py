@@ -531,30 +531,24 @@ class Tests(unittest.TestCase):
         self.assertEqual(['d', 'f', 'g', 'c', 'b', 'a', 'e'], p_4_7.build_order(project2, dependencies2))
 
     def test_problem_4_8(self):
-        class Node:
-            def __init__(self, value, left=None, right=None, parent=None):
-                self.value = value
-                self.left = left
-                self.right = right
-                self.parent = parent
-        n7 = Node(7)
-        n4 = Node(4, parent=n7)
-        n3 = Node(3, parent=n7)
+        n7 = tb.BinaryNodeLP(7)
+        n4 = tb.BinaryNodeLP(4, parent=n7)
+        n3 = tb.BinaryNodeLP(3, parent=n7)
         n7.left = n4
         n7.right = n3
-        n10 = Node(10, parent=n4)
-        n5 = Node(5, parent=n4)
+        n10 = tb.BinaryNodeLP(10, parent=n4)
+        n5 = tb.BinaryNodeLP(5, parent=n4)
         n4.left = n10
         n4.right = n5
-        n6 = Node(6, parent=n3)
-        n15 = Node(15, parent=n3)
+        n6 = tb.BinaryNodeLP(6, parent=n3)
+        n15 = tb.BinaryNodeLP(15, parent=n3)
         n3.left = n6
         n3.right = n15
-        n21 = Node(21, parent=n15)
-        n17 = Node(17, parent=n15)
+        n21 = tb.BinaryNodeLP(21, parent=n15)
+        n17 = tb.BinaryNodeLP(17, parent=n15)
         n15.left = n21
         n15.right = n17
-        n25 = Node(25)
+        n25 = tb.BinaryNodeLP(25)
         self.assertEqual(n3, p_4_8.fca(n6, n21))
         self.assertEqual(n7, p_4_8.fca(n10, n21))
         self.assertEqual(None, p_4_8.fca(n15, n25))
