@@ -40,6 +40,7 @@ from chapter_04_trees_and_graphs import problem_04_11_random_node as p_4_11
 from chapter_04_trees_and_graphs import problem_04_11_random_node as p_4_12
 from chapter_05_bit_manipulation import problem_05_00_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_05_01_insertion as p_5_1
+from chapter_08_recursion_and_dynamic_programming import problem_08_11_coins as p_8_11
 
 
 class Tests(unittest.TestCase):
@@ -556,7 +557,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(n7, p_4_8.fca(n3, n4))
 
     def test_problem_4_9(self):
-        pass
+        n25 = tb.BinaryNode(25)
+        n70 = tb.BinaryNode(70)
+        n20 = tb.BinaryNode(20, right=n25)
+        n60 = tb.BinaryNode(60, right=n70)
+        n50 = tb.BinaryNode(50, left=n20, right=n60)
+
+
 
     def test_problem_4_10(self):
         pass
@@ -574,6 +581,10 @@ class Tests(unittest.TestCase):
 
     def test_problem_5_1(self):
         self.assertEqual(p_5_1.insertion('10000000000', '10011', 2, 6), '10001001100')
+
+    def test_problem_08_11(self):
+        self.assertEqual(p_8_11.coin_representations(12), 4)  #
+        self.assertEqual(p_8_11.coin_representations(7), 2)
 
     def tearDown(self):
         pass
