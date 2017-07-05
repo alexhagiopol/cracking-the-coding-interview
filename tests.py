@@ -563,8 +563,6 @@ class Tests(unittest.TestCase):
         n60 = tb.BinaryNode(60, right=n70)
         n50 = tb.BinaryNode(50, left=n20, right=n60)
 
-
-
     def test_problem_4_10(self):
         pass
 
