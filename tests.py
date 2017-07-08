@@ -41,6 +41,7 @@ from chapter_04_trees_and_graphs import problem_04_11_random_node as p_4_12
 from chapter_05_bit_manipulation import problem_05_00_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_05_01_insertion as p_5_1
 from chapter_08_recursion_and_dynamic_programming import problem_08_11_coins as p_8_11
+from chapter_17_hard import problem_17_15_longest_combination as p_17_15
 
 
 class Tests(unittest.TestCase):
@@ -584,9 +585,18 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #
         self.assertEqual(p_8_11.coin_representations(7), 2)
 
+    def test_problem_17_15(self):
+        list1 = ['cat', 'banana', 'dog', 'nana', 'walk', 'walker', 'dogwalker']
+        list2 = ['cat', 'dog', 'tree', 'catdog', 'catdogtree', 'catdogxxxxx']
+        list3 = ['lol']
+        list4 = ['cat', 'cats', 'catsz']
+        self.assertEqual(p_17_15.find_longest_combination(list1), 'dogwalker')
+        self.assertEqual(p_17_15.find_longest_combination(list2), 'catdogtree')
+        self.assertEqual(p_17_15.find_longest_combination(list3), None)
+        self.assertEqual(p_17_15.find_longest_combination(list4), None)
+
     def tearDown(self):
         pass
-
 
 if __name__ == '__main__':
     unittest.main()
