@@ -563,9 +563,45 @@ class Tests(unittest.TestCase):
         n20 = tb.BinaryNode(20, right=n25)
         n60 = tb.BinaryNode(60, right=n70)
         n50 = tb.BinaryNode(50, left=n20, right=n60)
+        pass
 
     def test_problem_4_10(self):
-        pass
+        # tree 1
+        n1_1 = tb.BinaryNode(1)
+        n2_1 = tb.BinaryNode(2)
+        n7_1 = tb.BinaryNode(7)
+        n9_1 = tb.BinaryNode(9)
+        n3_1 = tb.BinaryNode(3, n1_1, n2_1)
+        n8_1 = tb.BinaryNode(8, n7_1, n9_1)
+        n5_1 = tb.BinaryNode(5, n3_1, n8_1)
+        t1_head = n5_1
+
+        # tree 2
+        t2_head = n8_1
+
+        # tree 3
+        n12_3 = tb.BinaryNode(12)
+        n13_3 = tb.BinaryNode(13)
+        n11_3 = tb.BinaryNode(11, n12_3, n13_3)
+        t3_head = n11_3
+
+        # tree 4
+        n7_4 = tb.BinaryNode(7)
+        n9_4 = tb.BinaryNode(9)
+        n8_4 = tb.BinaryNode(8, n7_4, n9_4)
+        t4_head = n8_4
+
+        # tree 5
+        n6_5 = tb.BinaryNode(6)
+        n9_5 = tb.BinaryNode(9)
+        n8_5 = tb.BinaryNode(8, n6_5, n9_5)
+        t5_head = n8_5
+
+        self.assertEqual(p_4_10.check_subtree(t1_head, t1_head), True)
+        self.assertEqual(p_4_10.check_subtree(t2_head, t1_head), True)
+        self.assertEqual(p_4_10.check_subtree(t3_head, t1_head), False)
+        self.assertEqual(p_4_10.check_subtree(t4_head, t1_head), True)
+        self.assertEqual(p_4_10.check_subtree(t5_head, t1_head), False)
 
     def test_problem_4_11(self):
         pass
