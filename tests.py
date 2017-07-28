@@ -1,4 +1,5 @@
 import unittest
+import random
 from chapter_01_arrays_strings import problem_01_01_is_unique as p_1_1
 from chapter_01_arrays_strings import problem_01_02_are_permuations as p_1_2
 from chapter_01_arrays_strings import problem_01_03_URLify as p_1_3
@@ -604,7 +605,16 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_4_10.check_subtree(t5_head, t1_head), False)
 
     def test_problem_4_11(self):
-        pass
+        random.seed(0)
+        rnd_bst = p_4_11.RandBST()
+        values_list = [10, 13, 14, 11, 7, 5, 8, 6, 4, 10]
+        for i in values_list:
+            rnd_bst.insert(i)
+        self.assertEqual(rnd_bst.get_random(), 11)
+        self.assertEqual(rnd_bst.get_random(), 8)
+        self.assertEqual(rnd_bst.get_random(), 11)
+        self.assertEqual(rnd_bst.get_random(), 8)
+        self.assertEqual(rnd_bst.get_random(), 13)
 
     def test_problem_4_12(self):
         pass

@@ -1,34 +1,71 @@
-class RandomBinaryNode:
-    def __init__(self, value=None, left=None, right=None, num_left_children=0, num_right_children=0):
+import random
+
+
+class RandBinNode:
+
+    def __init__(self, value, left=None, right=None, children=0):
         self.value = value
         self.left = left
         self.right = right
-        self.num_left_children = num_left_children
-        self.num_right_children = num_right_children
+        self.children = children
+
+    def left_children(self):
+        if self.left is None:
+            return 0
+        else:
+            return 1 + self.left.children
+
+    def right_children(self):
+        if self.right is None:
+            return 0
+        else:
+            return 1 + self.right.children
 
 
-class RandomBinarySearchTree:
-    def __init__(self, root):
+class RandBST:
+    def __init__(self, root=None):
         self.root = root
 
-    def insert(self, node):
+    def insert(self, value):
         if self.root is None:
-            self.root = node
+            self.root = RandBinNode(value)
+            return
         runner = self.root
-
-        while runner is not None:
-            if node.value == runner.value:
-                pass  # don't add non-unique elements
-            if node.value > runner.value:
-                runner = runner.right
+        while 1:
+            if value > runner.value:
+                runner.children += 1
+                if runner.right is not None:
+                    runner = runner.right
+                else:
+                    runner.right = RandBinNode(value)
+                    return
+            elif value < runner.value:
+                runner.children += 1
+                if runner.left is not None:
+                    runner = runner.left
+                else:
+                    runner.left = RandBinNode(value)
+                    return
             else:
+                return  # don't allow non-unique values in tree
+
+    def get_random(self):
+        if self.root is None:
+            return None
+        runner = self.root
+        while 1:
+            assert(runner.children == runner.left_children() + runner.right_children())  #
+            sum_of_nodes = 1 + runner.children
+            rand_int = random.randint(1, sum_of_nodes)
+            if rand_int == 1:
+                return runner.value
+            elif 1 < rand_int <= 1 + runner.left_children():
                 runner = runner.left
+            elif 1 + runner.left_children() < rand_int:
+                runner = runner.right
 
     def find(self):
         pass
 
     def delete(self):
-        pass
-
-    def get_random(self):
         pass
