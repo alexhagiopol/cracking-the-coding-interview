@@ -2,12 +2,13 @@
 [![Coverage Status](https://coveralls.io/repos/github/alexhagiopol/cracking-the-coding-interview/badge.svg?branch=master)](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview?branch=master)
 
 ### Introduction
-This repository contains solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). 
-Admittedly, there are lots of other GitHub repos with solutions for this book. But when you're deeply confused, how do you 
-know that their code actually works? You don't. That's why the #1 rule for this repo is 
-that *every* solution must have one or more unit tests in [`tests.py`](tests.py) using the Python [`unittest`](https://docs.python.org/3.6/library/unittest.html) 
+This repo contains solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). 
+Admittedly, there are lots of other GitHub repos with solutions for this book. But when you're studying and deeply confused, 
+how do you know that their code *actually works*? You don't. That's why the #1 rule for this repo is 
+that every solution must have one or more unit tests in [`tests.py`](tests.py) using Python's [`unittest`](https://docs.python.org/3.6/library/unittest.html) 
 framework. We enforce the unit tests using [Travis CI automated testing](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview) 
-and [Coveralls.io test coverage statistics](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview).
+and [Coveralls.io test coverage statistics](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview). 
+Reference and contribute solutions with confidence! :smile:
 
 #### Running the Tests Locally:
 In the root directory, execute the following to run all of the tests:
@@ -15,7 +16,7 @@ In the root directory, execute the following to run all of the tests:
     python tests.py
 
 #### Generating a Test Coverage Report Locally:
-This will show exactly which lines are not covered in each file:
+This will show exactly which lines are not covered by tests in each source file:
 
     conda install coverage
     coverage run --source=python_solutions tests.py
@@ -24,9 +25,9 @@ This will show exactly which lines are not covered in each file:
 ### Contributing
 I need help on this project! PRs are very welcome. Here are some ways you can help:
 
-1. Solving unsolved problems.
+1. Solving unsolved problems or solving problems in languages other than Python.
 2. Improving existing solutions with better performance or clarity.
-3. Adding more unit tests or refactoring to increase test coverage %.
+3. Adding more unit tests or refactoring to increase the test coverage %.
 
 ### Completion Progress
 #### Python Solutions:
