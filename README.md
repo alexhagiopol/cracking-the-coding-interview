@@ -18,9 +18,9 @@ In the root directory, execute the following to run all of the tests:
 #### Generating a Test Coverage Report Locally:
 This will show exactly which lines are not covered in each file:
 
-    sudo apt-get install python3-pip
-    sudo pip3 install coverage
-    coverage report -m python_solutions tests.py
+    conda install coverage
+    coverage run --source=python_solutions tests.py
+    coverage report -m
 
 ### Contributing
 I need help on this project! PRs are very welcome. Here are some ways you can help:
