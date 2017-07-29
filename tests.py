@@ -42,6 +42,7 @@ from python_solutions.chapter_04_trees_and_graphs import problem_04_12_paths_wit
 from python_solutions.chapter_05_bit_manipulation import problem_05_00_convert_binary as p_5_0
 from python_solutions.chapter_05_bit_manipulation import problem_05_01_insertion as p_5_1
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_11_coins as p_8_11
+from python_solutions.chapter_17_hard import problem_17_10_majority_element as p_17_10
 from python_solutions.chapter_17_hard import problem_17_15_longest_combination as p_17_15
 
 
@@ -698,6 +699,21 @@ class Tests(unittest.TestCase):
     def test_problem_08_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #
         self.assertEqual(p_8_11.coin_representations(7), 2)
+
+    def test_problem_17_10(self):
+        maj_0_array = [1, 1, 0, 0, 0]
+        maj_1_array = [1, 1, 1, 0, 0]
+        maj_5_array = [1, 2, 5, 9, 5, 9, 5, 5, 5]
+        no_maj_array_1 = [3, 1, 7, 1, 3, 7, 3, 7, 1, 7, 7]
+        no_maj_array_2 = [1, 2, 0, 0]
+        maj_7_array = [7, 3, 1, 7, 1, 7, 3, 7, 3, 7, 1, 7, 7]
+        self.assertEqual(p_17_10.majority_element(maj_0_array), 0)
+        self.assertEqual(p_17_10.majority_element(maj_1_array), 1)
+        self.assertEqual(p_17_10.majority_element(maj_5_array), 5)
+        self.assertEqual(p_17_10.majority_element(no_maj_array_1), None)
+        self.assertEqual(p_17_10.majority_element(no_maj_array_2), None)
+        self.assertEqual(p_17_10.majority_element(None), None)
+        self.assertEqual(p_17_10.majority_element(maj_7_array), 7)
 
     def test_problem_17_15(self):
         list1 = ['cat', 'banana', 'dog', 'nana', 'walk', 'walker', 'dogwalker']
