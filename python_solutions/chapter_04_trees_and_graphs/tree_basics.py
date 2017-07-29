@@ -3,14 +3,6 @@
 import queue
 
 
-class Node:
-    def __init__(self, val, children):
-        self.val = val
-        self.children = children
-        self.visited = False
-        self.inFrontier = False
-
-
 class BinaryNode:  # binary tree node
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -37,53 +29,57 @@ class LLElem:  # linked list element. Used for P 4.3 that demands linked list
         self.next_elem = next_elem
 
 
-class Tree:
-    def __init__(self, root):
-        self.root = root
-
-
-def visit(node):
-    print(node.val)
-    node.visited = True
-
-
-def in_order_traversal(node):
+def in_order_traversal(node, visit_sequence):
     if node is not None:
-        in_order_traversal(node.left)
-        visit(node)
-        in_order_traversal(node.right)
+        in_order_traversal(node.left, visit_sequence)
+        # visit(node)
+        visit_sequence.append(node.val)  # visit operation
+        in_order_traversal(node.right, visit_sequence)
 
 
-def pre_order_traversal(node):
+def pre_order_traversal(node, visit_sequence):
     if node is not None:
-        visit(node)
-        pre_order_traversal(node.left)
-        pre_order_traversal(node.right)
+        # visit(node)
+        visit_sequence.append(node.val)  # visit operation
+        pre_order_traversal(node.left, visit_sequence)
+        pre_order_traversal(node.right, visit_sequence)
 
 
-def post_order_traversal(node):
+def post_order_traversal(node, visit_sequence):
     if node is not None:
-        post_order_traversal(node.left)
-        post_order_traversal(node.right)
-        visit(node)
+        post_order_traversal(node.left, visit_sequence)
+        post_order_traversal(node.right, visit_sequence)
+        # visit(node)
+        visit_sequence.append(node.val)  # visit operation
 
 
-def dfs(root):
+class Node:  # general graph node
+    def __init__(self, val, children):
+        self.val = val
+        self.children = children
+        self.visited = False
+        self.inFrontier = False
+
+
+def dfs(root, visit_sequence):
     if root is None:
         return
-    visit(root)
+    #visit(root)
+    visit_sequence.append(root.val)  # visit operation
     for node in root.children:
         if not node.visited:
-            dfs(node)
+            dfs(node, visit_sequence)
 
 
-def bfs(root):
+def bfs(root, visit_sequence):
     frontier = queue.Queue()
     frontier.put(root)
-    visit(root)
+    # visit(root)
+    visit_sequence.append(root.val)  # visit operation
     while not frontier.empty():
         node = frontier.get()
-        visit(node)
+        # visit(node)
+        visit_sequence.append(node.val)  # visit operation
         for child in node.children:
             if not child.inFrontier:
                 child.inFrontier = True

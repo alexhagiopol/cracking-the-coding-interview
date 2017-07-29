@@ -404,6 +404,26 @@ class Tests(unittest.TestCase):
         self.assertEqual("d", shelter.dequeue_cat().name)
         self.assertEqual(None, shelter.dequeue_cat())
 
+    def test_tree_binary_tree_traversals(self):
+        n2 = tb.BinaryNode(2)
+        n6 = tb.BinaryNode(6)
+        n20 = tb.BinaryNode(20)
+        n4 = tb.BinaryNode(4, n2, n6)
+        n10 = tb.BinaryNode(10, None, n20)
+        n8 = tb.BinaryNode(8, n4, n10)
+
+        in_order_sequence = []
+        tb.in_order_traversal(n8, in_order_sequence)
+        self.assertEqual(in_order_sequence, [2, 4, 6, 8, 10, 20])
+
+        pre_order_sequence = []
+        tb.pre_order_traversal(n8, pre_order_sequence)
+        self.assertEqual(pre_order_sequence, [8, 4, 2, 6, 10, 20])
+
+        post_order_sequence = []
+        tb.post_order_traversal(n8, post_order_sequence)
+        self.assertEqual(post_order_sequence, [2, 6, 4, 20, 10, 8])
+
     def test_problem_4_1(self):
         my_graph = p_4_1.Graph()
         p_4_1.reset(my_graph)
