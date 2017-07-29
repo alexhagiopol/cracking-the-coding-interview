@@ -3,7 +3,7 @@ def majority_element(array):
         return None
     # first candidate is the first element of the array.
     candidate = array[0]
-    matched = 1
+    matched = 1  # establish single element majority
     unmatched = 0
     # FIRST PASS
     for element in array[1:]:  # identify potential majority candidate
