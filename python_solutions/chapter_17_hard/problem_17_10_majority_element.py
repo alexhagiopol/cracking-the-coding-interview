@@ -7,13 +7,15 @@ def majority_element(array):
     unmatched = 0
     # FIRST PASS
     for element in array[1:]:  # identify potential majority candidate
+        if matched == 0:  # no majority yet. establish single element majority
+            candidate = element
+            matched = 1
         if element == candidate:  # if match found, majority increases
             matched += 1
         else:
             unmatched += 1  # if match not found, majority decreases
         if unmatched >= matched:  # majority lost when matched == unmatched
-            candidate = element  # new candidate is the one that broke the majority
-            matched = 1  # start new majority calculation
+            matched = 0  # start new majority calculation
             unmatched = 0
     # SECOND PASS
     count = 0
