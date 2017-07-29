@@ -5,6 +5,6 @@ install:
   - pip install coverage
   - pip install coveralls
 script:
-  - coverage report -m chapter_*/*.py tests.py
+  - coverage run --source=chapter_*/*.py tests.py test
 after_success:
   - coveralls
