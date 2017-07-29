@@ -8,7 +8,7 @@ how do you know that their code *actually works*? You don't. That's why the #1 r
 that every solution must have one or more unit tests in [`tests.py`](tests.py) using Python's [`unittest`](https://docs.python.org/3.6/library/unittest.html) 
 framework. We enforce the unit tests using [Travis CI automated testing](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview) 
 and [Coveralls.io test coverage statistics](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview). 
-Reference and contribute solutions with confidence! :smile:
+Reference and contribute solutions with confidence!
 
 #### Running the Tests Locally:
 In the root directory, execute the following to run all of the tests:
