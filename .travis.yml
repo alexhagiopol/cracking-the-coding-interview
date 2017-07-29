@@ -1,7 +1,10 @@
 language: python
 python:
   - "3.6"
+install:
+  - pip install coverage
+  - pip install coveralls
 script:
-  - python tests.py
+  - coverage report -m chapter_*/*.py tests.py
 after_success:
   - coveralls
