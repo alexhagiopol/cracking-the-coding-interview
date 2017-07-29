@@ -310,11 +310,15 @@ class Tests(unittest.TestCase):
         my_stack.push(2)
         my_stack.push(3)
         my_stack.push(4)
+        self.assertEqual(str(my_stack), '1 2 3 4 ')
+        self.assertEqual(my_stack.peek(), 4)
         test_array = []
         for i in range(4):
             test_array += [my_stack.pop()]
         self.assertEqual(test_array, [4, 3, 2, 1])
         self.assertEqual(my_stack.is_empty(), True)
+        self.assertEqual(my_stack.pop(), None)
+        self.assertEqual(my_stack.peek(), None)
 
     def test_queue(self):
         my_q = Queue.Queue()
