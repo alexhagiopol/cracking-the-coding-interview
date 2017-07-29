@@ -1,14 +1,14 @@
-## Cracking The Coding Interview Solutions with Unit Tests
-### Why CTCI with Automated Unit Tests?
+## Cracking The Coding Interview Solutions with Automated Unit Tests
+[![Coverage Status](https://coveralls.io/repos/github/alexhagiopol/cracking-the-coding-interview/badge.svg?branch=master)](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview?branch=master)
+
+### Introduction
 This repository contains solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). 
 Admittedly, there are lots of other GitHub repos with solutions for this book. When you're deep in your studying and
-are deeply confused, how do you know that their code actually works? You don't. That's why the #1 rule for this repo is that *every* solution must have one or more unit tests in `tests.py` using the Python [`unittest`](https://docs.python.org/3.6/library/unittest.html) 
+are deeply confused, how do you know that their code actually works? You don't. That's why the #1 rule for this repo is 
+that *every* solution must have one or more unit tests in `tests.py` using the Python [`unittest`](https://docs.python.org/3.6/library/unittest.html) 
 framework. We enforce the unit tests using continuous integration via Travis CI and test coverage statistics via Coveralls.io. 
 Take a look at the [test result reports](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview) and 
 [test coverage reports](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview). 
-
-Python Test Coverage: 
-[![Coverage Status](https://coveralls.io/repos/github/alexhagiopol/cracking-the-coding-interview/badge.svg?branch=master)](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview?branch=master)
 
 #### Running the Tests Locally:
 In the root directory, execute the following to run all of the tests:
