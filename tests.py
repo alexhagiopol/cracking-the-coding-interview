@@ -371,7 +371,9 @@ class Tests(unittest.TestCase):
         for i in [5, 4, 3, 2]:
             self.assertEqual(i, stacks.pop_at(1))
         self.assertEqual([2, 3, 1], [len(x.data) for x in stacks.stacks])
-        self.assertEqual(9, stacks.pop())
+        for i in [9, 8, 7, 6, 1, 0, None]:
+            self.assertEqual(i, stacks.pop())
+        self.assertEqual(stacks.pop_at(-1), None)
 
     def test_problem_3_4(self):
         queue = p_3_4.QueueViaStacks()
