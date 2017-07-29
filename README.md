@@ -37,4 +37,4 @@ I need help on this project! PRs are very welcome. Here are some ways you can he
 4. Chapter 4 - Trees and Graphs: 11 / 12 complete.  
 5. Chapter 5 - Bit Manipulation: 1 / 8  complete.
 6. Chapter 8 - Recursion and Dynamic Programming: 1 / 12  complete.
-7. Chapter 17 - Hard: 1 / 26 complete.
+7. Chapter 17 - Hard: 2 / 26 complete.
