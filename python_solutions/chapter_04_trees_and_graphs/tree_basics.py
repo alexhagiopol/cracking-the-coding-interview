@@ -32,14 +32,12 @@ class LLElem:  # linked list element. Used for P 4.3 that demands linked list
 def in_order_traversal(node, visit_sequence):
     if node is not None:
         in_order_traversal(node.left, visit_sequence)
-        # visit(node)
         visit_sequence.append(node.val)  # visit operation
         in_order_traversal(node.right, visit_sequence)
 
 
 def pre_order_traversal(node, visit_sequence):
     if node is not None:
-        # visit(node)
         visit_sequence.append(node.val)  # visit operation
         pre_order_traversal(node.left, visit_sequence)
         pre_order_traversal(node.right, visit_sequence)
@@ -49,40 +47,35 @@ def post_order_traversal(node, visit_sequence):
     if node is not None:
         post_order_traversal(node.left, visit_sequence)
         post_order_traversal(node.right, visit_sequence)
-        # visit(node)
         visit_sequence.append(node.val)  # visit operation
 
 
 class Node:  # general graph node
-    def __init__(self, val, children):
+    def __init__(self, val, children=()):
         self.val = val
         self.children = children
         self.visited = False
-        self.inFrontier = False
 
 
 def dfs(root, visit_sequence):
     if root is None:
-        return
-    #visit(root)
+        return None
     visit_sequence.append(root.val)  # visit operation
     for node in root.children:
-        if not node.visited:
-            dfs(node, visit_sequence)
+        dfs(node, visit_sequence)
 
 
 def bfs(root, visit_sequence):
+    if root is None:
+        return None
     frontier = queue.Queue()
     frontier.put(root)
-    # visit(root)
-    visit_sequence.append(root.val)  # visit operation
     while not frontier.empty():
         node = frontier.get()
-        # visit(node)
         visit_sequence.append(node.val)  # visit operation
         for child in node.children:
-            if not child.inFrontier:
-                child.inFrontier = True
+            if not child.visited:
+                child.visited = True
                 frontier.put(child)
 
 

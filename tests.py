@@ -405,24 +405,61 @@ class Tests(unittest.TestCase):
         self.assertEqual(None, shelter.dequeue_cat())
 
     def test_tree_binary_tree_traversals(self):
+        """
+                 8
+               /  \
+              4   10
+             /\    \
+            2 6    20
+        """
         n2 = tb.BinaryNode(2)
         n6 = tb.BinaryNode(6)
         n20 = tb.BinaryNode(20)
         n4 = tb.BinaryNode(4, n2, n6)
         n10 = tb.BinaryNode(10, None, n20)
         n8 = tb.BinaryNode(8, n4, n10)
-
         in_order_sequence = []
         tb.in_order_traversal(n8, in_order_sequence)
         self.assertEqual(in_order_sequence, [2, 4, 6, 8, 10, 20])
-
         pre_order_sequence = []
         tb.pre_order_traversal(n8, pre_order_sequence)
         self.assertEqual(pre_order_sequence, [8, 4, 2, 6, 10, 20])
-
         post_order_sequence = []
         tb.post_order_traversal(n8, post_order_sequence)
         self.assertEqual(post_order_sequence, [2, 6, 4, 20, 10, 8])
+
+    def test_graph_exploration(self):
+        """
+            1 <- 8 -> 17
+               /  \
+         3 <- 4   10 -> 15
+             /\   /\
+       0 <- 2 6  9 20 -> 23
+        """
+        n0 = tb.Node(0)
+        n2 = tb.Node(2, (n0,))
+        n6 = tb.Node(6)
+        n9 = tb.Node(9)
+        n23 = tb.Node(23)
+        n20 = tb.Node(20, (n23,))
+        n3 = tb.Node(3)
+        n4 = tb.Node(4, (n2, n3, n6))
+        n15 = tb.Node(15)
+        n10 = tb.Node(10, (n9, n15, n20))
+        n1 = tb.Node(1)
+        n17 = tb.Node(17)
+        n8 = tb.Node(8, (n1, n4, n10, n17))
+        # expected DFS visiting sequence
+        dfs_sequence = []
+        tb.dfs(n8, dfs_sequence)
+        self.assertEqual(dfs_sequence, [8, 1, 4, 2, 0, 3, 6, 10, 9, 15, 20, 23, 17])
+        # expected BFS visiting sequence
+        bfs_sequence = []
+        tb.bfs(n8, bfs_sequence)
+        self.assertEqual(bfs_sequence, [8, 1, 4, 10, 17, 2, 3, 6, 9, 15, 20, 0, 23])
+        # test None input
+        self.assertEqual(tb.dfs(None, []), None)
+        self.assertEqual(tb.bfs(None, []), None)
 
     def test_problem_4_1(self):
         my_graph = p_4_1.Graph()
