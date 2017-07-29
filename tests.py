@@ -38,7 +38,7 @@ from chapter_04_trees_and_graphs import problem_04_08_first_common_ancestor as p
 from chapter_04_trees_and_graphs import problem_04_09_BST_sequences as p_4_9
 from chapter_04_trees_and_graphs import problem_04_10_check_subtree as p_4_10
 from chapter_04_trees_and_graphs import problem_04_11_random_node as p_4_11
-from chapter_04_trees_and_graphs import problem_04_11_random_node as p_4_12
+from chapter_04_trees_and_graphs import problem_04_12_paths_with_sum as p_4_12
 from chapter_05_bit_manipulation import problem_05_00_convert_binary as p_5_0
 from chapter_05_bit_manipulation import problem_05_01_insertion as p_5_1
 from chapter_08_recursion_and_dynamic_programming import problem_08_11_coins as p_8_11
@@ -576,28 +576,23 @@ class Tests(unittest.TestCase):
         n8_1 = tb.BinaryNode(8, n7_1, n9_1)
         n5_1 = tb.BinaryNode(5, n3_1, n8_1)
         t1_head = n5_1
-
         # tree 2
         t2_head = n8_1
-
         # tree 3
         n12_3 = tb.BinaryNode(12)
         n13_3 = tb.BinaryNode(13)
         n11_3 = tb.BinaryNode(11, n12_3, n13_3)
         t3_head = n11_3
-
         # tree 4
         n7_4 = tb.BinaryNode(7)
         n9_4 = tb.BinaryNode(9)
         n8_4 = tb.BinaryNode(8, n7_4, n9_4)
         t4_head = n8_4
-
         # tree 5
         n6_5 = tb.BinaryNode(6)
         n9_5 = tb.BinaryNode(9)
         n8_5 = tb.BinaryNode(8, n6_5, n9_5)
         t5_head = n8_5
-
         self.assertEqual(p_4_10.check_subtree(t1_head, t1_head), True)
         self.assertEqual(p_4_10.check_subtree(t2_head, t1_head), True)
         self.assertEqual(p_4_10.check_subtree(t3_head, t1_head), False)
@@ -617,7 +612,17 @@ class Tests(unittest.TestCase):
         self.assertEqual(rnd_bst.get_random(), 13)
 
     def test_problem_4_12(self):
-        pass
+        # create tree. Same tree as in textbook.
+        n_11 = tb.BinaryNode(11)
+        n_minus_8 = tb.BinaryNode(-8)
+        n_minus_2 = tb.BinaryNode(-2)
+        n_2 = tb.BinaryNode(2)
+        n_1 = tb.BinaryNode(1, None, n_2)
+        n_3 = tb.BinaryNode(3, n_minus_8, n_minus_2)
+        n_minus_3 = tb.BinaryNode(-3, None, n_11)
+        n_5 = tb.BinaryNode(5, n_3, n_1)
+        n_10 = tb.BinaryNode(10, n_5, n_minus_3)
+        self.assertEqual(p_4_12.paths_with_sum(n_10, 8), 3)
 
     def test_problem_5_0(self):
         self.assertEqual(p_5_0.convert_to_base2(122), '1111010')
