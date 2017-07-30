@@ -42,6 +42,7 @@ from python_solutions.chapter_04_trees_and_graphs import problem_04_12_paths_wit
 from python_solutions.chapter_05_bit_manipulation import problem_05_00_convert_binary as p_5_0
 from python_solutions.chapter_05_bit_manipulation import problem_05_01_insertion as p_5_1
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_11_coins as p_8_11
+from python_solutions.chapter_16_moderate import problem_16_03_intersection as p_16_03
 from python_solutions.chapter_17_hard import problem_17_10_majority_element as p_17_10
 from python_solutions.chapter_17_hard import problem_17_15_longest_combination as p_17_15
 
@@ -699,6 +700,9 @@ class Tests(unittest.TestCase):
     def test_problem_08_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #
         self.assertEqual(p_8_11.coin_representations(7), 2)
+
+    def test_problem_16_03(self):
+        pass
 
     def test_problem_17_10(self):
         maj_0_array = [1, 1, 0, 0, 0]

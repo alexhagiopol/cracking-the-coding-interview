@@ -31,10 +31,22 @@ I need help on this project! PRs are very welcome. Here are some ways you can he
 
 ### Completion Progress
 #### Python Solutions:
-1. Chapter 1 - Arrays and Strings: 9 / 9  complete.    
-2. Chapter 2 - Linked Lists: 8 / 8 complete.   
-3. Chapter 3 - Stacks and Queues: 6 / 6  complete.
-4. Chapter 4 - Trees and Graphs: 11 / 12 complete.  
-5. Chapter 5 - Bit Manipulation: 1 / 8  complete.
-6. Chapter 8 - Recursion and Dynamic Programming: 1 / 12  complete.
-7. Chapter 17 - Hard: 2 / 26 complete.
+1. Chapter 1 - Arrays and Strings: `9 / 9`  complete.    
+2. Chapter 2 - Linked Lists: `8 / 8` complete.   
+3. Chapter 3 - Stacks and Queues: `6 / 6`  complete.
+4. Chapter 4 - Trees and Graphs: `11 / 12` complete.  
+5. Chapter 5 - Bit Manipulation: `1 / 8`  complete.
+6. Chapter 6 - Math and Logic: `0 / 10` complete.
+7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
+8. Chapter 8 - Recursion and Dynamic Programming: `1 / 12`  complete.
+9. Chapter 9 - System Design and Scalability: N/A
+10. Chapter 10 - Sorting and Searching: `0 / 11` complete.
+11. Chapter 11 - Testing: N/A
+12. Chapter 12 - C and C++: N/A
+13. Chapter 13 - Java: N/A
+14. Chapter 14 - Databases: N/A
+15. Chapter 15 - Threads and Locks: N/A
+16. Chapter 16 - Moderate: `0 / 26` complete.
+17. Chapter 17 - Hard: `2 / 26` complete.
+
+Total: `38 / 140`
