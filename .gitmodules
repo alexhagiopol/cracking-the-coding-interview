@@ -1,0 +1,4 @@
+
+[submodule "cpp_solutions/third_party/Catch"]
+	path = cpp_solutions/third_party/Catch
+	url = https://github.com/philsquared/Catch.git

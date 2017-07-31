@@ -2,3 +2,4 @@
 *pycache*
 *.pyc
 .coverage
+build
