@@ -1,15 +1,18 @@
 ## Cracking The Coding Interview Solutions with Automated Unit Tests
-[![Coverage Status](https://coveralls.io/repos/github/alexhagiopol/cracking-the-coding-interview/badge.svg?branch=master)](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview?branch=master)
+Python: [![Coverage Status](https://coveralls.io/repos/github/alexhagiopol/cracking-the-coding-interview/badge.svg?branch=master)](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview?branch=master)
+
+C++: `coming soon`&trade;
+
 
 ### Introduction
 This repo contains solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). 
 Admittedly, there are lots of other GitHub repos with solutions for this book. But when you're studying and deeply confused, 
-how do you know that their code *actually works*? You don't if it's untested. That's why the #1 rule for this repo is 
-that every solution must have one or more unit tests in [`tests.py`](tests.py) using the [`unittest framework`](https://docs.python.org/3.6/library/unittest.html) 
-framework for Python solutions or the [Catch framework](https://github.com/philsquared/Catch) for C++ solutions. 
-We enforce the unit tests using [Travis CI automated testing](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview) 
-and [Coveralls.io test coverage statistics](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview). 
-Reference and contribute solutions with confidence!
+how do you know that their code *actually works*? If it's untested, you don't! That's why the #1 rule for this repo is 
+that every solution must have one or more unit tests in using the [unittest framework](https://docs.python.org/3.6/library/unittest.html) 
+framework for Python solutions or the [Catch framework](https://github.com/philsquared/Catch) for C++ solutions. We enforce 
+the unit tests using [Travis CI automated testing](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview). 
+For Python solutions - and coming soon for C++ solutions - we use [Coveralls.io](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview)
+to automatically report test coverage percentages. Reference and contribute solutions with confidence!
 
 #### Setup
 
@@ -19,10 +22,14 @@ Reference and contribute solutions with confidence!
 
 #### Running the Tests Locally:
 In the root directory, execute the following to run all of the tests:
+
+Test Python solutions:
     
     python tests.py
 
-#### Generating a Test Coverage Report Locally:
+Test C++ Solutions
+
+#### Generating a Test Coverage Report Locally (Python support only):
 This will show exactly which lines are not covered by tests in each source file:
 
     conda install coverage
@@ -32,9 +39,11 @@ This will show exactly which lines are not covered by tests in each source file:
 ### Contributing
 I need help on this project! PRs are very welcome. Here are some ways you can help:
 
-1. Solving unsolved problems (see the completion indexes below).
+1. Solving unsolved problems (see the completion progress below).
 2. Improving existing solutions with better performance or clarity.
 3. Adding more unit tests or refactoring to increase the test coverage %.
+4. Integrating Coveralls.io functionality with the C++ solutions.
+5. Combining test coverage reports for Python `coverage` and C++ `gcov`.
 
 ### Completion Progress
 #### Python Solutions:
