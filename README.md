@@ -1,8 +1,4 @@
 ## Cracking The Coding Interview Solutions with Automated Unit Tests
-Python: [![Coverage Status](https://coveralls.io/repos/github/alexhagiopol/cracking-the-coding-interview/badge.svg?branch=master)](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview?branch=master)
-
-C++: `coming soon`&trade;
-
 
 ### Introduction
 This repo contains solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). 
@@ -20,7 +16,7 @@ to automatically report test coverage percentages. Reference and contribute solu
     cd cracking-the-coding-interview
     git submodule update --init
 
-#### Running the Tests Locally:
+#### Running Tests:
 In the root directory, execute the following to run all of the tests:
 
 Test Python solutions:
@@ -38,6 +34,11 @@ This will show exactly which lines are not covered by tests in each source file:
     conda install coverage
     coverage run --source=python_solutions tests.py
     coverage report -m
+
+#### Inspecting Automated Test Coverage Reports (Python support only):
+Python: [![Coverage Status](https://coveralls.io/repos/github/alexhagiopol/cracking-the-coding-interview/badge.svg?branch=master)](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview?branch=master)
+
+C++: `coverage % coming soon`
 
 ### Contributing
 I need help on this project! PRs are very welcome. Here are some ways you can help:

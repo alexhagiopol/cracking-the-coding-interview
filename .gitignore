@@ -3,3 +3,4 @@
 *.pyc
 .coverage
 build
+cmake-build-debug
