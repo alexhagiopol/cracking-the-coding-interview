@@ -2,10 +2,13 @@
 // Created by alex on 7/31/17.
 //
 
+#include "cpp_solutions/chapter_01_arrays_and_strings/problem_01_01_is_unique.h"
+//#include <iostream>
+#define CATCH_CONFIG_MAIN
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
-#include <iostream>
 
-int main(){
-    std::cout << "Testing C++ Solutions" << std::endl;
-    return 0;
+TEST_CASE("chapter 1 problem 1 isUnique()", "test"){
+    REQUIRE(isUnique("alex"));
+    REQUIRE(!isUnique("aalex"));
 }
+
