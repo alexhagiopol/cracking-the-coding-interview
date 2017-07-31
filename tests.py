@@ -45,6 +45,7 @@ from python_solutions.chapter_08_recursion_and_dynamic_programming import proble
 from python_solutions.chapter_16_moderate import problem_16_03_intersection as p_16_03
 from python_solutions.chapter_17_hard import problem_17_10_majority_element as p_17_10
 from python_solutions.chapter_17_hard import problem_17_15_longest_combination as p_17_15
+from python_solutions.chapter_17_hard import problem_17_21_histogram_volume as p_17_21
 
 
 class Tests(unittest.TestCase):
@@ -728,6 +729,9 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_17_15.find_longest_combination(list2), 'catdogtree')
         self.assertEqual(p_17_15.find_longest_combination(list3), None)
         self.assertEqual(p_17_15.find_longest_combination(list4), None)
+
+    def test_problem_17_21(self):
+        pass
 
     def tearDown(self):
         pass
