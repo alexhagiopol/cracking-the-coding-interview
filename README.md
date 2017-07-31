@@ -27,7 +27,10 @@ Test Python solutions:
     
     python tests.py
 
-Test C++ Solutions
+Test C++ Solutions:
+    
+    mkdir build && cd build && cmake .. && make && cd .. 
+    ./build/tests
 
 #### Generating a Test Coverage Report Locally (Python support only):
 This will show exactly which lines are not covered by tests in each source file:
