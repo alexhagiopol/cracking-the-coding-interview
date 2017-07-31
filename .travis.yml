@@ -7,6 +7,6 @@ install:
 script:
   - coverage run --source=python_solutions tests.py
   - coverage report -m
-  - mkdir build && cd build && cmake .. && make && cd .. && ./buld/tests
+  - mkdir build && cd build && cmake .. && make && cd .. && ./build/tests
 after_success:
   - coveralls
