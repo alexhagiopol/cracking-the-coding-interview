@@ -703,7 +703,15 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_8_11.coin_representations(7), 2)
 
     def test_problem_16_03(self):
-        pass
+        segment1 = p_16_03.LineSegment(p_16_03.Point2(5, 5), p_16_03.Point2(0, 0))
+        segment2 = p_16_03.LineSegment(p_16_03.Point2(0, 3), p_16_03.Point2(3, 0))
+        segment3 = p_16_03.LineSegment(p_16_03.Point2(3, 0), p_16_03.Point2(6, 0))
+        segment4 = p_16_03.LineSegment(p_16_03.Point2(4, 0), p_16_03.Point2(7, 0))
+        segment5 = p_16_03.LineSegment(p_16_03.Point2(7, 7), p_16_03.Point2(5, 5))
+        self.assertEqual(p_16_03.Point2(1.5, 1.5), p_16_03.intersection(segment1, segment2))
+        self.assertEqual(None, p_16_03.intersection(segment1, segment3))
+        self.assertEqual(None, p_16_03.intersection(segment4, segment3))
+        self.assertEqual(p_16_03.Point2(5, 5), p_16_03.intersection(segment1, segment5))
 
     def test_problem_17_10(self):
         maj_0_array = [1, 1, 0, 0, 0]
