@@ -10,3 +10,5 @@ script:
   - mkdir build && cd build && cmake .. && make && cd .. && ./build/tests
 after_success:
   - coveralls
+notifications:
+  email: false
