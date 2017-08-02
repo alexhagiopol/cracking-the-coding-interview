@@ -76,7 +76,7 @@ Total: `40 / 140`
 2. Chapter 2 - Linked Lists: `0 / 8` complete.   
 3. Chapter 3 - Stacks and Queues: `0 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
-5. Chapter 5 - Bit Manipulation: `0 / 8`  complete.
+5. Chapter 5 - Bit Manipulation: `1 / 8`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. Chapter 8 - Recursion and Dynamic Programming: `0 / 12`  complete.
@@ -90,4 +90,4 @@ Total: `40 / 140`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `1 / 158`
+Total: `2 / 158`
