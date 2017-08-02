@@ -696,7 +696,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_0.convert_to_base('11110100', 2, 16), 'f4')
 
     def test_problem_5_1(self):
-        self.assertEqual(p_5_1.insertion('10000000000', '10011', 2, 6), '10001001100')
+        self.assertEqual(p_5_1.insertion(0b10000000000, 0b10011, 2, 6), 0b10001001100)
 
     def test_problem_08_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #
