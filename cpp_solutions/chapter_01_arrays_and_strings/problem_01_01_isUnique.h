@@ -3,6 +3,6 @@
 //
 
 #pragma once
-#include "problem_01_01_is_unique.cpp"
+#include "problem_01_01_isUnique.cpp"
 
 bool isUnique(std::string& input);
