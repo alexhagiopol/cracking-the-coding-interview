@@ -739,7 +739,10 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_17_15.find_longest_combination(list4), None)
 
     def test_problem_17_21(self):
-        pass
+        histogram1 = [0, 0, 4, 0, 0, 6, 0, 0, 3, 0, 8, 0, 2, 0, 5, 2, 0, 3, 0, 0]
+        histogram2 = [5, 0, 0, 0, 1]
+        self.assertEqual(p_17_21.histogram_volume(histogram1), 46)
+        self.assertEqual(p_17_21.histogram_volume(histogram2), 3)
 
     def tearDown(self):
         pass
