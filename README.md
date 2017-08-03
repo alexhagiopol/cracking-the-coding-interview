@@ -65,11 +65,11 @@ I need help on this project! PRs are very welcome. Here are some ways you can he
 12. Chapter 12 - C and C++: N/A
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: N/A
-15. Chapter 15 - Threads and Locks: N/A
+15. Chapter 15 - Threads and Locks: `0 / 7` complete.
 16. Chapter 16 - Moderate: `1 / 26` complete.
 17. Chapter 17 - Hard: `3 / 26` complete.
 
-Total: `41 / 140`
+Total: `41 / 147`
 
 #### C++ Solutions:
 1. Chapter 1 - Arrays and Strings: `1 / 9`  complete.    
