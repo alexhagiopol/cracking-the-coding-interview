@@ -55,7 +55,7 @@ I need help on this project! PRs are very welcome. Here are some ways you can he
 2. Chapter 2 - Linked Lists: `8 / 8` complete.   
 3. Chapter 3 - Stacks and Queues: `6 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `11 / 12` complete.  
-5. Chapter 5 - Bit Manipulation: `1 / 8`  complete.
+5. Chapter 5 - Bit Manipulation: `2 / 8`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. Chapter 8 - Recursion and Dynamic Programming: `1 / 12`  complete.
@@ -69,14 +69,14 @@ I need help on this project! PRs are very welcome. Here are some ways you can he
 16. Chapter 16 - Moderate: `1 / 26` complete.
 17. Chapter 17 - Hard: `3 / 26` complete.
 
-Total: `40 / 140`
+Total: `41 / 140`
 
 #### C++ Solutions:
 1. Chapter 1 - Arrays and Strings: `1 / 9`  complete.    
 2. Chapter 2 - Linked Lists: `0 / 8` complete.   
 3. Chapter 3 - Stacks and Queues: `0 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
-5. Chapter 5 - Bit Manipulation: `1 / 8`  complete.
+5. Chapter 5 - Bit Manipulation: `2 / 8`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. Chapter 8 - Recursion and Dynamic Programming: `0 / 12`  complete.
@@ -90,4 +90,4 @@ Total: `40 / 140`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `2 / 158`
+Total: `3 / 158`
