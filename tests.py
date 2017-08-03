@@ -711,7 +711,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_2.binary_to_string(0.722), '0.10111000110101001111110111110011')
 
     def test_problem_5_3(self):
-        pass
+        self.assertEqual(p_5_3.flip_bit_to_win(1775), 8)
+        self.assertEqual(p_5_3.flip_bit_to_win(0b0000), 1)
+        self.assertEqual(p_5_3.flip_bit_to_win(0b1011), 4)
+        self.assertEqual(p_5_3.flip_bit_to_win(0b1010111), 5)
+        self.assertEqual(p_5_3.flip_bit_to_win(0b1110101), 5)
+        self.assertEqual(p_5_3.flip_bit_to_win(0b00), 1)
+        self.assertEqual(p_5_3.flip_bit_to_win(0b10), 2)
 
     def test_problem_5_4(self):
         pass
