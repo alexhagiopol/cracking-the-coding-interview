@@ -42,6 +42,11 @@ from python_solutions.chapter_04_trees_and_graphs import problem_04_12_paths_wit
 from python_solutions.chapter_05_bit_manipulation import problem_05_00_convert_binary as p_5_0
 from python_solutions.chapter_05_bit_manipulation import problem_05_01_insertion as p_5_1
 from python_solutions.chapter_05_bit_manipulation import problem_05_02_binary_to_string as p_5_2
+from python_solutions.chapter_05_bit_manipulation import problem_05_03_flip_bit_to_win as p_5_3
+from python_solutions.chapter_05_bit_manipulation import problem_05_04_next_number as p_5_4
+from python_solutions.chapter_05_bit_manipulation import problem_05_06_conversion as p_5_6
+from python_solutions.chapter_05_bit_manipulation import problem_05_07_pairwise_swap as p_5_7
+from python_solutions.chapter_05_bit_manipulation import problem_05_08_draw_line as p_5_8
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_11_coins as p_8_11
 from python_solutions.chapter_16_moderate import problem_16_03_intersection as p_16_03
 from python_solutions.chapter_17_hard import problem_17_10_majority_element as p_17_10
@@ -704,6 +709,21 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_2.binary_to_string(0.25), '0.01')
         self.assertEqual(p_5_2.binary_to_string(1.5), None)
         self.assertEqual(p_5_2.binary_to_string(0.722), '0.10111000110101001111110111110011')
+
+    def test_problem_5_3(self):
+        pass
+
+    def test_problem_5_4(self):
+        pass
+
+    def test_problem_5_6(self):
+        pass
+
+    def test_problem_5_7(self):
+        pass
+
+    def test_problem_5_8(self):
+        pass
 
     def test_problem_8_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #
