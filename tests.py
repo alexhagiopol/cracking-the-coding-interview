@@ -700,7 +700,10 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_1.insertion(0b10000000000, 0b10011, 2, 6), 0b10001001100)
 
     def test_problem_5_2(self):
-        pass
+        self.assertEqual(p_5_2.binary_to_string(0.5), '0.1')
+        self.assertEqual(p_5_2.binary_to_string(0.25), '0.01')
+        self.assertEqual(p_5_2.binary_to_string(1.5), None)
+        self.assertEqual(p_5_2.binary_to_string(0.722), '0.10111000110101001111110111110011')
 
     def test_problem_8_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #
