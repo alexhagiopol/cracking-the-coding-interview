@@ -738,7 +738,9 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_6.conversion(29, 15), 2)
 
     def test_problem_5_7(self):
-        pass
+        self.assertEqual(p_5_7.pairwise_swap(0b10101010), 0b01010101)
+        self.assertEqual(p_5_7.pairwise_swap(0b11110000), 0b11110000)
+        self.assertEqual(p_5_7.pairwise_swap(0b110), 0b1001)
 
     def test_problem_5_8(self):
         pass
