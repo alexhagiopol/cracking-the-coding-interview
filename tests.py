@@ -734,7 +734,8 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_4.get_prev(['1', '0', '0', '1']), ['0', '1', '0', '1'])
 
     def test_problem_5_6(self):
-        pass
+        self.assertEqual(p_5_6.conversion(0b11001100, 0b11110000), 4)
+        self.assertEqual(p_5_6.conversion(29, 15), 2)
 
     def test_problem_5_7(self):
         pass
