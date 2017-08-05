@@ -36,3 +36,8 @@ TEST_CASE("Chapter 05 - Problem 06 - conversion()", "test"){
     REQUIRE(chapter_05::conversion(29, 15) == 2);
 }
 
+TEST_CASE("Chapter 05 - Problem 07 - pairwiseSwap()", "test"){
+    REQUIRE(chapter_05::pairwiseSwap(0b10101010) == 0b01010101);
+    REQUIRE(chapter_05::pairwiseSwap(0b11110000) == 0b11110000);
+    REQUIRE(chapter_05::pairwiseSwap(0b110) == 0b1001);
+}
