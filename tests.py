@@ -720,19 +720,18 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_3.flip_bit_to_win(0b10), 2)
 
     def test_problem_5_4(self):
-        '''
-        self.assertEqual(p_5_4.get_prev(0b0100), 0b0010)
-        self.assertEqual(p_5_4.get_next(0b0100), 0b1000)
-        self.assertEqual(p_5_4.get_prev(0b0101), 0b0011)
-        self.assertEqual(p_5_4.get_next(0b0101), 0b0110)
-        self.assertEqual(p_5_4.get_prev(0b1111), None)
-        self.assertEqual(p_5_4.get_next(0b1111), 0b10111)
-        self.assertEqual(p_5_4.get_prev(0b0000), None)
-        self.assertEqual(p_5_4.get_next(0b0000), None)
-        '''
-        self.assertEqual(p_5_4.set_bit_to_0(0b1111, 3), 0b1011)
-        self.assertEqual(p_5_4.set_bit_to_1(0b0000, 3), 0b0100)
-
+        """
+        See the note in the problem implementation for the reasoning behind using lists of string characters.
+        """
+        self.assertEqual(p_5_4.get_prev(['0', '1', '0', '0']), ['0', '0', '1', '0'])
+        self.assertEqual(p_5_4.get_next(['0', '1', '0', '0']), ['1', '0', '0', '0'])
+        self.assertEqual(p_5_4.get_prev(['0', '1', '0', '1']), ['0', '0', '1', '1'])
+        self.assertEqual(p_5_4.get_next(['0', '1', '0', '1']), ['0', '1', '1', '0'])
+        self.assertEqual(p_5_4.get_prev(['1', '1', '1', '1']), None)
+        self.assertEqual(p_5_4.get_next(['1', '1', '1', '1']), ['1', '0', '1', '1', '1'])
+        self.assertEqual(p_5_4.get_prev(['0', '0', '0', '0']), None)
+        self.assertEqual(p_5_4.get_next(['0', '0', '0', '0']), None)
+        self.assertEqual(p_5_4.get_prev(['1', '0', '0', '1']), ['0', '1', '0', '1'])
 
     def test_problem_5_6(self):
         pass
