@@ -720,16 +720,57 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_3.flip_bit_to_win(0b10), 2)
 
     def test_problem_5_4(self):
-        pass
+        """
+        See the note in the problem implementation for the reasoning behind using lists of string characters.
+        """
+        self.assertEqual(p_5_4.get_prev(['0', '1', '0', '0']), ['0', '0', '1', '0'])
+        self.assertEqual(p_5_4.get_next(['0', '1', '0', '0']), ['1', '0', '0', '0'])
+        self.assertEqual(p_5_4.get_prev(['0', '1', '0', '1']), ['0', '0', '1', '1'])
+        self.assertEqual(p_5_4.get_next(['0', '1', '0', '1']), ['0', '1', '1', '0'])
+        self.assertEqual(p_5_4.get_prev(['1', '1', '1', '1']), None)
+        self.assertEqual(p_5_4.get_next(['1', '1', '1', '1']), ['1', '0', '1', '1', '1'])
+        self.assertEqual(p_5_4.get_prev(['0', '0', '0', '0']), None)
+        self.assertEqual(p_5_4.get_next(['0', '0', '0', '0']), None)
+        self.assertEqual(p_5_4.get_prev(['1', '0', '0', '1']), ['0', '1', '0', '1'])
 
     def test_problem_5_6(self):
-        pass
+        self.assertEqual(p_5_6.conversion(0b11001100, 0b11110000), 4)
+        self.assertEqual(p_5_6.conversion(29, 15), 2)
 
     def test_problem_5_7(self):
-        pass
+        self.assertEqual(p_5_7.pairwise_swap(0b10101010), 0b01010101)
+        self.assertEqual(p_5_7.pairwise_swap(0b11110000), 0b11110000)
+        self.assertEqual(p_5_7.pairwise_swap(0b110), 0b1001)
 
     def test_problem_5_8(self):
-        pass
+        screen_1 = [0] * 8
+        width_1 = 8
+        x1_1 = 3
+        x2_1 = 7
+        y_1 = 5
+        processed_screen_1 = [0] * 5 + [0b00011111] + [0] * 2
+        self.assertEqual(p_5_8.stringify_screen(screen_1, width_1),
+                         '\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000')
+        p_5_8.draw_line(screen_1, width_1, x1_1, x2_1, y_1)
+        self.assertEqual(screen_1, processed_screen_1)
+
+        screen_2 = [0] * 8
+        width_2 = 32
+        x1_2 = 0
+        x2_2 = 13
+        y_2 = 1
+        processed_screen_2 = [0] * 4 + [255] + [0b11111100] + [0] * 2
+        p_5_8.draw_line(screen_2, width_2, x1_2, x2_2, y_2)
+        self.assertEqual(screen_2, processed_screen_2)
+
+        screen_3 = [0] * 32
+        width_3 = 64
+        x1_3 = 5
+        x2_3 = 24
+        y_3 = 1
+        processed_screen_3 = [0] * 8 + [0b00000111] + [255] + [255] + [0b10000000] + [0] * 20
+        p_5_8.draw_line(screen_3, width_3, x1_3, x2_3, y_3)
+        self.assertEqual(screen_3, processed_screen_3)
 
     def test_problem_8_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #

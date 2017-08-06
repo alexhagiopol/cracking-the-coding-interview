@@ -5,4 +5,7 @@
 #pragma once
 #include "problem_01_01_isUnique.cpp"
 
-bool isUnique(std::string& input);
+namespace chapter_01{
+    bool isUnique(std::string& input);
+}
+
