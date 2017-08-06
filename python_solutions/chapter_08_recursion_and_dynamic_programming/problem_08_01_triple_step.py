@@ -9,6 +9,8 @@ Using a long will delay, but not completely solve, this issue.
 
 
 def triple_step(n, memo=None):
+    if n == 0:
+        return 0
     if n == 3:
         return 4
     if n == 2:
