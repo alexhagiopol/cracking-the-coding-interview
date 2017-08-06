@@ -753,7 +753,24 @@ class Tests(unittest.TestCase):
                          '\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000')
         p_5_8.draw_line(screen_1, width_1, x1_1, x2_1, y_1)
         self.assertEqual(screen_1, processed_screen_1)
-        pass
+
+        screen_2 = [0] * 8
+        width_2 = 32
+        x1_2 = 0
+        x2_2 = 13
+        y_2 = 1
+        processed_screen_2 = [0] * 4 + [255] + [0b11111100] + [0] * 2
+        p_5_8.draw_line(screen_2, width_2, x1_2, x2_2, y_2)
+        self.assertEqual(screen_2, processed_screen_2)
+
+        screen_3 = [0] * 32
+        width_3 = 64
+        x1_3 = 5
+        x2_3 = 24
+        y_3 = 1
+        processed_screen_3 = [0] * 8 + [0b00000111] + [255] + [255] + [0b10000000] + [0] * 20
+        p_5_8.draw_line(screen_3, width_3, x1_3, x2_3, y_3)
+        self.assertEqual(screen_3, processed_screen_3)
 
     def test_problem_8_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #

@@ -32,9 +32,9 @@ def draw_line(screen, width, x1, x2, y):
         screen[x1_byte_index] = single_byte_line(x1 % 8, x2 % 8)
     else:
         # draw 1s from x1 to end of its byte
-        screen[x1_byte_index] = single_byte_line(x1, 7)
+        screen[x1_byte_index] = single_byte_line(x1 % 8, 7)
         # draw 1s from 0 to x2 in its byte
-        screen[x2_byte_index] = single_byte_line(0, x2)
+        screen[x2_byte_index] = single_byte_line(0, x2 % 8)
 
-    for index in range(x1_byte_index + 1, x2_byte_index - 1):
+    for index in range(x1_byte_index + 1, x2_byte_index):
         screen[index] = 255
