@@ -4,6 +4,7 @@
 
 #include "cpp_solutions/chapter_01_arrays_and_strings/chapter_01_includes.h"
 #include "cpp_solutions/chapter_05_bit_manipulation/chapter_05_includes.h"
+#include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
 #define CATCH_CONFIG_MAIN
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
 
@@ -40,4 +41,10 @@ TEST_CASE("Chapter 05 - Problem 07 - pairwiseSwap()", "test"){
     REQUIRE(chapter_05::pairwiseSwap(0b10101010) == 0b01010101);
     REQUIRE(chapter_05::pairwiseSwap(0b11110000) == 0b11110000);
     REQUIRE(chapter_05::pairwiseSwap(0b110) == 0b1001);
+}
+
+TEST_CASE("Chapter 08 - Problem 01 - tripleStep()", "test"){
+    REQUIRE(chapter_08::tripleStep(3) == 4);
+    REQUIRE(chapter_08::tripleStep(4) == 7);
+    REQUIRE(chapter_08::tripleStep(5) == 13);
 }
