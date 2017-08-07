@@ -14,19 +14,12 @@ to automatically report test coverage percentages. Reference and contribute solu
 
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
     cd cracking-the-coding-interview
-    git submodule update --init
+    make configure
 
 #### Running Tests:
-In the root directory, execute the following to run all of the tests:
+In the root directory, execute the following to run all tests in Python and C++:
 
-Test Python solutions:
-    
-    python tests.py
-
-Test C++ Solutions:
-    
-    mkdir build && cd build && cmake .. && make && cd .. 
-    ./build/tests
+    make test 
 
 #### Generating a Test Coverage Report Locally (Python support only):
 This will show exactly which lines are not covered by tests in each source file:
