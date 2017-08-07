@@ -806,7 +806,7 @@ class Tests(unittest.TestCase):
         pass
 
     def test_problem_8_11(self):
-        self.assertEqual(p_8_11.coin_representations(12), 4)  #
+        self.assertEqual(p_8_11.coin_representations(12), 4)
         self.assertEqual(p_8_11.coin_representations(7), 2)
 
     def test_problem_8_12(self):
