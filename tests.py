@@ -778,9 +778,45 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_8_1.triple_step(4), 7)
         self.assertEqual(p_8_1.triple_step(5), 13)
 
+    def test_problem_8_2(self):
+        pass
+
+    def test_problem_8_3(self):
+        pass
+
+    def test_problem_8_4(self):
+        pass
+
+    def test_problem_8_5(self):
+        pass
+
+    def test_problem_8_6(self):
+        pass
+
+    def test_problem_8_7(self):
+        pass
+
+    def test_problem_8_8(self):
+        pass
+
+    def test_problem_8_9(self):
+        pass
+
+    def test_problem_8_10(self):
+        pass
+
     def test_problem_8_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)  #
         self.assertEqual(p_8_11.coin_representations(7), 2)
+
+    def test_problem_8_12(self):
+        pass
+
+    def test_problem_8_13(self):
+        pass
+
+    def test_problem_8_14(self):
+        pass
 
     def test_problem_16_03(self):
         segment1 = p_16_03.LineSegment(p_16_03.Point2(5, 5), p_16_03.Point2(0, 0))
