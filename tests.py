@@ -791,7 +791,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_8_1.triple_step(5), 13)
 
     def test_problem_8_2(self):
-        pass
+        maze = [[1, 1, 1, 0, 1],
+                [0, 0, 1, 1, 1],
+                [0, 1, 1, 0, 0],
+                [0, 1, 1, 0, 1],
+                [1, 1, 1, 1, 1]]
+        expected_path = [(0, 0), (0, 1), (0, 2), (1, 2), (2, 2), (3, 2), (4, 2), (4, 3), (4, 4)]
+        self.assertEqual(p_8_2.robot_grid(maze, (0, 0), (4, 4)), expected_path)
 
     def test_problem_8_3(self):
         pass
