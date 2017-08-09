@@ -5,5 +5,4 @@ def power_set(set):
     new_subsets = []
     for subset in subproblem_subsets:
         new_subsets += [subset + [set[-1]]]
-
     return subproblem_subsets + new_subsets
