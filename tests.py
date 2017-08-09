@@ -800,7 +800,9 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_8_2.robot_grid(maze, (0, 0), (4, 4)), expected_path)
 
     def test_problem_8_3(self):
-        pass
+        self.assertEqual(p_8_3.magic_index([-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), None)
+        self.assertEqual(p_8_3.magic_index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]), 5)
+        self.assertEqual(p_8_3.magic_index([-40, -20, -1, 1, 2, 3, 5, 7, 9, 12, 13]), 7)
 
     def test_problem_8_4(self):
         self.assertEqual(p_8_4.power_set([1, 2, 3]), [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
