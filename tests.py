@@ -803,7 +803,9 @@ class Tests(unittest.TestCase):
         pass
 
     def test_problem_8_4(self):
-        pass
+        self.assertEqual(p_8_4.power_set([1, 2, 3]), [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
+        self.assertEqual(p_8_4.power_set([1, 2]), [[], [1], [2], [1, 2]])
+        self.assertEqual(p_8_4.power_set([1]), [[], [1]])
 
     def test_problem_8_5(self):
         pass
