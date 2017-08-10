@@ -2,3 +2,6 @@
 [submodule "cpp_solutions/third_party/Catch"]
 	path = cpp_solutions/third_party/Catch
 	url = https://github.com/philsquared/Catch.git
+[submodule "cpp_solutions/third_party/eigen"]
+	path = cpp_solutions/third_party/eigen
+	url = https://github.com/libigl/eigen.git

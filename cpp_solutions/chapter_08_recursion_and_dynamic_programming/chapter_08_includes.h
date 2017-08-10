@@ -20,4 +20,5 @@
 
 namespace chapter_08{
     int tripleStep(int n);
+    std::vector<std::tuple<int, int>> robotGrid(Eigen::MatrixXd& maze);
 }

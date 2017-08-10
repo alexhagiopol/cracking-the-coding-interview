@@ -7,6 +7,8 @@
 #include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
 #define CATCH_CONFIG_MAIN
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
+#include <vector>
+#include <Eigen/Dense>
 
 TEST_CASE("Chapter 01 - Problem 01 - isUnique()", "test"){
     REQUIRE(chapter_01::isUnique("alex"));
@@ -47,4 +49,32 @@ TEST_CASE("Chapter 08 - Problem 01 - tripleStep()", "test"){
     REQUIRE(chapter_08::tripleStep(3) == 4);
     REQUIRE(chapter_08::tripleStep(4) == 7);
     REQUIRE(chapter_08::tripleStep(5) == 13);
+}
+
+TEST_CASE("Chapter 08 - Problem 02 - robotGrid()", "test"){
+
+    Eigen::MatrixXd maze(5, 5);
+    maze << 1, 1, 1, 0, 1,
+            0, 0, 1, 1, 1,
+            0, 1, 1, 0, 0,
+            0, 1, 1, 0, 1,
+            1, 1, 1, 1, 1;
+    std::vector<std::tuple<int, int>> expectedPath = {std::tuple<int, int>(0,0),
+                                                      std::tuple<int, int>(0,1),
+                                                      std::tuple<int, int>(0,2),
+                                                      std::tuple<int, int>(1,2),
+                                                      std::tuple<int, int>(2,2),
+                                                      std::tuple<int, int>(3,2),
+                                                      std::tuple<int, int>(4,2),
+                                                      std::tuple<int, int>(4,3),
+                                                      std::tuple<int, int>(4,4)};
+    REQUIRE(chapter_08::robotGrid(maze) == expectedPath);
+}
+
+TEST_CASE("Chapter 08 - Problem 03 - magicIndex()", "test"){
+
+}
+
+TEST_CASE("Chapter 08 - Problem 04 - powerSet()", "test"){
+
 }
