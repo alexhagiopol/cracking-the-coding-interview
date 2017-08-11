@@ -51,7 +51,7 @@ I need help on this project! PRs are very welcome. Here are some ways you can he
 5. Chapter 5 - Bit Manipulation: `7 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
-8. Chapter 8 - Recursion and Dynamic Programming: `4 / 12`  complete.
+8. Chapter 8 - Recursion and Dynamic Programming: `5 / 12`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
 10. Chapter 10 - Sorting and Searching: `0 / 11` complete.
 11. Chapter 11 - Testing: N/A
@@ -62,7 +62,7 @@ I need help on this project! PRs are very welcome. Here are some ways you can he
 16. Chapter 16 - Moderate: `1 / 26` complete.
 17. Chapter 17 - Hard: `3 / 26` complete.
 
-Total: `48 / 146`
+Total: `49 / 146`
 
 #### C++ Solutions:
 1. Chapter 1 - Arrays and Strings: `1 / 9`  complete.    
