@@ -59,16 +59,18 @@ TEST_CASE("Chapter 08 - Problem 02 - robotGrid()", "test"){
             0, 1, 1, 0, 0,
             0, 1, 1, 0, 1,
             1, 1, 1, 1, 1;
-    std::vector<std::tuple<int, int>> expectedPath = {std::tuple<int, int>(0,0),
-                                                      std::tuple<int, int>(0,1),
-                                                      std::tuple<int, int>(0,2),
-                                                      std::tuple<int, int>(1,2),
-                                                      std::tuple<int, int>(2,2),
-                                                      std::tuple<int, int>(3,2),
-                                                      std::tuple<int, int>(4,2),
-                                                      std::tuple<int, int>(4,3),
-                                                      std::tuple<int, int>(4,4)};
-    REQUIRE(chapter_08::robotGrid(maze) == expectedPath);
+    std::vector<Eigen::Vector2d> expectedPath = {Eigen::Vector2d(0,0),
+                                                 Eigen::Vector2d(0,1),
+                                                 Eigen::Vector2d(0,2),
+                                                 Eigen::Vector2d(1,2),
+                                                 Eigen::Vector2d(2,2),
+                                                 Eigen::Vector2d(3,2),
+                                                 Eigen::Vector2d(4,2),
+                                                 Eigen::Vector2d(4,3),
+                                                 Eigen::Vector2d(4,4)};
+    std::vector<Eigen::Vector2d> path;
+    REQUIRE(chapter_08::robotGrid(maze, path));
+    REQUIRE(path == expectedPath);
 }
 
 TEST_CASE("Chapter 08 - Problem 03 - magicIndex()", "test"){

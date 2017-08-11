@@ -20,5 +20,5 @@
 
 namespace chapter_08{
     int tripleStep(int n);
-    std::vector<std::tuple<int, int>> robotGrid(Eigen::MatrixXd& maze);
+    bool robotGrid(const Eigen::MatrixXd& maze, std::vector<Eigen::Vector2d>& path);
 }
