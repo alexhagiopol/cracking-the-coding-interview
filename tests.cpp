@@ -74,7 +74,12 @@ TEST_CASE("Chapter 08 - Problem 02 - robotGrid()", "test"){
 }
 
 TEST_CASE("Chapter 08 - Problem 03 - magicIndex()", "test"){
-
+    std::vector<int> noMagicIndex = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::vector<int> magicIndex5 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    std::vector<int> magicIndex7 = {-40, -20, -1, 1, 2, 3, 5, 7, 9, 12, 13};
+    REQUIRE(chapter_08::magicIndex(noMagicIndex) == -1);
+    REQUIRE(chapter_08::magicIndex(magicIndex5) == 5);
+    REQUIRE(chapter_08::magicIndex(magicIndex7) == 7);
 }
 
 TEST_CASE("Chapter 08 - Problem 04 - powerSet()", "test"){

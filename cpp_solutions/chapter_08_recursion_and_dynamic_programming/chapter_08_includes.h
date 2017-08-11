@@ -21,4 +21,5 @@
 namespace chapter_08{
     int tripleStep(int n);
     bool robotGrid(const Eigen::MatrixXd& maze, std::vector<Eigen::Vector2d>& path);
+    int magicIndex(const std::vector<int>& array);
 }
