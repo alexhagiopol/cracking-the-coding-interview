@@ -83,5 +83,31 @@ TEST_CASE("Chapter 08 - Problem 03 - magicIndex()", "test"){
 }
 
 TEST_CASE("Chapter 08 - Problem 04 - powerSet()", "test"){
+    /*
+     self.assertEqual(p_8_4.power_set([1, 2, 3]), [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
+     self.assertEqual(p_8_4.power_set([1, 2]), [[], [1], [2], [1, 2]])
+     self.assertEqual(p_8_4.power_set([1]), [[], [1]])
+    */
+    std::vector<int> set123 = {1, 2, 3};
+    std::vector<int> set12 = {1, 2};
+    std::vector<int> set13 = {1, 3};
+    std::vector<int> set23 = {2, 3};
+    std::vector<int> set1 = {1};
+    std::vector<int> set2 = {2};
+    std::vector<int> set3 = {3};
+    std::vector<int> emptySet = {};
 
-}
+    std::vector<std::vector<int>> powerSet123 = {emptySet, set1, set2, set12, set3, set13, set23, set123};
+    std::vector<std::vector<int>> powerSet12 = {emptySet, set1, set2, set12};
+    std::vector<std::vector<int>> powerSet1 = {emptySet, set1};
+
+    std::vector<std::vector<int>> testPowerSet = {};
+    chapter_08::createPowerSet(set123, testPowerSet);
+    REQUIRE(testPowerSet == powerSet123);
+    testPowerSet = {};
+    chapter_08::createPowerSet(set12, testPowerSet);
+    REQUIRE(testPowerSet == powerSet12);
+    testPowerSet = {};
+    chapter_08::createPowerSet(set1, testPowerSet);
+    REQUIRE(testPowerSet == powerSet1);
+};
