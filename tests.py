@@ -810,7 +810,12 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_8_4.power_set([1]), [[], [1]])
 
     def test_problem_8_5(self):
-        pass
+        self.assertEqual(p_8_5.recursive_multiply(1, 1), 1)
+        self.assertEqual(p_8_5.recursive_multiply(1, 2), 2)
+        self.assertEqual(p_8_5.recursive_multiply(0, 1), 0)
+        self.assertEqual(p_8_5.recursive_multiply(9, 10), 90)
+        self.assertEqual(p_8_5.recursive_multiply(9, 11), 99)
+        self.assertEqual(p_8_5.recursive_multiply(12, 12), 144)
 
     def test_problem_8_6(self):
         pass
