@@ -83,11 +83,6 @@ TEST_CASE("Chapter 08 - Problem 03 - magicIndex()", "test"){
 }
 
 TEST_CASE("Chapter 08 - Problem 04 - powerSet()", "test"){
-    /*
-     self.assertEqual(p_8_4.power_set([1, 2, 3]), [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]])
-     self.assertEqual(p_8_4.power_set([1, 2]), [[], [1], [2], [1, 2]])
-     self.assertEqual(p_8_4.power_set([1]), [[], [1]])
-    */
     std::vector<int> set123 = {1, 2, 3};
     std::vector<int> set12 = {1, 2};
     std::vector<int> set13 = {1, 3};
@@ -111,3 +106,12 @@ TEST_CASE("Chapter 08 - Problem 04 - powerSet()", "test"){
     chapter_08::createPowerSet(set1, testPowerSet);
     REQUIRE(testPowerSet == powerSet1);
 };
+
+TEST_CASE("Chapter 08 - Problem 05 - recursiveMultiply()", "test"){
+    REQUIRE(chapter_08::recursiveMultiply(1, 1) == 1);
+    REQUIRE(chapter_08::recursiveMultiply(1, 2) == 2);
+    REQUIRE(chapter_08::recursiveMultiply(0, 1) == 0);
+    REQUIRE(chapter_08::recursiveMultiply(9, 10) == 90);
+    REQUIRE(chapter_08::recursiveMultiply(9, 11) == 99);
+    REQUIRE(chapter_08::recursiveMultiply(12, 12) == 144);
+}
