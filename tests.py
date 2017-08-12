@@ -818,7 +818,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_8_5.recursive_multiply(12, 12), 144)
 
     def test_problem_8_6(self):
-        pass
+        tower0 = p_8_6.Tower([5, 4, 3, 2, 1])
+        tower1 = p_8_6.Tower()
+        tower2 = p_8_6.Tower()
+        tower0.move_disks(5, tower2, tower1)
+        self.assertEqual(tower0.disks, [])
+        self.assertEqual(tower1.disks, [])
+        self.assertEqual(tower2.disks, [5, 4, 3, 2, 1])
 
     def test_problem_8_7(self):
         pass
