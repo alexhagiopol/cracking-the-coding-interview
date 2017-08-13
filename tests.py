@@ -848,7 +848,10 @@ class Tests(unittest.TestCase):
                                                                    'xale', 'axle', 'alxe', 'alex'})
 
     def test_problem_8_9(self):
-        pass
+        self.assertEqual(set(p_8_9.parens(3)), {'()(())', '(())()', '((()))', '()()()', '(()())'})
+        self.assertEqual(set(p_8_9.parens(2)), {'()()', '(())'})
+        self.assertEqual(set(p_8_9.parens(1)), {'()'})
+        self.assertEqual(set(p_8_9.parens(0)), {''})
 
     def test_problem_8_10(self):
         pass
