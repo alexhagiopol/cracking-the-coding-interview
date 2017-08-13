@@ -827,10 +827,25 @@ class Tests(unittest.TestCase):
         self.assertEqual(tower2.disks, [5, 4, 3, 2, 1])
 
     def test_problem_8_7(self):
-        pass
+        self.assertEqual(set(p_8_7.permutations_no_dups('a')), {'a'})
+        self.assertEqual(set(p_8_7.permutations_no_dups('al')), {'al', 'la'})
+        self.assertEqual(set(p_8_7.permutations_no_dups('ale')), {'ela', 'lea', 'lae', 'eal', 'ael', 'ale'})
+        self.assertEqual(set(p_8_7.permutations_no_dups('alex')), {'xela', 'exla', 'elxa', 'elax',
+                                                                   'xlea', 'lxea', 'lexa', 'leax',
+                                                                   'xlae', 'lxae', 'laxe', 'laex',
+                                                                   'xeal', 'exal', 'eaxl', 'ealx',
+                                                                   'xael', 'axel', 'aexl', 'aelx',
+                                                                   'xale', 'axle', 'alxe', 'alex'})
 
     def test_problem_8_8(self):
-        pass
+        self.assertEqual(set(p_8_8.permutations_with_dups('ala')), {'ala', 'laa', 'aal'})
+        self.assertEqual(set(p_8_8.permutations_with_dups('alaa')), {'aala', 'alaa', 'alaa', 'laaa',  'aala', 'aaal'})
+        self.assertEqual(set(p_8_8.permutations_with_dups('alex')), {'xela', 'exla', 'elxa', 'elax',
+                                                                   'xlea', 'lxea', 'lexa', 'leax',
+                                                                   'xlae', 'lxae', 'laxe', 'laex',
+                                                                   'xeal', 'exal', 'eaxl', 'ealx',
+                                                                   'xael', 'axel', 'aexl', 'aelx',
+                                                                   'xale', 'axle', 'alxe', 'alex'})
 
     def test_problem_8_9(self):
         pass
