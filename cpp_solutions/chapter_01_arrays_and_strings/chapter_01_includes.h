@@ -4,8 +4,10 @@
 
 #pragma once
 #include "problem_01_01_isUnique.cpp"
+#include "problem_01_02_isPermutation.cpp"
 
 namespace chapter_01{
-    bool isUnique(std::string& input);
+    bool isUnique(const std::string& input);
+    bool isPermutation(const std::string& s1, const std::string& s2);
 }
 
