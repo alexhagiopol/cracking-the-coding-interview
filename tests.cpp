@@ -15,6 +15,16 @@ TEST_CASE("Chapter 01 - Problem 01 - isUnique()", "test"){
     REQUIRE(!chapter_01::isUnique("aalex"));
 }
 
+TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
+    REQUIRE(!chapter_01::isPermutation("alex", "alexa"));
+    REQUIRE(chapter_01::isPermutation("aa", "aa"));
+    REQUIRE(chapter_01::isPermutation("alex", "lexa"));
+    REQUIRE(chapter_01::isPermutation("alex", "xela"));
+    REQUIRE(chapter_01::isPermutation("", ""));
+    REQUIRE(!chapter_01::isPermutation("cat", "ctt"));
+    REQUIRE(!chapter_01::isPermutation("alexxx", "xxxxxx"));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
