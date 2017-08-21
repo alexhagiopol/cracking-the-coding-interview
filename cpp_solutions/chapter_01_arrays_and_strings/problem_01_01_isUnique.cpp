@@ -7,12 +7,12 @@
 
 namespace chapter_01 {
     bool isUnique(const std::string& input) {
-        bool bitVector[128] = {false};
+        std::bitset<128> asciiTable;
         for (char character : input) {
-            if (bitVector[int(character)] == true) {  // if character already exists in "hash table"
+            if (asciiTable[(int) character]) {  // if character already exists in "hash table"
                 return false;
             }
-            bitVector[int(character)] = true;
+            asciiTable.flip((int) character);
         }
         return true;
     }
