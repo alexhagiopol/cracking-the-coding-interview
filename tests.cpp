@@ -3,6 +3,7 @@
 //
 
 #include "cpp_solutions/chapter_01_arrays_and_strings/chapter_01_includes.h"
+#include "cpp_solutions/chapter_02_linked_lists/chapter_02_includes.h"
 #include "cpp_solutions/chapter_05_bit_manipulation/chapter_05_includes.h"
 #include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
 #define CATCH_CONFIG_MAIN
