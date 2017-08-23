@@ -1,5 +1,6 @@
 import unittest
 import random
+import numpy as np
 from python_solutions.chapter_01_arrays_and_strings import problem_01_01_is_unique as p_1_1
 from python_solutions.chapter_01_arrays_and_strings import problem_01_02_are_permuations as p_1_2
 from python_solutions.chapter_01_arrays_and_strings import problem_01_03_URLify as p_1_3
@@ -854,7 +855,55 @@ class Tests(unittest.TestCase):
         self.assertEqual(set(p_8_9.parens(0)), {''})
 
     def test_problem_8_10(self):
-        pass
+        image = np.array([[0, 1, 1, 0, 0, 3],
+                          [1, 1, 1, 1, 0, 0],
+                          [0, 1, 1, 0, 0, 2],
+                          [0, 0, 0, 0, 2, 2],
+                          [0, 2, 2, 2, 2, 2],
+                          [0, 0, 0, 2, 2, 2]])
+
+        zeros_filled = np.array([[0, 1, 1, 5, 5, 3],
+                                 [1, 1, 1, 1, 5, 5],
+                                 [5, 1, 1, 5, 5, 2],
+                                 [5, 5, 5, 5, 2, 2],
+                                 [5, 2, 2, 2, 2, 2],
+                                 [5, 5, 5, 2, 2, 2]])
+
+        ones_filled = np.array([[0, 5, 5, 0, 0, 3],
+                                [5, 5, 5, 5, 0, 0],
+                                [0, 5, 5, 0, 0, 2],
+                                [0, 0, 0, 0, 2, 2],
+                                [0, 2, 2, 2, 2, 2],
+                                [0, 0, 0, 2, 2, 2]])
+
+        twos_filled = np.array([[0, 1, 1, 0, 0, 3],
+                                [1, 1, 1, 1, 0, 0],
+                                [0, 1, 1, 0, 0, 5],
+                                [0, 0, 0, 0, 5, 5],
+                                [0, 5, 5, 5, 5, 5],
+                                [0, 0, 0, 5, 5, 5]])
+
+        three_filled = np.array([[0, 1, 1, 0, 0, 5],
+                                 [1, 1, 1, 1, 0, 0],
+                                 [0, 1, 1, 0, 0, 2],
+                                 [0, 0, 0, 0, 2, 2],
+                                 [0, 2, 2, 2, 2, 2],
+                                 [0, 0, 0, 2, 2, 2]])
+        expected_zeros_filled = image.copy()
+        p_8_10.paint_fill(expected_zeros_filled, 5, (2, 0))
+        self.assertTrue((zeros_filled == expected_zeros_filled).all())
+
+        expected_ones_filled = image.copy()
+        p_8_10.paint_fill(expected_ones_filled, 5, (1, 2))
+        self.assertTrue((ones_filled == expected_ones_filled).all())
+
+        expected_twos_filled = image.copy()
+        p_8_10.paint_fill(expected_twos_filled, 5, (4, 3))
+        self.assertTrue((twos_filled == expected_twos_filled).all())
+
+        expected_three_filled = image.copy()
+        p_8_10.paint_fill(expected_three_filled, 5, (0, 5))
+        self.assertTrue((three_filled == expected_three_filled).all())
 
     def test_problem_8_11(self):
         self.assertEqual(p_8_11.coin_representations(12), 4)
