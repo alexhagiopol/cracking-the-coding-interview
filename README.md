@@ -65,7 +65,7 @@ I need help on this project! PRs are very welcome. Here are some ways you can he
 Total: `54 / 148`
 
 #### C++ Solutions:
-1. Chapter 1 - Arrays and Strings: `1 / 9`  complete.    
+1. Chapter 1 - Arrays and Strings: `2 / 9`  complete.    
 2. Chapter 2 - Linked Lists: `0 / 8` complete.   
 3. Chapter 3 - Stacks and Queues: `0 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
@@ -83,4 +83,4 @@ Total: `54 / 148`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `9 / 159`
+Total: `10 / 159`
