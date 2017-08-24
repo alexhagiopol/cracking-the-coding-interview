@@ -1,6 +1,7 @@
 //
 // Created by Alex Hagiopol on 8/21/17.
 //
+#include <vector>
 
 namespace chapter_02{
     template <typename T>
@@ -19,6 +20,33 @@ namespace chapter_02{
         T getValue(){return _value;}
         LinkedListNode* getNext() {return _next;}
         void setValue(const T& value) {_value = value;}
-        void setNext(const LinkedListNode& next) {_next = &next;}
+        void setNext(LinkedListNode* next) {_next = next;}
     };
+
+    template <typename T>
+    LinkedListNode<T>* vectorToList(const std::vector<T> numbers){
+        if(numbers.size() <= 0){
+            return nullptr;
+        }
+        LinkedListNode<T>* head = new LinkedListNode<T>(numbers[0]);
+        LinkedListNode<T>* runner = head;
+        for (int i = 1; i < numbers.size(); i++ ){
+            LinkedListNode<T>* temp = new LinkedListNode<T>(numbers[i]);
+            runner->setNext(temp);
+            runner = runner->getNext();
+        }
+        return head;
+    }
+
+    template <typename T>
+    std::vector<T> listToVector(LinkedListNode<T>* head){
+        std::vector<T> vector;
+        LinkedListNode<T>* runner = head;
+        while (runner != nullptr){
+            vector.push_back(runner->getValue());
+            runner = runner->getNext();
+        }
+        return vector;
+    }
 };
+

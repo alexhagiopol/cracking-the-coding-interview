@@ -4,11 +4,8 @@ python:
   - "3.6"
 install:
   - pip install coverage
-  - pip install coveralls
 script:
   - make configure
   - make test_coverage
-after_success:
-  - coveralls
 notifications:
   email: false

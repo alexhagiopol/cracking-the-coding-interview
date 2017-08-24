@@ -26,6 +26,33 @@ TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
     REQUIRE(!chapter_01::isPermutation("alexxx", "xxxxxx"));
 }
 
+TEST_CASE("Chapter 02 - Basic LinkedList Functionality", "test"){
+    std::vector<int> testVector = {1,2,3,4,5,6,7};
+    REQUIRE(testVector == chapter_02::listToVector(chapter_02::vectorToList(testVector)));
+}
+
+TEST_CASE("Chapter 02 - Problem 01 - removeDups()", "test"){
+    std::vector<int> noDups = {1,7,3,6,5,4,2};
+    std::vector<int> dups = {2,2,1,5,6,2,5,2,7,7};
+    std::vector<int> fixedDups = {2,1,5,6,7};
+    std::vector<int> emptyVec;
+
+    // check that remove dups function doesn't affect lists with no dups
+    chapter_02::LinkedListNode<int>* noDupsHead = chapter_02::vectorToList(noDups);
+    chapter_02::removeDups(noDupsHead);
+    REQUIRE(noDups == chapter_02::listToVector(noDupsHead));
+
+    // check case with duplicates
+    chapter_02::LinkedListNode<int>* dupsHead = chapter_02::vectorToList(dups);
+    chapter_02::removeDups(dupsHead);
+    REQUIRE(fixedDups == chapter_02::listToVector(dupsHead));
+
+    // check case with empty list
+    chapter_02::LinkedListNode<int>* emptyHead = chapter_02::vectorToList(emptyVec);
+    chapter_02::removeDups(emptyHead);
+    REQUIRE(emptyVec == chapter_02::listToVector(emptyHead));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
