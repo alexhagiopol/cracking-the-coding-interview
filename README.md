@@ -6,9 +6,8 @@ Admittedly, there are lots of other GitHub repos with solutions for this book. B
 how do you know that their code *actually works*? If it's untested, you don't! That's why the #1 rule for this repo is 
 that every solution must have one or more unit tests in using the [unittest framework](https://docs.python.org/3.6/library/unittest.html) 
 framework for Python solutions or the [Catch framework](https://github.com/philsquared/Catch) for C++ solutions. We enforce 
-the unit tests using [Travis CI automated testing](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview). 
-For Python solutions - and coming soon for C++ solutions - we use [Coveralls.io](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview)
-to automatically report test coverage percentages. Reference and contribute solutions with confidence!
+the unit tests using [Travis CI automated testing](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview).
+ Reference and contribute solutions with confidence!
 
 #### Setup
 
@@ -27,11 +26,6 @@ This will show exactly which lines are not covered by tests in each source file:
     conda install coverage
     coverage run --source=python_solutions tests.py
     coverage report -m
-
-#### Inspecting Automated Test Coverage Reports (Python support only):
-Python: [![Coverage Status](https://coveralls.io/repos/github/alexhagiopol/cracking-the-coding-interview/badge.svg?branch=master)](https://coveralls.io/github/alexhagiopol/cracking-the-coding-interview?branch=master)
-
-C++: `coverage % coming soon`
 
 ### Contributing
 I need help on this project! PRs are very welcome. Here are some ways you can help:
