@@ -1,5 +1,5 @@
 configure:
-	git submodule update --init && cd cpp_solutions/third_party/eigen && rm -rf build && mkdir build && cd build && cmake .. && sudo make install && cd ../../../.. && rm -rf build && mkdir build && cd build && cmake ..
+	git submodule update --init && cd cpp_solutions/third_party/eigen && rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && sudo make install && cd ../../../.. && rm -rf build && mkdir build && cd build && cmake ..
 
 clean:
 	rm -rf build && mkdir build && cd build && cmake ..
