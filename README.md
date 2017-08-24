@@ -71,7 +71,7 @@ Total: `55 / 148`
 
 #### C++ Solutions:
 1. Chapter 1 - Arrays and Strings: `2 / 9`  complete.    
-2. Chapter 2 - Linked Lists: `1 / 8` complete.   
+2. Chapter 2 - Linked Lists: `2 / 8` complete.
 3. Chapter 3 - Stacks and Queues: `0 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
 5. Chapter 5 - Bit Manipulation: `4 / 7`  complete.
@@ -88,4 +88,4 @@ Total: `55 / 148`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `12 / 159`
+Total: `13 / 159`
