@@ -26,6 +26,11 @@ TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
     REQUIRE(!chapter_01::isPermutation("alexxx", "xxxxxx"));
 }
 
+TEST_CASE("Chapter 02 - Basic LinkedList Functionality", "test"){
+    std::vector<int> testVector = {1,2,3,4,5,6,7};
+    REQUIRE(testVector == chapter_02::listToVector(chapter_02::vectorToList(testVector)));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
