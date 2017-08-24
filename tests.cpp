@@ -53,6 +53,24 @@ TEST_CASE("Chapter 02 - Problem 01 - removeDups()", "test"){
     REQUIRE(emptyVec == chapter_02::listToVector(emptyHead));
 }
 
+TEST_CASE("Chapter 02 - Problem 02 - returnKthToLast()", "test"){
+    std::vector<int> vec1 = {1,7,3,6,5,4,2};
+    std::vector<int> vec2 = {2,2,1,5,6,2,5,2,7,7};
+    std::vector<int> vec3;
+    chapter_02::LinkedListNode<int>* vec1Head = chapter_02::vectorToList(vec1);
+    chapter_02::LinkedListNode<int>* vec2Head = chapter_02::vectorToList(vec2);
+    chapter_02::LinkedListNode<int>* vec3Head = chapter_02::vectorToList(vec3);
+    REQUIRE(5 == chapter_02::returnKthToLast(vec1Head, 3)->getValue());
+    REQUIRE(2 == chapter_02::returnKthToLast(vec1Head, 1)->getValue());
+    REQUIRE(1 == chapter_02::returnKthToLast(vec1Head, vec1.size())->getValue());
+    REQUIRE(2 == chapter_02::returnKthToLast(vec2Head, 3)->getValue());
+    REQUIRE(7 == chapter_02::returnKthToLast(vec2Head, 1)->getValue());
+    REQUIRE(2 == chapter_02::returnKthToLast(vec2Head, vec2.size())->getValue());
+    REQUIRE(nullptr == chapter_02::returnKthToLast(vec2Head, 0));
+    REQUIRE(nullptr == chapter_02::returnKthToLast(vec1Head, 10));
+    REQUIRE(nullptr == chapter_02::returnKthToLast(vec3Head, 10));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }

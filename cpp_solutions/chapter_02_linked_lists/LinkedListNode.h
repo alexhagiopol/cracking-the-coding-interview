@@ -1,6 +1,7 @@
 //
 // Created by Alex Hagiopol on 8/21/17.
 //
+#pragma once
 #include <vector>
 
 namespace chapter_02{
