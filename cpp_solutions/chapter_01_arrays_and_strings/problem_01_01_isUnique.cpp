@@ -4,6 +4,7 @@
 
 #include <string>
 #include <iostream>
+#include <bitset>
 
 namespace chapter_01 {
     bool isUnique(const std::string& input) {

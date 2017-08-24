@@ -2,6 +2,7 @@
 // Created by Alex Hagiopol on 8/21/17.
 //
 #include <string>
+#include <bitset>
 namespace chapter_01{
     bool isPermutation(const std::string& s1, const std::string& s2){
         if (s1.size() != s2.size()){
