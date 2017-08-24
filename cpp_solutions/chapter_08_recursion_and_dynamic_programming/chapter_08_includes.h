@@ -24,4 +24,5 @@ namespace chapter_08{
     int magicIndex(const std::vector<int>& array);
     void createPowerSet(std::vector<int> set, std::vector<std::vector<int>>& powerSet);
     int recursiveMultiply(int a, int b);
+    void paintFill(Eigen::MatrixXi& image, Eigen::Vector2i location, uint8_t targetColor);
 }

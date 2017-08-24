@@ -126,3 +126,53 @@ TEST_CASE("Chapter 08 - Problem 05 - recursiveMultiply()", "test"){
     REQUIRE(chapter_08::recursiveMultiply(9, 11) == 99);
     REQUIRE(chapter_08::recursiveMultiply(12, 12) == 144);
 }
+
+TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
+    Eigen::MatrixXi image(6, 6);
+    image << 0, 1, 1, 0, 0, 3,
+             1, 1, 1, 1, 0, 0,
+             0, 1, 1, 0, 0, 2,
+             0, 0, 0, 0, 2, 2,
+             0, 2, 2, 2, 2, 2,
+             0, 0, 0, 2, 2, 2;
+    Eigen::MatrixXi zerosFilled(6, 6);
+    zerosFilled << 0, 1, 1, 5, 5, 3,
+                   1, 1, 1, 1, 5, 5,
+                   5, 1, 1, 5, 5, 2,
+                   5, 5, 5, 5, 2, 2,
+                   5, 2, 2, 2, 2, 2,
+                   5, 5, 5, 2, 2, 2;
+    Eigen::MatrixXi onesFilled(6, 6);
+    onesFilled << 0, 5, 5, 0, 0, 3,
+                  5, 5, 5, 5, 0, 0,
+                  0, 5, 5, 0, 0, 2,
+                  0, 0, 0, 0, 2, 2,
+                  0, 2, 2, 2, 2, 2,
+                  0, 0, 0, 2, 2, 2;
+    Eigen::MatrixXi twosFilled(6, 6);
+    twosFilled << 0, 1, 1, 0, 0, 3,
+                  1, 1, 1, 1, 0, 0,
+                  0, 1, 1, 0, 0, 5,
+                  0, 0, 0, 0, 5, 5,
+                  0, 5, 5, 5, 5, 5,
+                  0, 0, 0, 5, 5, 5;
+    Eigen::MatrixXi threeFilled(6, 6);
+    threeFilled << 0, 1, 1, 0, 0, 5,
+                   1, 1, 1, 1, 0, 0,
+                   0, 1, 1, 0, 0, 2,
+                   0, 0, 0, 0, 2, 2,
+                   0, 2, 2, 2, 2, 2,
+                   0, 0, 0, 2, 2, 2;
+    Eigen::MatrixXi expectedZerosFilled = image;
+    Eigen::MatrixXi expectedOnesFilled = image;
+    Eigen::MatrixXi expectedTwosFilled = image;
+    Eigen::MatrixXi expectedThreeFilled = image;
+    chapter_08::paintFill(expectedZerosFilled, Eigen::Vector2i(2, 0), 5);
+    chapter_08::paintFill(expectedOnesFilled, Eigen::Vector2i(1, 2), 5);
+    chapter_08::paintFill(expectedTwosFilled, Eigen::Vector2i(4, 3), 5);
+    chapter_08::paintFill(expectedThreeFilled, Eigen::Vector2i(0, 5), 5);
+    REQUIRE(zerosFilled.isApprox(expectedZerosFilled));
+    REQUIRE(onesFilled.isApprox(expectedOnesFilled));
+    REQUIRE(twosFilled.isApprox(expectedTwosFilled));
+    REQUIRE(threeFilled.isApprox(expectedThreeFilled));
+}
