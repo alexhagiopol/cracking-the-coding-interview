@@ -5,7 +5,7 @@ This repo contains Python and C++ solutions for Gayle Laakmann McDowell's [*Crac
 Admittedly, there are lots of other GitHub repos with solutions for this book. But when you're studying and deeply confused, 
 how do you know that their code *actually works*? If it's untested, you don't! That's why the #1 rule for this repo is 
 that every solution must have one or more tests using the [Python unittest framework](https://docs.python.org/3.6/library/unittest.html)
-and/or the [C++ Catch framework](https://github.com/philsquared/Catch). We enforce
+or the [C++ Catch framework](https://github.com/philsquared/Catch). We enforce
 the unit tests using [Travis CI automated testing](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview).
  Reference and contribute solutions with confidence!
 
@@ -38,7 +38,7 @@ repository is to have a "living" solution for each problem in the book. PRs are 
 Here are some ways you can help:
 
 0. Fixing mistakes.
-1. Solving unsolved problems (see the completion progress table below).
+1. Solving unsolved problems in either language (see the completion progress table below).
 2. Improving existing solutions with better performance or clarity.
 3. Adding more unit tests or refactoring to increase the test coverage %.
 4. Implementing C++ test coverage measurement using [gcov](http://gcc.gnu.org/onlinedocs/gcc/Gcov.html).
