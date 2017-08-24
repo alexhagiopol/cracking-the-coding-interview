@@ -24,12 +24,11 @@ In the root directory, execute the following to run all tests in Python and C++:
 
     make test
 
-#### Generating a Test Coverage % Report Locally (Python support only):
-This will show exactly which lines are not covered by tests in each source file:
+#### Optional: Generating a Test Coverage % Report Locally (Python support only):
+This will show exactly which lines are not covered by tests in each Python source file:
 
-    conda install coverage
-    coverage run --source=python_solutions tests.py
-    coverage report -m
+    pip install coverage
+    make test_coverage
 
 ### Contributing
 I definitely need help on this project. The project has become very time consuming because each solution is living
