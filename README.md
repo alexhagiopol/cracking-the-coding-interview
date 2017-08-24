@@ -45,7 +45,8 @@ Here are some ways you can help:
 4. Implementing C++ test coverage measurement using [gcov](http://gcc.gnu.org/onlinedocs/gcc/Gcov.html).
 5. Integrating automated unit test coverage % measurement and reporting for both Python and C++ via [Coveralls](Coveralls.io).
 
-If you have any contributions, please make a PR to the master branch.
+If you have any contributions, please make a PR to the master branch. Feel free to message me for clarification on any of
+the above items.
 
 ### Problem Completion Progress
 #### Python Solutions:
