@@ -19,10 +19,10 @@
 #include "problem_08_14_booleanEvaluation.cpp"
 
 namespace chapter_08{
-    int tripleStep(int n);
-    bool robotGrid(const Eigen::MatrixXd& maze, std::vector<Eigen::Vector2d>& path);
-    int magicIndex(const std::vector<int>& array);
-    void createPowerSet(std::vector<int> set, std::vector<std::vector<int>>& powerSet);
-    int recursiveMultiply(int a, int b);
-    void paintFill(Eigen::MatrixXi& image, Eigen::Vector2i location, uint8_t targetColor);
+    int tripleStep(int n);  // problem 08-01
+    bool robotGrid(const Eigen::MatrixXd& maze, std::vector<Eigen::Vector2d>& path);  // problem 08-02
+    int magicIndex(const std::vector<int>& array);  // problem 08-03
+    void createPowerSet(std::vector<int> set, std::vector<std::vector<int>>& powerSet);  // problem 08-04
+    int recursiveMultiply(int a, int b);  // problem 08-05
+    void paintFill(Eigen::MatrixXi& image, Eigen::Vector2i location, uint8_t targetColor);  // problem 08-10
 }
