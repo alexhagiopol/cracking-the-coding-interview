@@ -72,7 +72,7 @@ Total: `55 / 148`
 5. Chapter 5 - Bit Manipulation: `4 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
-8. Chapter 8 - Recursion and Dynamic Programming: `4 / 14`  complete.
+8. Chapter 8 - Recursion and Dynamic Programming: `5 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
 10. Chapter 10 - Sorting and Searching: `0 / 11` complete.
 11. Chapter 11 - Testing: N/A
@@ -83,4 +83,4 @@ Total: `55 / 148`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `10 / 159`
+Total: `11 / 159`
