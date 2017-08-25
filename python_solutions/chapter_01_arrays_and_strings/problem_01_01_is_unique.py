@@ -19,7 +19,7 @@ Space complexity: O(1) because bit vector size does not scale with input string 
 Follow-up discussion (unimplemented):
 If we cannot use additional structures, we can do O(N^2) character comparisons
 to check for uniqueness. If we are allowed to modify the original string, we
-could sort it in place in N*log(N) time.
+could sort it in place in N*log(N) time and test consecutive characters for equality.
 """
 
 
