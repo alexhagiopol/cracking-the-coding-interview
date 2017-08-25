@@ -63,14 +63,14 @@ the above items.
 12. Chapter 12 - C and C++: N/A
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: N/A
-15. Chapter 15 - Threads and Locks: `0 / 7` complete.
+15. Chapter 15 - Threads and Locks: `0 / 4` complete.
 16. Chapter 16 - Moderate: `1 / 26` complete.
 17. Chapter 17 - Hard: `3 / 26` complete.
 
-Total: `55 / 148`
+Total: `55 / 145`
 
 #### C++ Solutions:
-1. Chapter 1 - Arrays and Strings: `2 / 9`  complete.    
+1. Chapter 1 - Arrays and Strings: `3 / 9`  complete.
 2. Chapter 2 - Linked Lists: `2 / 8` complete.
 3. Chapter 3 - Stacks and Queues: `0 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
@@ -81,11 +81,11 @@ Total: `55 / 148`
 9. Chapter 9 - System Design and Scalability: N/A
 10. Chapter 10 - Sorting and Searching: `0 / 11` complete.
 11. Chapter 11 - Testing: N/A
-12. Chapter 12 - C and C++: `0 / 11`
+12. Chapter 12 - C and C++: `0 / 6`
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: N/A
-15. Chapter 15 - Threads and Locks: `0 / 7`
+15. Chapter 15 - Threads and Locks: `0 / 4`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `13 / 159`
+Total: `14 / 151`
