@@ -26,6 +26,39 @@ TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
     REQUIRE(!chapter_01::isPermutation("alexxx", "xxxxxx"));
 }
 
+TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
+    Eigen::MatrixXi input4x4(4,4);
+    input4x4 << 1, 2, 3, 4,
+                1, 2, 3, 4,
+                1, 2, 3, 4,
+                1, 2, 3, 4;
+
+    Eigen::MatrixXi input5x5(5,5);
+    input5x5 << 1, 2, 3, 4, 5,
+                1, 2, 3, 4, 5,
+                1, 2, 3, 4, 5,
+                1, 2, 3, 4, 5,
+                1, 2, 3, 4, 5;
+
+    Eigen::MatrixXi output4x4(4,4);
+    output4x4 << 1, 1, 1, 1,
+                 2, 2, 2, 2,
+                 3, 3, 3, 3,
+                 4, 4, 4, 4;
+
+    Eigen::MatrixXi output5x5(5,5);
+    output5x5 << 1, 1, 1, 1, 1,
+                 2, 2, 2, 2, 2,
+                 3, 3, 3, 3, 3,
+                 4, 4, 4, 4, 4,
+                 5, 5, 5, 5, 5;
+
+    chapter_01::rotate(input4x4);
+    chapter_01::rotate(input5x5);
+    REQUIRE(input4x4.isApprox(output4x4));
+    REQUIRE(input5x5.isApprox(output5x5));
+}
+
 TEST_CASE("Chapter 02 - Basic LinkedList Functionality", "test"){
     std::vector<int> testVector = {1,2,3,4,5,6,7};
     REQUIRE(testVector == chapter_02::listToVector(chapter_02::vectorToList(testVector)));
