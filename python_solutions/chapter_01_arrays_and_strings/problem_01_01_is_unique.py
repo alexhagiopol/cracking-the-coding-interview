@@ -13,7 +13,7 @@ If no character is observed more than once, return True. Because we assumed that
 the string would contain only ASCII characters, we can implement the hash table as
 a 128-wide bit vector that uses a character's ASCII value as its hash code.
 
-Time complexity: O(N) where N is the string length.
+Time complexity: O(N) where N is the length of the of the linearly traversed string.
 Space complexity: O(1) because bit vector size does not scale with input string length.
 
 Follow-up discussion (unimplemented):
