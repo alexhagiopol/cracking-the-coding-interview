@@ -32,11 +32,10 @@ This will show exactly which lines are not covered by tests in each Python sourc
     make test_coverage
 
 ### Contributing
-I definitely need help on this project. The project has become very time consuming because each solution is living
+The goal of this project is to write a tested Python and C++ solution for every problem in the 6th edition of the textbook.
+I definitely need help! PRs are of course very welcome. The work has become quite time consuming because each solution is *living*
 code that actually gets executed. Thus, each solution needs its own small dataset and infrastructure in order to be tested.
-As a result, just writing the test for a problem is often harder than solving the problem itself. The goal for this
-repository is to have a "living" solution for each problem in the book. PRs are of course very welcome.
-Here are some ways you can help:
+Just writing the test for a problem is often harder than solving the problem itself. Here are some ways you can help:
 
 0. Fixing mistakes.
 1. Solving unsolved problems in either language (see the completion progress table below).
