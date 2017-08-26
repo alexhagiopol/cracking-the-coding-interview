@@ -5,6 +5,9 @@ Problem Statement:
 Implement an algorithm to determine if a string has all unique characters.
 What if you cannot use additional data structures?
 
+Example:
+"aalex" -> False
+
 Solution:
 Assume that the input string will contain only ASCII characters. Traverse the
 string one character at a time and use a hash table to record which characters
