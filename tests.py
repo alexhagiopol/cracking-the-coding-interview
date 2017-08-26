@@ -84,8 +84,10 @@ class Tests(unittest.TestCase):
     def test_problem_1_3(self):
         # python strings are immutable, so we use a list of chars to do this "in place"
         # Expect 'Mr. John Smith' -> 'Mr.%20John%20Smith'
-        self.assertEqual(['M', 'r', '.', '%', '2', '0', 'J', 'o', 'h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h'],
-                         p_1_3.URLify(['M', 'r', '.', ' ', 'J', 'o', 'h', 'n', ' ', 'S', 'm', 'i', 't', 'h']))
+        input_string = ['M', 'r', '.', ' ', 'J', 'o', 'h', 'n', ' ', 'S', 'm', 'i', 't', 'h']
+        expected_output_string = ['M', 'r', '.', '%', '2', '0', 'J', 'o', 'h', 'n', '%', '2', '0', 'S', 'm', 'i', 't', 'h']
+        p_1_3.URLify(input_string)
+        self.assertEqual(input_string, expected_output_string)
 
     def test_problem_1_4(self):
         # spaces don't matter
