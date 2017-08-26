@@ -11,7 +11,7 @@ Example:
 
 Solution:
 Because strings are immutable in Python, in this problem we will represent strings as lists of single
-characters (e.g. ['A','l','e','x'])so that we can modify one character at a time at a given index. We will do this problem
+characters (e.g. ['A','l','e','x']) so that we can modify one character at a time at a given index. We will do this problem
 as close to "in place" as possible i.e. we will not allocate more space than is necessary to add the "%20" characters.
 First, we traverse the input string and count the number of spaces. We know that each single space in the input
 string is replaced with three characters in the output. With this knowledge, we extend the length
