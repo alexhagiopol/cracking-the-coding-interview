@@ -30,7 +30,7 @@ def is_unique(input_string):
     hash_table = [False]*128  # hash table implemented as 128 bit vector
     for character in input_string:  # inspect each character
         index = ord(character)  # convert character into its ASCII value
-        if hash_table[index] is True:  # check if bit corresponding to this ASCII value has been flipped to True
+        if hash_table[index]:  # check if bit at this ASCII value is True
             return False
         hash_table[index] = True  # add unobserved character to hash table
     return True
