@@ -5,6 +5,9 @@ Problem Statement:
 Given two strings, write a method to decide if one is a permutation of the
 other.
 
+Example:
+("alex", "lexa") -> True
+
 Solution:
 We assume that the input strings will contain only ASCII characters and that upper
 case characters are distinct from lower case ones i.e. "Alex" is not a permutation
