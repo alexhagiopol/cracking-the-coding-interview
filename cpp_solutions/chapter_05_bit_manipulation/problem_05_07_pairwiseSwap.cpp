@@ -2,6 +2,8 @@
 // Created by Alex Hagiopol on 8/5/17.
 //
 
+#include "problem_05_07_pairwiseSwap.h"
+
 namespace chapter_05{
     int pairwiseSwap(int x){
         const int even_mask_1010 = 0b10101010101010101010101010101010;

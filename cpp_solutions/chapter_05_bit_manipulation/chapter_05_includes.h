@@ -7,8 +7,4 @@
 #include "problem_05_01_insertion.h"
 #include "problem_05_02_binaryToString.h"
 #include "problem_05_06_conversion.h"
-#include "problem_05_07_pairwiseSwap.cpp"
-
-namespace chapter_05{
-    int pairwiseSwap(int x);  // problem 05-07
-}
+#include "problem_05_07_pairwiseSwap.h"

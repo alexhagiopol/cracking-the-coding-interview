@@ -16,6 +16,7 @@ set(SOURCE_FILES
         cpp_solutions/chapter_05_bit_manipulation/problem_05_01_insertion.cpp
         cpp_solutions/chapter_05_bit_manipulation/problem_05_02_binaryToString.cpp
         cpp_solutions/chapter_05_bit_manipulation/problem_05_06_conversion.cpp
+        cpp_solutions/chapter_05_bit_manipulation/problem_05_07_pairwiseSwap.cpp
         )
 # create executable
 add_executable(tests ${SOURCE_FILES})
