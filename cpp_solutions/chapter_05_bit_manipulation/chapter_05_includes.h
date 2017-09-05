@@ -5,7 +5,7 @@
 #pragma once
 
 #include "problem_05_01_insertion.h"
-#include "problem_05_02_binaryToString.H"
+#include "problem_05_02_binaryToString.h"
 #include "problem_05_06_conversion.cpp"
 #include "problem_05_07_pairwiseSwap.cpp"
 
