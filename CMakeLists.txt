@@ -11,8 +11,8 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 set(SOURCE_FILES
         tests.cpp
         cpp_solutions/chapter_01_arrays_and_strings/problem_01_01_isUnique.cpp
-        #cpp_solutions/chapter_01_arrays_and_strings/problem_01_02_isPermutation.cpp
-        #cpp_solutions/chapter_01_arrays_and_strings/problem_01_07_rotate.cpp
+        cpp_solutions/chapter_01_arrays_and_strings/problem_01_02_isPermutation.cpp
+        cpp_solutions/chapter_01_arrays_and_strings/problem_01_07_rotate.cpp
         )
 # create executable
 add_executable(tests ${SOURCE_FILES})

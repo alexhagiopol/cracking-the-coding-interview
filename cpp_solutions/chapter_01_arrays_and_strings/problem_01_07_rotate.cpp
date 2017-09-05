@@ -1,8 +1,7 @@
 //
 // Created by Alex Hagiopol on 8/24/17.
 //
-
-#include <Eigen/Dense>
+#include "problem_01_07_rotate.h"
 
 namespace chapter_01{
     void rotate(Eigen::MatrixXi& matrix){
