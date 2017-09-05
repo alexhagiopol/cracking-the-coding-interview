@@ -7,7 +7,7 @@
 #include "problem_08_02_robotGrid.h"
 #include "problem_08_03_magicIndex.h"
 #include "problem_08_04_powerSet.h"
-#include "problem_08_05_recursiveMultiply.cpp"
+#include "problem_08_05_recursiveMultiply.h"
 #include "problem_08_10_paintFill.cpp"
 
 namespace chapter_08{
