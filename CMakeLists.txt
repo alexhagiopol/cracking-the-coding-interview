@@ -13,6 +13,8 @@ set(SOURCE_FILES
         cpp_solutions/chapter_01_arrays_and_strings/problem_01_01_isUnique.cpp
         cpp_solutions/chapter_01_arrays_and_strings/problem_01_02_isPermutation.cpp
         cpp_solutions/chapter_01_arrays_and_strings/problem_01_07_rotate.cpp
+        cpp_solutions/chapter_05_bit_manipulation/problem_05_01_insertion.cpp
+        cpp_solutions/chapter_05_bit_manipulation/problem_05_02_binaryToString.cpp
         )
 # create executable
 add_executable(tests ${SOURCE_FILES})
