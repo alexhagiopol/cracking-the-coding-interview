@@ -2,6 +2,7 @@
 // Created by alex on 7/31/17.
 //
 
+//#include "cpp_solutions/chapter_01_arrays_and_strings/problem_01_01_isUnique.h"
 #include "cpp_solutions/chapter_01_arrays_and_strings/chapter_01_includes.h"
 #include "cpp_solutions/chapter_02_linked_lists/chapter_02_includes.h"
 #include "cpp_solutions/chapter_05_bit_manipulation/chapter_05_includes.h"
@@ -14,6 +15,9 @@
 TEST_CASE("Chapter 01 - Problem 01 - isUnique()", "test"){
     REQUIRE(chapter_01::isUnique("alex"));
     REQUIRE(!chapter_01::isUnique("aalex"));
+    //REQUIRE(isUnique("alex"));
+    //REQUIRE(!isUnique("aalex"));
+
 }
 
 TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){

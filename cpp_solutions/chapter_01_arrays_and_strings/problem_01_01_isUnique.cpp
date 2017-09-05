@@ -2,6 +2,7 @@
 // Created by alex on 7/31/17.
 //
 
+#include "problem_01_01_isUnique.h"
 #include <string>
 #include <iostream>
 #include <bitset>
