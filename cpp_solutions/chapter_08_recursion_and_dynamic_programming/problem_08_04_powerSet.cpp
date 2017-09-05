@@ -1,3 +1,5 @@
+#include "problem_08_04_powerSet.h"
+
 namespace chapter_08{
     void createPowerSet(std::vector<int> set, std::vector<std::vector<int>>& powerSet){
         if(set.size() == 0){
