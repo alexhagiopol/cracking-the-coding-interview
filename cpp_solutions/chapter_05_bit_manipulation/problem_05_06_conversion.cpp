@@ -1,6 +1,9 @@
 //
 // Created by Alex Hagiopol on 8/5/17.
 //
+
+#include "problem_05_06_conversion.h"
+
 namespace chapter_05{
     int conversion(int A, int B){
         int count = 0;
