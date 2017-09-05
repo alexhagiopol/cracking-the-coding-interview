@@ -1,3 +1,5 @@
+#include "problem_08_03_magicIndex.h"
+
 namespace chapter_08{
     int binarySearchMagicIndex(const std::vector<int>& array, int start, int end){
         int middle = (start + end) / 2;

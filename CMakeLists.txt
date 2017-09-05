@@ -19,6 +19,7 @@ set(SOURCE_FILES
         cpp_solutions/chapter_05_bit_manipulation/problem_05_07_pairwiseSwap.cpp
         cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_01_tripleStep.cpp
         cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_02_robotGrid.cpp
+        cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_03_magicIndex.cpp
         )
 # create executable
 add_executable(tests ${SOURCE_FILES})
