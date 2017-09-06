@@ -23,6 +23,7 @@ set(SOURCE_FILES
         cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_04_powerSet.cpp
         cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_05_recursiveMultiply.cpp
         cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_10_paintFill.cpp
+        cpp_solutions/chapter_12_cpp/problem_12_02_reverse.cpp
         )
 # create executable
 add_executable(tests ${SOURCE_FILES})

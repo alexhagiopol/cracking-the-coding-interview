@@ -6,6 +6,7 @@
 #include "cpp_solutions/chapter_02_linked_lists/chapter_02_includes.h"
 #include "cpp_solutions/chapter_05_bit_manipulation/chapter_05_includes.h"
 #include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
+#include "cpp_solutions/chapter_12_cpp/chapter_12_includes.h"
 #define CATCH_CONFIG_MAIN
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
 #include <vector>
@@ -256,4 +257,16 @@ TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     REQUIRE(onesFilled.isApprox(expectedOnesFilled));
     REQUIRE(twosFilled.isApprox(expectedTwosFilled));
     REQUIRE(threeFilled.isApprox(expectedThreeFilled));
+}
+
+TEST_CASE("Chapter 12 - Problem 2 - reverse()", "test"){
+    char s1[] = "Alex";
+    char s1Rev[] = "xelA";
+    char s2[] = "a";
+    char s2Rev[] = "a";
+    chapter_12::reverse(&s1[0]);
+    chapter_12::reverse(&s2[0]);
+    // strcmp returns 0 if the 2 strings are equal.
+    REQUIRE(strcmp(&s1[0], &s1Rev[0]) == 0);
+    REQUIRE(strcmp(&s2[0], &s2Rev[0]) == 0);
 }
