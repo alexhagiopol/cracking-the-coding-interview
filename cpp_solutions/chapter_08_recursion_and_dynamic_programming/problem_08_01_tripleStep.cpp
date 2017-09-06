@@ -11,7 +11,7 @@ By the time you get to just n = 37, the result has already overflowed.
 Using a long will delay, but not completely solve, this issue.
 */
 
-#include <vector>
+#include "problem_08_01_tripleStep.h"
 
 namespace chapter_08{
     int tripleStep(int n, std::vector<long> memo){

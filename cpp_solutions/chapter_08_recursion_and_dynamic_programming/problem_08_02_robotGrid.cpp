@@ -1,4 +1,4 @@
-#include <Eigen/Dense>
+#include "problem_08_02_robotGrid.h"
 #include <unordered_map>
 #include <iostream>
 

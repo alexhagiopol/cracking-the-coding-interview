@@ -1,8 +1,7 @@
 //
 // Created by alex on 8/2/17.
 //
-
-#include <string>
+#include "problem_05_02_binaryToString.h"
 
 namespace chapter_05{
     int binaryToString(double fraction, std::string& binaryString){
