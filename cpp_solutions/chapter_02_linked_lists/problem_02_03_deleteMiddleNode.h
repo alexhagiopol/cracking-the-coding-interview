@@ -1,4 +1,8 @@
-"""
+//
+// Created by Alex Hagiopol on 10/14/17.
+//
+
+/*
 Chapter 02 - Problem 03 - Delete Middle Node - CTCI 6th Edition page 211
 
 Problem Statement:
@@ -15,8 +19,21 @@ The solution is best illustrated by example: given node "c", copy the contents o
 
 Time complexity: O(1).
 Space complexity: O(1).
-"""
+*/
 
-def delete_middle(node):
-    node.value = node.next_node.value
-    node.next_node = node.next_node.next_node
+#pragma once
+#include "LinkedListNode.h"
+
+namespace chapter_02{
+    // template function implemented in header file
+    template <typename T>
+    void deleteMiddleNode(LinkedListNode<T>* middle){
+        if (middle == nullptr || middle->getNext() == nullptr){
+            return; // given node is not in the middle. do nothing.
+        }
+        LinkedListNode<T>* next = middle -> getNext();
+        middle->setValue(next->getValue());
+        middle->setNext(next->getNext());
+        delete next;
+    }
+}
