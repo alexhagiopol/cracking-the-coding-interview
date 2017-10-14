@@ -7,6 +7,7 @@
 #include "cpp_solutions/chapter_05_bit_manipulation/chapter_05_includes.h"
 #include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
 #include "cpp_solutions/chapter_12_cpp/chapter_12_includes.h"
+#include "cpp_solutions/misc_exercises/misc_includes.h"
 #define CATCH_CONFIG_MAIN
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
 #include <vector>
@@ -15,9 +16,6 @@
 TEST_CASE("Chapter 01 - Problem 01 - isUnique()", "test"){
     REQUIRE(chapter_01::isUnique("alex"));
     REQUIRE(!chapter_01::isUnique("aalex"));
-    //REQUIRE(isUnique("alex"));
-    //REQUIRE(!isUnique("aalex"));
-
 }
 
 TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
@@ -269,4 +267,28 @@ TEST_CASE("Chapter 12 - Problem 2 - reverse()", "test"){
     // strcmp returns 0 if the 2 strings are equal.
     REQUIRE(strcmp(&s1[0], &s1Rev[0]) == 0);
     REQUIRE(strcmp(&s2[0], &s2Rev[0]) == 0);
+}
+
+TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
+    Eigen::MatrixXd input1(4, 4);
+    input1 << 1, 1, 1, 1,
+              1, 1, 1, 1,
+              1, 1, 1, 1,
+              1, 1, 1, 1;
+    Eigen::MatrixXd output1(4, 4);
+    output1 << 1,  2,  3,  4,
+               2,  4,  6,  8,
+               3,  6,  9, 12,
+               4,  8, 12, 16;
+    REQUIRE(output1.isApprox(misc::makeIntegralImage(input1)));
+    Eigen::MatrixXd output2(4, 4);
+    output2 << 1,   3,  6,  10,
+               3,   9, 18,  30,
+               6,  18, 36,  60,
+               10, 30, 60, 100;
+    REQUIRE(output2.isApprox(misc::makeIntegralImage(output1)));
+}
+
+TEST_CASE("Misc Exercises - boxFilter()", "test"){
+
 }

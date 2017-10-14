@@ -81,11 +81,11 @@ Total: `55 / 145`
 9. Chapter 9 - System Design and Scalability: N/A
 10. Chapter 10 - Sorting and Searching: `0 / 11` complete.
 11. Chapter 11 - Testing: N/A
-12. Chapter 12 - C and C++: `0 / 6`
+12. Chapter 12 - C and C++: `1 / 6`
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: N/A
 15. Chapter 15 - Threads and Locks: `0 / 4`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `14 / 151`
+Total: `15 / 151`
