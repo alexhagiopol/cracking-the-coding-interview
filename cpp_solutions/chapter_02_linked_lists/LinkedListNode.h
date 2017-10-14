@@ -15,7 +15,6 @@ namespace chapter_02{
         bool operator== (const LinkedListNode& other) {return _value == other.getValue();}  // equality check
         LinkedListNode(const LinkedListNode& other) : _value(other.getValue()), _next(other.getNext()){}  // copy constructor
         ~LinkedListNode(){   // destructor
-            delete _next;
             _next = nullptr;
         }
         T getValue(){return _value;}
