@@ -16,9 +16,6 @@
 TEST_CASE("Chapter 01 - Problem 01 - isUnique()", "test"){
     REQUIRE(chapter_01::isUnique("alex"));
     REQUIRE(!chapter_01::isUnique("aalex"));
-    //REQUIRE(isUnique("alex"));
-    //REQUIRE(!isUnique("aalex"));
-
 }
 
 TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
