@@ -28,6 +28,12 @@ namespace chapter_02{
     // template function implemented in header file
     template <typename T>
     void deleteMiddleNode(LinkedListNode<T>* middle){
-
+        if (middle == nullptr || middle->getNext() == nullptr){
+            return; // given node is not in the middle. do nothing.
+        }
+        LinkedListNode<T>* next = middle -> getNext();
+        middle->setValue(next->getValue());
+        middle->setNext(next->getNext());
+        delete next;
     }
 }

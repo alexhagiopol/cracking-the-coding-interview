@@ -106,6 +106,27 @@ TEST_CASE("Chapter 02 - Problem 02 - returnKthToLast()", "test"){
     REQUIRE(nullptr == chapter_02::returnKthToLast(vec3Head, 10));
 }
 
+TEST_CASE("Chapter 02 - Problem 03 - deleteMiddleNode()", "test"){
+    // create test dataset
+    std::vector<std::string> vec1 = {"a", "b", "c", "d", "e", "f"};
+    std::vector<std::string> vec2 = {"a", "b", "d", "e", "f"};
+    chapter_02::LinkedListNode<std::string>* vec1Head = chapter_02::vectorToList(vec1);
+    chapter_02::LinkedListNode<std::string>* vec2Head = chapter_02::vectorToList(vec2);
+    // traverse input to find node with content "c"
+    chapter_02::LinkedListNode<std::string>* head = vec1Head;
+    while (head != nullptr && head->getValue() != "c"){
+        head = head->getNext();
+    }
+    // head is not at location "c". call delete function
+    chapter_02::deleteMiddleNode(head);
+    // check that vec 1 and vec 2 are the same
+    while (vec1Head != nullptr && vec2Head != nullptr){
+        REQUIRE(vec1Head->getValue() == vec2Head->getValue());
+        vec1Head = vec1Head->getNext();
+        vec2Head = vec2Head->getNext();
+    }
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
