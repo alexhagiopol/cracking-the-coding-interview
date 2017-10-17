@@ -10,44 +10,7 @@ the unit tests using [Travis CI automated testing](https://travis-ci.org/alexhag
 that the solutions are made of *living* code that gets executed and tested on every single public commit. Reference and contribute
 solutions with confidence!
 
-#### Reading the Code:
-Python and C++ unit tests are in [tests.py](./tests.py) and [tests.cpp](./tests.cpp) respectively. Python and C++ solutions are
-organized by chapter in [python_solutions](./python_solutions) and in [cpp_solutions](./cpp_solutions) respectively.
-
-#### Setup:
-
-    git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
-    cd cracking-the-coding-interview
-    make configure
-
-#### Running Tests:
-In the root directory, execute the following to run all tests in Python and C++:
-
-    make test
-
-#### Optional: Generating a Test Coverage % Report Locally (Python support only):
-This will show exactly which lines are not covered by tests in each Python source file:
-
-    pip install coverage
-    make test_coverage
-
-### Contributing
-The goal of this project is to write a tested Python and C++ solution for every problem in the 6th edition of the textbook.
-I definitely need help! PRs are of course very welcome. The work has become quite time consuming because each solution is *living*
-code that actually gets executed. Thus, each solution needs its own small dataset and infrastructure in order to be tested.
-Just writing the test for a problem is often harder than solving the problem itself. Here are some ways you can help:
-
-0. Fixing mistakes.
-1. Solving unsolved problems in either language (see the completion progress table below).
-2. Improving existing solutions with better performance or clarity.
-3. Adding more unit tests or refactoring to increase the test coverage %.
-4. Implementing C++ test coverage measurement using [gcov](http://gcc.gnu.org/onlinedocs/gcc/Gcov.html).
-5. Integrating automated unit test coverage % measurement and reporting for both Python and C++ via [Coveralls](Coveralls.io).
-
-If you have any contributions, please make a PR to the master branch. Feel free to message me for clarification on any of
-the above items.
-
-### Problem Completion Progress
+### Table of Contents
 #### Python Solutions:
 1. Chapter 1 - Arrays and Strings: `9 / 9`  complete.    
 2. Chapter 2 - Linked Lists: `8 / 8` complete.   
@@ -89,3 +52,43 @@ Total: `55 / 145`
 17. Chapter 17 - Hard: `0 / 26` complete.
 
 Total: `17 / 151`
+
+### Getting Started
+#### Reading the Code:
+Python and C++ unit tests are in [tests.py](./tests.py) and [tests.cpp](./tests.cpp) respectively. Python and C++ solutions are
+organized by chapter in [python_solutions](./python_solutions) and in [cpp_solutions](./cpp_solutions) respectively.
+
+#### Build Process:
+The repo contains a makefile that handles all setup for you :smile:.
+
+    git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
+    cd cracking-the-coding-interview
+    make configure
+
+#### Running Tests:
+In the root directory, execute the following to run all tests in Python and C++:
+
+    make test
+
+#### Optional: Generating a Test Coverage % Report Locally (Python support only):
+This will show exactly which lines are not covered by tests in each Python source file:
+
+    pip install coverage
+    make test_coverage
+
+### Contributing
+The goal of this project is to write a tested Python and C++ solution for every problem in the 6th edition of the textbook.
+I definitely need help! PRs are of course very welcome. The work has become quite time consuming because each solution is *living*
+code that actually gets executed. Thus, each solution needs its own small dataset and infrastructure in order to be tested.
+Just writing the test for a problem is often harder than solving the problem itself. Here are some ways you can help:
+
+0. Fixing mistakes.
+1. Solving unsolved problems in either language (see the completion progress table below).
+2. Improving existing solutions with better performance or clarity.
+3. Adding more unit tests or refactoring to increase the test coverage %.
+4. Implementing C++ test coverage measurement using [gcov](http://gcc.gnu.org/onlinedocs/gcc/Gcov.html).
+5. Integrating automated unit test coverage % measurement and reporting for both Python and C++ via [Coveralls](Coveralls.io).
+
+If you have any contributions, please make a PR to the master branch. Feel free to message me for clarification on any of
+the above items.
+
