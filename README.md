@@ -83,13 +83,14 @@ code that actually gets executed. Thus, each solution needs its own small datase
 Just writing the test for a problem is often harder than solving the problem itself. Here are some ways you can help:
 
 0. Fixing bugs :bug:.
-1. Solving unsolved problems in either language (see the completion progress table below).
+1. Solving unsolved problems in either language (see the completion progress in the table of contents).
 2. Improving existing solutions with better performance or clarity.
 3. Adding more unit tests or refactoring to increase the test coverage %.
 4. Implementing C++ test coverage measurement using [gcov](http://gcc.gnu.org/onlinedocs/gcc/Gcov.html).
 5. Integrating automated unit test coverage % measurement and reporting for both Python and C++ via [Coveralls](Coveralls.io).
 6. Adapting and testing the build process for Windows.
+7. Adding solution descriptions in English for problems that don't have them.
 
-If you have any contributions, please make a PR to the master branch. Feel free to message me for clarification on any of
+If you have any contributions, please make a PR to the `master` branch. Feel free to message me for clarification on any of
 the above items.
 
