@@ -1,5 +1,5 @@
 """
-Chapter 02 - Problem 03 - Delete Middle Node - CTCI 6th Edition page 211
+Chapter 02 - Problem 03 - Delete Middle Node - CTCI 6th Edition page 94
 
 Problem Statement:
 Implement an algorithm to delete a node in the middle (i.e., any node but the first and last

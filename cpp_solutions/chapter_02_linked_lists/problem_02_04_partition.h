@@ -1,4 +1,7 @@
-"""
+//
+// Created by Alex Hagiopol on 10/16/17.
+//
+/*
 Chapter 02 - Problem 04 - Partition - CTCI 6th Edition page 94
 
 Problem Statement:
@@ -8,7 +11,7 @@ than or equal to x. lf x is contained within the list, the values of x only need
 the left and right partitions.
 
 Example:
-Input: 3 -> 5 -> 8 -> 5 ->10 -> 2 -> 1 [partition=5]
+Input:  3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 [partition = 5]
 Output: 3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
 
 Solution:
@@ -18,19 +21,32 @@ move it to the the head of the new list.
 
 Time complexity: O(N).
 Space complexity: O(1) (we need no additional space in addition to the O(N) space required to store the list itself).
-"""
+*/
 
-def partition(node, k):
-    tail = node
-    head = node
-    while node is not None:
-        nextNode = node.next_node
-        node.next_node = None
-        if node.value >= k:
-            tail.next_node = node
-            tail = node
-        else:
-            node.next_node = head
-            head = node
-        node = nextNode
-    return head
+#pragma once
+#include <iostream>
+
+namespace chapter_02{
+    template <typename T>
+    LinkedListNode<T>* partition(LinkedListNode<T>* head, T partition){
+        if (head == nullptr){
+            return nullptr;
+        }
+        LinkedListNode<T>* newHead = head;
+        LinkedListNode<T>* newTail = head;
+        head = head->getNext();
+        while (head != nullptr){
+            LinkedListNode<T>* temp = head;
+            head = head->getNext();
+            if (temp->getValue() < partition){ // add node in front of new head
+                temp->setNext(newHead);
+                newHead = temp;
+            } else { // add node behind new tail
+                newTail->setNext(temp);
+                newTail = temp;
+                newTail->setNext(nullptr);
+            }
+        }
+        return newHead;
+    }
+}
