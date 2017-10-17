@@ -89,41 +89,57 @@ TEST_CASE("Chapter 02 - Problem 01 - removeDups()", "test"){
 }
 
 TEST_CASE("Chapter 02 - Problem 02 - returnKthToLast()", "test"){
-    std::vector<int> vec1 = {1,7,3,6,5,4,2};
-    std::vector<int> vec2 = {2,2,1,5,6,2,5,2,7,7};
-    std::vector<int> vec3;
-    chapter_02::LinkedListNode<int>* vec1Head = chapter_02::vectorToList(vec1);
-    chapter_02::LinkedListNode<int>* vec2Head = chapter_02::vectorToList(vec2);
-    chapter_02::LinkedListNode<int>* vec3Head = chapter_02::vectorToList(vec3);
-    REQUIRE(5 == chapter_02::returnKthToLast(vec1Head, 3)->getValue());
-    REQUIRE(2 == chapter_02::returnKthToLast(vec1Head, 1)->getValue());
-    REQUIRE(1 == chapter_02::returnKthToLast(vec1Head, vec1.size())->getValue());
-    REQUIRE(2 == chapter_02::returnKthToLast(vec2Head, 3)->getValue());
-    REQUIRE(7 == chapter_02::returnKthToLast(vec2Head, 1)->getValue());
-    REQUIRE(2 == chapter_02::returnKthToLast(vec2Head, vec2.size())->getValue());
-    REQUIRE(nullptr == chapter_02::returnKthToLast(vec2Head, 0));
-    REQUIRE(nullptr == chapter_02::returnKthToLast(vec1Head, 10));
-    REQUIRE(nullptr == chapter_02::returnKthToLast(vec3Head, 10));
+    std::vector<int> testVec1 = {1,7,3,6,5,4,2};
+    std::vector<int> testVec2 = {2,2,1,5,6,2,5,2,7,7};
+    std::vector<int> testVec3;
+    chapter_02::LinkedListNode<int>* testVec1Head = chapter_02::vectorToList(testVec1);
+    chapter_02::LinkedListNode<int>* testVec2Head = chapter_02::vectorToList(testVec2);
+    chapter_02::LinkedListNode<int>* testVec3Head = chapter_02::vectorToList(testVec3);
+    REQUIRE(5 == chapter_02::returnKthToLast(testVec1Head, 3)->getValue());
+    REQUIRE(2 == chapter_02::returnKthToLast(testVec1Head, 1)->getValue());
+    REQUIRE(1 == chapter_02::returnKthToLast(testVec1Head, testVec1.size())->getValue());
+    REQUIRE(2 == chapter_02::returnKthToLast(testVec2Head, 3)->getValue());
+    REQUIRE(7 == chapter_02::returnKthToLast(testVec2Head, 1)->getValue());
+    REQUIRE(2 == chapter_02::returnKthToLast(testVec2Head, testVec2.size())->getValue());
+    REQUIRE(nullptr == chapter_02::returnKthToLast(testVec2Head, 0));
+    REQUIRE(nullptr == chapter_02::returnKthToLast(testVec1Head, 10));
+    REQUIRE(nullptr == chapter_02::returnKthToLast(testVec3Head, 10));
 }
 
 TEST_CASE("Chapter 02 - Problem 03 - deleteMiddleNode()", "test"){
     // create test dataset
-    std::vector<std::string> vec1 = {"a", "b", "c", "d", "e", "f"};
-    std::vector<std::string> vec2 = {"a", "b", "d", "e", "f"};
-    chapter_02::LinkedListNode<std::string>* vec1Head = chapter_02::vectorToList(vec1);
-    chapter_02::LinkedListNode<std::string>* vec2Head = chapter_02::vectorToList(vec2);
+    std::vector<std::string> testVec = {"a", "b", "c", "d", "e", "f"};
+    std::vector<std::string> expectedVec = {"a", "b", "d", "e", "f"};
+    chapter_02::LinkedListNode<std::string>* testVecHead = chapter_02::vectorToList(testVec);
+    chapter_02::LinkedListNode<std::string>* expectedVecHead = chapter_02::vectorToList(expectedVec);
     // traverse input to find node with content "c"
-    chapter_02::LinkedListNode<std::string>* head = vec1Head;
+    chapter_02::LinkedListNode<std::string>* head = testVecHead;
     while (head != nullptr && head->getValue() != "c"){
         head = head->getNext();
     }
     // head is not at location "c". call delete function
     chapter_02::deleteMiddleNode(head);
     // check that vec 1 and vec 2 are the same
-    while (vec1Head != nullptr && vec2Head != nullptr){
-        REQUIRE(vec1Head->getValue() == vec2Head->getValue());
-        vec1Head = vec1Head->getNext();
-        vec2Head = vec2Head->getNext();
+    while (testVecHead != nullptr && expectedVecHead != nullptr){
+        REQUIRE(testVecHead->getValue() == expectedVecHead->getValue());
+        testVecHead = testVecHead->getNext();
+        expectedVecHead = expectedVecHead->getNext();
+    }
+}
+
+TEST_CASE("Chapter 02 - Problem 04 - partition()", "test"){
+    // create test dataset
+    std::vector<int> inputVec = {3, 5, 8, 5, 10, 2, 1};
+    std::vector<int> expectedVec = {1, 2, 3, 5, 8, 5, 10};
+    chapter_02::LinkedListNode<int>* inputVecHead = chapter_02::vectorToList(inputVec);
+    chapter_02::LinkedListNode<int>* expectedVecHead = chapter_02::vectorToList(expectedVec);
+    // perform partition
+    inputVecHead = chapter_02::partition(inputVecHead, 5);
+    // check that vec 1 and vec 2 are the same
+    while (inputVecHead != nullptr && expectedVecHead != nullptr){
+        REQUIRE(inputVecHead->getValue() == expectedVecHead->getValue());
+        inputVecHead = inputVecHead->getNext();
+        expectedVecHead = expectedVecHead->getNext();
     }
 }
 
