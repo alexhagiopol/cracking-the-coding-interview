@@ -59,7 +59,7 @@ Python and C++ unit tests are in [tests.py](./tests.py) and [tests.cpp](./tests.
 organized by chapter in [python_solutions](./python_solutions) and in [cpp_solutions](./cpp_solutions) respectively.
 
 #### Build Process (Ubuntu and Mac):
-The repo contains a makefile that handles all setup for you :smile:.
+The repo contains a makefile that handles all dependency installations for you :smile:. Execute the following:
 
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
     cd cracking-the-coding-interview
