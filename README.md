@@ -53,31 +53,30 @@ Total: `55 / 145`
 
 Total: `17 / 151`
 
-### Getting Started
-#### Reading the Code:
+### Reading the Code:
 Python and C++ unit tests are in [tests.py](./tests.py) and [tests.cpp](./tests.cpp) respectively. Python and C++ solutions are
 organized by chapter in [python_solutions](./python_solutions) and in [cpp_solutions](./cpp_solutions) respectively.
 
-#### Build Process
+### Build Process
 The repo contains a makefile that handles all dependency installations for you :smile:. Execute the following depending on your OS:
 
-##### Mac:
+#### Build Process on Mac:
 Mac usage requires the package managers Homebrew and Pip which is done for you in the Makefile: 
 	
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
     cd cracking-the-coding-interview
     make configure-mac
 
-##### Ubuntu:
+#### Build Process on Ubuntu:
 
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
     cd cracking-the-coding-interview
     make configure-ubuntu
 
-##### Windows:
+#### Build Process on Windows:
 The best way to work in Windows is to install [Bash on Ubuntu on Windows](https://www.microsoft.com/en-US/store/p/ubuntu/9nblggh4msv6?rtc=1), then [enable graphical applications](https://seanthegeek.net/234/graphical-linux-applications-bash-ubuntu-windows/) to use favorite IDE, and finally follow the Ubuntu installation instructions above.
 
-#### Running Tests:
+### Running Tests:
 In the root directory, execute the following to run all tests in Python and C++:
 
     make test
