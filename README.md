@@ -75,9 +75,7 @@ Mac usage requires the package managers Homebrew and Pip which is done for you i
     make configure-ubuntu
 
 ##### Windows:
-The best way to work in Windows is to install [Bash on Ubuntu on Windows](https://www.microsoft.com/en-US/store/p/ubuntu/9nblggh4msv6?rtc=1), [enable
-graphical applications](https://seanthegeek.net/234/graphical-linux-applications-bash-ubuntu-windows/) for your favorite IDE, and follow the Ubuntu
-installation instructions above.
+The best way to work in Windows is to install [Bash on Ubuntu on Windows](https://www.microsoft.com/en-US/store/p/ubuntu/9nblggh4msv6?rtc=1), then [enable graphical applications](https://seanthegeek.net/234/graphical-linux-applications-bash-ubuntu-windows/) to use favorite IDE, and finally follow the Ubuntu installation instructions above.
 
 #### Running Tests:
 In the root directory, execute the following to run all tests in Python and C++:
