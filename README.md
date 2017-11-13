@@ -53,19 +53,30 @@ Total: `55 / 145`
 
 Total: `17 / 151`
 
-### Getting Started
-#### Reading the Code:
+### Reading the Code:
 Python and C++ unit tests are in [tests.py](./tests.py) and [tests.cpp](./tests.cpp) respectively. Python and C++ solutions are
 organized by chapter in [python_solutions](./python_solutions) and in [cpp_solutions](./cpp_solutions) respectively.
 
-#### Build Process (Ubuntu and Mac):
-The repo contains a makefile that handles all setup for you :smile:.
+### Build Process
+The repo contains a makefile that handles all dependency installations for you :smile:. Execute the following depending on your OS:
+
+#### Build Process on Mac:
+Mac usage requires the package managers Homebrew and Pip which is done for you in the Makefile: 
+	
+    git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
+    cd cracking-the-coding-interview
+    make configure-mac
+
+#### Build Process on Ubuntu:
 
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
     cd cracking-the-coding-interview
-    make configure
+    make configure-ubuntu
 
-#### Running Tests:
+#### Build Process on Windows:
+The best way to work in Windows is to install [Bash on Ubuntu on Windows](https://www.microsoft.com/en-US/store/p/ubuntu/9nblggh4msv6?rtc=1), then [enable graphical applications](https://seanthegeek.net/234/graphical-linux-applications-bash-ubuntu-windows/) to use favorite IDE, and finally follow the Ubuntu installation instructions above.
+
+### Running Tests:
 In the root directory, execute the following to run all tests in Python and C++:
 
     make test
@@ -88,8 +99,7 @@ Just writing the test for a problem is often harder than solving the problem its
 3. Adding more unit tests or refactoring to increase the test coverage %.
 4. Implementing C++ test coverage measurement using [gcov](http://gcc.gnu.org/onlinedocs/gcc/Gcov.html).
 5. Integrating automated unit test coverage % measurement and reporting for both Python and C++ via [Coveralls](Coveralls.io).
-6. Adapting and testing the build process for Windows.
-7. Adding solution descriptions in English for problems that don't have them.
+6. Adding solution descriptions in English for problems that don't have them.
 
 If you have any contributions, please make a PR to the `master` branch. Feel free to message me for clarification on any of
 the above items.
