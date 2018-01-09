@@ -1,8 +1,13 @@
 ## Cracking The Coding Interview Solutions with Automated Unit Tests
 
+ * :white_check_mark: C++ Solutions 
+ * :white_check_mark: Python Solutions
+ * :white_check_mark: Automated Unit Tests
+ * :white_check_mark: Active Development
+ * :white_check_mark: Multiplatform Support: Mac, Linux, and Windows
+ 
 ### Introduction
-This repo contains Python and C++ solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). 
-Admittedly, there are lots of other GitHub repos with solutions for this book. But when you're studying and are deeply confused,
+This repo contains Python and C++ solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). Admittedly, there are lots of other GitHub repos with solutions for this book. But when you're studying and are deeply confused,
 how do you know that their code *actually works*? If it's untested, then you don't! That's why the philosophy of this repo is
 that every solution must have one or more tests using the [Python unittest framework](https://docs.python.org/3.6/library/unittest.html)
 or the [C++ Catch framework](https://github.com/philsquared/Catch). We enforce
