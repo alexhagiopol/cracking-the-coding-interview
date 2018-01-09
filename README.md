@@ -73,19 +73,54 @@ Mac usage requires the package managers Homebrew and Pip which is done for you i
     cd cracking-the-coding-interview
     make configure-ubuntu
 
-#### Build Process on Windows:
-The best way to work in Windows is to install [Bash on Ubuntu on Windows](https://www.microsoft.com/en-US/store/p/ubuntu/9nblggh4msv6?rtc=1), then [enable graphical applications](https://seanthegeek.net/234/graphical-linux-applications-bash-ubuntu-windows/) to use favorite IDE, and finally follow the Ubuntu installation instructions above.
+#### Build Process on Windows (working, but experimental):
+The project can be developed on Windows using Visual Studio 2017. First get the code:
 
-### Running Tests:
+	git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
+	cd cracking-the-coding-interview
+	git submodule update --init
+
+Then, install Python3 and numpy using your method of choice. I prefer installing Python3 and pip3 from 
+the [official website](https://www.python.org/downloads/) then installing numpy via pip:
+
+	pip install numpy
+
+Then, open the project in Visual Studio 2017 which has CMake support.
+I've found that best the workflow is to use Visual Studio to edit code and use debugging functionality. Before
+building the code, you must follow [these instructions](https://stackoverflow.com/a/12954908)
+to tell Visual Studio to download PDBs it needs. Additionally, [this article](https://blogs.msdn.microsoft.com/vcblog/2016/10/05/cmake-support-in-visual-studio/)
+describes Visual Studio CMake support in more detail if you're interested. A CMakeSettings.json file in the root project
+directory sets the location of the Visual Studio build folder to be inside the root folder of the project.
+
+### Running Tests (Ubuntu & Mac):
 In the root directory, execute the following to run all tests in Python and C++:
 
     make test
+
+### Running Tests (Windows experimental):
+Running the tests and seeing their output is best done from a PowerShell window since VisualStudio in CMake mode
+does *not* allow the console output of the `tests.exe` and `tests.py` files to remain visible even when pressing 
+CTRL + F5 as described [in this post](https://stackoverflow.com/a/1775870) which applies to 
+"normal" Visual Studio use. I am monitoring the situation re: Visual Studio, and when I find better solutions
+I will implement them or post them. If you know of something better, please contact me.
+
+In the meantime, from the project root directory, you can run the Python tests using ...
+
+	python tests.py
+
+... and you can run the C++ tests using ...
+
+	.\build\x64-Debug\tests.exe
 
 #### Optional: Generating a Test Coverage % Report Locally (Python support only):
 This will show exactly which lines are not covered by tests in each Python source file:
 
     pip install coverage
     make test_coverage
+
+
+
+
 
 ### Contributing
 The goal of this project is to write a tested Python and C++ solution for every problem in the 6th edition of the textbook.
