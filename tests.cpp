@@ -12,6 +12,7 @@
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
 #include <vector>
 #include <Eigen/Dense>
+#include <iostream>
 
 TEST_CASE("Chapter 01 - Problem 01 - isUnique()", "test"){
     REQUIRE(chapter_01::isUnique("alex"));
