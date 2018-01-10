@@ -7,7 +7,7 @@ has sufficient space at the end to hold the additional characters, and that you 
 "true" length of the string.
 
 Example:
-'Mr. John Smith' -> 'Mr.%20John%20Smith'
+'Mr. John Smith' -> 'Mr.%20John%20Smith%20'
 
 Solution:
 Because strings are immutable in Python, in this problem we will represent strings as lists of single
