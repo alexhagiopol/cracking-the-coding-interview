@@ -33,18 +33,18 @@ Space complexity: O(1) because bit vector does not scale with string length.
 #include "problem_01_02_isPermutation.h"
 #include <bitset>
 
-namespace chapter_01{
-    bool isPermutation(const std::string& s1, const std::string& s2){
-        if (s1.size() != s2.size()){
-            return false;
-        }
-        std::bitset<128> asciiTable;
-        for (char letter : s1){
-            asciiTable.flip((int) letter);
-        }
-        for (char letter : s2){
-            asciiTable.flip((int) letter);
-        }
-        return asciiTable.none();
-    };
-}
+
+bool chapter_01::isPermutation(const std::string& s1, const std::string& s2){
+    if (s1.size() != s2.size()){
+        return false;
+    }
+    std::bitset<128> asciiTable;
+    for (char letter : s1){
+        asciiTable.flip((int) letter);
+    }
+    for (char letter : s2){
+        asciiTable.flip((int) letter);
+    }
+    return asciiTable.none();
+};
+

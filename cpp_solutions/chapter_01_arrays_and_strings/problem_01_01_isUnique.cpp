@@ -33,15 +33,15 @@ to check for uniqueness. If we are allowed to modify the original string, we
 #include <iostream>
 #include <bitset>
 
-namespace chapter_01 {
-    bool isUnique(const std::string& input) {
-        std::bitset<128> asciiTable;
-        for (char character : input) {
-            if (asciiTable[(int) character]) {  // if character already exists in "hash table"
-                return false;
-            }
-            asciiTable.flip((int) character);
+
+bool chapter_01::isUnique(const std::string& input) {
+    std::bitset<128> asciiTable;
+    for (char character : input) {
+        if (asciiTable[(int) character]) {  // if character already exists in "hash table"
+            return false;
         }
-        return true;
+        asciiTable.flip((int) character);
     }
+    return true;
 }
+

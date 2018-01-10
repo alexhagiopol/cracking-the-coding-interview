@@ -38,7 +38,7 @@ solutions with confidence!
 Total: `55 / 145`
 
 #### C++ Solutions:
-1. Chapter 1 - Arrays and Strings: `3 / 9`  complete.
+1. Chapter 1 - Arrays and Strings: `4 / 9`  complete.
 2. Chapter 2 - Linked Lists: `4 / 8` complete.
 3. Chapter 3 - Stacks and Queues: `0 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
@@ -56,7 +56,7 @@ Total: `55 / 145`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `17 / 151`
+Total: `18 / 151`
 
 ### Reading the Code:
 Python and C++ unit tests are in [tests.py](./tests.py) and [tests.cpp](./tests.cpp) respectively. Python and C++ solutions are
@@ -123,10 +123,6 @@ This will show exactly which lines are not covered by tests in each Python sourc
     pip install coverage
     make test_coverage
 
-
-
-
-
 ### Contributing
 The goal of this project is to write a tested Python and C++ solution for every problem in the 6th edition of the textbook.
 I definitely need help! PRs are of course very welcome. The work has become quite time consuming because each solution is *living*
@@ -143,4 +139,3 @@ Just writing the test for a problem is often harder than solving the problem its
 
 If you have any contributions, please make a PR to the `master` branch. Feel free to message me for clarification on any of
 the above items.
-
