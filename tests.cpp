@@ -28,6 +28,26 @@ TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
     REQUIRE(!chapter_01::isPermutation("alexxx", "xxxxxx"));
 }
 
+TEST_CASE("Chapter 01 - Problem 03 - URLify()", "test") {
+	// expect 'Mr. John Smith' -> 'Mr.%20John%20Smith'
+	std::string input1 = "Mr. John Smith ";
+	std::string output1 = "Mr.%20John%20Smith%20";
+	chapter_01::URLify(input1);
+	REQUIRE(input1 == output1);
+	std::string input2 = "";
+	std::string output2 = "";
+	chapter_01::URLify(input2);
+	REQUIRE(input2 == output2);
+	std::string input3 = " ";
+	std::string output3 = "%20";
+	chapter_01::URLify(input3);
+	REQUIRE(input3 == output3);
+	std::string input4 = "Alex";
+	std::string output4 = "Alex";
+	chapter_01::URLify(input4);
+	REQUIRE(input4 == output4);
+}
+
 TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
     Eigen::MatrixXi input4x4(4,4);
     input4x4 << 1, 2, 3, 4,
