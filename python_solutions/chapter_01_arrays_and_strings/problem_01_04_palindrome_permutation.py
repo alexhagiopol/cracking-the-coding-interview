@@ -26,13 +26,13 @@ Space complexity: O(1) because the bit vector size does not depend on N.
 """
 
 
-def palindrome_permuation(string):
+def palindrome_permutation(string):
     if string is None:
         return True
     bit_vector = 128*[False]  # create bit vector whose indices correspond to ASCII values
     num_valid_chars = 0  # count the number of non-space characters
     for char in string:  # traverse string one char at a time
-        if char != ' ':  # if char is a non-space ...
+        if 0 <= ord(char) <= 127 and char != ' ':  # if char is a non-space ...
             num_valid_chars += 1
             bit_vector[ord(char)] = not bit_vector[ord(char)]  # flip the bit corresponding to the character
     if num_valid_chars % 2 == 0:  # even length. expect all chars to have even value i.e. False

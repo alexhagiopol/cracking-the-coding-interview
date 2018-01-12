@@ -48,6 +48,14 @@ TEST_CASE("Chapter 01 - Problem 03 - URLify()", "test") {
 	REQUIRE(input4 == output4);
 }
 
+TEST_CASE("Chapter 01 - Problem 04 - palindromePermutation()", "test") {
+	REQUIRE(chapter_01::palindromePermutation("tact coa"));
+	REQUIRE(!chapter_01::palindromePermutation("Tact Coa"));
+	REQUIRE(!chapter_01::palindromePermutation("xyz"));
+	REQUIRE(chapter_01::palindromePermutation("AA  B AA"));
+	REQUIRE(!chapter_01::palindromePermutation("aA  B AA"));
+}
+
 TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
     Eigen::MatrixXi input4x4(4,4);
     input4x4 << 1, 2, 3, 4,
