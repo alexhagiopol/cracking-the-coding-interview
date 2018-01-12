@@ -106,7 +106,8 @@ class Tests(unittest.TestCase):
         self.assertTrue(p_1_4.palindrome_permutation('tact coa'))  # calitalization matters
         self.assertFalse(p_1_4.palindrome_permutation('Tact Coa'))  # capitalization matters
         self.assertFalse(p_1_4.palindrome_permutation('xyz'))
-        self.assertTrue(p_1_4.palindrome_permutation('AABAA'))
+        self.assertTrue(p_1_4.palindrome_permutation('AA  B AA'))
+        self.assertFalse(p_1_4.palindrome_permutation('aA  B AA'))
 
     def test_problem_1_5(self):
         self.assertTrue(p_1_5.one_away('pale', 'ple'))
