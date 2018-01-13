@@ -62,23 +62,21 @@ Total: `19 / 151`
 Python and C++ unit tests are in [tests.py](./tests.py) and [tests.cpp](./tests.cpp) respectively. Python and C++ solutions are
 organized by chapter in [python_solutions](./python_solutions) and in [cpp_solutions](./cpp_solutions) respectively.
 
-### Build Process
-The repo contains a makefile that handles all dependency installations for you :smile:. Execute the following depending on your OS:
-
-#### Build Process on Mac:
+### Build Process 
+#### Mac:
 Mac usage requires the package managers Homebrew and Pip which is done for you in the Makefile: 
 	
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
     cd cracking-the-coding-interview
     make configure-mac
 
-#### Build Process on Ubuntu:
+#### Ubuntu:
 
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
     cd cracking-the-coding-interview
     make configure-ubuntu
 
-#### Build Process on Windows (working, but experimental):
+#### Windows:
 The project can be developed on Windows using Visual Studio 2017. First get the code:
 
 	git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
@@ -97,12 +95,13 @@ to tell Visual Studio to download PDBs it needs. Additionally, [this article](ht
 describes Visual Studio CMake support in more detail if you're interested. A CMakeSettings.json file in the root project
 directory sets the location of the Visual Studio build folder to be inside the root folder of the project.
 
-### Running Tests (Ubuntu & Mac):
+### Running Tests:
+#### Mac & Ubuntu:
 In the root directory, execute the following to run all tests in Python and C++:
 
     make test
 
-### Running Tests (Windows experimental):
+#### Windows:
 Running the tests and seeing their output is best done from a PowerShell window since VisualStudio in CMake mode
 does *not* allow the console output of the `tests.exe` and `tests.py` files to remain visible even when pressing 
 CTRL + F5 as described [in this post](https://stackoverflow.com/a/1775870) which applies to 
@@ -117,7 +116,7 @@ In the meantime, from the project root directory, you can run the Python tests u
 
 	.\build\x64-Debug\tests.exe
 
-#### Optional: Generating a Test Coverage % Report Locally (Python support only):
+### Optional: Generating a Test Coverage % Report Locally (Python support only):
 This will show exactly which lines are not covered by tests in each Python source file:
 
     pip install coverage
