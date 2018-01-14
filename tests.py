@@ -115,6 +115,8 @@ class Tests(unittest.TestCase):
         self.assertTrue(p_1_5.one_away('pale', 'bale'))
         self.assertFalse(p_1_5.one_away('pale', 'bae'))
         self.assertFalse(p_1_5.one_away('alex', 'al'))
+        self.assertTrue(p_1_5.one_away('apple', 'aple'))
+        self.assertTrue(p_1_5.one_away('bale', 'pale'))
 
     def test_problem_1_6(self):
         self.assertEqual('a2b1c5a3', p_1_6.string_compression('aabcccccaaa'))
