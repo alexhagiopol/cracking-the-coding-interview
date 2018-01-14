@@ -29,6 +29,7 @@ Space complexity: O(1)
 
 
 def search_insertion(s1, s2):
+    assert(abs(len(s1) - len(s2)) == 1)
     i1 = i2 = 0  # initialize search indices
     difference_found = False
     while i1 < len(s1) and i2 < len(s2):
@@ -47,6 +48,7 @@ def search_insertion(s1, s2):
 
 
 def search_replacement(s1, s2):
+    assert(len(s1) == len(s2))
     i = 0
     difference_found = False
     while i < len(s1):
