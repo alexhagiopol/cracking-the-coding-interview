@@ -1,4 +1,8 @@
-"""
+//
+// Created by Alex Hagiopol on 1/13/18.
+//
+
+/*
 Chapter 01 - Problem 09 - String Rotation - CTCI 6th Edition page 91
 
 Problem Statement:
@@ -17,11 +21,11 @@ every possible rotation of s1. For example "waterbottlewaterbottle" contains
 
 Time complexity: O(N) where N is the length of the concatenated string. Substring checking can be done in linear time.
 Space complexity: O(N) because we have to allocate enough space to double the length of s1.
-"""
+*/
 
-def is_substring(s1, s2):
-    return s1 in s2
+#include "problem_01_09_stringRotation.h"
 
-
-def string_rotation(s1, s2):
-    return is_substring(s2, s1 + s1)
+bool chapter_01::stringRotation(const std::string &s1, const std::string& s2) {
+    const std::string s3 = s1 + s1;
+    return s3.find(s2) != std::string::npos;  // find() is an equivalent of isSubstring() as defined above. See http://www.cplusplus.com/reference/string/string/find/
+}

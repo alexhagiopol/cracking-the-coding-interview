@@ -56,6 +56,19 @@ TEST_CASE("Chapter 01 - Problem 04 - palindromePermutation()", "test") {
 	REQUIRE(!chapter_01::palindromePermutation("aA  B AA"));
 }
 
+TEST_CASE("Chapter 01 - Problem 05 - oneAway()", "test"){
+    REQUIRE(chapter_01::oneAway("pale", "ple"));
+    REQUIRE(chapter_01::oneAway("pale", "pale"));
+    REQUIRE(chapter_01::oneAway("pale", "bale"));
+    REQUIRE(!chapter_01::oneAway("pale", "bae"));
+    REQUIRE(!chapter_01::oneAway("alex", "al"));
+    REQUIRE(!chapter_01::oneAway("alex", "all"));
+    REQUIRE(!chapter_01::oneAway("alex", "alll"));
+    REQUIRE(chapter_01::oneAway("apple", "aple"));
+    REQUIRE(chapter_01::oneAway("bale", "pale"));
+    REQUIRE(chapter_01::oneAway("", ""));
+}
+
 TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
     Eigen::MatrixXi input4x4(4,4);
     input4x4 << 1, 2, 3, 4,
@@ -87,6 +100,12 @@ TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
     chapter_01::rotate(input5x5);
     REQUIRE(input4x4.isApprox(output4x4));
     REQUIRE(input5x5.isApprox(output5x5));
+}
+
+TEST_CASE("Chapter 01 - Problem 09 - stringRotation()", "test"){
+    REQUIRE(chapter_01::stringRotation("waterbottle", "erbottlewat"));
+    REQUIRE(!chapter_01::stringRotation("waterbottle", "erbottlewatx"));
+    REQUIRE(chapter_01::stringRotation("", ""));
 }
 
 TEST_CASE("Chapter 02 - Basic LinkedList Functionality", "test"){

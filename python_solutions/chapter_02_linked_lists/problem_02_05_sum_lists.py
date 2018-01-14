@@ -1,3 +1,26 @@
+"""
+Chapter 02 - Problem 05 - Sum Lists - CTCI 6th Edition page 95
+
+Problem Statement:
+You have two numbers represented by a linked list, where each node contains a single digit.
+The digits are stored in reverse order, such that the 1's digit is at the head of the list. Write a function
+that adds the two numbers and returns the sum as a linked list.
+
+Example:
+Input: (7 -> 1 -> 6) + (5 -> 9 -> 2). That is, 617 + 295.
+Output: (2 -> 1 -> 9). That is, 912.
+
+Solution:
+Traverse both linked lists to determine their lengths. Pad the shorter list with zeros so its length
+equals that of the longer list. Create an empty linked list. Traverse both input linked lists simultaneously,
+and sum each corresponding node. Add the sum a a node in the new linked list. If a sum is >= 10, carry
+remainder over to next node. Return head of new linked list.
+
+Time complexity: O(N)
+
+Space complexity: O(N) (you need to allocate one node for each node you are passed)
+"""
+
 from . import LinkedList as ll
 
 

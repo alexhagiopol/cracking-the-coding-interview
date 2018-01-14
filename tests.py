@@ -115,6 +115,11 @@ class Tests(unittest.TestCase):
         self.assertTrue(p_1_5.one_away('pale', 'bale'))
         self.assertFalse(p_1_5.one_away('pale', 'bae'))
         self.assertFalse(p_1_5.one_away('alex', 'al'))
+        self.assertFalse(p_1_5.one_away('alex', 'all'))
+        self.assertFalse(p_1_5.one_away('alex', 'alll'))
+        self.assertTrue(p_1_5.one_away('apple', 'aple'))
+        self.assertTrue(p_1_5.one_away('bale', 'pale'))
+        self.assertTrue(p_1_5.one_away('', ''))
 
     def test_problem_1_6(self):
         self.assertEqual('a2b1c5a3', p_1_6.string_compression('aabcccccaaa'))
@@ -172,6 +177,7 @@ class Tests(unittest.TestCase):
     def test_problem_1_9(self):
         self.assertTrue(p_1_9.string_rotation('waterbottle', 'erbottlewat'))
         self.assertFalse(p_1_9.string_rotation('waterbottlex', 'erbottlewat'))
+        self.assertTrue(p_1_9.string_rotation('', ''))
 
     def test_problem_2_1(self):
         n0 = ll.Node(9, None)
