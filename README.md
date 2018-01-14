@@ -39,7 +39,7 @@ solutions with confidence.
 Total: `55 / 145`
 
 #### C++ Solutions:
-1. Chapter 1 - Arrays and Strings: `6 / 9`  complete.
+1. Chapter 1 - Arrays and Strings: `7 / 9`  complete.
 2. Chapter 2 - Linked Lists: `4 / 8` complete.
 3. Chapter 3 - Stacks and Queues: `0 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
@@ -57,7 +57,7 @@ Total: `55 / 145`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `20 / 151`
+Total: `21 / 151`
 
 ### Reading the Code:
 Python and C++ unit tests are in [tests.py](./tests.py) and [tests.cpp](./tests.cpp) respectively. Python and C++ solutions are

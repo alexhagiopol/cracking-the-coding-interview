@@ -9,3 +9,4 @@
 #include "problem_01_04_palindromePermutation.h"
 #include "problem_01_05_oneAway.h"
 #include "problem_01_07_rotate.h"
+#include "problem_01_09_stringRotation.h"

@@ -102,6 +102,12 @@ TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
     REQUIRE(input5x5.isApprox(output5x5));
 }
 
+TEST_CASE("Chapter 01 - Problem 09 - stringRotation()", "test"){
+    REQUIRE(chapter_01::stringRotation("waterbottle", "erbottlewat"));
+    REQUIRE(!chapter_01::stringRotation("waterbottle", "erbottlewatx"));
+    REQUIRE(chapter_01::stringRotation("", ""));
+}
+
 TEST_CASE("Chapter 02 - Basic LinkedList Functionality", "test"){
     std::vector<int> testVector = {1,2,3,4,5,6,7};
     REQUIRE(testVector == chapter_02::listToVector(chapter_02::vectorToList(testVector)));
