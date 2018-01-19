@@ -4,3 +4,5 @@
 .coverage
 build
 cmake-build-debug
+CppProperties.json
+.vs
