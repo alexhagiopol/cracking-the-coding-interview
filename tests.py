@@ -123,8 +123,9 @@ class Tests(unittest.TestCase):
 
     def test_problem_1_6(self):
         self.assertEqual('a2b1c5a3', p_1_6.string_compression('aabcccccaaa'))
-        self.assertEqual('alex', p_1_6.string_compression(
-            'alex'))  # strings that don't benefit from compression don't get compressed
+        self.assertEqual('alex', p_1_6.string_compression('alex'))  # strings that don't benefit from compression don't get compressed
+        self.assertEqual('', p_1_6.string_compression(''))
+        self.assertEqual('a10', p_1_6.string_compression('aaaaaaaaaa'))
 
     def test_problem_1_7(self):
         import numpy as np

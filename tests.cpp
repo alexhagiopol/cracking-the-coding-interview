@@ -69,6 +69,19 @@ TEST_CASE("Chapter 01 - Problem 05 - oneAway()", "test"){
     REQUIRE(chapter_01::oneAway("", ""));
 }
 
+TEST_CASE("Chapter 01 - Problem 06 - stringCompression()", "test"){
+    /*
+     self.assertEqual('a2b1c5a3', p_1_6.string_compression('aabcccccaaa'))
+     self.assertEqual('alex', p_1_6.string_compression('alex'))  # strings that don't benefit from compression don't get compressed
+     self.assertEqual('', p_1_6.string_compression(''))
+     self.assertEqual('a10', p_1_6.string_compression('aaaaaaaaaa'))
+     */
+    REQUIRE("a2b1c5a3" == chapter_01::stringCompression("aabcccccaaa"));
+    REQUIRE("alex" == chapter_01::stringCompression("alex"));
+    REQUIRE("" == chapter_01::stringCompression(""));
+    REQUIRE("a10" == chapter_01::stringCompression("aaaaaaaaaa"));
+}
+
 TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
     Eigen::MatrixXi input4x4(4,4);
     input4x4 << 1, 2, 3, 4,

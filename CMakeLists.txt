@@ -14,6 +14,7 @@ set(SOURCE_FILES
         cpp_solutions/chapter_01_arrays_and_strings/problem_01_03_URLify.cpp
 		cpp_solutions/chapter_01_arrays_and_strings/problem_01_04_palindromePermutation.cpp
 		cpp_solutions/chapter_01_arrays_and_strings/problem_01_05_oneAway.cpp
+		cpp_solutions/chapter_01_arrays_and_strings/problem_01_06_stringCompression.cpp
         cpp_solutions/chapter_01_arrays_and_strings/problem_01_07_rotate.cpp
 		cpp_solutions/chapter_01_arrays_and_strings/problem_01_09_stringRotation.cpp
         # chapter 2 .cpp files not included because they are template functions implemented in .h files

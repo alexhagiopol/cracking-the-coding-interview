@@ -32,11 +32,13 @@ def compute_compressed_length(string):
     if len(string) == 1:
         return 2
     compressed_length = 2
+    num_dupes = 1
     for i in range(1, len(string)):
         if string[i] == string[i - 1]:
-            compressed_length += 0
+            num_dupes += 1
         else:
-            compressed_length += 2
+            compressed_length += (1 + len(str(num_dupes)))  # increase length by 1 letter + number of digits in num_dupes
+            num_dupes = 1
     return compressed_length
 
 
