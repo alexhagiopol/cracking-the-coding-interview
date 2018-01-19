@@ -33,7 +33,7 @@ int computeCompressedLength(const std::string& s){
     } else if (s.size() == 1) {
         return 2;
     }
-    int compressedLength = 2;
+    int compressedLength = 1;
     int numDupes = 1;
     for (int i = 1; i < s.size(); i++){
         if (s[i] == s[i-1]){
@@ -43,10 +43,9 @@ int computeCompressedLength(const std::string& s){
             numDupes = 1;  // reset number of duplicates
         }
     }
-    compressedLength += std::to_string(numDupes).size();
     return compressedLength;
 }
-
+#include <iostream>
 std::string chapter_01::stringCompression(const std::string& s){
     int compressedLength = computeCompressedLength(s);
     if (s.size() <= compressedLength){
@@ -60,11 +59,13 @@ std::string chapter_01::stringCompression(const std::string& s){
         if (s[i] == s[i-1]){
             numDupes ++;
         } else {
-            compressed.insert(j, std::to_string(std::to_string(numDupes).size()) + s[i]);
+			std::string encoding(std::to_string(numDupes) + s[i]);  // create compressed version of repeated chars
+            compressed.replace(j, encoding.size(), encoding);
             numDupes = 1;
-            j += (1 + std::to_string(numDupes).size());
+            j += (encoding.size());  // increase write position
         }
     }
-    compressed.insert(j, std::to_string(std::to_string(numDupes).size()));
+	std::string encoding(std::to_string(numDupes));
+    compressed.replace(j, encoding.size(), encoding);
     return compressed;
 }
