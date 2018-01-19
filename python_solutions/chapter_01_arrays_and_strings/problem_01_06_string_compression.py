@@ -31,7 +31,7 @@ def compute_compressed_length(string):
         return 0
     if len(string) == 1:
         return 2
-    compressed_length = 2
+    compressed_length = 1
     num_dupes = 1
     for i in range(1, len(string)):
         if string[i] == string[i - 1]:
