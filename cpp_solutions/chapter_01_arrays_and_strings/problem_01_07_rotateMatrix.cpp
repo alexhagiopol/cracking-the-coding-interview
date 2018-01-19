@@ -22,7 +22,7 @@ Time complexity: O(N^2). One operation per pixel in the image.
 Space complexity: O(1). We only need to allocate enough space for one matrix cell.
 */
 
-#include "problem_01_07_rotate.h"
+#include "problem_01_07_rotateMatrix.h"
 
 
 void chapter_01::rotate(Eigen::MatrixXi& matrix){
