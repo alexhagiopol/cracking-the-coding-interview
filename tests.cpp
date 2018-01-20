@@ -76,7 +76,7 @@ TEST_CASE("Chapter 01 - Problem 06 - stringCompression()", "test"){
     REQUIRE("a10" == chapter_01::stringCompression("aaaaaaaaaa"));
 }
 
-TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
+TEST_CASE("Chapter 01 - Problem 07 - rotateMatrix()", "test"){
     Eigen::MatrixXi input4x4(4,4);
     input4x4 << 1, 2, 3, 4,
                 1, 2, 3, 4,
@@ -105,6 +105,36 @@ TEST_CASE("Chapter 01 - Problem 07 - rotate()", "test"){
 
     chapter_01::rotate(input4x4);
     chapter_01::rotate(input5x5);
+    REQUIRE(input4x4.isApprox(output4x4));
+    REQUIRE(input5x5.isApprox(output5x5));
+}
+
+TEST_CASE("Chapter 01 - Problem 08 - setZero()", "test"){
+    // assume rotations are clockwise
+    Eigen::MatrixXi input4x4(4,4);
+    input4x4 << 1, 2, 3, 4,
+                1, 2, 0, 4,
+                1, 2, 3, 4,
+                0, 2, 3, 4;
+    Eigen::MatrixXi input5x5(5,5);
+    input5x5 << 0, 2, 3, 4, 5,
+                1, 2, 0, 4, 5,
+                1, 2, 3, 4, 5,
+                1, 2, 3, 4, 0,
+                1, 2, 3, 4, 5;
+    Eigen::MatrixXi output4x4(4,4);
+    output4x4 << 0, 2, 0, 4,
+                 0, 0, 0, 0,
+                 0, 2, 0, 4,
+                 0, 0, 0, 0;
+    Eigen::MatrixXi output5x5(5,5);
+    output5x5 << 0, 0, 0, 0, 0,
+                 0, 0, 0, 0, 0,
+                 0, 2, 0, 4, 0,
+                 0, 0, 0, 0, 0,
+                 0, 2, 0, 4, 0;
+    chapter_01::setZero(input4x4);
+    chapter_01::setZero(input5x5);
     REQUIRE(input4x4.isApprox(output4x4));
     REQUIRE(input5x5.isApprox(output5x5));
 }
