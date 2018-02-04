@@ -247,7 +247,7 @@ class Tests(unittest.TestCase):
     def test_problem_2_5(self):
         """
         List1: 3 -> 2 -> 4 -> 9 -> NONE
-        List2: 1 -> 5 -> 9 -> NONE
+        List2: -> NONE
 
          9423
         + 951
@@ -296,9 +296,23 @@ class Tests(unittest.TestCase):
         node3_1 = ll.Node(1, node3_2)
         node3_0 = ll.Node(0, node3_1)
 
+        # list 4
+        node4_3 = ll.Node("a", None)
+        node4_2 = ll.Node("l", node4_3)
+        node4_1 = ll.Node("e", node4_2)
+        node4_0 = ll.Node("x", node4_1)
+
+        # list 5
+        node5_3 = ll.Node("A", None)
+        node5_2 = ll.Node("B", node5_3)
+        node5_1 = ll.Node("B", node5_2)
+        node5_0 = ll.Node("A", node5_1)
+
         self.assertTrue(p_2_6.palindrome(node1_0))
         self.assertTrue(p_2_6.palindrome(node2_0))
         self.assertFalse(p_2_6.palindrome(node3_0))
+        self.assertFalse(p_2_6.palindrome(node4_0))
+        self.assertTrue(p_2_6.palindrome(node5_0))
 
     def test_problem_2_7(self):
         # list 1
