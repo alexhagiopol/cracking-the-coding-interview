@@ -11,57 +11,50 @@ Input: (7 -> 1 -> 6) + (5 -> 9 -> 2). That is, 617 + 295.
 Output: (2 -> 1 -> 9). That is, 912.
 
 Solution:
-Traverse both linked lists to determine their lengths. Pad the shorter list with zeros so its length
-equals that of the longer list. Create an empty linked list. Traverse both input linked lists simultaneously,
-and sum each corresponding node. Add the sum a a node in the new linked list. If a sum is >= 10, carry
-remainder over to next node. Return head of new linked list.
+Create a node representing the head of a new linked list. Traverse the input linked lists one node at a time until
+both pointers are None. Append a new node to the output linked list for every sum computed between pairs of nodes.
+Add two input nodes and store the sum in the output node. If the sum is > 9, store the carry value in a variable.
+If one pointer is nullptr but the other isn't, copy the value of the non-null pointer into the new list.
+Add the sum to a node in the new linked list. If a sum is >= 10, carry remainder over to next node. Return
+head of new linked list.
 
 Time complexity: O(N)
-
-Space complexity: O(N) (you need to allocate one node for each node you are passed)
+Space complexity: O(N)
 """
 
 from . import LinkedList as ll
 
-
-def pad_zeros(head, num_zeros):
-    if head is None:
-        return None
-    node = head
-    while node.next_node is not None:
-        node = node.next_node
-
-    for i in range(num_zeros):
-        node.next_node = ll.Node(0, None)
-        node = node.next_node
-
-
 def sum_lists(node1, node2):
-    if not node1 or not node2:
-        return None
-
-    l1 = ll.list_length(node1)
-    l2 = ll.list_length(node2)
-    if l1 > l2:
-        pad_zeros(node2, l1 - l2)
-    elif l2 > l1:
-        pad_zeros(node1, l2 - l1)
-
-    current1 = node1
-    current2 = node2
-    head = ll.Node(0, None)
-    tail = head
-    while current1 is not None:
-        sum = current1.value + current2.value + tail.value
-        if sum > 9:
-            tail.value = sum - 10
-            tail.next_node = ll.Node(1, None)
-        else:  # sum <= 9
-            tail.value = sum
-            tail.next_node = ll.Node(0, None)
-        tail = tail.next_node
-        current1 = current1.next_node
-        current2 = current2.next_node
+    carry = 0
+    head = None
+    runner = None
+    while node1 is not None or node2 is not None:  # continue traversing so long as one pointer is not null
+        if head is None:  # create head of output linked list
+            head = ll.Node(0, None)
+            runner = head
+        else:  # add new node to existing list
+            temp = ll.Node(0, None)
+            runner.next_node = temp
+            runner = runner.next_node
+        sum = 0
+        if node1 is None:  # if head1 is null, use only head2 to compute sum
+            assert(node2.value < 10)
+            sum = node2.value + carry
+            node2 = node2.next_node
+        elif node2 is None:  # if head2 is null use only head1 to compute sum
+            assert(node1.value < 10)
+            sum = node1.value + carry
+            node1 = node1.next_node
+        else:
+            assert(node1.value < 10 and node2.value < 10)
+            sum = node1.value + node2.value + carry
+            node1 = node1.next_node
+            node2 = node2.next_node
+        carry = 0
+        if sum > 9:  # if sum is too large for 1 digit, carry over to next digit
+            carry = sum // 10
+            sum = sum - 10
+        runner.value = sum
+    if carry > 0:
+        runner.next_node = ll.Node(carry, None)
     return head
-
-
