@@ -227,6 +227,18 @@ TEST_CASE("Chapter 02 - Problem 04 - partition()", "test"){
     }
 }
 
+TEST_CASE("Chapter 02 - Problem 05 - sumLists()", "test"){
+    // create test dataset
+    // 9423 + 951 = 10374
+    std::vector<uint8_t> n1Vec = {3, 2, 4, 9};
+    std::vector<uint8_t> n2Vec = {1, 5, 9};
+    std::vector<uint8_t> sumVecExpected = {4, 7, 3, 0, 1};
+    chapter_02::LinkedListNode<uint8_t>* n1Head = chapter_02::vectorToList(n1Vec);
+    chapter_02::LinkedListNode<uint8_t>* n2Head = chapter_02::vectorToList(n2Vec);
+    std::vector<uint8_t> sumVecActual = chapter_02::listToVector(chapter_02::sumLists(n1Head, n2Head));
+    REQUIRE(sumVecExpected == sumVecActual);
+};
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
