@@ -8,3 +8,4 @@
 #include "problem_02_03_deleteMiddleNode.h"
 #include "problem_02_04_partition.h"
 #include "problem_02_05_sumLists.h"
+#include "problem_02_06_palindrome.h"
