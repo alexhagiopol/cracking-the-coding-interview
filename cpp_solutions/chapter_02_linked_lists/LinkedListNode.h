@@ -17,8 +17,8 @@ namespace chapter_02{
         ~LinkedListNode(){   // destructor
             _next = nullptr;
         }
-        T getValue(){return _value;}
-        LinkedListNode* getNext() {return _next;}
+        T getValue() const {return _value;}
+        LinkedListNode* getNext() const {return _next;}
         void setValue(const T& value) {_value = value;}
         void setNext(LinkedListNode* next) {_next = next;}
     };

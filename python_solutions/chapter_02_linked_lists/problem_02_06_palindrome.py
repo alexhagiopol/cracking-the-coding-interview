@@ -1,3 +1,23 @@
+"""
+Chapter 02 - Problem 06 - Palindrome - CTCI 6th Edition page 95
+
+Problem Statement:
+Implement a function to check if a linked list is a palindrome.
+
+Example:
+Input: (7 -> 1 -> 6) + (5 -> 9 -> 2). That is, 617 + 295.
+Output: (2 -> 1 -> 9). That is, 912.
+
+Solution:
+
+A palindrome is a list that is the same forwards as it is backwards. We traverse the input list
+once and count its length. We then use this count to create a new list that is the reverse of the first
+half of the input list. This is done by traversing the first half of the input list a second time.
+We then compare the reversed list with the second half of the input list.
+
+Time complexity: O(N)
+Space complexity: O(N)
+"""
 from . import LinkedList as ll
 
 

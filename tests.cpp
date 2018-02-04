@@ -227,6 +227,37 @@ TEST_CASE("Chapter 02 - Problem 04 - partition()", "test"){
     }
 }
 
+TEST_CASE("Chapter 02 - Problem 05 - sumLists()", "test"){
+    // create test dataset
+    // 9423 + 951 = 10374
+    std::vector<uint8_t> n1Vec = {3, 2, 4, 9};
+    std::vector<uint8_t> n2Vec = {1, 5, 9};
+    std::vector<uint8_t> sumVecExpected = {4, 7, 3, 0, 1};
+    chapter_02::LinkedListNode<uint8_t>* n1Head = chapter_02::vectorToList(n1Vec);
+    chapter_02::LinkedListNode<uint8_t>* n2Head = chapter_02::vectorToList(n2Vec);
+    std::vector<uint8_t> sumVecActual = chapter_02::listToVector(chapter_02::sumLists(n1Head, n2Head));
+    REQUIRE(sumVecExpected == sumVecActual);
+};
+
+TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
+    // create test dataset
+    std::vector<int> list1 = {0, 4, 7, 0, 0, 7, 4, 0};
+    std::vector<int> list2 = {3, 5, 2, 5, 3};
+    std::vector<int> list3 = {0, 1, 0, 1, 0, 1};
+    std::vector<std::string> list4 = {"a", "l", "e",  "x"};
+    std::vector<std::string> list5 = {"A", "B", "B",  "A"};
+    chapter_02::LinkedListNode<int>* head1 = chapter_02::vectorToList(list1);
+    chapter_02::LinkedListNode<int>* head2 = chapter_02::vectorToList(list2);
+    chapter_02::LinkedListNode<int>* head3 = chapter_02::vectorToList(list3);
+    chapter_02::LinkedListNode<std::string>* head4 = chapter_02::vectorToList(list4);
+    chapter_02::LinkedListNode<std::string>* head5 = chapter_02::vectorToList(list5);
+    REQUIRE(chapter_02::palindrome(head1));
+    REQUIRE(chapter_02::palindrome(head2));
+    REQUIRE(!chapter_02::palindrome(head3));
+    REQUIRE(!chapter_02::palindrome(head4));
+    REQUIRE(chapter_02::palindrome(head5));
+};
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
