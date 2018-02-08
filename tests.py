@@ -316,20 +316,22 @@ class Tests(unittest.TestCase):
 
     def test_problem_2_7(self):
         # list 1
-        node1_7 = ll.Node(7, None)
-        node1_6 = ll.Node(6, node1_7)
-        node1_5 = ll.Node(5, node1_6)
-        node1_4 = ll.Node(4, node1_5)
-        node1_3 = ll.Node(3, node1_4)
-        node1_2 = ll.Node(2, node1_3)
+        node1_6 = ll.Node(1, None)
+        node1_5 = ll.Node(2, node1_6)
+        node1_4 = ll.Node(7, node1_5)
+        node1_3 = ll.Node(9, node1_4)
+        node1_2 = ll.Node(5, node1_3)
         node1_1 = ll.Node(1, node1_2)
-        node1_0 = ll.Node(0, node1_1)
+        node1_0 = ll.Node(3, node1_1)
         # list 2
-        node2_5 = ll.Node(5, node1_6)  # intersection point
-        node2_4 = ll.Node(4, node2_5)
-        node2_3 = ll.Node(3, node2_4)
-        node2_2 = ll.Node(2, node2_3)
-        self.assertEqual(node1_6, p_2_7.intersection(node2_2, node1_0))
+        node2_1 = ll.Node(6, node1_4)  # intersection point
+        node2_0 = ll.Node(4, node2_1)
+        # list 3
+        node3_1 = ll.Node(6, None)
+        node3_0 = ll.Node(4, node3_1)
+        self.assertEqual(node1_4, p_2_7.intersection(node2_0, node1_0))
+        self.assertEqual(None, p_2_7.intersection(node1_0, node3_0))
+        self.assertEqual(None, p_2_7.intersection(None, None))
 
     def test_problem_2_8(self):
         # see problem_2_8_explanation.pdf
