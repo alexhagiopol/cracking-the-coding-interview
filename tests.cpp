@@ -258,6 +258,26 @@ TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
     REQUIRE(chapter_02::palindrome(head5));
 };
 
+TEST_CASE("Chapter 02 - Problem 07 - intersection()", "test") {
+	// list 1
+	chapter_02::LinkedListNode<int>* node1_6 = new chapter_02::LinkedListNode<int>(1, nullptr);
+	chapter_02::LinkedListNode<int>* node1_5 = new chapter_02::LinkedListNode<int>(2, node1_6);
+	chapter_02::LinkedListNode<int>* node1_4 = new chapter_02::LinkedListNode<int>(7, node1_5);
+	chapter_02::LinkedListNode<int>* node1_3 = new chapter_02::LinkedListNode<int>(9, node1_4);
+	chapter_02::LinkedListNode<int>* node1_2 = new chapter_02::LinkedListNode<int>(5, node1_3);
+	chapter_02::LinkedListNode<int>* node1_1 = new chapter_02::LinkedListNode<int>(1, node1_2);
+	chapter_02::LinkedListNode<int>* node1_0 = new chapter_02::LinkedListNode<int>(3, node1_1);
+	// list 2
+	chapter_02::LinkedListNode<int>* node2_1 = new chapter_02::LinkedListNode<int>(6, node1_4);  // intersection point
+	chapter_02::LinkedListNode<int>* node2_0 = new chapter_02::LinkedListNode<int>(4, node2_1);
+	// list 3
+	chapter_02::LinkedListNode<int>* node3_1 = new chapter_02::LinkedListNode<int>(6, nullptr);
+	chapter_02::LinkedListNode<int>* node3_0 = new chapter_02::LinkedListNode<int>(4, node3_1);
+	REQUIRE(node1_4 == chapter_02::intersection(node1_0, node2_0));
+	REQUIRE(nullptr == chapter_02::intersection(node1_0, node3_0));
+	REQUIRE(nullptr == chapter_02::intersection(static_cast<chapter_02::LinkedListNode<int>*>(nullptr), static_cast<chapter_02::LinkedListNode<int>*>(nullptr)));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
