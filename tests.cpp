@@ -278,6 +278,39 @@ TEST_CASE("Chapter 02 - Problem 07 - intersection()", "test") {
 	REQUIRE(nullptr == chapter_02::intersection(static_cast<chapter_02::LinkedListNode<int>*>(nullptr), static_cast<chapter_02::LinkedListNode<int>*>(nullptr)));
 }
 
+TEST_CASE("Chapter 02 - Problem 08 - findLoop()", "test") {
+	// see problem_2_8_explanation.pdf
+	// example 1
+	chapter_02::LinkedListNode<int>* node1_7 = new chapter_02::LinkedListNode<int>(7, nullptr);
+	chapter_02::LinkedListNode<int>* node1_6 = new chapter_02::LinkedListNode<int>(6, node1_7);
+	chapter_02::LinkedListNode<int>* node1_5 = new chapter_02::LinkedListNode<int>(5, node1_6);
+	chapter_02::LinkedListNode<int>* node1_4 = new chapter_02::LinkedListNode<int>(4, node1_5);
+	chapter_02::LinkedListNode<int>* node1_3 = new chapter_02::LinkedListNode<int>(3, node1_4);
+	chapter_02::LinkedListNode<int>* node1_2 = new chapter_02::LinkedListNode<int>(2, node1_3);
+	chapter_02::LinkedListNode<int>* node1_1 = new chapter_02::LinkedListNode<int>(1, node1_2);
+	chapter_02::LinkedListNode<int>* node1_0 = new chapter_02::LinkedListNode<int>(0, node1_1);
+	node1_7->setNext(node1_5);
+	REQUIRE(node1_5 == chapter_02::findLoop(node1_0));
+
+	// example 2
+	chapter_02::LinkedListNode<int>* node2_10 = new chapter_02::LinkedListNode<int>(10, nullptr);
+	chapter_02::LinkedListNode<int>* node2_9 = new chapter_02::LinkedListNode<int>(9, node2_10);
+	chapter_02::LinkedListNode<int>* node2_8 = new chapter_02::LinkedListNode<int>(8, node2_9);
+	chapter_02::LinkedListNode<int>* node2_7 = new chapter_02::LinkedListNode<int>(7, node2_8);
+	chapter_02::LinkedListNode<int>* node2_6 = new chapter_02::LinkedListNode<int>(6, node2_7);
+	chapter_02::LinkedListNode<int>* node2_5 = new chapter_02::LinkedListNode<int>(5, node2_6);
+	chapter_02::LinkedListNode<int>* node2_4 = new chapter_02::LinkedListNode<int>(4, node2_5);
+	chapter_02::LinkedListNode<int>* node2_3 = new chapter_02::LinkedListNode<int>(3, node2_4);
+	chapter_02::LinkedListNode<int>* node2_2 = new chapter_02::LinkedListNode<int>(2, node2_3);
+	chapter_02::LinkedListNode<int>* node2_1 = new chapter_02::LinkedListNode<int>(1, node2_2);
+	chapter_02::LinkedListNode<int>* node2_0 = new chapter_02::LinkedListNode<int>(0, node2_1);
+	node2_10->setNext(node2_3);
+	REQUIRE(node2_3 == chapter_02::findLoop(node2_0));
+
+	// example 3
+	REQUIRE(static_cast<chapter_02::LinkedListNode<int>*>(nullptr) == chapter_02::findLoop(static_cast<chapter_02::LinkedListNode<int>*>(nullptr)));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
