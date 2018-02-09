@@ -335,7 +335,7 @@ class Tests(unittest.TestCase):
 
     def test_problem_2_8(self):
         # see problem_2_8_explanation.pdf
-        # example #1
+        # example 1
         node1_7 = ll.Node(7, None)
         node1_6 = ll.Node(6, node1_7)
         node1_5 = ll.Node(5, node1_6)
@@ -347,7 +347,7 @@ class Tests(unittest.TestCase):
         node1_7.next_node = node1_5
         self.assertEqual(p_2_8.find_loop(node1_0), node1_5)
 
-        # example #2
+        # example 2
         node2_10 = ll.Node(7, None)
         node2_9 = ll.Node(7, node2_10)
         node2_8 = ll.Node(7, node2_9)
@@ -361,6 +361,9 @@ class Tests(unittest.TestCase):
         node2_0 = ll.Node(0, node2_1)
         node2_10.next_node = node2_3
         self.assertEqual(p_2_8.find_loop(node2_0), node2_3)
+
+        # example 3
+        self.assertEqual(p_2_8.find_loop(None), None)
 
     def test_stack(self):
         my_stack = Stack.Stack()
