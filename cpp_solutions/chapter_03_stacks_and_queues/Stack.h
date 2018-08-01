@@ -7,7 +7,7 @@
 namespace chapter_03{
     template <typename T>
     class Stack{
-    private:
+    protected:
         chapter_02::SinglyLinkedNode<T>* _head;
     public:
         Stack(){_head = nullptr;}

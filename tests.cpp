@@ -337,8 +337,20 @@ TEST_CASE("Chapter 03 - Stack", "test"){
     REQUIRE(myStack.peek()==0);
 }
 
-TEST_CASE("Chapter 03 - Problem 02- stackMin()", "test"){
-
+TEST_CASE("Chapter 03 - Problem 02 - StackMin()", "test"){
+    chapter_03::StackMin<int> myStack = chapter_03::StackMin<int>();
+    myStack.push(-8);
+    myStack.push(-5);
+    myStack.push(1);
+    myStack.push(-6);
+    REQUIRE(myStack.seeMin() == -8);
+    myStack.push(-9);
+    REQUIRE(myStack.seeMin() == -9);
+    myStack.push(-15);
+    myStack.push(-30);
+    myStack.pop();
+    myStack.pop();
+    REQUIRE(myStack.seeMin() == -9);
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
