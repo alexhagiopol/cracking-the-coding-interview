@@ -14,7 +14,7 @@ class SetOfStacks:
         self.stacks[self.i].push(value)
 
     def pop(self):
-        if self.stacks[self.i].size == 0:
+        if self.stacks[self.i].is_empty():
             if self.i == 0:
                 return None
             self.stacks.pop(self.i)
@@ -22,7 +22,7 @@ class SetOfStacks:
         return self.stacks[self.i].pop()
 
     def pop_at(self, index):
-        if self.stacks[index].size == 0:
+        if self.stacks[index].is_empty():
             if index <= 0:
                 return None
             self.stacks.pop(index)
