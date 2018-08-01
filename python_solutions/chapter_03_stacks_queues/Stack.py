@@ -1,15 +1,17 @@
 from .. chapter_02_linked_lists import SinglyLinkedNode as sln
 
 
-class Stack():
+class Stack(object):
     def __init__(self):
         self.head = None
         self.size = 0
 
     def is_empty(self):
-        return self.head is not None
+        return self.head is None
 
     def peek(self):
+        if self.is_empty():
+            return None
         return self.head.value
 
     def push(self, value):
@@ -32,32 +34,3 @@ class Stack():
             string_list += [str(temp.value)]
             temp = temp.next_node
         return ' '.join(string_list)  # return string with values in top to bottom order
-
-
-"""
-class Stack(object):
-    def __init__(self):
-        self.data = []
-
-    def pop(self):
-        if self.is_empty():
-            return None
-        return self.data.pop()
-
-    def push(self, val):
-        self.data.append(val)
-
-    def peek(self):
-        if self.is_empty():
-            return None
-        return self.data[-1]
-
-    def is_empty(self):
-        return len(self.data) == 0
-
-    def __str__(self):
-        string = ''
-        for x in self.data:
-            string += str(x) + ' '
-        return string
-"""

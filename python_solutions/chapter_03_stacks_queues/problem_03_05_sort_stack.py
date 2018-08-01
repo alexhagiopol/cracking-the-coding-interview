@@ -12,7 +12,6 @@ def sort_stack(stack):
             if smallest is None:
                 smallest = current
             else:
-                print("current", current, "smallest", smallest)
                 if current < smallest:
                     temp.push(smallest)
                     smallest = current

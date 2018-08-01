@@ -466,13 +466,11 @@ class Tests(unittest.TestCase):
         self.assertEqual(None, shelter.dequeue_cat())
 
     def test_tree_binary_tree_traversals(self):
-        """
-                 8
-               /  \
-              4   10
-             /\    \
-            2 6    20
-        """
+        #         8
+        #       /  \
+        #      4   10
+        #     /\    \
+        #    2 6    20
         n2 = tb.BinaryNode(2)
         n6 = tb.BinaryNode(6)
         n20 = tb.BinaryNode(20)
@@ -490,13 +488,11 @@ class Tests(unittest.TestCase):
         self.assertEqual(post_order_sequence, [2, 6, 4, 20, 10, 8])
 
     def test_graph_exploration(self):
-        """
-            1 <- 8 -> 17
-               /  \
-         3 <- 4   10 -> 15
-             /\   /\
-       0 <- 2 6  9 20 -> 23
-        """
+        #      1 <- 8 -> 17
+        #         /  \
+        #   3 <- 4   10 -> 15
+        #       /\   /\
+        # 0 <- 2 6  9 20 -> 23
         n0 = tb.Node(0)
         n2 = tb.Node(2, (n0,))
         n6 = tb.Node(6)
@@ -537,13 +533,11 @@ class Tests(unittest.TestCase):
         self.assertEqual('11,\n9,13,\n8,10,12,14,\n_,_,_,_,_,_,_,_,\n', tb.stringify_bin_tree(root))
 
     def test_problem_4_3(self):
-        """
-        create binary tree:
-        10,
-        5,8,
-        1,7,_,9,
-        _,_,_,_,_,_,
-        """
+        # create binary tree:
+        # 10,
+        # 5,8,
+        # 1,7,_,9,
+        # _,_,_,_,_,_,
         root = tb.BinaryNode(10)
         n5 = tb.BinaryNode(5)
         n8 = tb.BinaryNode(8)
@@ -559,10 +553,8 @@ class Tests(unittest.TestCase):
         self.assertEqual('10,\n5,8,\n1,7,9,\n', tb.stringify_list_of_linked_lists(linked_lists))
 
     def test_problem_4_4(self):
-        """
-        For the purposes of this question, a balanced tree is defined to be a tree
-        such that the heights of the two subtrees of any node never differ by more than one.
-        """
+        # For the purposes of this question, a balanced tree is defined to be a tree
+        # such that the heights of the two subtrees of any node never differ by more than one.
         '''
         balanced tree:
         root,
@@ -770,9 +762,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_3.flip_bit_to_win(0b10), 2)
 
     def test_problem_5_4(self):
-        """
-        See the note in the problem implementation for the reasoning behind using lists of string characters.
-        """
+        # See the note in the problem implementation for the reasoning behind using lists of string characters.
         self.assertEqual(p_5_4.get_prev(['0', '1', '0', '0']), ['0', '0', '1', '0'])
         self.assertEqual(p_5_4.get_next(['0', '1', '0', '0']), ['1', '0', '0', '0'])
         self.assertEqual(p_5_4.get_prev(['0', '1', '0', '1']), ['0', '0', '1', '1'])
