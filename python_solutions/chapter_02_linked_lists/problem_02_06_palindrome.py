@@ -18,7 +18,7 @@ We then compare the reversed list with the second half of the input list.
 Time complexity: O(N)
 Space complexity: O(N)
 """
-from . import LinkedList as ll
+from . import SinglyLinkedNode as sln
 
 
 def palindrome(head):
@@ -30,11 +30,11 @@ def palindrome(head):
         count += 1
         runner = runner.next_node
     half_count = count // 2  # compute halfway point
-    rev_first = ll.Node(head.value, None)  # start of list that is the reverse of first half of input list
+    rev_first = sln.SinglyLinkedNode(head.value, None)  # start of list that is the reverse of first half of input list
     runner = head
     for i in range(1, half_count):  # create a list that is reverse of first half of input list
         runner = runner.next_node
-        node = ll.Node(runner.value, rev_first)
+        node = sln.SinglyLinkedNode(runner.value, rev_first)
         rev_first = node
     runner = runner.next_node  # advance runner from first half to second half
     if count % 2 != 0:  # odd numbered lists require an extra pointer advancement
