@@ -21,7 +21,7 @@ namespace chapter_02{
         SinglyLinkedNode* getNext() const {return _next;}
         void setValue(const T& value) {_value = value;}
         void setNext(SinglyLinkedNode* next) {_next = next;}
-    };
+    };  // class SinglyLinkedNode
 
     template <typename T>
     SinglyLinkedNode<T>* vectorToList(const std::vector<T> numbers){
@@ -48,5 +48,5 @@ namespace chapter_02{
         }
         return vector;
     }
-};
+};  // namespace chapter_02
 

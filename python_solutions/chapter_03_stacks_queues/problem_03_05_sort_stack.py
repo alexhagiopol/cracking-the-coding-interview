@@ -4,7 +4,7 @@ from . import Stack as s
 def sort_stack(stack):
     temp = s.Stack()
     smallest = None
-    stack_size = len(stack.data)
+    stack_size = stack.size
     for i in range(stack_size):
         for j in range(stack_size - i, 0, -1):  #
             current = stack.pop()

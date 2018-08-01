@@ -1,4 +1,4 @@
-"""
+/*
 Chapter 03 - Problem 02 - Stack Min
 
 Problem Statement:
@@ -18,26 +18,38 @@ N numbers are pushed onto the stack in monotonically descending order.
 
 Time complexity: O(1)
 Space complexity: O(2N)
-"""
-from . import Stack as s
+*/
 
+#pragma once
+#include "Stack.h"
 
-class StackMin(s.Stack):
-    def __init__(self):
-        super().__init__()
-        self.min_stack = s.Stack()
+namespace chapter_03{
+    template <typename T>
+    class StackMin : private chapter_03::Stack<T> {
+    private:
+        chapter_03::Stack<T> _minStack;
+    public:
+        StackMin(){
+            _minStack = chapter_03::Stack<T>();
+        }
+        // override push() function from base class
+        void push(const T& data){
+            if (_minStack.isEmpty() || data < _minStack.peek()){ // new min found
+                _minStack.push(data);
+                chapter_03::Stack<T>::push(data);
+            }
+        }
+        // override pop() function from base class
+        T pop(){
+            if (!chapter_03::Stack<T>::isEmpty() && chapter_03::Stack<T>::_head->getValue() <= _minStack.peek()){
+                T temp = _minStack.pop();
+            }
+            return chapter_03::Stack<T>::pop();
+        }
 
-    def push(self, value):
-        super().push(value)
-        if self.min_stack.is_empty() or value < self.min_stack.peek():
-            self.min_stack.push(value)
+        T seeMin(){
+            return _minStack.peek();
+        }
 
-    def pop(self):
-        if not super().is_empty():
-            value = super().pop()
-            if value <= self.min_stack.peek():
-                self.min_stack.pop()
-
-    def see_min(self):
-        return self.min_stack.peek()
-        
+    }; // class StackMin
+}; // namespace chapter_03

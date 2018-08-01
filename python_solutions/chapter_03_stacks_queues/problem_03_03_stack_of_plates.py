@@ -8,13 +8,13 @@ class SetOfStacks:
         self.i = 0
 
     def push(self, value):
-        if len(self.stacks[self.i].data) >= self.max_height:
+        if self.stacks[self.i].size >= self.max_height:
             self.stacks.append(s.Stack())
             self.i += 1
         self.stacks[self.i].push(value)
 
     def pop(self):
-        if len(self.stacks[self.i].data) == 0:
+        if self.stacks[self.i].is_empty():
             if self.i == 0:
                 return None
             self.stacks.pop(self.i)
@@ -22,7 +22,7 @@ class SetOfStacks:
         return self.stacks[self.i].pop()
 
     def pop_at(self, index):
-        if len(self.stacks[index].data) == 0:
+        if self.stacks[index].is_empty():
             if index <= 0:
                 return None
             self.stacks.pop(index)

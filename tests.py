@@ -369,7 +369,7 @@ class Tests(unittest.TestCase):
         my_stack = Stack.Stack()
         for i in range(1,5):
             my_stack.push(i)
-        self.assertEqual(str(my_stack), '1 2 3 4 ')
+        self.assertEqual(str(my_stack), '4 3 2 1')
         self.assertEqual(my_stack.peek(), 4)
         test_array = []
         for i in range(4):
@@ -426,10 +426,10 @@ class Tests(unittest.TestCase):
         stacks = p_3_3.SetOfStacks(3)
         for i in range(10):
             stacks.push(i)
-        self.assertEqual([3, 3, 3, 1], [len(x.data) for x in stacks.stacks])
+        self.assertEqual([3, 3, 3, 1], [x.size for x in stacks.stacks])
         for i in [5, 4, 3, 2]:
             self.assertEqual(i, stacks.pop_at(1))
-        self.assertEqual([2, 3, 1], [len(x.data) for x in stacks.stacks])
+        self.assertEqual([2, 3, 1], [x.size for x in stacks.stacks])
         for i in [9, 8, 7, 6, 1, 0, None]:
             self.assertEqual(i, stacks.pop())
         self.assertEqual(stacks.pop_at(-1), None)
@@ -491,11 +491,11 @@ class Tests(unittest.TestCase):
 
     def test_graph_exploration(self):
         """
-            1 <- 8 -> 17
-               /  \
-         3 <- 4   10 -> 15
-             /\   /\
-       0 <- 2 6  9 20 -> 23
+             1 <- 8 -> 17
+                /  \
+          3 <- 4   10 -> 15
+              /\   /\
+        0 <- 2 6  9 20 -> 23
         """
         n0 = tb.Node(0)
         n2 = tb.Node(2, (n0,))
@@ -559,31 +559,29 @@ class Tests(unittest.TestCase):
         self.assertEqual('10,\n5,8,\n1,7,9,\n', tb.stringify_list_of_linked_lists(linked_lists))
 
     def test_problem_4_4(self):
+        # For the purposes of this question, a balanced tree is defined to be a tree
+        # such that the heights of the two subtrees of any node never differ by more than one.
         """
-        For the purposes of this question, a balanced tree is defined to be a tree
-        such that the heights of the two subtrees of any node never differ by more than one.
-        """
-        '''
         balanced tree:
         root,
         node,leaf,
         leaf,leaf,_,_,
         _,_,_,_,
-        '''
+        """
         node131 = tb.BinaryNode("leaf", None, None)
         node132 = tb.BinaryNode("leaf", None, None)
         node121 = tb.BinaryNode("node", node131, node132)
         node122 = tb.BinaryNode("leaf", None, None)
         root1 = tb.BinaryNode("root", node121, node122)
         self.assertTrue(p_4_4.is_balanced(root1))
-        '''
+        """
         unbalanced tree:
         root,
         node,leaf,
         node,leaf,_,_,
         leaf,_,_,_,
         _,_,
-        '''
+        """
         node241 = tb.BinaryNode("leaf", None, None)
         node231 = tb.BinaryNode("node", node241, None)
         node232 = tb.BinaryNode("leaf", None, None)
@@ -770,9 +768,7 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_3.flip_bit_to_win(0b10), 2)
 
     def test_problem_5_4(self):
-        """
-        See the note in the problem implementation for the reasoning behind using lists of string characters.
-        """
+        # See the note in the problem implementation for the reasoning behind using lists of string characters.
         self.assertEqual(p_5_4.get_prev(['0', '1', '0', '0']), ['0', '0', '1', '0'])
         self.assertEqual(p_5_4.get_next(['0', '1', '0', '0']), ['1', '0', '0', '0'])
         self.assertEqual(p_5_4.get_prev(['0', '1', '0', '1']), ['0', '0', '1', '1'])
