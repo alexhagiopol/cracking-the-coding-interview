@@ -28,15 +28,15 @@ Space complexity: O(1) (we need no additional space in addition to the O(N) spac
 
 namespace chapter_02{
     template <typename T>
-    LinkedListNode<T>* partition(LinkedListNode<T>* head, T partition){
+    SinglyLinkedNode<T>* partition(SinglyLinkedNode<T>* head, T partition){
         if (head == nullptr){
             return nullptr;
         }
-        LinkedListNode<T>* newHead = head;
-        LinkedListNode<T>* newTail = head;
+        SinglyLinkedNode<T>* newHead = head;
+        SinglyLinkedNode<T>* newTail = head;
         head = head->getNext();
         while (head != nullptr){
-            LinkedListNode<T>* temp = head;
+            SinglyLinkedNode<T>* temp = head;
             head = head->getNext();
             if (temp->getValue() < partition){ // add node in front of new head
                 temp->setNext(newHead);

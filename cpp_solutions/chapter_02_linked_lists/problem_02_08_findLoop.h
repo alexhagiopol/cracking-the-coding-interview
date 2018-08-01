@@ -24,9 +24,9 @@ Space complexity: O(1)
 
 namespace chapter_02 {
 	template <typename T>
-	const LinkedListNode<T>* findLoop(const LinkedListNode<T>* head) {
-		const LinkedListNode<T>* F = head;  // fast
-		const LinkedListNode<T>* S = head;  // slow
+	const SinglyLinkedNode<T>* findLoop(const SinglyLinkedNode<T>* head) {
+		const SinglyLinkedNode<T>* F = head;  // fast
+		const SinglyLinkedNode<T>* S = head;  // slow
 		// set up first meeting
 		while (true) {
 			// if there is no loop, return nullptr

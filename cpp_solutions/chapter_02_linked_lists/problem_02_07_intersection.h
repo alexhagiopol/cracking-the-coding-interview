@@ -49,9 +49,9 @@ return smaller
 
 namespace chapter_02 {
 	template <typename T>
-	const LinkedListNode<T>* intersection(const LinkedListNode<T>* head1, const LinkedListNode<T>* head2) {
-		const LinkedListNode<T>* runner1 = head1;
-		const LinkedListNode<T>* runner2 = head2;
+	const SinglyLinkedNode<T>* intersection(const SinglyLinkedNode<T>* head1, const SinglyLinkedNode<T>* head2) {
+		const SinglyLinkedNode<T>* runner1 = head1;
+		const SinglyLinkedNode<T>* runner2 = head2;
 		int length1 = 0;
 		int length2 = 0;
 		while (runner1 != nullptr) {  // advance pointer 1 to end and compute list size
@@ -67,8 +67,8 @@ namespace chapter_02 {
 		}
 		int sizeDiff = length1 - length2;
 		// determine which list is longer
-		const LinkedListNode<T>* larger = nullptr;
-		const LinkedListNode<T>* smaller = nullptr;
+		const SinglyLinkedNode<T>* larger = nullptr;
+		const SinglyLinkedNode<T>* smaller = nullptr;
 		if (sizeDiff > 0) {
 			larger = head1;
 			smaller = head2;

@@ -21,23 +21,23 @@ We then compare the reversed list with the second half of the input list.
 Time complexity: O(N)
 Space complexity: O(N)
 */
-#include "LinkedListNode.h"
+#include "SinglyLinkedNode.h"
 
 namespace chapter_02{
     template <typename T>
-    bool palindrome(const LinkedListNode<T>* head){
-        const LinkedListNode<T>* runner = head;
+    bool palindrome(const SinglyLinkedNode<T>* head){
+        const SinglyLinkedNode<T>* runner = head;
         int count = 0;
         while (runner != nullptr){  // traverse list forwards once
             count ++;  // count length of input list
             runner = runner->getNext();
         }
         int halfLength = count / 2;  // integer division to compute half length; odd lengths get truncated
-        LinkedListNode<T>* revHead = new LinkedListNode<T>(head->getValue());
+        SinglyLinkedNode<T>* revHead = new SinglyLinkedNode<T>(head->getValue());
         runner = head;
         for (int i = 1; i < halfLength; i++){  // create a list that is reverse of first half of input list
             runner = runner->getNext();
-            LinkedListNode<T>* temp = new LinkedListNode<T>(runner->getValue(), revHead);
+            SinglyLinkedNode<T>* temp = new SinglyLinkedNode<T>(runner->getValue(), revHead);
             revHead = temp;
         }
         runner = runner->getNext();  // advance runner from first half to second half
