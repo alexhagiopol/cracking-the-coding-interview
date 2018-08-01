@@ -4,6 +4,7 @@
 
 #include "cpp_solutions/chapter_01_arrays_and_strings/chapter_01_includes.h"
 #include "cpp_solutions/chapter_02_linked_lists/chapter_02_includes.h"
+#include "cpp_solutions/chapter_03_stacks_and_queues/chapter_03_includes.h"
 #include "cpp_solutions/chapter_05_bit_manipulation/chapter_05_includes.h"
 #include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
 #include "cpp_solutions/chapter_12_cpp/chapter_12_includes.h"
@@ -309,6 +310,31 @@ TEST_CASE("Chapter 02 - Problem 08 - findLoop()", "test") {
 
 	// example 3
 	REQUIRE(static_cast<chapter_02::LinkedListNode<int>*>(nullptr) == chapter_02::findLoop(static_cast<chapter_02::LinkedListNode<int>*>(nullptr)));
+}
+
+TEST_CASE("Chapter 03 - Stack", "test"){
+    chapter_03::Stack<int> myStack = chapter_03::Stack<int>();
+    for (int i = 1; i <= 4; i++){
+        myStack.push(i);
+    }
+    std::vector<int> tooShort = {3,2,1};
+    std::vector<int> incorrect = {5,3,2,1};
+    std::vector<int> justRight = {4,3,2,1};
+    std::vector<int> tooLong = {4,3,2,1,1};
+    std::vector<int> empty = {};
+    REQUIRE(myStack!=tooShort);
+    REQUIRE(myStack!=tooLong);
+    REQUIRE(myStack!=incorrect);
+    REQUIRE(myStack==justRight);
+    REQUIRE(myStack.peek()==4);
+    REQUIRE(!myStack.isEmpty());
+    while (!myStack.isEmpty()){
+        empty.push_back(myStack.pop());
+    }
+    REQUIRE(empty==justRight);
+    REQUIRE(myStack.isEmpty());
+    REQUIRE(myStack.pop()==0);
+    REQUIRE(myStack.peek()==0);
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
