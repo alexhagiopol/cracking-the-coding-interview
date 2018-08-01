@@ -369,7 +369,7 @@ class Tests(unittest.TestCase):
         my_stack = Stack.Stack()
         for i in range(1,5):
             my_stack.push(i)
-        self.assertEqual(str(my_stack), '1 2 3 4 ')
+        self.assertEqual(str(my_stack), '4 3 2 1')
         self.assertEqual(my_stack.peek(), 4)
         test_array = []
         for i in range(4):
@@ -426,10 +426,10 @@ class Tests(unittest.TestCase):
         stacks = p_3_3.SetOfStacks(3)
         for i in range(10):
             stacks.push(i)
-        self.assertEqual([3, 3, 3, 1], [len(x.data) for x in stacks.stacks])
+        self.assertEqual([3, 3, 3, 1], [x.size for x in stacks.stacks])
         for i in [5, 4, 3, 2]:
             self.assertEqual(i, stacks.pop_at(1))
-        self.assertEqual([2, 3, 1], [len(x.data) for x in stacks.stacks])
+        self.assertEqual([2, 3, 1], [x.size for x in stacks.stacks])
         for i in [9, 8, 7, 6, 1, 0, None]:
             self.assertEqual(i, stacks.pop())
         self.assertEqual(stacks.pop_at(-1), None)

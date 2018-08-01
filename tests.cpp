@@ -337,6 +337,10 @@ TEST_CASE("Chapter 03 - Stack", "test"){
     REQUIRE(myStack.peek()==0);
 }
 
+TEST_CASE("Chapter 03 - Problem 02- stackMin()", "test"){
+
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }

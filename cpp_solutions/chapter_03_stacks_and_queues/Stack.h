@@ -33,12 +33,12 @@ namespace chapter_03{
         // check if stack is empty
         bool isEmpty() {return _head == nullptr;}
         // add item to top of stack
-        void push(const T& data) {
+        virtual void push(const T& data) {
             chapter_02::SinglyLinkedNode<T>* node = new chapter_02::SinglyLinkedNode<T>(data, _head);
             _head = node;
         }
         // remove item from top of stack
-        T pop(){
+        virtual T pop(){
             if (_head != nullptr){
                 chapter_02::SinglyLinkedNode<T>* temp = _head;
                 T tempValue =  temp->getValue();
