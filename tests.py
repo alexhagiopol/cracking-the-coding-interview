@@ -367,10 +367,8 @@ class Tests(unittest.TestCase):
 
     def test_stack(self):
         my_stack = Stack.Stack()
-        my_stack.push(1)
-        my_stack.push(2)
-        my_stack.push(3)
-        my_stack.push(4)
+        for i in range(1,5):
+            my_stack.push(i)
         self.assertEqual(str(my_stack), '1 2 3 4 ')
         self.assertEqual(my_stack.peek(), 4)
         test_array = []
