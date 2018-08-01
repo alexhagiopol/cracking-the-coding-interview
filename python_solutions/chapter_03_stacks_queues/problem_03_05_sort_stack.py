@@ -9,10 +9,10 @@ def sort_stack(stack):
     for i in range(stack_size):
         for j in range(stack_size - i, 0, -1):  #
             current = stack.pop()
-            print("current", current, "smallest", smallest)
             if smallest is None:
                 smallest = current
             else:
+                print("current", current, "smallest", smallest)
                 if current < smallest:
                     temp.push(smallest)
                     smallest = current

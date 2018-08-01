@@ -18,12 +18,12 @@ class Stack():
         self.size += 1
 
     def pop(self):
-        if self.head is not None:
-            temp_value = self.head.value
-            self.head = self.head.next_node
-            self.size -= 1
-            return temp_value
-        return None
+        if self.is_empty():
+            return None
+        temp_value = self.head.value
+        self.head = self.head.next_node
+        self.size -= 1
+        return temp_value
 
     def __str__(self):
         string_list = []  # strings are immutable in Python thus appending to a string is not O(1) amortized
