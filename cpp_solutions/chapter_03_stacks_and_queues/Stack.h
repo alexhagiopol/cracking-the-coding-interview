@@ -2,18 +2,18 @@
 // Created by Alex Hagiopol on 7/30/18.
 //
 #pragma once
-#include "../chapter_02_linked_lists/LinkedListNode.h"
+#include "../chapter_02_linked_lists/SinglyLinkedNode.h"
 
 namespace chapter_03{
     template <typename T>
     class Stack{
     private:
-        chapter_02::LinkedListNode<T>* _head;
+        chapter_02::SinglyLinkedNode<T>* _head;
     public:
         Stack(){_head = nullptr;}
         // compare values in stack top-to-bottom to values in vector front-to-back for easy unit testing
         bool operator==(const std::vector<T>& vector){
-            chapter_02::LinkedListNode<T>* temp = _head;
+            chapter_02::SinglyLinkedNode<T>* temp = _head;
             for (T item : vector){
                 if (temp == nullptr || item != temp->getValue()){
                     return false;  // vector length > stack height
@@ -34,13 +34,13 @@ namespace chapter_03{
         bool isEmpty() {return _head == nullptr;}
         // add item to top of stack
         void push(const T& data) {
-            chapter_02::LinkedListNode<T>* node = new chapter_02::LinkedListNode<T>(data, _head);
+            chapter_02::SinglyLinkedNode<T>* node = new chapter_02::SinglyLinkedNode<T>(data, _head);
             _head = node;
         }
         // remove item from top of stack
         T pop(){
             if (_head != nullptr){
-                chapter_02::LinkedListNode<T>* temp = _head;
+                chapter_02::SinglyLinkedNode<T>* temp = _head;
                 T tempValue =  temp->getValue();
                 _head = _head->getNext();
                 delete temp;
@@ -61,7 +61,7 @@ namespace chapter_03{
         // destructor
         ~Stack(){
             while (_head != nullptr){
-                chapter_02::LinkedListNode<T>* temp = _head;
+                chapter_02::SinglyLinkedNode<T>* temp = _head;
                 _head = _head->getNext();
                 delete temp;
             }

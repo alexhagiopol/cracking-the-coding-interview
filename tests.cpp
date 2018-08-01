@@ -158,17 +158,17 @@ TEST_CASE("Chapter 02 - Problem 01 - removeDups()", "test"){
     std::vector<int> emptyVec;
 
     // check that remove dups function doesn't affect lists with no dups
-    chapter_02::LinkedListNode<int>* noDupsHead = chapter_02::vectorToList(noDups);
+    chapter_02::SinglyLinkedNode<int>* noDupsHead = chapter_02::vectorToList(noDups);
     chapter_02::removeDups(noDupsHead);
     REQUIRE(noDups == chapter_02::listToVector(noDupsHead));
 
     // check case with duplicates
-    chapter_02::LinkedListNode<int>* dupsHead = chapter_02::vectorToList(dups);
+    chapter_02::SinglyLinkedNode<int>* dupsHead = chapter_02::vectorToList(dups);
     chapter_02::removeDups(dupsHead);
     REQUIRE(fixedDups == chapter_02::listToVector(dupsHead));
 
     // check case with empty list
-    chapter_02::LinkedListNode<int>* emptyHead = chapter_02::vectorToList(emptyVec);
+    chapter_02::SinglyLinkedNode<int>* emptyHead = chapter_02::vectorToList(emptyVec);
     chapter_02::removeDups(emptyHead);
     REQUIRE(emptyVec == chapter_02::listToVector(emptyHead));
 }
@@ -177,9 +177,9 @@ TEST_CASE("Chapter 02 - Problem 02 - returnKthToLast()", "test"){
     std::vector<int> testVec1 = {1,7,3,6,5,4,2};
     std::vector<int> testVec2 = {2,2,1,5,6,2,5,2,7,7};
     std::vector<int> testVec3;
-    chapter_02::LinkedListNode<int>* testVec1Head = chapter_02::vectorToList(testVec1);
-    chapter_02::LinkedListNode<int>* testVec2Head = chapter_02::vectorToList(testVec2);
-    chapter_02::LinkedListNode<int>* testVec3Head = chapter_02::vectorToList(testVec3);
+    chapter_02::SinglyLinkedNode<int>* testVec1Head = chapter_02::vectorToList(testVec1);
+    chapter_02::SinglyLinkedNode<int>* testVec2Head = chapter_02::vectorToList(testVec2);
+    chapter_02::SinglyLinkedNode<int>* testVec3Head = chapter_02::vectorToList(testVec3);
     REQUIRE(5 == chapter_02::returnKthToLast(testVec1Head, 3)->getValue());
     REQUIRE(2 == chapter_02::returnKthToLast(testVec1Head, 1)->getValue());
     REQUIRE(1 == chapter_02::returnKthToLast(testVec1Head, testVec1.size())->getValue());
@@ -195,10 +195,10 @@ TEST_CASE("Chapter 02 - Problem 03 - deleteMiddleNode()", "test"){
     // create test dataset
     std::vector<std::string> testVec = {"a", "b", "c", "d", "e", "f"};
     std::vector<std::string> expectedVec = {"a", "b", "d", "e", "f"};
-    chapter_02::LinkedListNode<std::string>* testVecHead = chapter_02::vectorToList(testVec);
-    chapter_02::LinkedListNode<std::string>* expectedVecHead = chapter_02::vectorToList(expectedVec);
+    chapter_02::SinglyLinkedNode<std::string>* testVecHead = chapter_02::vectorToList(testVec);
+    chapter_02::SinglyLinkedNode<std::string>* expectedVecHead = chapter_02::vectorToList(expectedVec);
     // traverse input to find node with content "c"
-    chapter_02::LinkedListNode<std::string>* head = testVecHead;
+    chapter_02::SinglyLinkedNode<std::string>* head = testVecHead;
     while (head != nullptr && head->getValue() != "c"){
         head = head->getNext();
     }
@@ -216,8 +216,8 @@ TEST_CASE("Chapter 02 - Problem 04 - partition()", "test"){
     // create test dataset
     std::vector<int> inputVec = {3, 5, 8, 5, 10, 2, 1};
     std::vector<int> expectedVec = {1, 2, 3, 5, 8, 5, 10};
-    chapter_02::LinkedListNode<int>* inputVecHead = chapter_02::vectorToList(inputVec);
-    chapter_02::LinkedListNode<int>* expectedVecHead = chapter_02::vectorToList(expectedVec);
+    chapter_02::SinglyLinkedNode<int>* inputVecHead = chapter_02::vectorToList(inputVec);
+    chapter_02::SinglyLinkedNode<int>* expectedVecHead = chapter_02::vectorToList(expectedVec);
     // perform partition
     inputVecHead = chapter_02::partition(inputVecHead, 5);
     // check that vec 1 and vec 2 are the same
@@ -234,8 +234,8 @@ TEST_CASE("Chapter 02 - Problem 05 - sumLists()", "test"){
     std::vector<uint8_t> n1Vec = {3, 2, 4, 9};
     std::vector<uint8_t> n2Vec = {1, 5, 9};
     std::vector<uint8_t> sumVecExpected = {4, 7, 3, 0, 1};
-    chapter_02::LinkedListNode<uint8_t>* n1Head = chapter_02::vectorToList(n1Vec);
-    chapter_02::LinkedListNode<uint8_t>* n2Head = chapter_02::vectorToList(n2Vec);
+    chapter_02::SinglyLinkedNode<uint8_t>* n1Head = chapter_02::vectorToList(n1Vec);
+    chapter_02::SinglyLinkedNode<uint8_t>* n2Head = chapter_02::vectorToList(n2Vec);
     std::vector<uint8_t> sumVecActual = chapter_02::listToVector(chapter_02::sumLists(n1Head, n2Head));
     REQUIRE(sumVecExpected == sumVecActual);
 };
@@ -247,11 +247,11 @@ TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
     std::vector<int> list3 = {0, 1, 0, 1, 0, 1};
     std::vector<std::string> list4 = {"a", "l", "e",  "x"};
     std::vector<std::string> list5 = {"A", "B", "B",  "A"};
-    chapter_02::LinkedListNode<int>* head1 = chapter_02::vectorToList(list1);
-    chapter_02::LinkedListNode<int>* head2 = chapter_02::vectorToList(list2);
-    chapter_02::LinkedListNode<int>* head3 = chapter_02::vectorToList(list3);
-    chapter_02::LinkedListNode<std::string>* head4 = chapter_02::vectorToList(list4);
-    chapter_02::LinkedListNode<std::string>* head5 = chapter_02::vectorToList(list5);
+    chapter_02::SinglyLinkedNode<int>* head1 = chapter_02::vectorToList(list1);
+    chapter_02::SinglyLinkedNode<int>* head2 = chapter_02::vectorToList(list2);
+    chapter_02::SinglyLinkedNode<int>* head3 = chapter_02::vectorToList(list3);
+    chapter_02::SinglyLinkedNode<std::string>* head4 = chapter_02::vectorToList(list4);
+    chapter_02::SinglyLinkedNode<std::string>* head5 = chapter_02::vectorToList(list5);
     REQUIRE(chapter_02::palindrome(head1));
     REQUIRE(chapter_02::palindrome(head2));
     REQUIRE(!chapter_02::palindrome(head3));
@@ -261,55 +261,55 @@ TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
 
 TEST_CASE("Chapter 02 - Problem 07 - intersection()", "test") {
 	// list 1
-	chapter_02::LinkedListNode<int>* node1_6 = new chapter_02::LinkedListNode<int>(1, nullptr);
-	chapter_02::LinkedListNode<int>* node1_5 = new chapter_02::LinkedListNode<int>(2, node1_6);
-	chapter_02::LinkedListNode<int>* node1_4 = new chapter_02::LinkedListNode<int>(7, node1_5);
-	chapter_02::LinkedListNode<int>* node1_3 = new chapter_02::LinkedListNode<int>(9, node1_4);
-	chapter_02::LinkedListNode<int>* node1_2 = new chapter_02::LinkedListNode<int>(5, node1_3);
-	chapter_02::LinkedListNode<int>* node1_1 = new chapter_02::LinkedListNode<int>(1, node1_2);
-	chapter_02::LinkedListNode<int>* node1_0 = new chapter_02::LinkedListNode<int>(3, node1_1);
+	chapter_02::SinglyLinkedNode<int>* node1_6 = new chapter_02::SinglyLinkedNode<int>(1, nullptr);
+	chapter_02::SinglyLinkedNode<int>* node1_5 = new chapter_02::SinglyLinkedNode<int>(2, node1_6);
+	chapter_02::SinglyLinkedNode<int>* node1_4 = new chapter_02::SinglyLinkedNode<int>(7, node1_5);
+	chapter_02::SinglyLinkedNode<int>* node1_3 = new chapter_02::SinglyLinkedNode<int>(9, node1_4);
+	chapter_02::SinglyLinkedNode<int>* node1_2 = new chapter_02::SinglyLinkedNode<int>(5, node1_3);
+	chapter_02::SinglyLinkedNode<int>* node1_1 = new chapter_02::SinglyLinkedNode<int>(1, node1_2);
+	chapter_02::SinglyLinkedNode<int>* node1_0 = new chapter_02::SinglyLinkedNode<int>(3, node1_1);
 	// list 2
-	chapter_02::LinkedListNode<int>* node2_1 = new chapter_02::LinkedListNode<int>(6, node1_4);  // intersection point
-	chapter_02::LinkedListNode<int>* node2_0 = new chapter_02::LinkedListNode<int>(4, node2_1);
+	chapter_02::SinglyLinkedNode<int>* node2_1 = new chapter_02::SinglyLinkedNode<int>(6, node1_4);  // intersection point
+	chapter_02::SinglyLinkedNode<int>* node2_0 = new chapter_02::SinglyLinkedNode<int>(4, node2_1);
 	// list 3
-	chapter_02::LinkedListNode<int>* node3_1 = new chapter_02::LinkedListNode<int>(6, nullptr);
-	chapter_02::LinkedListNode<int>* node3_0 = new chapter_02::LinkedListNode<int>(4, node3_1);
+	chapter_02::SinglyLinkedNode<int>* node3_1 = new chapter_02::SinglyLinkedNode<int>(6, nullptr);
+	chapter_02::SinglyLinkedNode<int>* node3_0 = new chapter_02::SinglyLinkedNode<int>(4, node3_1);
 	REQUIRE(node1_4 == chapter_02::intersection(node1_0, node2_0));
 	REQUIRE(nullptr == chapter_02::intersection(node1_0, node3_0));
-	REQUIRE(nullptr == chapter_02::intersection(static_cast<chapter_02::LinkedListNode<int>*>(nullptr), static_cast<chapter_02::LinkedListNode<int>*>(nullptr)));
+	REQUIRE(nullptr == chapter_02::intersection(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr), static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr)));
 }
 
 TEST_CASE("Chapter 02 - Problem 08 - findLoop()", "test") {
 	// see problem_2_8_explanation.pdf
 	// example 1
-	chapter_02::LinkedListNode<int>* node1_7 = new chapter_02::LinkedListNode<int>(7, nullptr);
-	chapter_02::LinkedListNode<int>* node1_6 = new chapter_02::LinkedListNode<int>(6, node1_7);
-	chapter_02::LinkedListNode<int>* node1_5 = new chapter_02::LinkedListNode<int>(5, node1_6);
-	chapter_02::LinkedListNode<int>* node1_4 = new chapter_02::LinkedListNode<int>(4, node1_5);
-	chapter_02::LinkedListNode<int>* node1_3 = new chapter_02::LinkedListNode<int>(3, node1_4);
-	chapter_02::LinkedListNode<int>* node1_2 = new chapter_02::LinkedListNode<int>(2, node1_3);
-	chapter_02::LinkedListNode<int>* node1_1 = new chapter_02::LinkedListNode<int>(1, node1_2);
-	chapter_02::LinkedListNode<int>* node1_0 = new chapter_02::LinkedListNode<int>(0, node1_1);
+	chapter_02::SinglyLinkedNode<int>* node1_7 = new chapter_02::SinglyLinkedNode<int>(7, nullptr);
+	chapter_02::SinglyLinkedNode<int>* node1_6 = new chapter_02::SinglyLinkedNode<int>(6, node1_7);
+	chapter_02::SinglyLinkedNode<int>* node1_5 = new chapter_02::SinglyLinkedNode<int>(5, node1_6);
+	chapter_02::SinglyLinkedNode<int>* node1_4 = new chapter_02::SinglyLinkedNode<int>(4, node1_5);
+	chapter_02::SinglyLinkedNode<int>* node1_3 = new chapter_02::SinglyLinkedNode<int>(3, node1_4);
+	chapter_02::SinglyLinkedNode<int>* node1_2 = new chapter_02::SinglyLinkedNode<int>(2, node1_3);
+	chapter_02::SinglyLinkedNode<int>* node1_1 = new chapter_02::SinglyLinkedNode<int>(1, node1_2);
+	chapter_02::SinglyLinkedNode<int>* node1_0 = new chapter_02::SinglyLinkedNode<int>(0, node1_1);
 	node1_7->setNext(node1_5);
 	REQUIRE(node1_5 == chapter_02::findLoop(node1_0));
 
 	// example 2
-	chapter_02::LinkedListNode<int>* node2_10 = new chapter_02::LinkedListNode<int>(10, nullptr);
-	chapter_02::LinkedListNode<int>* node2_9 = new chapter_02::LinkedListNode<int>(9, node2_10);
-	chapter_02::LinkedListNode<int>* node2_8 = new chapter_02::LinkedListNode<int>(8, node2_9);
-	chapter_02::LinkedListNode<int>* node2_7 = new chapter_02::LinkedListNode<int>(7, node2_8);
-	chapter_02::LinkedListNode<int>* node2_6 = new chapter_02::LinkedListNode<int>(6, node2_7);
-	chapter_02::LinkedListNode<int>* node2_5 = new chapter_02::LinkedListNode<int>(5, node2_6);
-	chapter_02::LinkedListNode<int>* node2_4 = new chapter_02::LinkedListNode<int>(4, node2_5);
-	chapter_02::LinkedListNode<int>* node2_3 = new chapter_02::LinkedListNode<int>(3, node2_4);
-	chapter_02::LinkedListNode<int>* node2_2 = new chapter_02::LinkedListNode<int>(2, node2_3);
-	chapter_02::LinkedListNode<int>* node2_1 = new chapter_02::LinkedListNode<int>(1, node2_2);
-	chapter_02::LinkedListNode<int>* node2_0 = new chapter_02::LinkedListNode<int>(0, node2_1);
+	chapter_02::SinglyLinkedNode<int>* node2_10 = new chapter_02::SinglyLinkedNode<int>(10, nullptr);
+	chapter_02::SinglyLinkedNode<int>* node2_9 = new chapter_02::SinglyLinkedNode<int>(9, node2_10);
+	chapter_02::SinglyLinkedNode<int>* node2_8 = new chapter_02::SinglyLinkedNode<int>(8, node2_9);
+	chapter_02::SinglyLinkedNode<int>* node2_7 = new chapter_02::SinglyLinkedNode<int>(7, node2_8);
+	chapter_02::SinglyLinkedNode<int>* node2_6 = new chapter_02::SinglyLinkedNode<int>(6, node2_7);
+	chapter_02::SinglyLinkedNode<int>* node2_5 = new chapter_02::SinglyLinkedNode<int>(5, node2_6);
+	chapter_02::SinglyLinkedNode<int>* node2_4 = new chapter_02::SinglyLinkedNode<int>(4, node2_5);
+	chapter_02::SinglyLinkedNode<int>* node2_3 = new chapter_02::SinglyLinkedNode<int>(3, node2_4);
+	chapter_02::SinglyLinkedNode<int>* node2_2 = new chapter_02::SinglyLinkedNode<int>(2, node2_3);
+	chapter_02::SinglyLinkedNode<int>* node2_1 = new chapter_02::SinglyLinkedNode<int>(1, node2_2);
+	chapter_02::SinglyLinkedNode<int>* node2_0 = new chapter_02::SinglyLinkedNode<int>(0, node2_1);
 	node2_10->setNext(node2_3);
 	REQUIRE(node2_3 == chapter_02::findLoop(node2_0));
 
 	// example 3
-	REQUIRE(static_cast<chapter_02::LinkedListNode<int>*>(nullptr) == chapter_02::findLoop(static_cast<chapter_02::LinkedListNode<int>*>(nullptr)));
+	REQUIRE(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr) == chapter_02::findLoop(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr)));
 }
 
 TEST_CASE("Chapter 03 - Stack", "test"){

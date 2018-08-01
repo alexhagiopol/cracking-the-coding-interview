@@ -22,7 +22,7 @@ Time complexity: O(N)
 Space complexity: O(N)
 """
 
-from . import LinkedList as ll
+from . import SinglyLinkedNode as sln
 
 def sum_lists(node1, node2):
     carry = 0
@@ -30,10 +30,10 @@ def sum_lists(node1, node2):
     runner = None
     while node1 is not None or node2 is not None:  # continue traversing so long as one pointer is not null
         if head is None:  # create head of output linked list
-            head = ll.Node(0, None)
+            head = sln.SinglyLinkedNode(0, None)
             runner = head
         else:  # add new node to existing list
-            temp = ll.Node(0, None)
+            temp = sln.SinglyLinkedNode(0, None)
             runner.next_node = temp
             runner = runner.next_node
         sum = 0
@@ -56,5 +56,5 @@ def sum_lists(node1, node2):
             sum = sum - 10
         runner.value = sum
     if carry > 0:
-        runner.next_node = ll.Node(carry, None)
+        runner.next_node = sln.SinglyLinkedNode(carry, None)
     return head

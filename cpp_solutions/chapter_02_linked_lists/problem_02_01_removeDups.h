@@ -2,16 +2,16 @@
 // Created by Alex Hagiopol on 9/5/17.
 //
 #pragma once
-#include "LinkedListNode.h"
+#include "SinglyLinkedNode.h"
 #include <unordered_map>
 
 namespace chapter_02{
     // template function implemented in header file
     template <typename T>
-    void removeDups(LinkedListNode<T>* head){
-        LinkedListNode<T>* slowRunner = head;
+    void removeDups(SinglyLinkedNode<T>* head){
+        SinglyLinkedNode<T>* slowRunner = head;
         if (slowRunner == nullptr || slowRunner->getNext() == nullptr) return;  // a list of length 0 or 1 cannot have dups
-        LinkedListNode<T>* fastRunner = slowRunner->getNext();
+        SinglyLinkedNode<T>* fastRunner = slowRunner->getNext();
         std::unordered_map<T, bool> hashTable;
         hashTable[slowRunner->getValue()] = true;
         while (fastRunner != nullptr){

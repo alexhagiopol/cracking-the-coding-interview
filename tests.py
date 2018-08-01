@@ -10,7 +10,7 @@ from python_solutions.chapter_01_arrays_and_strings import problem_01_06_string_
 from python_solutions.chapter_01_arrays_and_strings import problem_01_07_rotate_matrix as p_1_7
 from python_solutions.chapter_01_arrays_and_strings import problem_01_08_set_zero as p_1_8
 from python_solutions.chapter_01_arrays_and_strings import problem_01_09_string_rotation as p_1_9
-from python_solutions.chapter_02_linked_lists import LinkedList as ll
+from python_solutions.chapter_02_linked_lists import SinglyLinkedNode as sln
 from python_solutions.chapter_02_linked_lists import problem_02_01_remove_dups as p_2_1
 from python_solutions.chapter_02_linked_lists import problem_02_02_return_kth_to_last as p_2_2
 from python_solutions.chapter_02_linked_lists import problem_02_03_delete_middle as p_2_3
@@ -181,46 +181,46 @@ class Tests(unittest.TestCase):
         self.assertTrue(p_1_9.string_rotation('', ''))
 
     def test_problem_2_1(self):
-        n0 = ll.Node(9, None)
-        n1 = ll.Node(7, n0)
-        n2 = ll.Node(2, n1)
-        n3 = ll.Node(5, n2)
-        n4 = ll.Node(3, n3)
-        n5 = ll.Node(3, n4)
-        n6 = ll.Node(7, n5)
-        self.assertEqual('7,3,3,5,2,7,9,', ll.stringify_linked_list(n6))
+        n0 = sln.SinglyLinkedNode(9, None)
+        n1 = sln.SinglyLinkedNode(7, n0)
+        n2 = sln.SinglyLinkedNode(2, n1)
+        n3 = sln.SinglyLinkedNode(5, n2)
+        n4 = sln.SinglyLinkedNode(3, n3)
+        n5 = sln.SinglyLinkedNode(3, n4)
+        n6 = sln.SinglyLinkedNode(7, n5)
+        self.assertEqual('7,3,3,5,2,7,9,', sln.stringify_linked_list(n6))
         p_2_1.remove_dups(n6)
-        self.assertEqual('7,3,5,2,9,', ll.stringify_linked_list(n6))
+        self.assertEqual('7,3,5,2,9,', sln.stringify_linked_list(n6))
 
     def test_problem_2_1_alternative(self):
-        n0 = ll.Node(9, None)
-        n1 = ll.Node(7, n0)
-        n2 = ll.Node(2, n1)
-        n3 = ll.Node(5, n2)
-        n4 = ll.Node(3, n3)
-        n5 = ll.Node(3, n4)
-        n6 = ll.Node(7, n5)
-        self.assertEqual('7,3,3,5,2,7,9,', ll.stringify_linked_list(n6))
+        n0 = sln.SinglyLinkedNode(9, None)
+        n1 = sln.SinglyLinkedNode(7, n0)
+        n2 = sln.SinglyLinkedNode(2, n1)
+        n3 = sln.SinglyLinkedNode(5, n2)
+        n4 = sln.SinglyLinkedNode(3, n3)
+        n5 = sln.SinglyLinkedNode(3, n4)
+        n6 = sln.SinglyLinkedNode(7, n5)
+        self.assertEqual('7,3,3,5,2,7,9,', sln.stringify_linked_list(n6))
         p_2_1.remove_dups_alternative(n6)
-        self.assertEqual('7,3,5,2,9,', ll.stringify_linked_list(n6))
+        self.assertEqual('7,3,5,2,9,', sln.stringify_linked_list(n6))
 
     def test_problem_2_2(self):
-        n0 = ll.Node(9, None)
-        n1 = ll.Node(7, n0)
-        n2 = ll.Node(2, n1)
-        n3 = ll.Node(5, n2)
-        n4 = ll.Node(3, n3)
-        n5 = ll.Node(3, n4)
-        n6 = ll.Node(7, n5)
+        n0 = sln.SinglyLinkedNode(9, None)
+        n1 = sln.SinglyLinkedNode(7, n0)
+        n2 = sln.SinglyLinkedNode(2, n1)
+        n3 = sln.SinglyLinkedNode(5, n2)
+        n4 = sln.SinglyLinkedNode(3, n3)
+        n5 = sln.SinglyLinkedNode(3, n4)
+        n6 = sln.SinglyLinkedNode(7, n5)
         self.assertEqual(n2, p_2_2.return_kth_to_last(n6, 3))
         self.assertEqual(n5, p_2_2.return_kth_to_last(n6, 6))
         self.assertEqual(None, p_2_2.return_kth_to_last(n6, 0))
 
     def test_problem_2_3(self):
-        n1 = ll.Node(1, None)
-        n2 = ll.Node(2, n1)
-        n10 = ll.Node(10, n2)
-        n5 = ll.Node(5, n10)
+        n1 = sln.SinglyLinkedNode(1, None)
+        n2 = sln.SinglyLinkedNode(2, n1)
+        n10 = sln.SinglyLinkedNode(10, n2)
+        n5 = sln.SinglyLinkedNode(5, n10)
         string_representation = ''
         head = n5
         p_2_3.delete_middle(n10)
@@ -230,13 +230,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(string_representation, '521')
 
     def test_problem_2_4(self):
-        n1 = ll.Node(1, None)
-        n2 = ll.Node(2, n1)
-        n10 = ll.Node(10, n2)
-        n5_1 = ll.Node(5, n10)
-        n8 = ll.Node(8, n5_1)
-        n5_0 = ll.Node(5, n8)
-        n3 = ll.Node(3, n5_0)
+        n1 = sln.SinglyLinkedNode(1, None)
+        n2 = sln.SinglyLinkedNode(2, n1)
+        n10 = sln.SinglyLinkedNode(10, n2)
+        n5_1 = sln.SinglyLinkedNode(5, n10)
+        n8 = sln.SinglyLinkedNode(8, n5_1)
+        n5_0 = sln.SinglyLinkedNode(5, n8)
+        n3 = sln.SinglyLinkedNode(3, n5_0)
         new_head = p_2_4.partition(n3, 5)
         string_representation = ''
         while new_head is not None:
@@ -255,14 +255,14 @@ class Tests(unittest.TestCase):
         10374
         """
         # first list
-        n14 = ll.Node(9, None)
-        n13 = ll.Node(4, n14)
-        n12 = ll.Node(2, n13)
-        n11 = ll.Node(3, n12)
+        n14 = sln.SinglyLinkedNode(9, None)
+        n13 = sln.SinglyLinkedNode(4, n14)
+        n12 = sln.SinglyLinkedNode(2, n13)
+        n11 = sln.SinglyLinkedNode(3, n12)
         # second list
-        n23 = ll.Node(9, None)
-        n22 = ll.Node(5, n23)
-        n21 = ll.Node(1, n22)
+        n23 = sln.SinglyLinkedNode(9, None)
+        n22 = sln.SinglyLinkedNode(5, n23)
+        n21 = sln.SinglyLinkedNode(1, n22)
         sum_head = p_2_5.sum_lists(n11, n21)
         list_num = ""
         while sum_head is not None:
@@ -272,41 +272,41 @@ class Tests(unittest.TestCase):
 
     def test_problem_2_6(self):
         # list 1
-        node1_7 = ll.Node(0, None)
-        node1_6 = ll.Node(4, node1_7)
-        node1_5 = ll.Node(7, node1_6)
-        node1_4 = ll.Node(0, node1_5)
-        node1_3 = ll.Node(0, node1_4)
-        node1_2 = ll.Node(7, node1_3)
-        node1_1 = ll.Node(4, node1_2)
-        node1_0 = ll.Node(0, node1_1)
+        node1_7 = sln.SinglyLinkedNode(0, None)
+        node1_6 = sln.SinglyLinkedNode(4, node1_7)
+        node1_5 = sln.SinglyLinkedNode(7, node1_6)
+        node1_4 = sln.SinglyLinkedNode(0, node1_5)
+        node1_3 = sln.SinglyLinkedNode(0, node1_4)
+        node1_2 = sln.SinglyLinkedNode(7, node1_3)
+        node1_1 = sln.SinglyLinkedNode(4, node1_2)
+        node1_0 = sln.SinglyLinkedNode(0, node1_1)
 
         # list 2
-        node2_4 = ll.Node(3, None)
-        node2_3 = ll.Node(5, node2_4)
-        node2_2 = ll.Node(2, node2_3)
-        node2_1 = ll.Node(5, node2_2)
-        node2_0 = ll.Node(3, node2_1)
+        node2_4 = sln.SinglyLinkedNode(3, None)
+        node2_3 = sln.SinglyLinkedNode(5, node2_4)
+        node2_2 = sln.SinglyLinkedNode(2, node2_3)
+        node2_1 = sln.SinglyLinkedNode(5, node2_2)
+        node2_0 = sln.SinglyLinkedNode(3, node2_1)
 
         # list 3
-        node3_5 = ll.Node(1, None)
-        node3_4 = ll.Node(0, node3_5)
-        node3_3 = ll.Node(1, node3_4)
-        node3_2 = ll.Node(0, node3_3)
-        node3_1 = ll.Node(1, node3_2)
-        node3_0 = ll.Node(0, node3_1)
+        node3_5 = sln.SinglyLinkedNode(1, None)
+        node3_4 = sln.SinglyLinkedNode(0, node3_5)
+        node3_3 = sln.SinglyLinkedNode(1, node3_4)
+        node3_2 = sln.SinglyLinkedNode(0, node3_3)
+        node3_1 = sln.SinglyLinkedNode(1, node3_2)
+        node3_0 = sln.SinglyLinkedNode(0, node3_1)
 
         # list 4
-        node4_3 = ll.Node("a", None)
-        node4_2 = ll.Node("l", node4_3)
-        node4_1 = ll.Node("e", node4_2)
-        node4_0 = ll.Node("x", node4_1)
+        node4_3 = sln.SinglyLinkedNode("a", None)
+        node4_2 = sln.SinglyLinkedNode("l", node4_3)
+        node4_1 = sln.SinglyLinkedNode("e", node4_2)
+        node4_0 = sln.SinglyLinkedNode("x", node4_1)
 
         # list 5
-        node5_3 = ll.Node("A", None)
-        node5_2 = ll.Node("B", node5_3)
-        node5_1 = ll.Node("B", node5_2)
-        node5_0 = ll.Node("A", node5_1)
+        node5_3 = sln.SinglyLinkedNode("A", None)
+        node5_2 = sln.SinglyLinkedNode("B", node5_3)
+        node5_1 = sln.SinglyLinkedNode("B", node5_2)
+        node5_0 = sln.SinglyLinkedNode("A", node5_1)
 
         self.assertTrue(p_2_6.palindrome(node1_0))
         self.assertTrue(p_2_6.palindrome(node2_0))
@@ -316,19 +316,19 @@ class Tests(unittest.TestCase):
 
     def test_problem_2_7(self):
         # list 1
-        node1_6 = ll.Node(1, None)
-        node1_5 = ll.Node(2, node1_6)
-        node1_4 = ll.Node(7, node1_5)
-        node1_3 = ll.Node(9, node1_4)
-        node1_2 = ll.Node(5, node1_3)
-        node1_1 = ll.Node(1, node1_2)
-        node1_0 = ll.Node(3, node1_1)
+        node1_6 = sln.SinglyLinkedNode(1, None)
+        node1_5 = sln.SinglyLinkedNode(2, node1_6)
+        node1_4 = sln.SinglyLinkedNode(7, node1_5)
+        node1_3 = sln.SinglyLinkedNode(9, node1_4)
+        node1_2 = sln.SinglyLinkedNode(5, node1_3)
+        node1_1 = sln.SinglyLinkedNode(1, node1_2)
+        node1_0 = sln.SinglyLinkedNode(3, node1_1)
         # list 2
-        node2_1 = ll.Node(6, node1_4)  # intersection point
-        node2_0 = ll.Node(4, node2_1)
+        node2_1 = sln.SinglyLinkedNode(6, node1_4)  # intersection point
+        node2_0 = sln.SinglyLinkedNode(4, node2_1)
         # list 3
-        node3_1 = ll.Node(6, None)
-        node3_0 = ll.Node(4, node3_1)
+        node3_1 = sln.SinglyLinkedNode(6, None)
+        node3_0 = sln.SinglyLinkedNode(4, node3_1)
         self.assertEqual(node1_4, p_2_7.intersection(node2_0, node1_0))
         self.assertEqual(None, p_2_7.intersection(node1_0, node3_0))
         self.assertEqual(None, p_2_7.intersection(None, None))
@@ -336,29 +336,29 @@ class Tests(unittest.TestCase):
     def test_problem_2_8(self):
         # see problem_2_8_explanation.pdf
         # example 1
-        node1_7 = ll.Node(7, None)
-        node1_6 = ll.Node(6, node1_7)
-        node1_5 = ll.Node(5, node1_6)
-        node1_4 = ll.Node(4, node1_5)
-        node1_3 = ll.Node(3, node1_4)
-        node1_2 = ll.Node(2, node1_3)
-        node1_1 = ll.Node(1, node1_2)
-        node1_0 = ll.Node(0, node1_1)
+        node1_7 = sln.SinglyLinkedNode(7, None)
+        node1_6 = sln.SinglyLinkedNode(6, node1_7)
+        node1_5 = sln.SinglyLinkedNode(5, node1_6)
+        node1_4 = sln.SinglyLinkedNode(4, node1_5)
+        node1_3 = sln.SinglyLinkedNode(3, node1_4)
+        node1_2 = sln.SinglyLinkedNode(2, node1_3)
+        node1_1 = sln.SinglyLinkedNode(1, node1_2)
+        node1_0 = sln.SinglyLinkedNode(0, node1_1)
         node1_7.next_node = node1_5
         self.assertEqual(p_2_8.find_loop(node1_0), node1_5)
 
         # example 2
-        node2_10 = ll.Node(7, None)
-        node2_9 = ll.Node(7, node2_10)
-        node2_8 = ll.Node(7, node2_9)
-        node2_7 = ll.Node(7, node2_8)
-        node2_6 = ll.Node(6, node2_7)
-        node2_5 = ll.Node(5, node2_6)
-        node2_4 = ll.Node(4, node2_5)
-        node2_3 = ll.Node(3, node2_4)
-        node2_2 = ll.Node(2, node2_3)
-        node2_1 = ll.Node(1, node2_2)
-        node2_0 = ll.Node(0, node2_1)
+        node2_10 = sln.SinglyLinkedNode(7, None)
+        node2_9 = sln.SinglyLinkedNode(7, node2_10)
+        node2_8 = sln.SinglyLinkedNode(7, node2_9)
+        node2_7 = sln.SinglyLinkedNode(7, node2_8)
+        node2_6 = sln.SinglyLinkedNode(6, node2_7)
+        node2_5 = sln.SinglyLinkedNode(5, node2_6)
+        node2_4 = sln.SinglyLinkedNode(4, node2_5)
+        node2_3 = sln.SinglyLinkedNode(3, node2_4)
+        node2_2 = sln.SinglyLinkedNode(2, node2_3)
+        node2_1 = sln.SinglyLinkedNode(1, node2_2)
+        node2_0 = sln.SinglyLinkedNode(0, node2_1)
         node2_10.next_node = node2_3
         self.assertEqual(p_2_8.find_loop(node2_0), node2_3)
 

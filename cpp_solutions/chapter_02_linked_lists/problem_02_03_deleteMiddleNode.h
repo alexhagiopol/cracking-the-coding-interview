@@ -22,16 +22,16 @@ Space complexity: O(1).
 */
 
 #pragma once
-#include "LinkedListNode.h"
+#include "SinglyLinkedNode.h"
 
 namespace chapter_02{
     // template function implemented in header file
     template <typename T>
-    void deleteMiddleNode(LinkedListNode<T>* middle){
+    void deleteMiddleNode(SinglyLinkedNode<T>* middle){
         if (middle == nullptr || middle->getNext() == nullptr){
             return; // given node is not in the middle. do nothing.
         }
-        LinkedListNode<T>* next = middle -> getNext();
+        SinglyLinkedNode<T>* next = middle -> getNext();
         middle->setValue(next->getValue());
         middle->setNext(next->getNext());
         delete next;
