@@ -466,11 +466,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(None, shelter.dequeue_cat())
 
     def test_tree_binary_tree_traversals(self):
-        #         8
-        #       /  \
-        #      4   10
-        #     /\    \
-        #    2 6    20
+        """
+                 8
+               /  \
+              4   10
+             /\    \
+            2 6    20
+        """
         n2 = tb.BinaryNode(2)
         n6 = tb.BinaryNode(6)
         n20 = tb.BinaryNode(20)
@@ -488,11 +490,13 @@ class Tests(unittest.TestCase):
         self.assertEqual(post_order_sequence, [2, 6, 4, 20, 10, 8])
 
     def test_graph_exploration(self):
-        #      1 <- 8 -> 17
-        #         /  \
-        #   3 <- 4   10 -> 15
-        #       /\   /\
-        # 0 <- 2 6  9 20 -> 23
+        """
+             1 <- 8 -> 17
+                /  \
+          3 <- 4   10 -> 15
+              /\   /\
+        0 <- 2 6  9 20 -> 23
+        """
         n0 = tb.Node(0)
         n2 = tb.Node(2, (n0,))
         n6 = tb.Node(6)
@@ -533,11 +537,13 @@ class Tests(unittest.TestCase):
         self.assertEqual('11,\n9,13,\n8,10,12,14,\n_,_,_,_,_,_,_,_,\n', tb.stringify_bin_tree(root))
 
     def test_problem_4_3(self):
-        # create binary tree:
-        # 10,
-        # 5,8,
-        # 1,7,_,9,
-        # _,_,_,_,_,_,
+        """
+        create binary tree:
+        10,
+        5,8,
+        1,7,_,9,
+        _,_,_,_,_,_,
+        """
         root = tb.BinaryNode(10)
         n5 = tb.BinaryNode(5)
         n8 = tb.BinaryNode(8)
@@ -555,27 +561,27 @@ class Tests(unittest.TestCase):
     def test_problem_4_4(self):
         # For the purposes of this question, a balanced tree is defined to be a tree
         # such that the heights of the two subtrees of any node never differ by more than one.
-        '''
+        """
         balanced tree:
         root,
         node,leaf,
         leaf,leaf,_,_,
         _,_,_,_,
-        '''
+        """
         node131 = tb.BinaryNode("leaf", None, None)
         node132 = tb.BinaryNode("leaf", None, None)
         node121 = tb.BinaryNode("node", node131, node132)
         node122 = tb.BinaryNode("leaf", None, None)
         root1 = tb.BinaryNode("root", node121, node122)
         self.assertTrue(p_4_4.is_balanced(root1))
-        '''
+        """
         unbalanced tree:
         root,
         node,leaf,
         node,leaf,_,_,
         leaf,_,_,_,
         _,_,
-        '''
+        """
         node241 = tb.BinaryNode("leaf", None, None)
         node231 = tb.BinaryNode("node", node241, None)
         node232 = tb.BinaryNode("leaf", None, None)
