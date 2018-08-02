@@ -353,6 +353,15 @@ TEST_CASE("Chapter 03 - Problem 02 - StackMin()", "test"){
     REQUIRE(myStack.seeMin() == -9);
 }
 
+TEST_CASE("Chapter 03 - Problem 04 - QueueViStacks()", "test"){
+    chapter_03::QueueViaStacks<int> myQueue = chapter_03::QueueViaStacks<int>();
+    for (int i = 0; i < 10; i++) myQueue.enqueue(i);
+    for (int i = 0; i < 5; i++) REQUIRE(myQueue.dequeue() == i);
+    for (int i = 0; i < 5; i++) myQueue.enqueue(i);
+    for (int i = 5; i < 10; i++) REQUIRE(myQueue.dequeue() == i);
+    for (int i = 0; i < 5; i++) REQUIRE(myQueue.dequeue() == i);
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }

@@ -381,13 +381,13 @@ class Tests(unittest.TestCase):
 
     def test_queue(self):
         my_q = Queue.Queue()
-        my_q.add(1)
-        my_q.add(2)
-        my_q.add(3)
-        my_q.add(4)
+        my_q.enqueue(1)
+        my_q.enqueue(2)
+        my_q.enqueue(3)
+        my_q.enqueue(4)
         test_array = []
         for i in range(4):
-            test_array += [my_q.remove().value]
+            test_array += [my_q.dequeue()]
         self.assertEqual(test_array, [1, 2, 3, 4])
         self.assertTrue(my_q.is_empty())
 
@@ -442,7 +442,9 @@ class Tests(unittest.TestCase):
             self.assertEqual(i, queue.dequeue())
         for i in range(5):
             queue.enqueue(i)
-        for i in range(10):
+        for i in range(5,10):
+            self.assertEqual(i, queue.dequeue())
+        for i in range(5):
             self.assertEqual(i, queue.dequeue())
 
     def test_problem_3_5(self):

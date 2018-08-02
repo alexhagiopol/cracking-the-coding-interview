@@ -43,7 +43,7 @@ Total: `55 / 145`
 0. [C++ Unit Tests](tests.cpp)
 1. [Chapter 1 - Arrays and Strings](cpp_solutions/chapter_01_arrays_and_strings): `9 / 9`  complete.
 2. [Chapter 2 - Linked Lists](cpp_solutions/chapter_02_linked_lists): `8 / 8` complete.
-3. [Chapter 3 - Stacks and Queues](cpp_solutions/chapter_03_stacks_and_queues): `1 / 6`  complete.
+3. [Chapter 3 - Stacks and Queues](cpp_solutions/chapter_03_stacks_and_queues): `2 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
 5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `4 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
@@ -59,7 +59,7 @@ Total: `55 / 145`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `28 / 151`
+Total: `29 / 151`
 
 ### Build Process 
 #### Mac:
