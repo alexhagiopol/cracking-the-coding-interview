@@ -10,6 +10,7 @@ class QueueViaStacks:
         self.s1.push(value)
 
     def dequeue(self):
-        while not self.s1.is_empty():
-            self.s2.push(self.s1.pop())
+        if self.s2.is_empty():
+            while not self.s1.is_empty():
+                self.s2.push(self.s1.pop())
         return self.s2.pop()
