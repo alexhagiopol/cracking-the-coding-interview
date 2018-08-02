@@ -11,25 +11,6 @@ namespace chapter_03{
         chapter_02::SinglyLinkedNode<T>* _head;
     public:
         Stack(){_head = nullptr;}
-        // compare values in stack top-to-bottom to values in vector front-to-back for easy unit testing
-        bool operator==(const std::vector<T>& vector){
-            chapter_02::SinglyLinkedNode<T>* temp = _head;
-            for (T item : vector){
-                if (temp == nullptr || item != temp->getValue()){
-                    return false;  // vector length > stack height
-                }
-                if (item != temp->getValue()){
-                    return false;  // value inequality
-                }
-                temp = temp->getNext();
-            }
-            if (temp != nullptr) return false; // stack height > vector length
-            std::cerr << "Returning true." << std::endl;
-            return true;
-        }
-        bool operator!=(const std::vector<T>& vector){
-            return !(*this==vector);
-        }
         // check if stack is empty
         bool isEmpty() {return _head == nullptr;}
         // add item to top of stack
@@ -66,5 +47,23 @@ namespace chapter_03{
                 delete temp;
             }
         }
+        // compare values in stack top-to-bottom to values in vector front-to-back for easy unit testing
+        bool operator==(const std::vector<T>& vector){
+            chapter_02::SinglyLinkedNode<T>* temp = _head;
+            for (T item : vector){
+                if (temp == nullptr || item != temp->getValue()){
+                    return false;  // vector length > stack height
+                }
+                if (item != temp->getValue()){
+                    return false;  // value inequality
+                }
+                temp = temp->getNext();
+            }
+            if (temp != nullptr) return false; // stack height > vector length
+            return true;
+        }
+        bool operator!=(const std::vector<T>& vector){
+            return !(*this==vector);
+        }
     }; // class Stack
-};
+}; // namespace chapter_03
