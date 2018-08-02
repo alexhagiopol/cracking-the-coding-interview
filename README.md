@@ -8,24 +8,23 @@
  
 ### Introduction
 This repo contains Python and C++ solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). 
-Admittedly, there are other GitHub repos with solutions for this book. But when you're studying and are deeply confused,
-how do you know that their code *actually works*? If it's untested, then you don't! That's why in this repo
-every solution has unit tests using the [Python unittest framework](https://docs.python.org/3.6/library/unittest.html)
-or the [C++ Catch framework](https://github.com/philsquared/Catch). We enforce
+Admittedly, there are other GitHub repos with solutions for this book. *But
+how do you know that their code is actually currect?* If it's untested, then you don't! In this repo
+every Python solution has unit tests using the [Python unittest framework](https://docs.python.org/3.6/library/unittest.html)
+and every C++ solution has unit tests using the [C++ Catch framework](https://github.com/philsquared/Catch). We enforce
 the unit tests using [continuous integration servers](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview) ensuring
-that the solutions are made of *living* code that gets executed and tested on every single public commit. Reference and contribute
-solutions with confidence.
+that the solutions are made of *living* code that gets executed and tested on every single commit.
 
 ### Table of Contents
-#### Python Solutions:
-1. Chapter 1 - Arrays and Strings: `9 / 9`  complete.    
-2. Chapter 2 - Linked Lists: `8 / 8` complete.   
-3. Chapter 3 - Stacks and Queues: `6 / 6`  complete.
-4. Chapter 4 - Trees and Graphs: `11 / 12` complete.  
-5. Chapter 5 - Bit Manipulation: `7 / 7`  complete.
+#### [Python Solutions](python_solutions):
+1. [Chapter 1 - Arrays and Strings](python_solutions/chapter_01_arrays_and_strings): `9 / 9`  complete.    
+2. [Chapter 2 - Linked Lists](python_solutions/chapter_02_linked_lists): `8 / 8` complete.   
+3. [Chapter 3 - Stacks and Queues](python_solutions/chapter_03_stacks_queues): `6 / 6`  complete.
+4. [Chapter 4 - Trees and Graphs](python_solutions/chapter_04_trees_and_graphs): `11 / 12` complete.  
+5. [Chapter 5 - Bit Manipulation](python_solutions/chapter_05_bit_manipulation): `7 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
-8. Chapter 8 - Recursion and Dynamic Programming: `11 / 14`  complete.
+8. [Chapter 8 - Recursion and Dynamic Programming](python_solutions/chapter_08_recursion_and_dynamic_programming): `11 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
 10. Chapter 10 - Sorting and Searching: `0 / 11` complete.
 11. Chapter 11 - Testing: N/A
@@ -33,24 +32,24 @@ solutions with confidence.
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: N/A
 15. Chapter 15 - Threads and Locks: `0 / 4` complete.
-16. Chapter 16 - Moderate: `1 / 26` complete.
-17. Chapter 17 - Hard: `3 / 26` complete.
+16. [Chapter 16 - Moderate](python_solutions/chapter_16_moderate): `1 / 26` complete.
+17. [Chapter 17 - Hard](python_solutions/chapter_17_hard): `3 / 26` complete.
 
 Total: `55 / 145`
 
-#### C++ Solutions:
-1. Chapter 1 - Arrays and Strings: `9 / 9`  complete.
-2. Chapter 2 - Linked Lists: `8 / 8` complete.
-3. Chapter 3 - Stacks and Queues: `1 / 6`  complete.
+#### [C++ Solutions](cpp_solutions):
+1. [Chapter 1 - Arrays and Strings](cpp_solutions/chapter_01_arrays_and_strings): `9 / 9`  complete.
+2. [Chapter 2 - Linked Lists](cpp_solutions/chapter_02_linked_lists): `8 / 8` complete.
+3. [Chapter 3 - Stacks and Queues](cpp_solutions/chapter_03_stacks_and_queues): `1 / 6`  complete.
 4. Chapter 4 - Trees and Graphs: `0 / 12` complete.  
-5. Chapter 5 - Bit Manipulation: `4 / 7`  complete.
+5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `4 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
-8. Chapter 8 - Recursion and Dynamic Programming: `5 / 14`  complete.
+8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `5 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
 10. Chapter 10 - Sorting and Searching: `0 / 11` complete.
 11. Chapter 11 - Testing: N/A
-12. Chapter 12 - C and C++: `1 / 6`
+12. [Chapter 12 - C and C++](cpp_solutions/chapter_12_cpp): `1 / 6`
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: N/A
 15. Chapter 15 - Threads and Locks: `0 / 4`
