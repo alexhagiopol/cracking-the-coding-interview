@@ -9,7 +9,7 @@
 ### Introduction
 This repo contains Python and C++ solutions for Gayle Laakmann McDowell's [*Cracking the Coding Interview 6th Edition*](http://a.co/baneyGe). 
 Admittedly, there are other GitHub repositories with solutions for this book. *But
-how do you know that their code is actually currect?* If it's untested, then you don't! 
+how do you know that their code is actually correct?* If it's untested, then you don't! 
 
 In this project, every Python solution has unit tests using the [Python unittest framework](https://docs.python.org/3.6/library/unittest.html)
 and every C++ solution has unit tests using the [C++ Catch framework](https://github.com/philsquared/Catch). We enforce
