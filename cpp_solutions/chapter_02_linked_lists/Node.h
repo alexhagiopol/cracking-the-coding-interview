@@ -6,22 +6,44 @@
 
 namespace chapter_02{
     template <typename T>
-    class SinglyLinkedNode{
-    private:
+    class Node{
+    protected:
         T _value;
+    public:
+        Node(T value) : _value(value) {}  // constructor
+        Node(const Node& other) : _value(other.getValue()) {}  // copy constructor
+        ~Node(){}  // destructor
+        bool operator== (const Node& other) {return _value == other.getValue();}  // equality check
+        T getValue() const {return _value;}
+        void setValue(const T& value) {_value = value;}
+    };
+
+    template <typename T>
+    class SinglyLinkedNode : public Node<T>{
+    private:
         SinglyLinkedNode* _next;
     public:
-        SinglyLinkedNode(T value, SinglyLinkedNode* next = nullptr) : _value(value), _next(next) {}  // constructor
-        bool operator== (const SinglyLinkedNode& other) {return _value == other.getValue();}  // equality check
-        SinglyLinkedNode(const SinglyLinkedNode& other) : _value(other.getValue()), _next(other.getNext()){}  // copy constructor
+        SinglyLinkedNode(T value, SinglyLinkedNode* next = nullptr) : Node<T>(value), _next(next) {}  // constructor
+        SinglyLinkedNode(const SinglyLinkedNode& other) : Node<T>::_value(other.getValue()), _next(other.getNext()){}  // copy constructor
         ~SinglyLinkedNode(){   // destructor
             _next = nullptr;
         }
-        T getValue() const {return _value;}
         SinglyLinkedNode* getNext() const {return _next;}
-        void setValue(const T& value) {_value = value;}
         void setNext(SinglyLinkedNode* next) {_next = next;}
     };  // class SinglyLinkedNode
+
+    template <typename T>
+    class GraphNode : Node<T>{
+    private:
+        std::vector<GraphNode*> _children;
+    public:
+        GraphNode(T value) : Node<T>(value) {}
+        void addChild(GraphNode* child) {_children.push_back(child);}
+        void removeChild(GraphNode* child, int index) {
+            if (index >= _children.size() || index < 0) return;
+            _children[index] = child;
+        }
+    };
 
     template <typename T>
     SinglyLinkedNode<T>* vectorToList(const std::vector<T> numbers){

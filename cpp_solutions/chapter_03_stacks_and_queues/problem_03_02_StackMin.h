@@ -25,7 +25,7 @@ Space complexity: O(2N)
 
 namespace chapter_03{
     template <typename T>
-    class StackMin : private chapter_03::Stack<T> {
+    class StackMin : public chapter_03::Stack<T> {
     private:
         chapter_03::Stack<T> _minStack;
     public:

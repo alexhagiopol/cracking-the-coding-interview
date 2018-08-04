@@ -362,6 +362,27 @@ TEST_CASE("Chapter 03 - Problem 04 - QueueViStacks()", "test"){
     for (int i = 0; i < 5; i++) REQUIRE(myQueue.dequeue() == i);
 }
 
+TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
+    /*
+    Implements this directed graph:
+    1 -> 2 -> 3
+         |
+         v
+         4 -> 5 -> 6
+         |    ^
+         v    |
+         7 -> 8
+    */
+    chapter_02::GraphNode<int>* node1 = new chapter_02::GraphNode<int>(1);
+    chapter_02::GraphNode<int>* node2 = new chapter_02::GraphNode<int>(2);
+    chapter_02::GraphNode<int>* node3 = new chapter_02::GraphNode<int>(3);
+    chapter_02::GraphNode<int>* node4 = new chapter_02::GraphNode<int>(4);
+    chapter_02::GraphNode<int>* node5 = new chapter_02::GraphNode<int>(5);
+    chapter_02::GraphNode<int>* node6 = new chapter_02::GraphNode<int>(6);
+    chapter_02::GraphNode<int>* node7 = new chapter_02::GraphNode<int>(7);
+    chapter_02::GraphNode<int>* node8 = new chapter_02::GraphNode<int>(8);
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }

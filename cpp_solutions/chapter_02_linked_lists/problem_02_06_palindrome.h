@@ -21,7 +21,7 @@ We then compare the reversed list with the second half of the input list.
 Time complexity: O(N)
 Space complexity: O(N)
 */
-#include "SinglyLinkedNode.h"
+#include "Node.h"
 
 namespace chapter_02{
     template <typename T>
