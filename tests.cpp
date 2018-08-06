@@ -5,6 +5,7 @@
 #include "cpp_solutions/chapter_01_arrays_and_strings/chapter_01_includes.h"
 #include "cpp_solutions/chapter_02_linked_lists/chapter_02_includes.h"
 #include "cpp_solutions/chapter_03_stacks_and_queues/chapter_03_includes.h"
+#include "cpp_solutions/chapter_04_trees_and_graphs/chapter_04_includes.h"
 #include "cpp_solutions/chapter_05_bit_manipulation/chapter_05_includes.h"
 #include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
 #include "cpp_solutions/chapter_12_cpp/chapter_12_includes.h"
@@ -360,6 +361,49 @@ TEST_CASE("Chapter 03 - Problem 04 - QueueViStacks()", "test"){
     for (int i = 0; i < 5; i++) myQueue.enqueue(i);
     for (int i = 5; i < 10; i++) REQUIRE(myQueue.dequeue() == i);
     for (int i = 0; i < 5; i++) REQUIRE(myQueue.dequeue() == i);
+}
+
+TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
+    /*
+    Implements this directed graph:
+    1 -> 2 -> 3
+         |
+         v
+         4 -> 5 -> 6
+         |    ^
+         v    |
+         7 -> 8
+     */
+    chapter_02::GraphNode<int>* node1 = new chapter_02::GraphNode<int>(1);
+    chapter_02::GraphNode<int>* node2 = new chapter_02::GraphNode<int>(2);
+    chapter_02::GraphNode<int>* node3 = new chapter_02::GraphNode<int>(3);
+    chapter_02::GraphNode<int>* node4 = new chapter_02::GraphNode<int>(4);
+    chapter_02::GraphNode<int>* node5 = new chapter_02::GraphNode<int>(5);
+    chapter_02::GraphNode<int>* node6 = new chapter_02::GraphNode<int>(6);
+    chapter_02::GraphNode<int>* node7 = new chapter_02::GraphNode<int>(7);
+    chapter_02::GraphNode<int>* node8 = new chapter_02::GraphNode<int>(8);
+    node1->addChild(node2, 0);
+    node2->addChild(node3, 0);
+    node2->addChild(node4, 1);
+    node4->addChild(node5, 0);
+    node4->addChild(node7, 1);
+    node5->addChild(node6, 0);
+    node7->addChild(node8, 0);
+    node8->addChild(node5, 0);
+    REQUIRE(chapter_04::pathExistsDFS(node1, node6) == true);
+    REQUIRE(chapter_04::pathExistsDFS(node7, node5) == true);
+    REQUIRE(chapter_04::pathExistsDFS(node3, node8) == false);
+    REQUIRE(chapter_04::pathExistsDFS(node1, node8) == true);
+    REQUIRE(chapter_04::pathExistsDFS(static_cast<chapter_02::GraphNode<int>*>(nullptr), static_cast<chapter_02::GraphNode<int>*>(nullptr)) == false);
+    REQUIRE(chapter_04::pathExistsDFS(node1, static_cast<chapter_02::GraphNode<int>*>(nullptr)) == false);
+    delete node1;
+    delete node2;
+    delete node3;
+    delete node4;
+    delete node5;
+    delete node6;
+    delete node7;
+    delete node8;
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){

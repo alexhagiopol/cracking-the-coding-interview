@@ -22,7 +22,7 @@ Space complexity: O(1).
 */
 
 #pragma once
-#include "SinglyLinkedNode.h"
+#include "Node.h"
 
 namespace chapter_02{
     // template function implemented in header file

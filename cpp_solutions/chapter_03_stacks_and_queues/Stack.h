@@ -2,7 +2,7 @@
 // Created by Alex Hagiopol on 7/30/18.
 //
 #pragma once
-#include "../chapter_02_linked_lists/SinglyLinkedNode.h"
+#include "chapter_02_linked_lists/Node.h"
 
 namespace chapter_03{
     template <typename T>

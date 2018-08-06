@@ -25,7 +25,7 @@ Time complexity: O(N)
 Space complexity: O(N)
 */
 
-#include "SinglyLinkedNode.h"
+#include "Node.h"
 
 namespace chapter_02{
     SinglyLinkedNode<uint8_t>* sumLists(const SinglyLinkedNode<uint8_t>* head1, const SinglyLinkedNode<uint8_t>* head2){

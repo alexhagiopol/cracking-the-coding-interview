@@ -527,11 +527,18 @@ class Tests(unittest.TestCase):
     def test_problem_4_1(self):
         my_graph = p_4_1.Graph()
         p_4_1.reset(my_graph)
-        self.assertEqual(p_4_1.path_exists(my_graph, my_graph.get_node(7), my_graph.get_node(5)), True)
+        self.assertEqual(p_4_1.path_exists_BFS(my_graph, my_graph.get_node(1), my_graph.get_node(6)), True)
         p_4_1.reset(my_graph)
-        self.assertEqual(p_4_1.path_exists(my_graph, my_graph.get_node(3), my_graph.get_node(8)), False)
+        self.assertEqual(p_4_1.path_exists_BFS(my_graph, my_graph.get_node(7), my_graph.get_node(5)), True)
         p_4_1.reset(my_graph)
-        self.assertEqual(p_4_1.path_exists(my_graph, my_graph.get_node(1), my_graph.get_node(8)), True)
+        self.assertEqual(p_4_1.path_exists_BFS(my_graph, my_graph.get_node(3), my_graph.get_node(8)), False)
+        p_4_1.reset(my_graph)
+        self.assertEqual(p_4_1.path_exists_BFS(my_graph, my_graph.get_node(1), my_graph.get_node(8)), True)
+        p_4_1.reset(my_graph)
+        self.assertEqual(p_4_1.path_exists_BFS(my_graph, None, None), False)
+        p_4_1.reset(my_graph)
+        self.assertEqual(p_4_1.path_exists_BFS(my_graph, my_graph.get_node(1), None), False)
+
 
     def test_problem_4_2(self):
         my_list = [8, 9, 10, 11, 12, 13, 14]
