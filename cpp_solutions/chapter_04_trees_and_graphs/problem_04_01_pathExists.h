@@ -1,6 +1,18 @@
-//
-// Created by Alex Hagiopol on 8/5/18.
-//
+/*
+Chapter 04 - Problem 01 - Path Between Nodes
+
+Problem Statement:
+Given a directed graph, design an algorithm to find out whether there is a
+route between two nodes.
+
+Solution:
+Use breadth first search (BFS) or depth first search (DFS) from node 1 to node 2.
+If node 2 is found return true. If node 2 is not found, return false. This solution
+implements DFS.
+
+Time complexity: O(N)
+Space complexity: O(N)
+*/
 
 #pragma once
 #include "../chapter_02_linked_lists/Node.h"

@@ -1,4 +1,21 @@
-class Node:
+"""
+Chapter 04 - Problem 01 - Path Between Nodes
+
+Problem Statement:
+Given a directed graph, design an algorithm to find out whether there is a
+route between two nodes.
+
+Solution:
+Use breadth first search (BFS) or depth first search (DFS) from node 1 to node 2.
+If node 2 is found return true. If node 2 is not found, return false. This solution
+implements BFS.
+
+Time complexity: O(N)
+Space complexity: O(N)
+"""
+
+
+class GraphNode:
     def __init__(self, value, frontier=False, explored=False):
         self.value = value
         self.frontier = frontier
@@ -29,14 +46,14 @@ def reset(graph):
                          7 -> 8
     """
     graph.nodes_list = []
-    n1 = Node(1, False, False)
-    n2 = Node(2, False, False)
-    n3 = Node(3, False, False)
-    n4 = Node(4, False, False)
-    n5 = Node(5, False, False)
-    n6 = Node(6, False, False)
-    n7 = Node(7, False, False)
-    n8 = Node(8, False, False)
+    n1 = GraphNode(1, False, False)
+    n2 = GraphNode(2, False, False)
+    n3 = GraphNode(3, False, False)
+    n4 = GraphNode(4, False, False)
+    n5 = GraphNode(5, False, False)
+    n6 = GraphNode(6, False, False)
+    n7 = GraphNode(7, False, False)
+    n8 = GraphNode(8, False, False)
     graph.nodes_list += [[n1, n2]]  # adj to n1
     graph.nodes_list += [[n2, n3, n4]]  # adj to n2
     graph.nodes_list += [[n3]]  # adj to n3
@@ -46,7 +63,10 @@ def reset(graph):
     graph.nodes_list += [[n7, n8]]  # adj to n7
     graph.nodes_list += [[n8, n5]]  # adj to n8
 
+
 def path_exists_BFS(graph, start, end):
+    if start is None or end is None:
+        return False
     start.frontier = True
     frontier = [start]
     temp_frontier = []
