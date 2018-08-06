@@ -46,12 +46,7 @@ def reset(graph):
     graph.nodes_list += [[n7, n8]]  # adj to n7
     graph.nodes_list += [[n8, n5]]  # adj to n8
 
-
-def path_exists(graph, start, end):
-    return path_exists_helper(graph, start, end) or path_exists_helper(graph, end, start)
-
-
-def path_exists_helper(graph, start, end):
+def path_exists_BFS(graph, start, end):
     start.frontier = True
     frontier = [start]
     temp_frontier = []

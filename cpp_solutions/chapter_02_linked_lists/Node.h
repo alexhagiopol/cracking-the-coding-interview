@@ -35,15 +35,30 @@ namespace chapter_02{
     template <typename T>
     class GraphNode : Node<T>{
     private:
-        std::vector<GraphNode*> _children;
+        GraphNode* _children[4];
     public:
-        GraphNode(T value) : Node<T>(value) {}
-        void addChild(GraphNode* child) {_children.push_back(child);}
-        void removeChild(GraphNode* child, int index) {
-            if (index >= _children.size() || index < 0) return;
+        GraphNode(T value) : Node<T>(value) {
+            _children[0] = nullptr;
+            _children[1] = nullptr;
+            _children[2] = nullptr;
+            _children[3] = nullptr;
+        }
+        void addChild(GraphNode* child, int index) {
+            if (index > 3 || index < 0) return;
             _children[index] = child;
         }
-    };
+        void removeChild(GraphNode* child, int index) {
+            if (index > 3 || index < 0) return;
+            _children[index] = child;
+        }
+        void getChildren(std::vector<GraphNode*>& children) const {
+            for (int i = 0; i < 4; i++){
+                if (_children[i] != nullptr){
+                    children.push_back(_children[i]);
+                }
+            }
+        }
+    };  //  class GraphNode
 
     template <typename T>
     SinglyLinkedNode<T>* vectorToList(const std::vector<T> numbers){
