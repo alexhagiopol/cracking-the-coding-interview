@@ -594,11 +594,7 @@ TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
     for (int i = 0; i < 10; i++){
         REQUIRE(A[i] == C[i]);
     }
-
-
-
-
-};
+}
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";

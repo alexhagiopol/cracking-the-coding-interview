@@ -5,6 +5,6 @@
 namespace chapter_10{
     template <typename T>
     void sortedMerge(T* A, int lastA, T* B, int lastB){
-        int mergedIndex =
+        
     }
 }
