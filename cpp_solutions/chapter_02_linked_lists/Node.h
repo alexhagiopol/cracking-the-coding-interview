@@ -50,9 +50,10 @@ namespace chapter_02{
             if (index > 3 || index < 0) return;
             _children[index] = child;
         }
-        void removeChild(GraphNode* child, int index) {
+        void removeChild(int index) {
             if (index > 3 || index < 0) return;
             delete _children[index];
+            _children[index] = nullptr;
         }
         void getChildren(std::vector<GraphNode*>& children) const {
             for (int i = 0; i < 4; i++){

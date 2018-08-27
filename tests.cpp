@@ -363,6 +363,32 @@ TEST_CASE("Chapter 03 - Problem 04 - QueueViStacks()", "test"){
     for (int i = 0; i < 5; i++) REQUIRE(myQueue.dequeue() == i);
 }
 
+TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
+    chapter_02::GraphNode<int> node(1);
+    chapter_02::GraphNode<int>* child0 = new chapter_02::GraphNode<int>(0);
+    chapter_02::GraphNode<int>* child1 = new chapter_02::GraphNode<int>(1);
+    chapter_02::GraphNode<int>* child2 = new chapter_02::GraphNode<int>(2);
+    chapter_02::GraphNode<int>* child3 = new chapter_02::GraphNode<int>(3);
+    node.addChild(child0, 0);
+    node.addChild(child1, 1);
+    node.addChild(child2, 2);
+    node.addChild(child3, 3);
+    std::vector<chapter_02::GraphNode<int>*> children;
+    node.getChildren(children);
+    REQUIRE(children[0] == child0);
+    REQUIRE(children[1] == child1);
+    REQUIRE(children[2] == child2);
+    REQUIRE(children[3] == child3);
+    node.removeChild(0);
+    node.removeChild(1);
+    node.removeChild(2);
+    node.removeChild(3);
+    std::vector<chapter_02::GraphNode<int>*> deletedChildren;
+    node.getChildren(deletedChildren);
+    REQUIRE(deletedChildren.size() == 0);
+    // no need to delete children, because removeChildren does that for us.
+}
+
 TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     /*
     Implements this directed graph:
