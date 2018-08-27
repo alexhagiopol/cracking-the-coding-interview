@@ -19,7 +19,7 @@ namespace chapter_02{
         void setValue(const T& value) {_value = value;}
     };
 
-    // specialized node for sinly linked lists
+    // specialized node for singly linked lists
     template <typename T>
     class SinglyLinkedNode : public Node<T>{
     private:
@@ -63,7 +63,6 @@ namespace chapter_02{
         }
     };  //  class GraphNode
 
-
     // utility function that converts contents of std::vector to linked list
     template <typename T>
     SinglyLinkedNode<T>* vectorToList(const std::vector<T> numbers){
@@ -79,7 +78,6 @@ namespace chapter_02{
         }
         return head;
     }
-
 
     // utility function that converts contents of linked list to std::vector
     template <typename T>
