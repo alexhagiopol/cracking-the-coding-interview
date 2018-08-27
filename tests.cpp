@@ -557,7 +557,7 @@ TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     REQUIRE(threeFilled.isApprox(expectedThreeFilled));
 }
 
-TEST_CASE("Chapter 12 - Problem 2 - reverse()", "test"){
+TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";
     char s2[] = "a";
@@ -567,6 +567,20 @@ TEST_CASE("Chapter 12 - Problem 2 - reverse()", "test"){
     // strcmp returns 0 if the 2 strings are equal.
     REQUIRE(strcmp(&s1[0], &s1Rev[0]) == 0);
     REQUIRE(strcmp(&s2[0], &s2Rev[0]) == 0);
+}
+
+TEST_CASE("Chapter 12 - Problem 12 - copyNode()", "test"){
+    std::vector<int> targetVector = {1,2,3,4,5,6,7};
+    chapter_02::SinglyLinkedNode<int>* head = chapter_02::vectorToList(targetVector);
+    chapter_02::SinglyLinkedNode<int>* copy = chapter_12::copyNode(head);
+    REQUIRE(targetVector == chapter_02::listToVector(copy));  //  check that the values contained in nodes are identical
+    // Check that the pointers in the head linked list are *not* the same as the pointers in the copy likned list
+    // This is to verify a copy was actually made.
+    while (head != nullptr && copy != nullptr){
+        REQUIRE(head != copy);
+        head = head->getNext();
+        copy = copy->getNext();
+    }
 }
 
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
