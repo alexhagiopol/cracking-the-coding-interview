@@ -363,6 +363,32 @@ TEST_CASE("Chapter 03 - Problem 04 - QueueViStacks()", "test"){
     for (int i = 0; i < 5; i++) REQUIRE(myQueue.dequeue() == i);
 }
 
+TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
+    chapter_02::GraphNode<int> node(1);
+    chapter_02::GraphNode<int>* child0 = new chapter_02::GraphNode<int>(0);
+    chapter_02::GraphNode<int>* child1 = new chapter_02::GraphNode<int>(1);
+    chapter_02::GraphNode<int>* child2 = new chapter_02::GraphNode<int>(2);
+    chapter_02::GraphNode<int>* child3 = new chapter_02::GraphNode<int>(3);
+    node.addChild(child0, 0);
+    node.addChild(child1, 1);
+    node.addChild(child2, 2);
+    node.addChild(child3, 3);
+    std::vector<chapter_02::GraphNode<int>*> children;
+    node.getChildren(children);
+    REQUIRE(children[0] == child0);
+    REQUIRE(children[1] == child1);
+    REQUIRE(children[2] == child2);
+    REQUIRE(children[3] == child3);
+    node.removeChild(0);
+    node.removeChild(1);
+    node.removeChild(2);
+    node.removeChild(3);
+    std::vector<chapter_02::GraphNode<int>*> deletedChildren;
+    node.getChildren(deletedChildren);
+    REQUIRE(deletedChildren.size() == 0);
+    // no need to delete children, because removeChildren does that for us.
+}
+
 TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     /*
     Implements this directed graph:
@@ -557,7 +583,7 @@ TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     REQUIRE(threeFilled.isApprox(expectedThreeFilled));
 }
 
-TEST_CASE("Chapter 12 - Problem 2 - reverse()", "test"){
+TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";
     char s2[] = "a";
@@ -567,6 +593,20 @@ TEST_CASE("Chapter 12 - Problem 2 - reverse()", "test"){
     // strcmp returns 0 if the 2 strings are equal.
     REQUIRE(strcmp(&s1[0], &s1Rev[0]) == 0);
     REQUIRE(strcmp(&s2[0], &s2Rev[0]) == 0);
+}
+
+TEST_CASE("Chapter 12 - Problem 12 - copyNode()", "test"){
+    std::vector<int> targetVector = {1,2,3,4,5,6,7};
+    chapter_02::SinglyLinkedNode<int>* head = chapter_02::vectorToList(targetVector);
+    chapter_02::SinglyLinkedNode<int>* copy = chapter_12::copyNode(head);
+    REQUIRE(targetVector == chapter_02::listToVector(copy));  //  check that the values contained in nodes are identical
+    // Check that the pointers in the head linked list are *not* the same as the pointers in the copy likned list
+    // This is to verify a copy was actually made.
+    while (head != nullptr && copy != nullptr){
+        REQUIRE(head != copy);
+        head = head->getNext();
+        copy = copy->getNext();
+    }
 }
 
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
