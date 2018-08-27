@@ -5,6 +5,7 @@
 #include <vector>
 
 namespace chapter_02{
+    // Node base class
     template <typename T>
     class Node{
     protected:
@@ -18,6 +19,7 @@ namespace chapter_02{
         void setValue(const T& value) {_value = value;}
     };
 
+    // specialized node for sinly linked lists
     template <typename T>
     class SinglyLinkedNode : public Node<T>{
     private:
@@ -32,6 +34,7 @@ namespace chapter_02{
         void setNext(SinglyLinkedNode* next) {_next = next;}
     };  // class SinglyLinkedNode
 
+    // specialized node for 4-connected graphs
     template <typename T>
     class GraphNode : Node<T>{
     private:
@@ -49,7 +52,7 @@ namespace chapter_02{
         }
         void removeChild(GraphNode* child, int index) {
             if (index > 3 || index < 0) return;
-            _children[index] = child;
+            delete _children[index];
         }
         void getChildren(std::vector<GraphNode*>& children) const {
             for (int i = 0; i < 4; i++){
@@ -60,6 +63,8 @@ namespace chapter_02{
         }
     };  //  class GraphNode
 
+
+    // utility function that converts contents of std::vector to linked list
     template <typename T>
     SinglyLinkedNode<T>* vectorToList(const std::vector<T> numbers){
         if(numbers.size() <= 0){
@@ -75,6 +80,8 @@ namespace chapter_02{
         return head;
     }
 
+
+    // utility function that converts contents of linked list to std::vector
     template <typename T>
     std::vector<T> listToVector(SinglyLinkedNode<T>* head){
         std::vector<T> vector;
