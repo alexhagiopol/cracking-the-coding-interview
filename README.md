@@ -28,7 +28,7 @@ the Internet's only solutions repository with this level of testing rigor: >90% 
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. [Chapter 8 - Recursion and Dynamic Programming](python_solutions/chapter_08_recursion_and_dynamic_programming): `11 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
-10. Chapter 10 - Sorting and Searching: `0 / 11` complete.
+10. [Chapter 10 - Sorting and Searching](python_solutions/chapter_10_sorting_and_searching): `1 / 11` complete.
 11. Chapter 11 - Testing: N/A
 12. Chapter 12 - C and C++: N/A
 13. Chapter 13 - Java: N/A
@@ -37,7 +37,7 @@ the Internet's only solutions repository with this level of testing rigor: >90% 
 16. [Chapter 16 - Moderate](python_solutions/chapter_16_moderate): `1 / 26` complete.
 17. [Chapter 17 - Hard](python_solutions/chapter_17_hard): `3 / 26` complete.
 
-Total: `55 / 145`
+Total: `56 / 145`
 
 #### [C++ Solutions](cpp_solutions):
 0. [C++ Unit Tests](tests.cpp)
