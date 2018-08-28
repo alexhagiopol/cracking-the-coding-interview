@@ -970,7 +970,7 @@ class Tests(unittest.TestCase):
         p_10_1.sorted_merge(A, lastA, B, lastB)
         self.assertEqual(A, C)
 
-        D = [5, 5, 10, 10]
+        D = [5, 5, 10, 10, 0, 0, 0, 0, 0, 0]
         E = [3, 6,  9, 12, 15, 15]
         lastD = 3
         lastE = 5

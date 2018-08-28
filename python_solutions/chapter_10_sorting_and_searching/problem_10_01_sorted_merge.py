@@ -18,3 +18,12 @@ the function does not cause more memory allocations that scale with the size of 
 
 def sorted_merge(A, lastA, B, lastB):
     mergeA = lastA + lastB + 1
+    # iterate through arrays A and B from back to front performing the merge operation along the way
+    while lastB >= 0:  # note that you don't need to copy the contents of A after running out of elements of B. they are already correct.
+        if A[lastA] > B[lastB] and lastA >= 0:  # do not allow copying from A if we have run out of A values
+            A[mergeA] = A[lastA]
+            lastA -= 1
+        else:
+            A[mergeA] = B[lastB]
+            lastB -= 1
+        mergeA -= 1
