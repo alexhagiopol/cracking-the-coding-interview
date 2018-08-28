@@ -598,12 +598,11 @@ TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
 
     int D[10] = {5, 5, 10, 10};  // remainder of uninitialized values set to zero implicitly
     int E[6]  = {3, 6,  9, 12, 15, 15};
-    int lastD = 3;  // index of last item placed in A
-    int lastE = 5;  // index of last item placed in B
-    int F[10] = {3, 5, 5, 6, 9, 10, 10, 12, 15, 15};
+    int lastD = 3;  // index of last item placed in D
+    int lastE = 5;  // index of last item placed in E
     chapter_10::sortedMerge(&D[0], lastD, &E[0], lastE);
     for (int i = 0; i < 10; i++){
-        REQUIRE(D[i] == F[i]);
+        REQUIRE(D[i] == C[i]);
     }
 }
 
