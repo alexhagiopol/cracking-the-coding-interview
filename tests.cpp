@@ -8,6 +8,7 @@
 #include "cpp_solutions/chapter_04_trees_and_graphs/chapter_04_includes.h"
 #include "cpp_solutions/chapter_05_bit_manipulation/chapter_05_includes.h"
 #include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
+#include "cpp_solutions/chapter_10_sorting_and_searching/chapter_10_includes.h"
 #include "cpp_solutions/chapter_12_cpp/chapter_12_includes.h"
 #include "cpp_solutions/misc_exercises/misc_includes.h"
 #define CATCH_CONFIG_MAIN
@@ -581,6 +582,28 @@ TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     REQUIRE(onesFilled.isApprox(expectedOnesFilled));
     REQUIRE(twosFilled.isApprox(expectedTwosFilled));
     REQUIRE(threeFilled.isApprox(expectedThreeFilled));
+}
+
+TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
+    int A[10] = {5, 5, 10, 10, 15};  // remainder of uninitialized values set to zero implicitly
+    int B[5]  = {3, 6,  9, 12, 15};
+    int lastA = 4;  // index of last item placed in A
+    int lastB = 4;  // index of last item placed in B
+    int C[10] = {3, 5, 5, 6, 9, 10, 10, 12, 15, 15};
+    chapter_10::sortedMerge(&A[0], lastA, &B[0], lastB);
+    for (int i = 0; i < 10; i++){
+        REQUIRE(A[i] == C[i]);
+    }
+
+
+    int D[10] = {5, 5, 10, 10};  // remainder of uninitialized values set to zero implicitly
+    int E[6]  = {3, 6,  9, 12, 15, 15};
+    int lastD = 3;  // index of last item placed in D
+    int lastE = 5;  // index of last item placed in E
+    chapter_10::sortedMerge(&D[0], lastD, &E[0], lastE);
+    for (int i = 0; i < 10; i++){
+        REQUIRE(D[i] == C[i]);
+    }
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){

@@ -58,6 +58,7 @@ from python_solutions.chapter_08_recursion_and_dynamic_programming import proble
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_09_parens as p_8_9
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_10_paint_fill as p_8_10
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_11_coins as p_8_11
+from python_solutions.chapter_10_sorting_and_searching import problem_10_01_sorted_merge as p_10_1
 from python_solutions.chapter_16_moderate import problem_16_03_intersection as p_16_03
 from python_solutions.chapter_17_hard import problem_17_10_majority_element as p_17_10
 from python_solutions.chapter_17_hard import problem_17_15_longest_combination as p_17_15
@@ -958,6 +959,24 @@ class Tests(unittest.TestCase):
 
     def test_problem_8_14(self):
         pass
+
+
+    def test_problem_10_01(self):
+        A = [5, 5, 10, 10, 15, 0, 0, 0, 0, 0]
+        B = [3, 6,  9, 12, 15]
+        lastA = 4
+        lastB = 4
+        C = [3, 5, 5, 6, 9, 10, 10, 12, 15, 15]
+        p_10_1.sorted_merge(A, lastA, B, lastB)
+        self.assertEqual(A, C)
+
+        D = [5, 5, 10, 10, 0, 0, 0, 0, 0, 0]
+        E = [3, 6,  9, 12, 15, 15]
+        lastD = 3
+        lastE = 5
+        p_10_1.sorted_merge(D, lastD, E, lastE)
+        self.assertEqual(D, C)
+
 
     def test_problem_16_03(self):
         segment1 = p_16_03.LineSegment(p_16_03.Point2(5, 5), p_16_03.Point2(0, 0))
