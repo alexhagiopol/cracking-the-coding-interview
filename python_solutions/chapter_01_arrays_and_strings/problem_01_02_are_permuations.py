@@ -30,11 +30,14 @@ Space complexity: O(1) because bit vector does not scale with string length.
 def are_permutations(s1, s2):
     if len(s1) != len(s2):  # unequal length means not permutations
         return False
-    bit_vector = 128 * [False]  # create bit vector
-    for char in s1:  # traverse each character and flip bit corresponding to its ASCII value
+    
+    bit_vector = 128 * [0]  # create bit vector
+    for char in s1: 
         index = ord(char)
-        bit_vector[index] = not bit_vector[index]
-    for char in s2:  # traverse each character and flip bit corresponding to its ASCII value
+        bit_vector[index] +=1 # count the number of each letter
+    for char in s2: 
         index = ord(char)
-        bit_vector[index] = not bit_vector[index]
-    return all(cell is False for cell in bit_vector)  # for 2 strings to be permutations, the bit vector must be all 0s
+        bit_vector[index] -=1
+        if bit_vector[index] < 0:
+            return False
+    return True
