@@ -36,7 +36,7 @@ namespace chapter_02{
 
     // specialized node for 4-connected graphs
     template <typename T>
-    class GraphNode : Node<T>{
+    class GraphNode : public Node<T>{
     private:
         GraphNode* _children[4];
     public:
@@ -64,6 +64,37 @@ namespace chapter_02{
         }
     };  //  class GraphNode
 
+    // specialized node for binary trees
+    template <typename T>
+    class BinaryNode : public Node<T> {
+    private:
+        BinaryNode* _left;
+        BinaryNode* _right;
+    public:
+        BinaryNode(T value) : Node<T>(value){
+            _left = nullptr;
+            _right = nullptr;
+        }
+        void addLeft(BinaryNode<T>* left) {
+            _left = left;
+        }
+        void addRight(BinaryNode<T>* right) {
+            _right = right;
+        }
+        BinaryNode<T>* getLeft() const {
+            return _left;
+        }
+        BinaryNode<T>* getRight() const {
+            return _right;
+        }
+        void removeLeft(){
+            _left = nullptr;
+        }
+        void removeRight(){
+            _left = nullptr;
+        }
+    };
+
     // utility function that converts contents of std::vector to linked list
     template <typename T>
     SinglyLinkedNode<T>* vectorToList(const std::vector<T> numbers){
@@ -90,6 +121,16 @@ namespace chapter_02{
             runner = runner->getNext();
         }
         return vector;
+    }
+
+    // utility function that converts contents of BST to std::vector using post order traversal
+    template <typename T>
+    void bstToVector(std::vector<T>& vector, const BinaryNode<T>* head) {
+        if (head != nullptr) {
+            bstToVector<T>(vector, head->getLeft());
+            bstToVector<T>(vector, head->getRight());
+            vector.push_back(head->getValue());
+        }
     }
 };  // namespace chapter_02
 

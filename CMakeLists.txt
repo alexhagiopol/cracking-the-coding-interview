@@ -34,6 +34,6 @@ set(SOURCE_FILES
 		cpp_solutions/chapter_12_cpp/problem_12_02_reverse.cpp
 		# problem 12.08 not included because it is a template function implemented in .h file
         cpp_solutions/misc_exercises/integralImage.cpp
-        )
+        cpp_solutions/chapter_04_trees_and_graphs/problem_04_02_minimalTree.h)
 # create executable
 add_executable(tests ${SOURCE_FILES})

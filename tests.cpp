@@ -433,6 +433,25 @@ TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     delete node8;
 }
 
+TEST_CASE("Chapter 04 - Problem 02", "test"){
+    /*
+    my_list = [8, 9, 10, 11, 12, 13, 14]
+    root = p_4_2.make_bst(my_list)
+    self.assertEqual('11,\n9,13,\n8,10,12,14,\n_,_,_,_,_,_,_,_,\n', tb.stringify_bin_tree(root))
+     */
+    std::vector<int> sortedArray = {8, 9, 10, 11, 12, 13, 14};
+    chapter_02::BinaryNode<int>* head = chapter_04::minimalTree(sortedArray);
+    std::vector<int> expectedPostOrderTraversal = {8, 10, 9, 12, 14, 13, 11};
+    std::vector<int> actualPostOrderTraversal;
+    chapter_02::bstToVector(actualPostOrderTraversal, head);
+    REQUIRE(expectedPostOrderTraversal.size() == actualPostOrderTraversal.size());
+    /*
+    for (int i = 0; i < actualPostOrderTraversal.size(); i++) {
+        REQUIRE(actualPostOrderTraversal[i] == expectedPostOrderTraversal[i]);
+    }
+     */
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
