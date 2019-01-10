@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(cracking_the_coding_interview)
+project(ctci)
 set(CMAKE_CXX_STANDARD 11)
 # include source folder
 include_directories(cpp_solutions)

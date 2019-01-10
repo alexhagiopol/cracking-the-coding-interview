@@ -542,9 +542,14 @@ class Tests(unittest.TestCase):
 
 
     def test_problem_4_2(self):
-        my_list = [8, 9, 10, 11, 12, 13, 14]
-        root = p_4_2.make_bst(my_list)
-        self.assertEqual('11,\n9,13,\n8,10,12,14,\n_,_,_,_,_,_,_,_,\n', tb.stringify_bin_tree(root))
+        # test 1
+        my_list_1 = [8, 9, 10, 11, 12, 13, 14]
+        root1 = p_4_2.make_bst(my_list_1)
+        self.assertEqual('11,\n9,13,\n8,10,12,14,\n_,_,_,_,_,_,_,_,\n', tb.stringify_bin_tree(root1))
+        # test 2
+        my_list_2 = [9, 10, 11, 12, 13, 14]
+        root2 = p_4_2.make_bst(my_list_2)
+        self.assertEqual('11,\n9,13,\n_,10,12,14,\n_,_,_,_,_,_,\n', tb.stringify_bin_tree(root2))
 
     def test_problem_4_3(self):
         """

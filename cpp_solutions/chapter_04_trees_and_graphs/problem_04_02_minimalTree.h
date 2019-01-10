@@ -22,15 +22,17 @@ Space complexity: O(log(N))
 
 namespace chapter_04 {
     template <typename T>
-    chapter_02::BinaryNode<T>* minimalTreeHelper(const std::vector<T>& array, size_t start, size_t end, chapter_02::BinaryNode<T>* head ) {
-        std::cout << "calling mTH start=" << start << " end" << std::endl;
-        if (end <= start) {
+    chapter_02::BinaryNode<T>* minimalTreeHelper(const std::vector<T>& array, int start, int end, chapter_02::BinaryNode<T>* head ) {
+        if (end < start) {  // if end is less than start, do not add new node to tree
             return nullptr;
         }
-        size_t center = (end - start) / 2;
+        int center = start + static_cast<int>((end - start) / 2);  // center position is offset by start position
         chapter_02::BinaryNode<T>* newHead = new chapter_02::BinaryNode<T>(array[center]);
-        newHead->addLeft(minimalTreeHelper( array,      start, center - 1, head));
-        newHead->addRight(minimalTreeHelper(array, center + 1,        end, head));
+        if (end > start) {  // if end equals start, add a new node but no children
+            // if end > start, test the children as well
+            newHead->addLeft(minimalTreeHelper( array,      start, center - 1, newHead));
+            newHead->addRight(minimalTreeHelper(array, center + 1,        end, newHead));
+        }
         return newHead;
     }
     template <typename T>
@@ -38,15 +40,14 @@ namespace chapter_04 {
         if (array.size() <= 0) {
             return nullptr;
         }
-        size_t start = 0;
-        size_t end = array.size() - 1;
-        size_t center = (end - start) / 2;
+        int start = 0;
+        int end = static_cast<int>(array.size()) - 1;
+        int center = (end - start) / 2;
         chapter_02::BinaryNode<T>* head = new chapter_02::BinaryNode<T>(array[center]);
         if (start != end) {
             head->addLeft(minimalTreeHelper( array,      start, center - 1, head));
             head->addRight(minimalTreeHelper(array, center + 1,        end, head));
         }
-        std::cout << "done!" << std::endl;
         return head;
     }
 
