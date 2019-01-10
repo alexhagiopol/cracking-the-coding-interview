@@ -4,9 +4,7 @@
 
 namespace chapter_08{
     int linearIndex(Eigen::Vector2d coords, int cols){
-        if (coords[0] == 0){
-            return coords[1];
-        } else if (coords[0] > 0){
+        if (coords[0] >= 0 && coords[1] >= 0){
             return coords[0] * cols + coords[1];
         }
         return -1;
