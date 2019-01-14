@@ -76,11 +76,12 @@ class Tests(unittest.TestCase):
         self.assertFalse(p_1_1.is_unique(s2))
 
     def test_problem_1_2(self):
-        s1 = "alex"
-        s2 = "aalex"
-        s3 = "xela"
-        self.assertFalse(p_1_2.are_permutations(s1, s2))
-        self.assertTrue(p_1_2.are_permutations(s1, s3))
+        self.assertFalse(p_1_2.are_permutations("alex", "aalex"))
+        self.assertTrue(p_1_2.are_permutations("alex", "xela"))
+        self.assertFalse(p_1_2.are_permutations("aabb", "aaaa"))
+        self.assertFalse(p_1_2.are_permutations("aaaa", "aabb"))
+        self.assertFalse(p_1_2.are_permutations("aaaa", "aa"))
+        self.assertTrue(p_1_2.are_permutations("", ""))
 
     def test_problem_1_3(self):
         # python strings are immutable, so we use a list of chars to do this "in place"
