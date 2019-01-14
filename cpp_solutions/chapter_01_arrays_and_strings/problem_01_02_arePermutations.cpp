@@ -38,7 +38,6 @@ bool chapter_01::isPermutation(const std::string& s1, const std::string& s2){
     if (s1.size() != s2.size()){
         return false;
     }
-    // std::bitset<128> asciiTable;
     int characterCounts[128] = {0};
     for (char letter : s1){
         characterCounts[static_cast<size_t>(letter)] ++;
