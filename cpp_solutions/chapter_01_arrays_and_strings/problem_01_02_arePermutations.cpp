@@ -30,7 +30,7 @@ Time complexity: O(N) where N is the length of the linearly traversed strings.
 Space complexity: O(1) because bit vector does not scale with string length.
 */
 
-#include "problem_01_02_isPermutation.h"
+#include "problem_01_02_arePermutations.h"
 #include <bitset>
 
 
@@ -38,13 +38,17 @@ bool chapter_01::isPermutation(const std::string& s1, const std::string& s2){
     if (s1.size() != s2.size()){
         return false;
     }
-    std::bitset<128> asciiTable;
+    // std::bitset<128> asciiTable;
+    int characterCounts[128] = {0};
     for (char letter : s1){
-        asciiTable.flip(static_cast<size_t>(letter));
+        characterCounts[static_cast<size_t>(letter)] ++;
     }
     for (char letter : s2){
-        asciiTable.flip(static_cast<size_t>(letter));
+        characterCounts[static_cast<size_t>(letter)] --;
+        if (characterCounts[static_cast<size_t>(letter)] < 0) {
+            return false;
+        }
     }
-    return asciiTable.none();
+    return true;
 };
 

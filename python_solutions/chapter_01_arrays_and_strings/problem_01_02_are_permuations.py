@@ -31,13 +31,13 @@ def are_permutations(s1, s2):
     if len(s1) != len(s2):  # unequal length means not permutations
         return False
     
-    bit_vector = 128 * [0]  # create bit vector
+    character_counts = 128 * [0]  # create counts vector
     for char in s1: 
         index = ord(char)
-        bit_vector[index] +=1  # count the number of each letter
+        character_counts[index] += 1  # count the number of each letter
     for char in s2: 
         index = ord(char)
-        bit_vector[index] -=1
-        if bit_vector[index] < 0:
+        character_counts[index] -= 1
+        if character_counts[index] < 0:
             return False
     return True

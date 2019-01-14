@@ -10,7 +10,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp_solutions/third_party/eigen)
 set(SOURCE_FILES
         tests.cpp
         cpp_solutions/chapter_01_arrays_and_strings/problem_01_01_isUnique.cpp
-        cpp_solutions/chapter_01_arrays_and_strings/problem_01_02_isPermutation.cpp
+        cpp_solutions/chapter_01_arrays_and_strings/problem_01_02_arePermutations.cpp
         cpp_solutions/chapter_01_arrays_and_strings/problem_01_03_URLify.cpp
 		cpp_solutions/chapter_01_arrays_and_strings/problem_01_04_palindromePermutation.cpp
 		cpp_solutions/chapter_01_arrays_and_strings/problem_01_05_oneAway.cpp

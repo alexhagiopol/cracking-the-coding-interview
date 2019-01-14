@@ -22,13 +22,12 @@ TEST_CASE("Chapter 01 - Problem 01 - isUnique()", "test"){
 }
 
 TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
-    REQUIRE(!chapter_01::isPermutation("alex", "alexa"));
-    REQUIRE(chapter_01::isPermutation("aa", "aa"));
-    REQUIRE(chapter_01::isPermutation("alex", "lexa"));
+    REQUIRE(!chapter_01::isPermutation("alex", "aalex"));
     REQUIRE(chapter_01::isPermutation("alex", "xela"));
+    REQUIRE(!chapter_01::isPermutation("aabb", "aaaa"));
+    REQUIRE(!chapter_01::isPermutation("aaaa", "aabb"));
+    REQUIRE(!chapter_01::isPermutation("aaaa", "aa"));
     REQUIRE(chapter_01::isPermutation("", ""));
-    REQUIRE(!chapter_01::isPermutation("cat", "ctt"));
-    REQUIRE(!chapter_01::isPermutation("alexxx", "xxxxxx"));
 }
 
 TEST_CASE("Chapter 01 - Problem 03 - URLify()", "test") {
