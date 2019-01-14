@@ -79,8 +79,14 @@ class Tests(unittest.TestCase):
         s1 = "alex"
         s2 = "aalex"
         s3 = "xela"
+        s4 = "aabb"
+        s5 = "aaaa"
+        s6 = "aa"
         self.assertFalse(p_1_2.are_permutations(s1, s2))
         self.assertTrue(p_1_2.are_permutations(s1, s3))
+        self.assertFalse(p_1_2.are_permutations(s4, s5))
+        self.assertFalse(p_1_2.are_permutations(s5, s4))
+        self.assertFalse(p_1_2.are_permutations(s5, s6))
 
     def test_problem_1_3(self):
         # python strings are immutable, so we use a list of chars to do this "in place"

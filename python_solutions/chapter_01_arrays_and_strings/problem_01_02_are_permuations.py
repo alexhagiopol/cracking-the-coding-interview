@@ -34,7 +34,7 @@ def are_permutations(s1, s2):
     bit_vector = 128 * [0]  # create bit vector
     for char in s1: 
         index = ord(char)
-        bit_vector[index] +=1 # count the number of each letter
+        bit_vector[index] +=1  # count the number of each letter
     for char in s2: 
         index = ord(char)
         bit_vector[index] -=1
