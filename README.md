@@ -65,21 +65,21 @@ Total: `34 / 151`
 #### Mac:
 Mac usage requires the package managers Homebrew and Pip which is done for you in the Makefile: 
 	
-    git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
-    cd cracking-the-coding-interview
+    git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git ctci
+    cd ctci
     make configure-mac
 
 #### Ubuntu:
 
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
-    cd cracking-the-coding-interview
+    cd ctci
     make configure-ubuntu
 
 #### Windows:
 The project can be developed on Windows using Visual Studio 2017. First get the code:
 
 	git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
-	cd cracking-the-coding-interview
+	cd ctci
 	git submodule update --init
 
 Then, install Python3 and numpy using your method of choice. I prefer installing Python3 and pip3 from 
