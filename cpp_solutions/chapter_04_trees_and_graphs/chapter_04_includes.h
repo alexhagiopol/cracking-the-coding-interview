@@ -4,3 +4,5 @@
 
 #pragma once
 #include "problem_04_01_pathExists.h"
+#include "problem_04_02_minimalTree.h"
+#include "problem_04_03_makeLL.h"

@@ -433,6 +433,62 @@ TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     delete node8;
 }
 
+TEST_CASE("Chapter 04 - Problem 02 - minimalTree()", "test"){
+    // test 1
+    std::vector<int> sortedArray1 = {8, 9, 10, 11, 12, 13, 14};
+    chapter_02::BinaryNode<int>* head1 = chapter_04::minimalTree(sortedArray1);
+    std::vector<int> expectedPostOrderTraversal1 = {8, 10, 9, 12, 14, 13, 11};
+    std::vector<int> actualPostOrderTraversal1;
+    chapter_02::bstToVector(actualPostOrderTraversal1, head1);
+    REQUIRE(expectedPostOrderTraversal1.size() == actualPostOrderTraversal1.size());
+    for (int i = 0; i < actualPostOrderTraversal1.size(); i++) {
+        REQUIRE(actualPostOrderTraversal1[i] == expectedPostOrderTraversal1[i]);
+    }
+
+    // test 2
+    std::vector<int> sortedArray2 = {9, 10, 11, 12, 13, 14};
+    chapter_02::BinaryNode<int>* head2 = chapter_04::minimalTree(sortedArray2);
+    std::vector<int> expectedPostOrderTraversal2 = {10, 9, 12, 14, 13, 11};
+    std::vector<int> actualPostOrderTraversal2;
+    chapter_02::bstToVector(actualPostOrderTraversal2, head2);
+    REQUIRE(expectedPostOrderTraversal2.size() == actualPostOrderTraversal2.size());
+    for (int i = 0; i < actualPostOrderTraversal2.size(); i++) {
+        REQUIRE(actualPostOrderTraversal2[i] == expectedPostOrderTraversal2[i]);
+    }
+}
+
+TEST_CASE("Chapter 04 - Problem 03 - makeLL()", "test"){
+    /*
+     * Construct a binary tree of the form
+     * 0
+     * 12
+     * 3456
+     */
+    chapter_02::BinaryNode<int>* head = new chapter_02::BinaryNode<int>(0);
+    chapter_02::BinaryNode<int>* child1 = new chapter_02::BinaryNode<int>(1);
+    chapter_02::BinaryNode<int>* child2 = new chapter_02::BinaryNode<int>(2);
+    chapter_02::BinaryNode<int>* child3 = new chapter_02::BinaryNode<int>(3);
+    chapter_02::BinaryNode<int>* child4 = new chapter_02::BinaryNode<int>(4);
+    chapter_02::BinaryNode<int>* child5 = new chapter_02::BinaryNode<int>(5);
+    chapter_02::BinaryNode<int>* child6 = new chapter_02::BinaryNode<int>(6);
+    head->setLeft(child1);
+    head->setRight(child2);
+    child1->setLeft(child3);
+    child1->setRight(child4);
+    child2->setLeft(child5);
+    child2->setRight(child6);
+    // execute conversion to linked list
+    std::vector<chapter_02::SinglyLinkedNode<int>*> vectorOfHeads;
+    std::vector<chapter_02::SinglyLinkedNode<int>*> vectorOfTails;
+    std::vector<int> expected = {0, 1, 2, 3, 4, 5, 6};
+    chapter_04::makeLL(vectorOfHeads, vectorOfTails, head);
+    std::vector<int> actual = chapter_04::vectorFromVectorOfLLs(vectorOfHeads);
+    // test
+    for (int i = 0; i < expected.size(); i++) {
+        REQUIRE(expected[i] == actual[i]);
+    }
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }

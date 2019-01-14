@@ -44,7 +44,7 @@ Total: `56 / 145`
 1. [Chapter 1 - Arrays and Strings](cpp_solutions/chapter_01_arrays_and_strings): `9 / 9`  complete.
 2. [Chapter 2 - Linked Lists](cpp_solutions/chapter_02_linked_lists): `8 / 8` complete.
 3. [Chapter 3 - Stacks and Queues](cpp_solutions/chapter_03_stacks_and_queues): `2 / 6`  complete.
-4. [Chapter 4 - Trees and Graphs](cpp_solutions/chapter_04_trees_and_graphs): `1 / 12` complete.  
+4. [Chapter 4 - Trees and Graphs](cpp_solutions/chapter_04_trees_and_graphs): `3 / 12` complete.  
 5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `4 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
@@ -59,27 +59,27 @@ Total: `56 / 145`
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `32 / 151`
+Total: `34 / 151`
 
 ### Build Process 
 #### Mac:
 Mac usage requires the package managers Homebrew and Pip which is done for you in the Makefile: 
 	
-    git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
-    cd cracking-the-coding-interview
+    git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git ctci
+    cd ctci
     make configure-mac
 
 #### Ubuntu:
 
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
-    cd cracking-the-coding-interview
+    cd ctci
     make configure-ubuntu
 
 #### Windows:
 The project can be developed on Windows using Visual Studio 2017. First get the code:
 
 	git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
-	cd cracking-the-coding-interview
+	cd ctci
 	git submodule update --init
 
 Then, install Python3 and numpy using your method of choice. I prefer installing Python3 and pip3 from 

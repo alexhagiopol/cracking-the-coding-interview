@@ -40,10 +40,10 @@ bool chapter_01::isPermutation(const std::string& s1, const std::string& s2){
     }
     std::bitset<128> asciiTable;
     for (char letter : s1){
-        asciiTable.flip((int) letter);
+        asciiTable.flip(static_cast<size_t>(letter));
     }
     for (char letter : s2){
-        asciiTable.flip((int) letter);
+        asciiTable.flip(static_cast<size_t>(letter));
     }
     return asciiTable.none();
 };
