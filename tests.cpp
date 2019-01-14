@@ -433,7 +433,7 @@ TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     delete node8;
 }
 
-TEST_CASE("Chapter 04 - Problem 02", "test"){
+TEST_CASE("Chapter 04 - Problem 02 - minimalTree()", "test"){
     // test 1
     std::vector<int> sortedArray1 = {8, 9, 10, 11, 12, 13, 14};
     chapter_02::BinaryNode<int>* head1 = chapter_04::minimalTree(sortedArray1);
@@ -455,7 +455,38 @@ TEST_CASE("Chapter 04 - Problem 02", "test"){
     for (int i = 0; i < actualPostOrderTraversal2.size(); i++) {
         REQUIRE(actualPostOrderTraversal2[i] == expectedPostOrderTraversal2[i]);
     }
+}
 
+TEST_CASE("Chapter 04 - Problem 03 - makeLL()", "test"){
+    /*
+     * Construct a binary tree of the form
+     * 0
+     * 12
+     * 3456
+     */
+    chapter_02::BinaryNode<int>* head = new chapter_02::BinaryNode<int>(0);
+    chapter_02::BinaryNode<int>* child1 = new chapter_02::BinaryNode<int>(1);
+    chapter_02::BinaryNode<int>* child2 = new chapter_02::BinaryNode<int>(2);
+    chapter_02::BinaryNode<int>* child3 = new chapter_02::BinaryNode<int>(3);
+    chapter_02::BinaryNode<int>* child4 = new chapter_02::BinaryNode<int>(4);
+    chapter_02::BinaryNode<int>* child5 = new chapter_02::BinaryNode<int>(5);
+    chapter_02::BinaryNode<int>* child6 = new chapter_02::BinaryNode<int>(6);
+    head->setLeft(child1);
+    head->setRight(child2);
+    child1->setLeft(child3);
+    child1->setRight(child4);
+    child2->setLeft(child5);
+    child2->setRight(child6);
+    // execute conversion to linked list
+    std::vector<chapter_02::SinglyLinkedNode<int>*> vectorOfHeads;
+    std::vector<chapter_02::SinglyLinkedNode<int>*> vectorOfTails;
+    std::vector<int> expected = {0, 1, 2, 3, 4, 5, 6};
+    chapter_04::makeLL(vectorOfHeads, vectorOfTails, head);
+    std::vector<int> actual = chapter_04::vectorFromVectorOfLLs(vectorOfHeads);
+    // test
+    for (int i = 0; i < expected.size(); i++) {
+        REQUIRE(expected[i] == actual[i]);
+    }
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){

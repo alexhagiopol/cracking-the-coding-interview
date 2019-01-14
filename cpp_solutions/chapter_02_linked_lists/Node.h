@@ -1,6 +1,7 @@
 //
 // Created by Alex Hagiopol on 8/21/17.
 //
+
 #pragma once
 #include <vector>
 
@@ -75,10 +76,10 @@ namespace chapter_02{
             _left = nullptr;
             _right = nullptr;
         }
-        void addLeft(BinaryNode<T>* left) {
+        void setLeft(BinaryNode<T>* left) {
             _left = left;
         }
-        void addRight(BinaryNode<T>* right) {
+        void setRight(BinaryNode<T>* right) {
             _right = right;
         }
         BinaryNode<T>* getLeft() const {

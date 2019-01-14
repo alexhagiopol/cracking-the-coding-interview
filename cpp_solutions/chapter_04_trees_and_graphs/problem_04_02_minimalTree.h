@@ -13,8 +13,8 @@ algorithm, we add the current array element's value to a BST node,
 then divide the input array as closely to 50%/50% as possible before
 recursing on each half for the left and right BST child nodes.
 
-Time complexity: O(log(N))
-Space complexity: O(log(N))
+Time complexity: O(N)
+Space complexity: O(N)
 */
 
 #pragma once
@@ -30,8 +30,8 @@ namespace chapter_04 {
         chapter_02::BinaryNode<T>* newHead = new chapter_02::BinaryNode<T>(array[center]);
         if (end > start) {  // if end equals start, add a new node but no children
             // if end > start, test the children as well
-            newHead->addLeft(minimalTreeHelper( array,      start, center - 1, newHead));
-            newHead->addRight(minimalTreeHelper(array, center + 1,        end, newHead));
+            newHead->setLeft(minimalTreeHelper( array,      start, center - 1, newHead));
+            newHead->setRight(minimalTreeHelper(array, center + 1,        end, newHead));
         }
         return newHead;
     }
@@ -45,10 +45,9 @@ namespace chapter_04 {
         int center = (end - start) / 2;
         chapter_02::BinaryNode<T>* head = new chapter_02::BinaryNode<T>(array[center]);
         if (start != end) {
-            head->addLeft(minimalTreeHelper( array,      start, center - 1, head));
-            head->addRight(minimalTreeHelper(array, center + 1,        end, head));
+            head->setLeft(minimalTreeHelper( array,      start, center - 1, head));
+            head->setRight(minimalTreeHelper(array, center + 1,        end, head));
         }
         return head;
     }
-
 } // namespace chapter_04
