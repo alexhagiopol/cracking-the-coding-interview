@@ -490,6 +490,45 @@ TEST_CASE("Chapter 04 - Problem 03 - makeLL()", "test"){
 }
 
 TEST_CASE("Chapter 04 - Problem 04 - checkBalanced()", "test") {
+/*
+balanced tree:
+
+root,
+node,leaf,
+leaf,leaf,_,_,
+_,_,_,_,
+*/
+
+chapter_02::BinaryNode<int> node131(131, nullptr, nullptr);
+chapter_02::BinaryNode<int> node132(132, nullptr, nullptr);
+chapter_02::BinaryNode<int> node121(121, &node131, &node132);
+chapter_02::BinaryNode<int> node122(122, nullptr, nullptr);
+chapter_02::BinaryNode<int> node111(111, &node121, &node122);
+chapter_04::NodeStatus status1 = chapter_04::checkBalanced(&node111);
+REQUIRE(status1.balanced == true);
+REQUIRE(status1.children == 4);
+
+/*
+unbalanced tree:
+root,
+node,leaf,
+node,leaf,_,_,
+leaf,_,_,_,
+_,_,
+*/
+
+
+/*
+node241 = tb.BinaryNode("leaf", None, None)
+node231 = tb.BinaryNode("node", node241, None)
+node232 = tb.BinaryNode("leaf", None, None)
+node221 = tb.BinaryNode("node", node231, node232)
+node222 = tb.BinaryNode("leaf", None, None)
+root2 = tb.BinaryNode("root", node221, node222)
+self.assertFalse(p_4_4.check_balanced(root2))
+*/
+
+
 
 }
 

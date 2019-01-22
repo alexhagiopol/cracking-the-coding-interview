@@ -24,7 +24,9 @@ namespace chapter_04 {
     };
 
     template <typename T>
-    void checkBalanced(chapter_02::BinaryNode<T>* head, NodeStatus& status) {
-
+    NodeStatus checkBalanced(chapter_02::BinaryNode<T>* head) {
+        NodeStatus status;
+        status.balanced = false;
+        status.children = 0;
     }
 }  // namespace chapter_04

@@ -587,8 +587,8 @@ class Tests(unittest.TestCase):
         node132 = tb.BinaryNode("leaf", None, None)
         node121 = tb.BinaryNode("node", node131, node132)
         node122 = tb.BinaryNode("leaf", None, None)
-        root1 = tb.BinaryNode("root", node121, node122)
-        self.assertTrue(p_4_4.check_balanced(root1))
+        node111 = tb.BinaryNode("root", node121, node122)
+        self.assertTrue(p_4_4.check_balanced(node111))
         """
         unbalanced tree:
         root,
@@ -602,8 +602,8 @@ class Tests(unittest.TestCase):
         node232 = tb.BinaryNode("leaf", None, None)
         node221 = tb.BinaryNode("node", node231, node232)
         node222 = tb.BinaryNode("leaf", None, None)
-        root2 = tb.BinaryNode("root", node221, node222)
-        self.assertFalse(p_4_4.check_balanced(root2))
+        root211 = tb.BinaryNode("root", node221, node222)
+        self.assertFalse(p_4_4.check_balanced(root211))
 
     def test_problem_4_5(self):
         # construct a binary tree
