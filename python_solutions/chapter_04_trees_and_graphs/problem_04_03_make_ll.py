@@ -1,5 +1,5 @@
 """
-Chapter 04 - Problem 02 - Minimal Tree
+Chapter 04 - Problem 03 - List of Depths
 
 Problem Statement:
 Given a binary tree, design an algorithm which creates a linked list

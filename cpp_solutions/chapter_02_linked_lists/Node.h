@@ -76,6 +76,10 @@ namespace chapter_02{
             _left = nullptr;
             _right = nullptr;
         }
+        BinaryNode(T value, BinaryNode<T>* left, BinaryNode<T>* right) : Node<T>(value){
+            _left = left;
+            _right = right;
+        }
         void setLeft(BinaryNode<T>* left) {
             _left = left;
         }
