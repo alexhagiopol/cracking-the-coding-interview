@@ -61,7 +61,7 @@ Total: `56 / 145`
 
 Total: `35 / 151`
 
-### Build Process 
+### Building: 
 #### Mac:
 Mac usage requires the package managers Homebrew and Pip which is done for you in the Makefile: 
 	
@@ -76,7 +76,56 @@ Mac usage requires the package managers Homebrew and Pip which is done for you i
     make configure-ubuntu
 
 #### Windows:
-The project can be developed on Windows using Visual Studio 2017. First get the code:
+For Windows users, I recommend developing this project using the [Windows Subsystem 
+for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install-win10) feature 
+of Windows 10 and then following the Ubuntu build and testing instructions inside WSL. 
+This recommendation is due to the use of Ubuntu, CMake, and makefile based build and execution
+systems on the servers that automatically test changes to the code. For more on Windows 
+development, see the `Appendix` section at the end of this page.
+
+### Testing:
+Testing is the most important part of this project: *only* 
+the unit tests define the problem being solved. In the root 
+directory, execute the following to run all tests in Python and C++:
+
+    make test
+    
+`make test` is the command I use most while developing this project. My workflow follows:
+
+1. I read a problem and encode the problem definition by implementing its unit tests.
+2. I execute `make test` to see where the project fails to satisfy the unit tests.
+3. I add to the implementation of the problem solution until `make test` succeeds.
+
+### Optional: Generating a Test Coverage % Report Locally (Python support only):
+This will show exactly which lines are not covered by tests in each Python source file:
+
+    pip install coverage
+    make test_coverage
+
+### Contributing
+The goal of this project is to write a tested Python and C++ solution for every problem in the 6th edition of the textbook.
+I definitely need help! PRs are of course very welcome. The work has become quite time consuming because each solution is *living*
+code that actually gets executed. Thus, each solution needs its own small dataset and infrastructure in order to be tested.
+Just writing the test for a problem is often harder than solving the problem itself. Here are some ways you can help:
+
+1. Fixing bugs :bug:.
+2. Solving or improving solutions to problems in either language (see the completion progress in the table of contents).
+3. Adding more unit tests to increase the test coverage %.
+4. Implementing automated C++ test coverage measurement using [gcov](http://gcc.gnu.org/onlinedocs/gcc/Gcov.html).
+5. Integrating automated test coverage % reporting for both Python and C++ via [Coveralls](Coveralls.io).
+6. Adding prose solution descriptions for problems that don't have them.
+
+If you have any contributions, please make a PR to the `master` branch. Feel free to message me for clarification on any of
+the above items.
+
+### Appendix: Windows Development
+On my own Windows machine, I develop using [CLion](https://www.jetbrains.com/clion/) running
+natively in Windows and test the code using `make test` in a WSL terminal window.
+For users who do not want to use WSL, I have developed the build and test methodology below:
+
+#### Building
+The project can be developed purely on Windows without WSL by using Visual Studio 2017. 
+First clone the code:
 
 	git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git
 	cd ctci
@@ -94,13 +143,7 @@ to tell Visual Studio to download PDBs it needs. Additionally, [this article](ht
 describes Visual Studio CMake support in more detail if you're interested. A CMakeSettings.json file in the root project
 directory sets the location of the Visual Studio build folder to be inside the root folder of the project.
 
-### Running Tests:
-#### Mac & Ubuntu:
-In the root directory, execute the following to run all tests in Python and C++:
-
-    make test
-
-#### Windows:
+#### Testing
 Running the tests and seeing their output is best done from a PowerShell window since VisualStudio in CMake mode
 does *not* allow the console output of the `tests.exe` and `tests.py` files to remain visible even when pressing 
 CTRL + F5 as described [in this post](https://stackoverflow.com/a/1775870) which applies to 
@@ -114,25 +157,3 @@ In the meantime, from the project root directory, you can run the Python tests u
 ... and you can run the C++ tests using ...
 
 	.\build\x64-Debug\tests.exe
-
-### Optional: Generating a Test Coverage % Report Locally (Python support only):
-This will show exactly which lines are not covered by tests in each Python source file:
-
-    pip install coverage
-    make test_coverage
-
-### Contributing
-The goal of this project is to write a tested Python and C++ solution for every problem in the 6th edition of the textbook.
-I definitely need help! PRs are of course very welcome. The work has become quite time consuming because each solution is *living*
-code that actually gets executed. Thus, each solution needs its own small dataset and infrastructure in order to be tested.
-Just writing the test for a problem is often harder than solving the problem itself. Here are some ways you can help:
-
-0. Fixing bugs :bug:.
-1. Solving or improving solutions to problems in either language (see the completion progress in the table of contents).
-2. Adding more unit tests to increase the test coverage %.
-3. Implementing automated C++ test coverage measurement using [gcov](http://gcc.gnu.org/onlinedocs/gcc/Gcov.html).
-4. Integrating automated test coverage % reporting for both Python and C++ via [Coveralls](Coveralls.io).
-5. Adding prose solution descriptions for problems that don't have them.
-
-If you have any contributions, please make a PR to the `master` branch. Feel free to message me for clarification on any of
-the above items.
