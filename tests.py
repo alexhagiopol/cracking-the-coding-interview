@@ -31,7 +31,7 @@ from python_solutions.chapter_04_trees_and_graphs import tree_basics as tb
 from python_solutions.chapter_04_trees_and_graphs import problem_04_01_path_exists as p_4_1
 from python_solutions.chapter_04_trees_and_graphs import problem_04_02_make_bst as p_4_2
 from python_solutions.chapter_04_trees_and_graphs import problem_04_03_make_ll as p_4_3
-from python_solutions.chapter_04_trees_and_graphs import problem_04_04_is_balanced as p_4_4
+from python_solutions.chapter_04_trees_and_graphs import problem_04_04_check_balanced as p_4_4
 from python_solutions.chapter_04_trees_and_graphs import problem_04_05_validate_BST as p_4_5
 from python_solutions.chapter_04_trees_and_graphs import problem_04_06_successor as p_4_6
 from python_solutions.chapter_04_trees_and_graphs import problem_04_07_build_order as p_4_7
@@ -588,7 +588,7 @@ class Tests(unittest.TestCase):
         node121 = tb.BinaryNode("node", node131, node132)
         node122 = tb.BinaryNode("leaf", None, None)
         root1 = tb.BinaryNode("root", node121, node122)
-        self.assertTrue(p_4_4.is_balanced(root1))
+        self.assertTrue(p_4_4.check_balanced(root1))
         """
         unbalanced tree:
         root,
@@ -603,10 +603,10 @@ class Tests(unittest.TestCase):
         node221 = tb.BinaryNode("node", node231, node232)
         node222 = tb.BinaryNode("leaf", None, None)
         root2 = tb.BinaryNode("root", node221, node222)
-        self.assertFalse(p_4_4.is_balanced(root2))
+        self.assertFalse(p_4_4.check_balanced(root2))
 
     def test_problem_4_5(self):
-        # contstruct a binary tree
+        # construct a binary tree
         node1 = tb.BinaryNode(1)
         node2 = tb.BinaryNode(2)
         node3 = tb.BinaryNode(3)
