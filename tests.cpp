@@ -417,12 +417,12 @@ TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     node5->addChild(node6, 0);
     node7->addChild(node8, 0);
     node8->addChild(node5, 0);
-    REQUIRE(chapter_04::pathExistsDFS(node1, node6) == true);
-    REQUIRE(chapter_04::pathExistsDFS(node7, node5) == true);
-    REQUIRE(chapter_04::pathExistsDFS(node3, node8) == false);
-    REQUIRE(chapter_04::pathExistsDFS(node1, node8) == true);
-    REQUIRE(chapter_04::pathExistsDFS(static_cast<chapter_02::GraphNode<int>*>(nullptr), static_cast<chapter_02::GraphNode<int>*>(nullptr)) == false);
-    REQUIRE(chapter_04::pathExistsDFS(node1, static_cast<chapter_02::GraphNode<int>*>(nullptr)) == false);
+    REQUIRE(chapter_04::pathExistsDFS(node1, node6));
+    REQUIRE(chapter_04::pathExistsDFS(node7, node5));
+    REQUIRE(!chapter_04::pathExistsDFS(node3, node8));
+    REQUIRE(chapter_04::pathExistsDFS(node1, node8));
+    REQUIRE(!chapter_04::pathExistsDFS(static_cast<chapter_02::GraphNode<int>*>(nullptr), static_cast<chapter_02::GraphNode<int>*>(nullptr)));
+    REQUIRE(!chapter_04::pathExistsDFS(node1, static_cast<chapter_02::GraphNode<int>*>(nullptr)));
     delete node1;
     delete node2;
     delete node3;
@@ -505,7 +505,7 @@ chapter_02::BinaryNode<int> node122(122, nullptr, nullptr);
 chapter_02::BinaryNode<int> node121(121, &node131, &node132);
 chapter_02::BinaryNode<int> node111(111, &node121, &node122);
 chapter_04::NodeStatus status1 = chapter_04::checkBalanced(&node111);
-REQUIRE(status1.balanced == true);
+REQUIRE(status1.balanced);
 REQUIRE(status1.subtreeSize == 3);
 
 /*
@@ -525,8 +525,39 @@ chapter_02::BinaryNode<int> node222(222, nullptr, nullptr);
 chapter_02::BinaryNode<int> node221(221, &node231, &node232);
 chapter_02::BinaryNode<int> node211(211, &node221, &node222);
 chapter_04::NodeStatus status2 = chapter_04::checkBalanced(&node211);
-REQUIRE(status2.balanced == false);
+REQUIRE(!status2.balanced);
 REQUIRE(status2.subtreeSize == 4);
+}
+
+TEST_CASE("Chpater 04 - Problem 05 - validateBST()", "test") {
+    // construct a binary tree
+    chapter_02::BinaryNode<int> node1(1);
+    chapter_02::BinaryNode<int> node2(2);
+    chapter_02::BinaryNode<int> node3(3);
+    chapter_02::BinaryNode<int> node4(4);
+    chapter_02::BinaryNode<int> node5(5);
+    chapter_02::BinaryNode<int> node6(6);
+    chapter_02::BinaryNode<int> node8(8);
+    chapter_02::BinaryNode<int> node10(10);
+    /*
+                   8
+            4,            10
+       2,       6,
+    1,    3, 5,
+    */
+    node8.setLeft(&node4);
+    node8.setRight(&node10);
+    node4.setLeft(&node2);
+    node4.setRight(&node6);
+    node2.setLeft(&node1);
+    node2.setRight(&node3);
+    node6.setLeft(&node5);
+    REQUIRE(chapter_04::validateBST(&node8));
+
+    // add node that breaks BST rule
+    chapter_02::BinaryNode<int> node9(9);
+    node6.setRight(&node9);
+    REQUIRE(!chapter_04::validateBST(&node8));
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){

@@ -1,4 +1,4 @@
-"""
+/*
 Chapter 04 - Problem 05 - Validate BST
 
 Problem Statement:
@@ -20,16 +20,15 @@ if a node is not in bounds.
 
 Time complexity: O(N)
 Space complexity: O(N)
-"""
+*/
 
+#include <chapter_02_linked_lists/Node.h>
 
-def validate_BST_helper(node, min, max):
-    if node is None:
-        return True
-    if node.val < min or node.val > max:
-        return False
-    return validate_BST_helper(node.left, min, node.val) and validate_BST_helper(node.right, node.val, max)
-
-
-def validate_BST(node):
-    return validate_BST_helper(node, -1*float('inf'), float('inf'))
+namespace chapter_04 {
+    template <typename T>
+    bool validateBST(chapter_02::BinaryNode<T>* head, T min = std::numeric_limits<T>::min(), T max = std::numeric_limits<T>::max()) {
+        if (head == nullptr) return true;  // lack of a node is considered valid
+        if (head->getValue() > max || head->getValue() < min) return false;
+        return validateBST(head->getLeft(), min, head->getValue()) && validateBST(head->getRight(), head->getValue(), max);
+    }
+}  // namespace chapter_04
