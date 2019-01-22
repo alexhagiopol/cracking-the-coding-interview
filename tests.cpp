@@ -499,17 +499,18 @@ node131,node132,nullptr,nullptr,
 nullptr,nullptr,nullptr,nullptr,
 */
 
-chapter_02::BinaryNode<int> node131(131, nullptr, nullptr);
 chapter_02::BinaryNode<int> node132(132, nullptr, nullptr);
-chapter_02::BinaryNode<int> node121(121, &node131, &node132);
+chapter_02::BinaryNode<int> node131(131, nullptr, nullptr);
 chapter_02::BinaryNode<int> node122(122, nullptr, nullptr);
+chapter_02::BinaryNode<int> node121(121, &node131, &node132);
 chapter_02::BinaryNode<int> node111(111, &node121, &node122);
 chapter_04::NodeStatus status1 = chapter_04::checkBalanced(&node111);
 REQUIRE(status1.balanced == true);
-REQUIRE(status1.children == 4);
+REQUIRE(status1.subtreeSize == 3);
 
 /*
 unbalanced tree:
+
 node211,
 node221,node222,
 node231,node232,nullptr,nullptr,
@@ -518,26 +519,14 @@ nullptr,nullptr,
 */
 
 chapter_02::BinaryNode<int> node241(241, nullptr, nullptr);
-chapter_02::BinaryNode<int> node231(231, &node241, nullptr);
 chapter_02::BinaryNode<int> node232(232, nullptr, nullptr);
-chapter_02::BinaryNode<int> node221(221, &node231, &node232);
+chapter_02::BinaryNode<int> node231(231, &node241, nullptr);
 chapter_02::BinaryNode<int> node222(222, nullptr, nullptr);
+chapter_02::BinaryNode<int> node221(221, &node231, &node232);
 chapter_02::BinaryNode<int> node211(211, &node221, &node222);
 chapter_04::NodeStatus status2 = chapter_04::checkBalanced(&node211);
-REQUIRE(status1.balanced == false);
-REQUIRE(status1.children == 5);
-/*
-node241 = tb.BinaryNode("leaf", None, None)
-node231 = tb.BinaryNode("node", node241, None)
-node232 = tb.BinaryNode("leaf", None, None)
-node221 = tb.BinaryNode("node", node231, node232)
-node222 = tb.BinaryNode("leaf", None, None)
-root2 = tb.BinaryNode("root", node221, node222)
-self.assertFalse(p_4_4.check_balanced(root2))
-*/
-
-
-
+REQUIRE(status2.balanced == false);
+REQUIRE(status2.subtreeSize == 4);
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){

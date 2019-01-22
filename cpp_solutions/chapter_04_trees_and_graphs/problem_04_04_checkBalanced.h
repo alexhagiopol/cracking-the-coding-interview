@@ -20,14 +20,33 @@ Space complexity: O(N)
 namespace chapter_04 {
     struct NodeStatus {
         bool balanced;
-        int children;
+        int subtreeSize;
     };
 
     template <typename T>
     NodeStatus checkBalanced(chapter_02::BinaryNode<T>* head) {
         NodeStatus status;
-        status.balanced = false;
-        status.children = 0;
+        // terminating condition
+        if (head == nullptr) {
+            status.balanced = true;
+            status.subtreeSize = 0;
+            return status;
+        }
+
+        // recursive calls
+        NodeStatus leftStatus = checkBalanced(head->getLeft());
+        NodeStatus rightStatus = checkBalanced(head->getRight());
+
+        // check for imbalance in left and right children
+        if (std::abs(leftStatus.subtreeSize - rightStatus.subtreeSize) > 1) {
+            status.balanced = false;
+        } else {
+            status.balanced = true;
+        }
+
+        // check for imbalance in subtrees
+        status.balanced = status.balanced && leftStatus.balanced && rightStatus.balanced;
+        status.subtreeSize = std::max(leftStatus.subtreeSize, rightStatus.subtreeSize) + 1;
         return status;
     }
 }  // namespace chapter_04
