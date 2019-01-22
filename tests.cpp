@@ -493,10 +493,10 @@ TEST_CASE("Chapter 04 - Problem 04 - checkBalanced()", "test") {
 /*
 balanced tree:
 
-root,
-node,leaf,
-leaf,leaf,_,_,
-_,_,_,_,
+node111,
+node121,node122,
+node131,node132,nullptr,nullptr,
+nullptr,nullptr,nullptr,nullptr,
 */
 
 chapter_02::BinaryNode<int> node131(131, nullptr, nullptr);
@@ -510,14 +510,22 @@ REQUIRE(status1.children == 4);
 
 /*
 unbalanced tree:
-root,
-node,leaf,
-node,leaf,_,_,
-leaf,_,_,_,
-_,_,
+node211,
+node221,node222,
+node231,node232,nullptr,nullptr,
+node241,nullptr,nullptr,nullptr,
+nullptr,nullptr,
 */
 
-
+chapter_02::BinaryNode<int> node241(241, nullptr, nullptr);
+chapter_02::BinaryNode<int> node231(231, &node241, nullptr);
+chapter_02::BinaryNode<int> node232(232, nullptr, nullptr);
+chapter_02::BinaryNode<int> node221(221, &node231, &node232);
+chapter_02::BinaryNode<int> node222(222, nullptr, nullptr);
+chapter_02::BinaryNode<int> node211(211, &node221, &node222);
+chapter_04::NodeStatus status2 = chapter_04::checkBalanced(&node211);
+REQUIRE(status1.balanced == false);
+REQUIRE(status1.children == 5);
 /*
 node241 = tb.BinaryNode("leaf", None, None)
 node231 = tb.BinaryNode("node", node241, None)

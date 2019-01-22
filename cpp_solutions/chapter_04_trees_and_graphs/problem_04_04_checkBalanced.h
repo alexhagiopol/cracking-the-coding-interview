@@ -28,5 +28,6 @@ namespace chapter_04 {
         NodeStatus status;
         status.balanced = false;
         status.children = 0;
+        return status;
     }
 }  // namespace chapter_04
