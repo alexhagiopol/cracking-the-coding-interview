@@ -69,16 +69,14 @@ namespace chapter_02{
     template <typename T>
     class BinaryNode : public Node<T> {
     private:
-        BinaryNode* _left;
-        BinaryNode* _right;
+        BinaryNode<T>* _left;
+        BinaryNode<T>* _right;
+        BinaryNode<T>* _parent;
     public:
-        BinaryNode(T value) : Node<T>(value){
-            _left = nullptr;
-            _right = nullptr;
-        }
-        BinaryNode(T value, BinaryNode<T>* left, BinaryNode<T>* right) : Node<T>(value){
+        BinaryNode(T value, BinaryNode<T>* left = nullptr, BinaryNode<T>* right = nullptr, BinaryNode<T>* parent = nullptr) : Node<T>(value){
             _left = left;
             _right = right;
+            _parent = parent;
         }
         void setLeft(BinaryNode<T>* left) {
             _left = left;
@@ -86,17 +84,26 @@ namespace chapter_02{
         void setRight(BinaryNode<T>* right) {
             _right = right;
         }
+        void setParent(BinaryNode<T>* parent) {
+            _parent = parent;
+        }
         BinaryNode<T>* getLeft() const {
             return _left;
         }
         BinaryNode<T>* getRight() const {
             return _right;
         }
+        BinaryNode<T>* getParent() const {
+            return _parent;
+        }
         void removeLeft(){
             _left = nullptr;
         }
         void removeRight(){
-            _left = nullptr;
+            _right = nullptr;
+        }
+        void removeParent(){
+            _parent = nullptr;
         }
     };
 

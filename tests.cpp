@@ -560,6 +560,56 @@ TEST_CASE("Chpater 04 - Problem 05 - validateBST()", "test") {
     REQUIRE(!chapter_04::validateBST(&node8));
 }
 
+TEST_CASE("Chapter 04 - Problem 06 - successor()", "test"){
+    // construct a binary tree
+    chapter_02::BinaryNode<int>* node0 = new chapter_02::BinaryNode<int>(0);
+    chapter_02::BinaryNode<int>* node1 = new chapter_02::BinaryNode<int>(1);
+    chapter_02::BinaryNode<int>* node2 = new chapter_02::BinaryNode<int>(2);
+    chapter_02::BinaryNode<int>* node3 = new chapter_02::BinaryNode<int>(3);
+    chapter_02::BinaryNode<int>* node4 = new chapter_02::BinaryNode<int>(4);
+    chapter_02::BinaryNode<int>* node5 = new chapter_02::BinaryNode<int>(5);
+    chapter_02::BinaryNode<int>* node6 = new chapter_02::BinaryNode<int>(6);
+    chapter_02::BinaryNode<int>* node7 = new chapter_02::BinaryNode<int>(7);
+    chapter_02::BinaryNode<int>* node8 = new chapter_02::BinaryNode<int>(8);
+    chapter_02::BinaryNode<int>* node9 = new chapter_02::BinaryNode<int>(9);
+    chapter_02::BinaryNode<int>* node10 = new chapter_02::BinaryNode<int>(10);
+    /*
+                            8
+                4                       10
+        2               6
+    1       3       5
+           0 9
+    In-order traversal:
+    1, 2, 0, 3, 9, 4, 5, 6, 8, 10
+    */
+    node0->setParent(node3);
+    node1->setParent(node2);
+    node3->setParent(node2);
+    node2->setParent(node4);
+    node5->setParent(node6);
+    node6->setParent(node4);
+    node4->setParent(node8);
+    node9->setParent(node3);
+    node10->setParent(node8);
+
+    node8->setLeft(node4);
+    node8->setRight(node10);
+    node4->setLeft(node2);
+    node4->setRight(node6);
+    node2->setLeft(node1);
+    node2->setRight(node3);
+    node6->setLeft(node5);
+    node3->setLeft(node0);
+    node3->setRight(node9);
+
+    REQUIRE(node8 == chapter_04::successor(node6));
+    REQUIRE(node5 == chapter_04::successor(node4));
+    REQUIRE(node0 == chapter_04::successor(node2));
+    REQUIRE(node3 == chapter_04::successor(node0));
+    REQUIRE(node4 == chapter_04::successor(node9));
+    REQUIRE(nullptr == chapter_04::successor(node10));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
