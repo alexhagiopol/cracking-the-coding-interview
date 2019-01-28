@@ -24,7 +24,27 @@ Space complexity: O(N)
 #include "../chapter_02_linked_lists/Node.h"
 namespace chapter_04{
     template <typename T>
+    chapter_02::BinaryNode<T>* getLeftmostDescendant(chapter_02::BinaryNode<T>* node) {
+        while(node != nullptr) {
+            if (node->getLeft() == nullptr) { return node; }
+            node = node->getLeft();
+        }
+        return node;
+    }
+
+    template <typename T>
+    chapter_02::BinaryNode<T>* getFirstRightAncestor(chapter_02::BinaryNode<T>* node) {
+        while(node != nullptr) {
+            if (node->getParent() == nullptr) { return nullptr;}
+            if (node->getParent()->getLeft() == node) { return node->getParent(); }  // a right ancestor is the one whose left child is the current node
+            node = node->getParent();
+        }
+        return node;
+    }
+
+    template <typename T>
     chapter_02::BinaryNode<T>* successor(chapter_02::BinaryNode<T>* target) {
-        return nullptr;
+        chapter_02::BinaryNode<T>* returnPointer = getLeftmostDescendant(target->getRight());
+        return returnPointer != nullptr ? returnPointer : getFirstRightAncestor(target);
     }
 }  // namespace chapter_04

@@ -21,19 +21,26 @@ Space complexity: O(N)
 """
 
 
-def get_leftmost(node):
-    while node.left is not None:
+def get_leftmost_descendant(node):
+    while node is not None:
+        if node.left is None:
+            return node
         node = node.left
     return node
 
 
-def successor(node):
-    if node.right is not None:
-        return get_leftmost(node.right)
-    while node != node.parent.left:
-        node = node.parent
+def get_first_right_ancestor(node):
+    while node is not None:
         if node.parent is None:
             return None
-        if node.parent.left == node:
+        if node.parent.left == node:  # a right ancestor is the one whose left child is the current node
             return node.parent
-    return node.parent
+        node = node.parent
+    return node
+
+
+def successor(node):
+    return_node = get_leftmost_descendant(node.right)
+    if return_node is None:
+        return get_first_right_ancestor(node)
+    return return_node

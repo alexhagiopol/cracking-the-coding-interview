@@ -85,7 +85,7 @@ namespace chapter_02{
             _right = right;
         }
         void setParent(BinaryNode<T>* parent) {
-            _right = parent;
+            _parent = parent;
         }
         BinaryNode<T>* getLeft() const {
             return _left;
@@ -100,10 +100,10 @@ namespace chapter_02{
             _left = nullptr;
         }
         void removeRight(){
-            _left = nullptr;
+            _right = nullptr;
         }
         void removeParent(){
-            _left = nullptr;
+            _parent = nullptr;
         }
     };
 
