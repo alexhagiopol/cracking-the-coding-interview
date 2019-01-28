@@ -22,6 +22,7 @@ Time complexity: O(N)
 Space complexity: O(N)
 */
 
+#pragma once
 #include <chapter_02_linked_lists/Node.h>
 
 namespace chapter_04 {

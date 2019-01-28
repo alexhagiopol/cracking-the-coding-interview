@@ -540,7 +540,6 @@ class Tests(unittest.TestCase):
         p_4_1.reset(my_graph)
         self.assertEqual(p_4_1.path_exists_BFS(my_graph, my_graph.get_node(1), None), False)
 
-
     def test_problem_4_2(self):
         # test 1
         my_list_1 = [8, 9, 10, 11, 12, 13, 14]
@@ -615,7 +614,12 @@ class Tests(unittest.TestCase):
         node6 = tb.BinaryNode(6)
         node8 = tb.BinaryNode(8)
         node10 = tb.BinaryNode(10)
-
+        """
+                       8
+                4,            10
+           2,       6,
+        1,    3, 5,
+        """
         node8.left = node4
         node8.right = node10
         node4.left = node2
@@ -630,6 +634,8 @@ class Tests(unittest.TestCase):
         self.assertFalse(p_4_5.validate_BST(node8))
 
     def test_problem_4_6(self):
+        # construct a binary tree
+        node0 = tb.BinaryNodeLP(0)
         node1 = tb.BinaryNodeLP(1)
         node2 = tb.BinaryNodeLP(2)
         node3 = tb.BinaryNodeLP(3)
@@ -637,14 +643,25 @@ class Tests(unittest.TestCase):
         node5 = tb.BinaryNodeLP(5)
         node6 = tb.BinaryNodeLP(6)
         node8 = tb.BinaryNodeLP(8)
+        node9 = tb.BinaryNodeLP(9)
         node10 = tb.BinaryNodeLP(10)
-
+        """
+                                    8
+                        4                       10
+                2               6
+            1       3       5
+                   0 9
+        In-order traversal: 
+        1, 2, 0, 3, 9, 4, 5, 6, 8, 10
+        """
+        node0.parent = node3
         node1.parent = node2
         node3.parent = node2
         node2.parent = node4
         node5.parent = node6
         node6.parent = node4
         node4.parent = node8
+        node9.parent = node3
         node10.parent = node8
 
         node8.left = node4
@@ -654,10 +671,14 @@ class Tests(unittest.TestCase):
         node2.left = node1
         node2.right = node3
         node6.left = node5
+        node3.left = node0
+        node3.right = node9
 
         self.assertEqual(node8, p_4_6.successor(node6))
         self.assertEqual(node5, p_4_6.successor(node4))
-        self.assertEqual(node3, p_4_6.successor(node2))
+        self.assertEqual(node0, p_4_6.successor(node2))
+        self.assertEqual(node3, p_4_6.successor(node0))
+        self.assertEqual(node4, p_4_6.successor(node9))
         self.assertEqual(None, p_4_6.successor(node10))
 
     def test_problem_4_7(self):
