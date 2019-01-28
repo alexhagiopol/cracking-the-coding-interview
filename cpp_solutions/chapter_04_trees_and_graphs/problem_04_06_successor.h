@@ -21,3 +21,10 @@ Space complexity: O(N)
 */
 
 #pragma once
+#include "../chapter_02_linked_lists/Node.h"
+namespace chapter_04{
+    template <typename T>
+    chapter_02::BinaryNode<T>* successor(chapter_02::BinaryNode<T>* target) {
+        return nullptr;
+    }
+}  // namespace chapter_04
