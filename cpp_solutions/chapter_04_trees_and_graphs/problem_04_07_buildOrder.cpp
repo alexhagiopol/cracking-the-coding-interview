@@ -46,6 +46,7 @@ namespace chapter_04 {
             charToIndexMap[projects[i]] = i;
         }
         // convert list of project dependencies to graph edges
+        int totalEdges = 0;
         for (auto dependency : dependencies) {
             // the first node in a pair must be build before the second.
             chapter_02::GraphNode<char>* first = projectsGN[charToIndexMap[dependency.first]];
@@ -53,6 +54,7 @@ namespace chapter_04 {
             // add edge from the first node to the second node
             first->push(second);
             second->incAncestors();
+            totalEdges ++;
         }
         // create queue containing all nodes with no dependencies
         std::queue<chapter_02::GraphNode<char>*> Q;
@@ -67,17 +69,19 @@ namespace chapter_04 {
             chapter_02::SinglyLinkedNode<chapter_02::GraphNode<char>*>* child = node->getHeadOfDescendants();
             while (child != nullptr) {
                 child->getValue()->decAncestors();
-                if (child->getValue()->getNumAncestors() == 0) {
-                    Q.push(child->getValue());
-                } else if (child->getValue()->getNumAncestors() < 0) {  // circular dependency detected
-                    buildOrder.clear();
-                    return;
-                }
+                totalEdges --;  // keep track of total edges in graph as we remove them
+                if (child->getValue()->getNumAncestors() == 0) Q.push(child->getValue());
                 child = child->getNext();
+                node->pop();
             }
         }
-        // check for circular dependencies - they manifest as a build list with length different than project list
+        // if edges remain in the graph, at least one circular dependency exists
+        if (totalEdges != 0) {
+            buildOrder.clear();
+        }
         // free memory consumed by graph nodes
-
+        for (auto node : projectsGN) {
+            delete node;
+        }
     }
 }  // namespace chapter_04

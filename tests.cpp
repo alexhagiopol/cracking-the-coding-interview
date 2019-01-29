@@ -611,14 +611,15 @@ TEST_CASE("Chapter 04 - Problem 06 - successor()", "test"){
 }
 
 TEST_CASE("Chapter 04 - Problem 07 - buildOrder()", "test") {
-    std::vector<char> project1 = {'a', 'b', 'c', 'd', 'e', 'f'};
+    // no circular dependencies
+    std::vector<char> projects1 = {'a', 'b', 'c', 'd', 'e', 'f'};
     std::vector<std::pair<char, char>> dependencies1 = {
             std::pair<char, char>('a', 'd'),
             std::pair<char, char>('f', 'b'),
             std::pair<char, char>('b', 'd'),
             std::pair<char, char>('f', 'a'),
             std::pair<char, char>('d', 'c')};
-    std::vector<char> project2 = {'a', 'b', 'c', 'd', 'e', 'f', 'g'};
+    std::vector<char> projects2 = {'a', 'b', 'c', 'd', 'e', 'f', 'g'};
     std::vector<std::pair<char, char>> dependencies2 = {
             std::pair<char, char>('f', 'c'),
             std::pair<char, char>('f', 'b'),
@@ -628,19 +629,30 @@ TEST_CASE("Chapter 04 - Problem 07 - buildOrder()", "test") {
             std::pair<char, char>('a', 'e'),
             std::pair<char, char>('b', 'e'),
             std::pair<char, char>('d', 'g')};
+    // add circular dependency
+    std::vector<std::pair<char, char>> dependencies3 = {
+            std::pair<char, char>('a', 'd'),
+            std::pair<char, char>('f', 'b'),
+            std::pair<char, char>('b', 'd'),
+            std::pair<char, char>('f', 'a'),
+            std::pair<char, char>('d', 'c'),
+            std::pair<char, char>('c', 'a')};
+    // verify output
     std::vector<char> actualBuildOrder1 = {};
     std::vector<char> actualBuildOrder2 = {};
+    std::vector<char> actualBuildOrder3 = {};
     std::vector<char> expectedBuildOrder1 = {'e', 'f', 'b', 'a', 'd', 'c'};
     std::vector<char> expectedBuildOrder2 = {'d', 'f', 'g', 'c', 'b', 'a', 'e'};
-    chapter_04::buildOrder(project1, dependencies1, actualBuildOrder1);
-    chapter_04::buildOrder(project2, dependencies2, actualBuildOrder2);
-
+    chapter_04::buildOrder(projects1, dependencies1, actualBuildOrder1);
+    chapter_04::buildOrder(projects2, dependencies2, actualBuildOrder2);
+    chapter_04::buildOrder(projects1, dependencies3, actualBuildOrder3);
     for (int i = 0; i < actualBuildOrder1.size(); i++) {
         REQUIRE(actualBuildOrder1[i] == expectedBuildOrder1[i]);
     }
     for (int i = 0; i < actualBuildOrder2.size(); i++) {
         REQUIRE(actualBuildOrder2[i] == expectedBuildOrder2[i]);
     }
+    REQUIRE(actualBuildOrder3.empty());
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
