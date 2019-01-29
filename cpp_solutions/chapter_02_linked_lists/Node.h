@@ -41,9 +41,11 @@ namespace chapter_02{
     private:
         SinglyLinkedNode<GraphNode<T>*>* _head;
         SinglyLinkedNode<GraphNode<T>*>* _tail;
+        int _numAncestors;
     public:
         GraphNode(T value) : Node<T>(value) {
             _head = nullptr;
+            _tail = nullptr;
         }
         void push(GraphNode<T>* node) {
             if (_head == nullptr) {
@@ -64,13 +66,21 @@ namespace chapter_02{
                 delete _tail;
                 _head = nullptr;
                 _tail = nullptr;
-                return tempGN;
             } else {
                 SinglyLinkedNode<GraphNode<T>*>* tempHead = _head;
                 _head = _head->getNext();
                 delete tempHead;
             }
             return tempGN;
+        }
+        void incAncestors() {
+            _numAncestors ++;
+        }
+        void decAncestors() {
+            _numAncestors --;
+        }
+        int getNumAncestors() {
+            return _numAncestors;
         }
     };
 

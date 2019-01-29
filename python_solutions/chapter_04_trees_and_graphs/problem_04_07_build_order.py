@@ -1,3 +1,21 @@
+"""
+Chapter 04 - Problem 07 - Build Order
+
+Problem Statement:
+You are given a list of projects and a list of dependencies (which is a list of pairs of projects,
+where the second project is dependent on the first project). All of a project's dependencies must
+be built before the project is. Find a build order that will allow the projects to be built.
+If there is no valid build order, return an error.
+
+Solution:
+We first represent the projects and build dependencies as vertices and edges in a directed acyclic graph.
+We then implement Kahn's algorithm for topological sorting: https://en.wikipedia.org/wiki/Topological_sorting#Algorithms
+
+Time complexity: O(V + E) where V is the number of vertices in the graph and E is the number of edges.
+V can be interpreted as the number of projects and E can be interpreted as the number of dependencies.
+Space complexity: O(V)
+"""
+
 from queue import Queue
 
 
