@@ -35,19 +35,58 @@ namespace chapter_02{
         void setNext(SinglyLinkedNode* next) {_next = next;}
     };  // class SinglyLinkedNode
 
-    // specialized node for 4-connected graphs
+    // general graph node. supports infinite number of children by maintaining pointer to head of linked list of child pointers
     template <typename T>
-    class GraphNode : public Node<T>{
+    class GraphNode : public Node<T> {
     private:
-        GraphNode* _children[4];
+        SinglyLinkedNode<GraphNode<T>*>* _head;
+        SinglyLinkedNode<GraphNode<T>*>* _tail;
     public:
         GraphNode(T value) : Node<T>(value) {
+            _head = nullptr;
+        }
+        void push(GraphNode<T>* node) {
+            if (_head == nullptr) {
+                _head = new SinglyLinkedNode<GraphNode<T>*>(node);
+                _tail = _head;
+            } else {
+                _tail->setNext(new SinglyLinkedNode<GraphNode<T>*>(node));
+                _tail = _tail->getNext();
+            }
+        }
+        GraphNode<T>* pop() {
+            if (_head == nullptr) {
+                return nullptr;
+            }
+            GraphNode<T>* tempGN = _head->getValue();
+            if (_tail == _head) {
+                delete _head;
+                delete _tail;
+                _head = nullptr;
+                _tail = nullptr;
+                return tempGN;
+            } else {
+                SinglyLinkedNode<GraphNode<T>*>* tempHead = _head;
+                _head = _head->getNext();
+                delete tempHead;
+            }
+            return tempGN;
+        }
+    };
+
+    // specialized node for 4-connected graphs; a specific child node can be retrieved in constant time
+    template <typename T>
+    class TetraGraphNode : public Node<T>{
+    private:
+        TetraGraphNode* _children[4];
+    public:
+        TetraGraphNode(T value) : Node<T>(value) {
             _children[0] = nullptr;
             _children[1] = nullptr;
             _children[2] = nullptr;
             _children[3] = nullptr;
         }
-        void addChild(GraphNode* child, int index) {
+        void addChild(TetraGraphNode* child, int index) {
             if (index > 3 || index < 0) return;
             _children[index] = child;
         }
@@ -56,14 +95,14 @@ namespace chapter_02{
             delete _children[index];
             _children[index] = nullptr;
         }
-        void getChildren(std::vector<GraphNode*>& children) const {
+        void getChildren(std::vector<TetraGraphNode*>& children) const {
             for (int i = 0; i < 4; i++){
                 if (_children[i] != nullptr){
                     children.push_back(_children[i]);
                 }
             }
         }
-    };  //  class GraphNode
+    };  //  class TetraGraphNode
 
     // specialized node for binary trees
     template <typename T>

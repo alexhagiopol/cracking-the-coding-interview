@@ -365,16 +365,16 @@ TEST_CASE("Chapter 03 - Problem 04 - QueueViStacks()", "test"){
 }
 
 TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
-    chapter_02::GraphNode<int> node(1);
-    chapter_02::GraphNode<int>* child0 = new chapter_02::GraphNode<int>(0);
-    chapter_02::GraphNode<int>* child1 = new chapter_02::GraphNode<int>(1);
-    chapter_02::GraphNode<int>* child2 = new chapter_02::GraphNode<int>(2);
-    chapter_02::GraphNode<int>* child3 = new chapter_02::GraphNode<int>(3);
+    chapter_02::TetraGraphNode<int> node(1);
+    chapter_02::TetraGraphNode<int>* child0 = new chapter_02::TetraGraphNode<int>(0);
+    chapter_02::TetraGraphNode<int>* child1 = new chapter_02::TetraGraphNode<int>(1);
+    chapter_02::TetraGraphNode<int>* child2 = new chapter_02::TetraGraphNode<int>(2);
+    chapter_02::TetraGraphNode<int>* child3 = new chapter_02::TetraGraphNode<int>(3);
     node.addChild(child0, 0);
     node.addChild(child1, 1);
     node.addChild(child2, 2);
     node.addChild(child3, 3);
-    std::vector<chapter_02::GraphNode<int>*> children;
+    std::vector<chapter_02::TetraGraphNode<int>*> children;
     node.getChildren(children);
     REQUIRE(children[0] == child0);
     REQUIRE(children[1] == child1);
@@ -384,7 +384,7 @@ TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
     node.removeChild(1);
     node.removeChild(2);
     node.removeChild(3);
-    std::vector<chapter_02::GraphNode<int>*> deletedChildren;
+    std::vector<chapter_02::TetraGraphNode<int>*> deletedChildren;
     node.getChildren(deletedChildren);
     REQUIRE(deletedChildren.size() == 0);
     // no need to delete children, because removeChildren does that for us.
@@ -401,14 +401,14 @@ TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
          v    |
          7 -> 8
      */
-    chapter_02::GraphNode<int>* node1 = new chapter_02::GraphNode<int>(1);
-    chapter_02::GraphNode<int>* node2 = new chapter_02::GraphNode<int>(2);
-    chapter_02::GraphNode<int>* node3 = new chapter_02::GraphNode<int>(3);
-    chapter_02::GraphNode<int>* node4 = new chapter_02::GraphNode<int>(4);
-    chapter_02::GraphNode<int>* node5 = new chapter_02::GraphNode<int>(5);
-    chapter_02::GraphNode<int>* node6 = new chapter_02::GraphNode<int>(6);
-    chapter_02::GraphNode<int>* node7 = new chapter_02::GraphNode<int>(7);
-    chapter_02::GraphNode<int>* node8 = new chapter_02::GraphNode<int>(8);
+    chapter_02::TetraGraphNode<int>* node1 = new chapter_02::TetraGraphNode<int>(1);
+    chapter_02::TetraGraphNode<int>* node2 = new chapter_02::TetraGraphNode<int>(2);
+    chapter_02::TetraGraphNode<int>* node3 = new chapter_02::TetraGraphNode<int>(3);
+    chapter_02::TetraGraphNode<int>* node4 = new chapter_02::TetraGraphNode<int>(4);
+    chapter_02::TetraGraphNode<int>* node5 = new chapter_02::TetraGraphNode<int>(5);
+    chapter_02::TetraGraphNode<int>* node6 = new chapter_02::TetraGraphNode<int>(6);
+    chapter_02::TetraGraphNode<int>* node7 = new chapter_02::TetraGraphNode<int>(7);
+    chapter_02::TetraGraphNode<int>* node8 = new chapter_02::TetraGraphNode<int>(8);
     node1->addChild(node2, 0);
     node2->addChild(node3, 0);
     node2->addChild(node4, 1);
@@ -421,8 +421,8 @@ TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     REQUIRE(chapter_04::pathExistsDFS(node7, node5));
     REQUIRE(!chapter_04::pathExistsDFS(node3, node8));
     REQUIRE(chapter_04::pathExistsDFS(node1, node8));
-    REQUIRE(!chapter_04::pathExistsDFS(static_cast<chapter_02::GraphNode<int>*>(nullptr), static_cast<chapter_02::GraphNode<int>*>(nullptr)));
-    REQUIRE(!chapter_04::pathExistsDFS(node1, static_cast<chapter_02::GraphNode<int>*>(nullptr)));
+    REQUIRE(!chapter_04::pathExistsDFS(static_cast<chapter_02::TetraGraphNode<int>*>(nullptr), static_cast<chapter_02::TetraGraphNode<int>*>(nullptr)));
+    REQUIRE(!chapter_04::pathExistsDFS(node1, static_cast<chapter_02::TetraGraphNode<int>*>(nullptr)));
     delete node1;
     delete node2;
     delete node3;
