@@ -82,6 +82,9 @@ namespace chapter_02{
         int getNumAncestors() {
             return _numAncestors;
         }
+        SinglyLinkedNode<GraphNode<T>*>* getHeadOfDescendants() {
+            return _head;
+        }
     };
 
     // specialized node for 4-connected graphs; a specific child node can be retrieved in constant time

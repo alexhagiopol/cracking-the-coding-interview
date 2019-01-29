@@ -9,23 +9,21 @@ If there is no valid build order, return an error.
 
 Solution:
 We first represent the projects and build dependencies as vertices and edges in a directed acyclic graph.
-We then implement a depth first search based algorithm for topological sorting: https://en.wikipedia.org/wiki/Topological_sorting#Algorithms
+We then implement Kahn's algorithm for topological sorting: https://en.wikipedia.org/wiki/Topological_sorting#Algorithms
 
-L ← Empty list that will contain the sorted nodes
-while there are unmarked nodes do:
-    select an unmarked node n
-    visit(n)
-
-function visit(node n)
-    if n has a permanent mark: // n has already been visited
-        return
-    if n has a temporary mark: // (not a DAG)
-        stop
-    mark n temporarily
-    for each node m with an edge from n to m:
-        visit(m)
-    mark n permanently
-    add n to head of L
+L ← Empty list that will contain the sorted elements
+S ← Set of all nodes with no incoming edge
+while S is non-empty do
+    remove a node n from S
+    add n to tail of L
+    for each node m with an edge e from n to m do
+        remove edge e from the graph
+        if m has no other incoming edges then
+            insert m into S
+if graph has edges then
+    return error   (graph has at least one cycle)
+else
+    return L   (a topologically sorted order)
 
 Time complexity: O(V + E) where V is the number of vertices in the graph and E is the number of edges.
 V can be interpreted as the number of projects and E can be interpreted as the number of dependencies.
@@ -34,6 +32,7 @@ Space complexity: O(V)
 
 #include "problem_04_07_buildOrder.h"
 #include <unordered_map>
+#include <queue>
 
 namespace chapter_04 {
     void buildOrder(std::vector<char>& projects, std::vector<std::pair<char, char>>& dependencies, std::vector<char>& buildOrder) {
@@ -47,15 +46,38 @@ namespace chapter_04 {
             charToIndexMap[projects[i]] = i;
         }
         // convert list of project dependencies to graph edges
-        for (int i = 0; i < dependencies.size(); i++) {
+        for (auto dependency : dependencies) {
             // the first node in a pair must be build before the second.
-            chapter_02::GraphNode<char>* first = projectsGN[charToIndexMap[dependencies[i].first]];
-            chapter_02::GraphNode<char>* second = projectsGN[charToIndexMap[dependencies[i].second]];
+            chapter_02::GraphNode<char>* first = projectsGN[charToIndexMap[dependency.first]];
+            chapter_02::GraphNode<char>* second = projectsGN[charToIndexMap[dependency.second]];
             // add edge from the first node to the second node
             first->push(second);
             second->incAncestors();
         }
-
+        // create queue containing all nodes with no dependencies
+        std::queue<chapter_02::GraphNode<char>*> Q;
+        for (auto node : projectsGN) {
+            if (node->getNumAncestors() == 0) Q.push(node);
+        }
+        // traverse graph in depth first order starting from nodes without dependencies
+        while (!Q.empty()) {
+            chapter_02::GraphNode<char>* node = Q.front();
+            Q.pop();
+            buildOrder.push_back(node->getValue());
+            chapter_02::SinglyLinkedNode<chapter_02::GraphNode<char>*>* child = node->getHeadOfDescendants();
+            while (child != nullptr) {
+                child->getValue()->decAncestors();
+                if (child->getValue()->getNumAncestors() == 0) {
+                    Q.push(child->getValue());
+                } else if (child->getValue()->getNumAncestors() < 0) {  // circular dependency detected
+                    buildOrder.clear();
+                    return;
+                }
+                child = child->getNext();
+            }
+        }
+        // check for circular dependencies - they manifest as a build list with length different than project list
+        // free memory consumed by graph nodes
 
     }
 }  // namespace chapter_04

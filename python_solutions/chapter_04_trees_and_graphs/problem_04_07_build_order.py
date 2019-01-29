@@ -52,8 +52,10 @@ def build_order(project_list, deps_list):
             if child_node.in_degree == 0:  # check if in_degree is 0
                 build_list.append(child_node.name)
                 q.put(child_node)
+            if child_node.in_degree < 0:
+                return None
 
-    if len(build_list) != len(project_list):
-        return None
+    #if len(build_list) != len(project_list):  # result of circular dependencies
+    #    return None
     return build_list
 
