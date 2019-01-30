@@ -15,7 +15,7 @@ Space complexity: O(N)
 """
 
 
-class GraphNode:
+class TetraGraphNode:
     def __init__(self, value, frontier=False, explored=False):
         self.value = value
         self.frontier = frontier
@@ -46,14 +46,14 @@ def reset(graph):
                          7 -> 8
     """
     graph.nodes_list = []
-    n1 = GraphNode(1, False, False)
-    n2 = GraphNode(2, False, False)
-    n3 = GraphNode(3, False, False)
-    n4 = GraphNode(4, False, False)
-    n5 = GraphNode(5, False, False)
-    n6 = GraphNode(6, False, False)
-    n7 = GraphNode(7, False, False)
-    n8 = GraphNode(8, False, False)
+    n1 = TetraGraphNode(1, False, False)
+    n2 = TetraGraphNode(2, False, False)
+    n3 = TetraGraphNode(3, False, False)
+    n4 = TetraGraphNode(4, False, False)
+    n5 = TetraGraphNode(5, False, False)
+    n6 = TetraGraphNode(6, False, False)
+    n7 = TetraGraphNode(7, False, False)
+    n8 = TetraGraphNode(8, False, False)
     graph.nodes_list += [[n1, n2]]  # adj to n1
     graph.nodes_list += [[n2, n3, n4]]  # adj to n2
     graph.nodes_list += [[n3]]  # adj to n3

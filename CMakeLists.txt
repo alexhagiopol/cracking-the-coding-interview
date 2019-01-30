@@ -21,6 +21,7 @@ set(SOURCE_FILES
         # chapter 2 .cpp files not included because they are template functions implemented in .h files
 		# chapter 3 .cpp files not included because they are template functions implemented in .h files
 		# chapter 4 .cpp files not included because they are template functions implemented in .h files
+		cpp_solutions/chapter_04_trees_and_graphs/problem_04_07_buildOrder.cpp
 		cpp_solutions/chapter_05_bit_manipulation/problem_05_01_insertion.cpp
         cpp_solutions/chapter_05_bit_manipulation/problem_05_02_binaryToString.cpp
         cpp_solutions/chapter_05_bit_manipulation/problem_05_06_conversion.cpp
@@ -34,6 +35,6 @@ set(SOURCE_FILES
 		# problem 10.01 not included because it is a template function implemented in .h file
 		cpp_solutions/chapter_12_cpp/problem_12_02_reverse.cpp
 		# problem 12.08 not included because it is a template function implemented in .h file
-        cpp_solutions/misc_exercises/integralImage.cpp)
+        cpp_solutions/misc_exercises/integralImage.cpp cpp_solutions/chapter_04_trees_and_graphs/problem_04_07_buildOrder.h)
 # create executable
 add_executable(tests ${SOURCE_FILES})

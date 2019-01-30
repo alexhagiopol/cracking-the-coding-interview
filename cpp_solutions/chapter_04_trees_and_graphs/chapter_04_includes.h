@@ -9,3 +9,4 @@
 #include "problem_04_04_checkBalanced.h"
 #include "problem_04_05_validateBST.h"
 #include "problem_04_06_successor.h"
+#include "problem_04_07_buildOrder.h"
