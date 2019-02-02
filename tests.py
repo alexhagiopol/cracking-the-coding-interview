@@ -694,29 +694,29 @@ class Tests(unittest.TestCase):
         self.assertEqual(None, p_4_7.build_order(projects1, dependencies3))
 
     def test_problem_4_8(self):
-        n7 = tb.BinaryNodeLP(7)
-        n4 = tb.BinaryNodeLP(4, parent=n7)
-        n3 = tb.BinaryNodeLP(3, parent=n7)
-        n7.left = n4
-        n7.right = n3
-        n10 = tb.BinaryNodeLP(10, parent=n4)
-        n5 = tb.BinaryNodeLP(5, parent=n4)
-        n4.left = n10
-        n4.right = n5
-        n6 = tb.BinaryNodeLP(6, parent=n3)
-        n15 = tb.BinaryNodeLP(15, parent=n3)
-        n3.left = n6
-        n3.right = n15
-        n21 = tb.BinaryNodeLP(21, parent=n15)
-        n17 = tb.BinaryNodeLP(17, parent=n15)
-        n15.left = n21
-        n15.right = n17
-        n25 = tb.BinaryNodeLP(25)
-        self.assertEqual(n3, p_4_8.fca(n6, n21))
-        self.assertEqual(n7, p_4_8.fca(n10, n21))
-        self.assertEqual(None, p_4_8.fca(n15, n25))
-        self.assertEqual(n7, p_4_8.fca(n7, n7))
-        self.assertEqual(n7, p_4_8.fca(n3, n4))
+        """
+        construct binary tree
+                        7
+                4               3
+            10      5       6       15
+                                21      17
+        """
+        n21 = tb.BinaryNode(21)
+        n17 = tb.BinaryNode(17)
+        n15 = tb.BinaryNode(15, n21, n17)
+        n6 = tb.BinaryNode(6)
+        n3 = tb.BinaryNode(3, n6, n15)
+        n10 = tb.BinaryNode(10)
+        n5 = tb.BinaryNode(5)
+        n4 = tb.BinaryNode(4, n10, n5)
+        n7 = tb.BinaryNode(7, n4, n3)
+        n25 = tb.BinaryNode(25)  # unconnected node
+
+        self.assertEqual(n3, p_4_8.first_common_ancestor(n7, n6, n21))
+        self.assertEqual(n7, p_4_8.first_common_ancestor(n7, n10, n21))
+        self.assertEqual(None, p_4_8.first_common_ancestor(n7, n15, n25))
+        self.assertEqual(None, p_4_8.first_common_ancestor(n7, n7, n7))  # a node is not its own ancestor
+        self.assertEqual(n7, p_4_8.first_common_ancestor(n7, n3, n4))
 
     def test_problem_4_9(self):
         n25 = tb.BinaryNode(25)

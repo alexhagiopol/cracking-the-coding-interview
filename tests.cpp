@@ -655,6 +655,11 @@ TEST_CASE("Chapter 04 - Problem 07 - buildOrder()", "test") {
     REQUIRE(actualBuildOrder3.empty());
 }
 
+/*
+TEST_CASE("Chapter 04 - Problem 08 - firstCommonAncestor()", "test") {
+    //
+}
+*/
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
