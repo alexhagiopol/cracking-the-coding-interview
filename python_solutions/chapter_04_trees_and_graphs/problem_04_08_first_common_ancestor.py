@@ -12,9 +12,10 @@ in the current node's left or right subtrees. The function also passes a referen
 to the identity of the first common ancestor if such a node exists. At each recursive call, the function returns one of
 the following: "1" if the current node is an ancestor of node1, "2" if the current node is an ancestor of node2, 
 "3" if the current node is an ancestor of both nodes 1 and 2 or "0" in case the current node is an ancestor
-of neither nodes 1 or 2. The function recurses until nodes1 and 2 are found and their presence is "bubbled"
-up the tree in the form of the return values. If case "3" is encountered and the reference is still Null, the reference is assigned the first
-common ancestor. The terminating condition of the function is (a) finding node1, node2, or Null.
+of neither nodes 1 or 2. The function recurses until nodes1 and 2 are found and their presence is "bubbled up"
+the tree in the form of the return values. If case "3" is encountered and the reference is still Null, the reference
+is assigned the current node which by definition is the first common ancestor.
+The terminating condition of the function is finding node1, node2, or Null.
 
 Time complexity: O(N)
 Space complexity: O(N)
