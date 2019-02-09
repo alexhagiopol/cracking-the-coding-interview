@@ -700,6 +700,9 @@ class Tests(unittest.TestCase):
                 4               3
             10      5       6       15
                                 21      17
+
+
+                                25
         """
         n21 = tb.BinaryNode(21)
         n17 = tb.BinaryNode(17)
@@ -718,46 +721,47 @@ class Tests(unittest.TestCase):
         self.assertEqual(None, p_4_8.first_common_ancestor(n7, n7, n7))  # a node is not its own ancestor
         self.assertEqual(n7, p_4_8.first_common_ancestor(n7, n3, n4))
 
-    def test_problem_4_9(self):
-        n25 = tb.BinaryNode(25)
-        n70 = tb.BinaryNode(70)
-        n20 = tb.BinaryNode(20, right=n25)
-        n60 = tb.BinaryNode(60, right=n70)
-        n50 = tb.BinaryNode(50, left=n20, right=n60)
-        pass
-
     def test_problem_4_10(self):
-        # tree 1
-        n1_1 = tb.BinaryNode(1)
-        n2_1 = tb.BinaryNode(2)
-        n7_1 = tb.BinaryNode(7)
-        n9_1 = tb.BinaryNode(9)
-        n3_1 = tb.BinaryNode(3, n1_1, n2_1)
-        n8_1 = tb.BinaryNode(8, n7_1, n9_1)
-        n5_1 = tb.BinaryNode(5, n3_1, n8_1)
-        t1_head = n5_1
-        # tree 2
-        t2_head = n8_1
-        # tree 3
-        n12_3 = tb.BinaryNode(12)
-        n13_3 = tb.BinaryNode(13)
-        n11_3 = tb.BinaryNode(11, n12_3, n13_3)
-        t3_head = n11_3
-        # tree 4
-        n7_4 = tb.BinaryNode(7)
-        n9_4 = tb.BinaryNode(9)
-        n8_4 = tb.BinaryNode(8, n7_4, n9_4)
-        t4_head = n8_4
-        # tree 5
-        n6_5 = tb.BinaryNode(6)
-        n9_5 = tb.BinaryNode(9)
-        n8_5 = tb.BinaryNode(8, n6_5, n9_5)
-        t5_head = n8_5
-        self.assertEqual(p_4_10.check_subtree(t1_head, t1_head), True)
-        self.assertEqual(p_4_10.check_subtree(t2_head, t1_head), True)
-        self.assertEqual(p_4_10.check_subtree(t3_head, t1_head), False)
-        self.assertEqual(p_4_10.check_subtree(t4_head, t1_head), True)
-        self.assertEqual(p_4_10.check_subtree(t5_head, t1_head), False)
+        """
+        construct binary tree
+                        7
+                4               3
+            10      5       6       15
+                                21      17
+
+
+                                25
+        """
+        n21 = tb.BinaryNode(21)
+        n17 = tb.BinaryNode(17)
+        n15 = tb.BinaryNode(15, n21, n17)
+        n6 = tb.BinaryNode(6)
+        n3 = tb.BinaryNode(3, n6, n15)
+        n10 = tb.BinaryNode(10)
+        n5 = tb.BinaryNode(5)
+        n4 = tb.BinaryNode(4, n10, n5)
+        n7 = tb.BinaryNode(7, n4, n3)
+        n25 = tb.BinaryNode(25)  # unconnected node
+
+        """
+        construct disconnected binary tree
+                30
+            31      32
+        """
+        n31 = tb.BinaryNode(31)
+        n32 = tb.BinaryNode(32)
+        n30 = tb.BinaryNode(30, n31, n32)
+
+        self.assertEqual(True, p_4_10.check_subtree(n7, n15))
+        self.assertEqual(True, p_4_10.check_subtree(n7, n7))
+        self.assertEqual(True, p_4_10.check_subtree(n7, n21))
+        self.assertEqual(True, p_4_10.check_subtree(n7, n4))
+        self.assertEqual(False, p_4_10.check_subtree(n7, None))
+        self.assertEqual(False, p_4_10.check_subtree(n7, n30))
+        self.assertEqual(False, p_4_10.check_subtree(n4, n31))
+        self.assertEqual(False, p_4_10.check_subtree(n25, n31))
+        self.assertEqual(True, p_4_10.check_subtree(n30, n31))
+        self.assertEqual(False, p_4_10.check_subtree(None, None))
 
     def test_problem_4_11(self):
         random.seed(0)

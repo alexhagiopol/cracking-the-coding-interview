@@ -1,4 +1,4 @@
-"""
+/*
 Chapter 04 - Problem 10 - Check Subtree
 
 Problem Statement:
@@ -16,23 +16,14 @@ the helper function having returned True, the main function will return false.
 
 Time complexity: O(N + KM) where K is the number of times the head of T2 appears in T1.
 Space complexity: O(log(N) + log(M)) assuming trees are balanced
-"""
+*/
 
+#pragma once
+#include "../chapter_02_linked_lists/Node.h"
 
-def check_subtree(t1, t2):
-    if t1 is None or t2 is None:
-        return False
-    if t1.val == t2.val:  # potential subtree
-        if subtree_equality(t1, t2):
-            return True
-    return check_subtree(t1.left, t2) or check_subtree(t1.right, t2)
-
-
-def subtree_equality(t1, t2):
-    if t2 is None and t1 is None:
-        return True
-    if t1 is None or t2 is None:
-        return False
-    if t2.val == t1.val:
-        return subtree_equality(t1.left, t2.left) and subtree_equality(t1.right, t2.right)
-    return False
+namespace chapter_04 {
+    template <typename T>
+    bool checkSubtree(chapter_02::BinaryNode<T> T1_head, chapter_02::BinaryNode<T> T2_head) {
+        return false;
+    }
+}  // chapter_04

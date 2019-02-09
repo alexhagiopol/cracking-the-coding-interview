@@ -682,6 +682,10 @@ construct binary tree
     REQUIRE(&n7 == chapter_04::firstCommonAncestor(&n7, &n3, &n4));
 }
 
+TEST_CASE("Chapter 04 - Problem 10 - checkSubtree()", "test") {
+
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
