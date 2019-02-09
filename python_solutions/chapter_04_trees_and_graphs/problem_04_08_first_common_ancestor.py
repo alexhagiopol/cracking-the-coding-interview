@@ -18,7 +18,7 @@ is assigned the current node which by definition is the first common ancestor.
 The terminating condition of the function is finding node1, node2, or Null.
 
 Time complexity: O(N)
-Space complexity: O(N)
+Space complexity: O(log(N)) if tree is balanced
 """
 
 

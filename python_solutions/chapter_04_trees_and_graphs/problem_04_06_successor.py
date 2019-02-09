@@ -17,7 +17,7 @@ the leftmost node and return it. To check case 2, we traverse from the target no
 parent connections until we find a the first right ancestor and return it.
 
 Time complexity: O(N)
-Space complexity: O(N)
+Space complexity: O(log(N)) assuming tree is balanced
 """
 
 
