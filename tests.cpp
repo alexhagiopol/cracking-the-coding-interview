@@ -654,6 +654,77 @@ TEST_CASE("Chapter 04 - Problem 07 - buildOrder()", "test") {
     REQUIRE(actualBuildOrder3.empty());
 }
 
+TEST_CASE("Chapter 04 - Problem 08 - firstCommonAncestor()", "test") {
+    /*
+    construct binary tree
+                    7
+            4               3
+        10      5       6       15
+                            21      17
+
+
+                            25
+    */
+    chapter_02::BinaryNode<int> n21(21);
+    chapter_02::BinaryNode<int> n17(17);
+    chapter_02::BinaryNode<int> n15(15, &n21, &n17);
+    chapter_02::BinaryNode<int> n6(6);
+    chapter_02::BinaryNode<int> n3(3, &n6, &n15);
+    chapter_02::BinaryNode<int> n10(10);
+    chapter_02::BinaryNode<int> n5(5);
+    chapter_02::BinaryNode<int> n4(4, &n10, &n5);
+    chapter_02::BinaryNode<int> n7(7, &n4, &n3);
+    chapter_02::BinaryNode<int> n25(25);
+
+    REQUIRE(&n3 == chapter_04::firstCommonAncestor(&n7, &n6, &n21));
+    REQUIRE(&n7 == chapter_04::firstCommonAncestor(&n7, &n10, &n21));
+    REQUIRE(nullptr == chapter_04::firstCommonAncestor(&n7, &n15, &n25));
+    REQUIRE(nullptr == chapter_04::firstCommonAncestor(&n7, &n7, &n7));  // a node is not its own ancestor
+    REQUIRE(&n7 == chapter_04::firstCommonAncestor(&n7, &n3, &n4));
+}
+
+TEST_CASE("Chapter 04 - Problem 10 - checkSubtree()", "test") {
+    /*
+    construct binary tree
+                    7
+            4               3
+        10      5       6       15
+                            21      17
+
+
+                            25
+    */
+    chapter_02::BinaryNode<int> n21(21);
+    chapter_02::BinaryNode<int> n17(17);
+    chapter_02::BinaryNode<int> n15(15, &n21, &n17);
+    chapter_02::BinaryNode<int> n6(6);
+    chapter_02::BinaryNode<int> n3(3, &n6, &n15);
+    chapter_02::BinaryNode<int> n10(10);
+    chapter_02::BinaryNode<int> n5(5);
+    chapter_02::BinaryNode<int> n4(4, &n10, &n5);
+    chapter_02::BinaryNode<int> n7(7, &n4, &n3);
+    chapter_02::BinaryNode<int> n25(25);
+    /*
+    construct disconnected binary tree
+        30
+    31      32
+    */
+    chapter_02::BinaryNode<int> n31(31);
+    chapter_02::BinaryNode<int> n32(32);
+    chapter_02::BinaryNode<int> n30(30, &n31, &n32);
+
+    REQUIRE(chapter_04::checkSubtree(&n7, &n15));
+    REQUIRE(chapter_04::checkSubtree(&n7, &n7));
+    REQUIRE(chapter_04::checkSubtree(&n7, &n21));
+    REQUIRE(chapter_04::checkSubtree(&n7, &n4));
+    REQUIRE(!chapter_04::checkSubtree<int>(&n7, nullptr));
+    REQUIRE(!chapter_04::checkSubtree(&n7, &n30));
+    REQUIRE(!chapter_04::checkSubtree(&n7, &n31));
+    REQUIRE(!chapter_04::checkSubtree(&n25, &n31));
+    REQUIRE(chapter_04::checkSubtree(&n30, &n31));
+    REQUIRE(!chapter_04::checkSubtree<int>(nullptr, nullptr));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }

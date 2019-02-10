@@ -28,9 +28,7 @@ namespace chapter_02{
     public:
         SinglyLinkedNode(T value, SinglyLinkedNode* next = nullptr) : Node<T>(value), _next(next) {}  // constructor
         SinglyLinkedNode(const SinglyLinkedNode& other) : Node<T>::_value(other.getValue()), _next(other.getNext()){}  // copy constructor
-        ~SinglyLinkedNode(){   // destructor
-            _next = nullptr;
-        }
+        ~SinglyLinkedNode(){}
         SinglyLinkedNode* getNext() const {return _next;}
         void setNext(SinglyLinkedNode* next) {_next = next;}
     };  // class SinglyLinkedNode
@@ -62,8 +60,6 @@ namespace chapter_02{
             }
             GraphNode<T>* tempGN = _head->getValue();
             if (_tail == _head) {
-                delete _head;
-                delete _tail;
                 _head = nullptr;
                 _tail = nullptr;
             } else {

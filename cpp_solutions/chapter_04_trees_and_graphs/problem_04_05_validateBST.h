@@ -19,7 +19,7 @@ right child of the head, min=head_value and max=+Inf. We repeat this pattern for
 if a node is not in bounds.
 
 Time complexity: O(N)
-Space complexity: O(N)
+Space complexity: O(log(N)) assuming tree is balanced
 */
 
 #pragma once

@@ -13,7 +13,7 @@ it and (2) boolean if the numbers returned by its left and right children differ
 terminating condition is a node which does not have any children: in this case the node returns 0 and true.
 
 Time complexity: O(N)
-Space complexity: O(N)
+Space complexity: O(H) where H is the height of the tree
 */
 
 #pragma once

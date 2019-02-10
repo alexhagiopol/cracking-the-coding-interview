@@ -31,7 +31,7 @@ namespace chapter_02{
         if (middle == nullptr || middle->getNext() == nullptr){
             return; // given node is not in the middle. do nothing.
         }
-        SinglyLinkedNode<T>* next = middle -> getNext();
+        SinglyLinkedNode<T>* next = middle->getNext();
         middle->setValue(next->getValue());
         middle->setNext(next->getNext());
         delete next;
