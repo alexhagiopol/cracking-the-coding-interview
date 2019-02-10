@@ -19,15 +19,6 @@ Space complexity: O(log(N) + log(M)) assuming trees are balanced
 """
 
 
-def check_subtree(t1, t2):
-    if t1 is None or t2 is None:
-        return False
-    if t1.val == t2.val:  # potential subtree
-        if subtree_equality(t1, t2):
-            return True
-    return check_subtree(t1.left, t2) or check_subtree(t1.right, t2)
-
-
 def subtree_equality(t1, t2):
     if t2 is None and t1 is None:
         return True
@@ -36,3 +27,12 @@ def subtree_equality(t1, t2):
     if t2.val == t1.val:
         return subtree_equality(t1.left, t2.left) and subtree_equality(t1.right, t2.right)
     return False
+
+
+def check_subtree(t1, t2):
+    if t1 is None or t2 is None:
+        return False
+    if t1.val == t2.val:  # potential subtree
+        if subtree_equality(t1, t2):
+            return True
+    return check_subtree(t1.left, t2) or check_subtree(t1.right, t2)

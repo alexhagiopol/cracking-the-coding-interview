@@ -22,8 +22,14 @@ Space complexity: O(log(N) + log(M)) assuming trees are balanced
 #include "../chapter_02_linked_lists/Node.h"
 
 namespace chapter_04 {
+
+
     template <typename T>
-    bool checkSubtree(chapter_02::BinaryNode<T> T1_head, chapter_02::BinaryNode<T> T2_head) {
-        return false;
+    bool checkSubtree(const chapter_02::BinaryNode<T>* T1_head, const chapter_02::BinaryNode<T>* T2_head) {
+        if (T1_head == nullptr || T2_head == nullptr) return false;
+        if (T1_head->getValue() == T2_head->getValue()) {
+            if ()
+        }
+
     }
 }  // chapter_04
