@@ -155,6 +155,30 @@ namespace chapter_02{
         }
     };
 
+    // specialized node for binary trees that allow random node access
+    template <typename T>
+    class RandBinaryNode : BinaryNode<T> {
+    private:
+        int _leftChildren;
+        int _rightChildren;
+    public:
+        RandBinaryNode(
+                T value,
+                RandBinaryNode<T>* left = nullptr,
+                RandBinaryNode<T>* right = nullptr,
+                RandBinaryNode<T>* parent = nullptr) :
+                BinaryNode<T>(left, right, parent) {
+            _leftChildren = 0;
+            _rightChildren = 0;
+        }
+        int getLeftChildren() const { return _leftChildren;}
+        int getrightChildren() const { return _rightChildren;}
+        void incrementLeftChildren () {_leftChildren ++;}
+        void incrementRightChildren () {_rightChildren ++;}
+        void decrementLeftChildren () {_leftChildren --;}
+        void decrementRightChildren () {_rightChildren --;}
+    };
+
     // utility function that converts contents of std::vector to linked list
     template <typename T>
     SinglyLinkedNode<T>* vectorToList(const std::vector<T> numbers){
