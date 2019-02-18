@@ -37,7 +37,7 @@ from python_solutions.chapter_04_trees_and_graphs import problem_04_06_successor
 from python_solutions.chapter_04_trees_and_graphs import problem_04_07_build_order as p_4_7
 from python_solutions.chapter_04_trees_and_graphs import problem_04_08_first_common_ancestor as p_4_8
 from python_solutions.chapter_04_trees_and_graphs import problem_04_10_check_subtree as p_4_10
-from python_solutions.chapter_04_trees_and_graphs import problem_04_11_random_node as p_4_11
+from python_solutions.chapter_04_trees_and_graphs import problem_04_11_random_BST as p_4_11
 from python_solutions.chapter_04_trees_and_graphs import problem_04_12_paths_with_sum as p_4_12
 from python_solutions.chapter_05_bit_manipulation import problem_05_00_convert_binary as p_5_0
 from python_solutions.chapter_05_bit_manipulation import problem_05_01_insertion as p_5_1
@@ -766,15 +766,30 @@ class Tests(unittest.TestCase):
 
     def test_problem_4_11(self):
         random.seed(0)
-        rnd_bst = p_4_11.RandBST()
-        values_list = [10, 13, 14, 11, 7, 5, 8, 6, 4, 10]
+        rnd_bst_head = p_4_11.RandBinNode()
+        values_list = [10, 13, 14, 11, 7, 7, 8, 7, 4, 10]
         for i in values_list:
-            rnd_bst.insert(i)
-        self.assertEqual(rnd_bst.get_random(), 11)
-        self.assertEqual(rnd_bst.get_random(), 8)
-        self.assertEqual(rnd_bst.get_random(), 11)
-        self.assertEqual(rnd_bst.get_random(), 8)
-        self.assertEqual(rnd_bst.get_random(), 13)
+            rnd_bst_head.insert(i)
+        occurrence_sum_4 = 0
+        occurrence_sum_7 = 0
+        occurrence_sum_10 = 0
+        occurrence_sum_13 = 0
+        # using 10,000 random samples, assert that occurence of values in random samples approximately
+        # the same as the occurence of the values in the tree
+        for i in range(10000):
+            rand_value = rnd_bst_head.get_random()
+            if rand_value == 4:
+                occurrence_sum_4 += 1
+            elif rand_value == 7:
+                occurrence_sum_7 += 1
+            elif rand_value == 10:
+                occurrence_sum_10 += 1
+            elif rand_value == 13:
+                occurrence_sum_13 += 1
+        self.assertAlmostEqual(occurrence_sum_4, 1000, delta=50)
+        self.assertAlmostEqual(occurrence_sum_7, 3000, delta=50)  # 7 occurs 3 times more than 4
+        self.assertAlmostEqual(occurrence_sum_10, 2000, delta=50)  # 10 occurs 2 times more than 4
+        self.assertAlmostEqual(occurrence_sum_13, 1000, delta=50)
 
     def test_problem_4_12(self):
         # create tree. Same tree as in textbook.
