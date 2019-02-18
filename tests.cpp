@@ -15,6 +15,7 @@
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
 #include <vector>
 #include <Eigen/Dense>
+#include <random>
 
 TEST_CASE("Chapter 01 - Problem 01 - isUnique()", "test"){
     REQUIRE(chapter_01::isUnique("alex"));
@@ -724,6 +725,36 @@ TEST_CASE("Chapter 04 - Problem 10 - checkSubtree()", "test") {
     REQUIRE(!chapter_04::checkSubtree(&n25, &n31));
     REQUIRE(chapter_04::checkSubtree(&n30, &n31));
     REQUIRE(!chapter_04::checkSubtree<int>(nullptr, nullptr));
+}
+
+TEST_CASE("Chapter 04 - Problem 11 - randomBST()", "test"){
+    // std::random_device rd;  // will be used to obtain a seed for the random number engine
+    std::mt19937 gen(0); // standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> dis(1, 6);
+    std::vector<int> valuesList = {10, 13, 14, 11, 7, 7, 8, 7, 4, 10};
+    chapter_04::RandBinaryNode<int> head(valuesList[0]);
+    for (int i = 1; i < valuesList.size(); i++) {
+        head.insert(valuesList[i]);
+    }
+    int occurrenceSum4 = 0;
+    int occurrenceSum7 = 0;
+    int occurrenceSum10 = 0;
+    int occurrenceSum13 = 0;
+    // using 10,000 random samples, assert that occurence of values in random samples approximately
+    // the same as the occurence of the values in the tree
+    for (int i = 0; i < 10000; i++) {
+        int randValue = head.getRandomNode()->getValue();
+        switch (randValue){
+            case 4 : occurrenceSum4 ++; break;
+            case 7 : occurrenceSum7 ++; break;
+            case 10 : occurrenceSum10 ++; break;
+            case 13 : occurrenceSum13 ++; break;
+        }
+    }
+    REQUIRE(((950 <= occurrenceSum4) && (occurrenceSum4 <= 1050)));
+    REQUIRE(((2950 <= occurrenceSum7) && (occurrenceSum7 <= 3050)));
+    REQUIRE(((1950 <= occurrenceSum10) && (occurrenceSum10 <= 2050)));
+    REQUIRE(((950 <= occurrenceSum13) && (occurrenceSum13 <= 1050)));
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
