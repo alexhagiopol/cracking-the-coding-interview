@@ -32,6 +32,7 @@ Space complexity: O(N) because the number of children must be stored for each no
 
 #pragma once
 #include "../chapter_02_linked_lists/Node.h"
+#include <random>
 
 namespace chapter_04 {
     // specialized node for binary trees that allow random node access
@@ -47,9 +48,56 @@ namespace chapter_04 {
                 RandBinaryNode<T>* parent = nullptr) : chapter_02::BinaryNode<T>(value, left, right, parent) {
             _children = 0;
         }
-        void insert(const T& value) {}
-        RandBinaryNode<T>* getRandomNode() const {return nullptr;}
-        int getChildren() const { return _children;}
+
+        void insert(const T& value) {
+            incrementChildren();
+            if (value > this->getValue()) {
+                if (this->getRight() != nullptr) {
+                    static_cast<RandBinaryNode<T>*>(this->getRight())->insert(value);
+                } else {
+                    this->setRight(new RandBinaryNode<T>(value));
+                }
+            } else {
+                if (this->getLeft() != nullptr) {
+                    static_cast<RandBinaryNode<T>*>(this->getLeft())->insert(value);
+                } else {
+                    this->setLeft(new RandBinaryNode<T>(value));
+                }
+            }
+        }
+
+        RandBinaryNode<T>* getRandomNode(int randInt = -1, std::mt19937* gen = nullptr) {
+            if (gen != nullptr) {
+                std::uniform_int_distribution<> dis(1, 1 + getChildren());
+                randInt = dis(*gen);
+            }
+            if (randInt <= 1) {
+                return this;
+            } else if (1 < randInt && randInt <= 1 + getLeftChildren()) {
+                return static_cast<RandBinaryNode<T>*>(this->getLeft())->getRandomNode(randInt - 1, nullptr);
+            } else {
+                return static_cast<RandBinaryNode<T>*>(this->getRight())->getRandomNode(randInt - 1 - getLeftChildren(), nullptr);
+            }
+        }
+
+        int getChildren() const { return _children; }
+
+        int getLeftChildren() const {
+            if (static_cast<RandBinaryNode<T>*>(this->getLeft()) == nullptr) {
+                return 0;
+            } else {
+                return 1 + static_cast<RandBinaryNode<T>*>(this->getLeft())->getChildren();
+            }
+        }
+
+        int getRightChildren() const {
+            if (static_cast<RandBinaryNode<T>*>(this->getRight()) == nullptr) {
+                return 0;
+            } else {
+                return 1 + static_cast<RandBinaryNode<T>*>(this->getRight())->getChildren();
+            }
+        }
+
         void incrementChildren() {_children ++;}
         void decrementChildren() {_children --;}
     };

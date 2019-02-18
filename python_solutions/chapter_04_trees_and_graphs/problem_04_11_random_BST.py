@@ -70,7 +70,6 @@ class RandBinNode:
                 self.left.insert(value)
             else:
                 self.left = RandBinNode(value)
-        return
 
     def get_random(self, rand_int=None):
         if rand_int is None:
@@ -79,7 +78,7 @@ class RandBinNode:
             return self.value
         elif 1 < rand_int <= 1 + self.left_children():
             return self.left.get_random(rand_int - 1)  # no need to compute new random number
-        elif 1 + self.left_children() < rand_int:
+        else:
             return self.right.get_random(rand_int - self.left_children() - 1)  # if we traverse right, make rand_int stay in range of # of children
 
     def find(self):

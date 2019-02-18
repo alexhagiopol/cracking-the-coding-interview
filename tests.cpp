@@ -728,9 +728,6 @@ TEST_CASE("Chapter 04 - Problem 10 - checkSubtree()", "test") {
 }
 
 TEST_CASE("Chapter 04 - Problem 11 - randomBST()", "test"){
-    // std::random_device rd;  // will be used to obtain a seed for the random number engine
-    std::mt19937 gen(0); // standard mersenne_twister_engine seeded with rd()
-    std::uniform_int_distribution<> dis(1, 6);
     std::vector<int> valuesList = {10, 13, 14, 11, 7, 7, 8, 7, 4, 10};
     chapter_04::RandBinaryNode<int> head(valuesList[0]);
     for (int i = 1; i < valuesList.size(); i++) {
@@ -742,8 +739,9 @@ TEST_CASE("Chapter 04 - Problem 11 - randomBST()", "test"){
     int occurrenceSum13 = 0;
     // using 10,000 random samples, assert that occurence of values in random samples approximately
     // the same as the occurence of the values in the tree
+    std::mt19937 gen(0);  // standard mersenne_twister_engine seeded with zero
     for (int i = 0; i < 10000; i++) {
-        int randValue = head.getRandomNode()->getValue();
+        int randValue = head.getRandomNode(-1, &gen)->getValue();
         switch (randValue){
             case 4 : occurrenceSum4 ++; break;
             case 7 : occurrenceSum7 ++; break;
