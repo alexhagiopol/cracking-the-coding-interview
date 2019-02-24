@@ -791,16 +791,27 @@ class Tests(unittest.TestCase):
         self.assertAlmostEqual(occurrence_sum_13, 1000, delta=50)
 
     def test_problem_4_12(self):
-        # create tree. Same tree as in textbook.
-        n_11 = tb.BinaryNode(11)
-        n_minus_8 = tb.BinaryNode(-8)
+        """
+        construct binary tree like in textbook example
+                            10
+                    5                   -3
+            3              1        __      11
+        3     -2         __    2
+        """
+        # leaf nodes at depth = 3
+        n_3_leaf = tb.BinaryNode(3)
         n_minus_2 = tb.BinaryNode(-2)
         n_2 = tb.BinaryNode(2)
+        # nodes at depth = 2
+        n_3 = tb.BinaryNode(3, n_3_leaf, n_minus_2)
         n_1 = tb.BinaryNode(1, None, n_2)
-        n_3 = tb.BinaryNode(3, n_minus_8, n_minus_2)
-        n_minus_3 = tb.BinaryNode(-3, None, n_11)
+        n_11 = tb.BinaryNode(11)
+        # nodes at depth = 1
         n_5 = tb.BinaryNode(5, n_3, n_1)
+        n_minus_3 = tb.BinaryNode(-3, None, n_11)
+        # root node at depth = 0
         n_10 = tb.BinaryNode(10, n_5, n_minus_3)
+        # count paths that sum to 8
         self.assertEqual(p_4_12.paths_with_sum(n_10, 8), 3)
 
     def test_problem_5_0(self):
