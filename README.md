@@ -12,7 +12,7 @@ Admittedly, there are other GitHub repositories with solutions for this book. *B
 how do you know that their code is actually correct?* If it's untested, then you don't! 
 
 In this project, every C++ solution has unit tests using the [C++ Catch framework](https://github.com/philsquared/Catch),
-and every Python solution has unit tests using the [Python unittest framework](https://docs.python.org/3.6/library/unittest.html)
+and every Python solution has unit tests using the [Python unittest framework](https://docs.python.org/3.6/library/unittest.html).
 We enforce test correctness automatically using [continuous integration servers](https://travis-ci.org/alexhagiopol/cracking-the-coding-interview) 
 ensuring that the solutions are made of *living* code that gets executed and tested on every single commit. To my knowledge, this is 
 the Internet's only solutions repository with this level of testing rigor: >90% automated test coverage means you can 
@@ -24,7 +24,7 @@ reference and contribute solutions with confidence.
 1. [Chapter 1 - Arrays and Strings](cpp_solutions/chapter_01_arrays_and_strings): `9 / 9`  complete.
 2. [Chapter 2 - Linked Lists](cpp_solutions/chapter_02_linked_lists): `8 / 8` complete.
 3. [Chapter 3 - Stacks and Queues](cpp_solutions/chapter_03_stacks_and_queues): `2 / 6`  complete.
-4. [Chapter 4 - Trees and Graphs](cpp_solutions/chapter_04_trees_and_graphs): `10 / 12` complete.  
+4. [Chapter 4 - Trees and Graphs](cpp_solutions/chapter_04_trees_and_graphs): `11 / 12` complete.  
 5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `4 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
@@ -39,7 +39,7 @@ reference and contribute solutions with confidence.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `41 / 151`
+Total: `42 / 151`
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
