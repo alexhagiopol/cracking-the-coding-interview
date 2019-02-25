@@ -777,7 +777,7 @@ TEST_CASE("Chapter 04 - Problem 12 - pathsWithSum()", "test"){
     // root node at depth = 0
     chapter_02::BinaryNode<int> n10(10, &n5, &n_minus3);
     // count paths that sum to 8
-    REQUIRE(8 == chapter_04::pathsWithSum(&n10));
+    REQUIRE(3 == chapter_04::pathsWithSum(8, &n10));
 }
 
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){

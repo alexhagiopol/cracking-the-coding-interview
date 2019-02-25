@@ -38,10 +38,39 @@ Space complexity: O(N)
 */
 
 #include "../chapter_02_linked_lists/Node.h"
+#include <unordered_map>
 
 namespace chapter_04 {
     template <typename T>
-    int pathsWithSum(const chapter_02::BinaryNode<T>* head) {
-        return 0;
+    void pathsWithSumHelper(
+            const T& targetSum,
+            const chapter_02::BinaryNode<T>* head,
+            T runningSum,
+            T& globalSum,
+            std::unordered_map<T, int>& hashTable) {
+        if (head == nullptr) return; // terminating condition
+        runningSum += head->getValue();  // update running sum for this node
+        if (hashTable.find(runningSum) == hashTable.end()) {  // if running sum is not found, add it.
+            hashTable[runningSum] = 1;
+        } else {
+            hashTable[runningSum] ++;  // else increment
+        }
+        T difference = runningSum - targetSum;
+        if (hashTable.find(difference) != hashTable.end()) {  // if difference is found increment global sum
+            globalSum += hashTable[difference];
+        }
+        pathsWithSumHelper(targetSum, head->getLeft(), runningSum, globalSum, hashTable);  // recurse
+        pathsWithSumHelper(targetSum, head->getRight(), runningSum, globalSum, hashTable);  // recurse
+        hashTable[runningSum] --;  // decrement to not affect unrelated paths
+    }
+
+    template <typename T>
+    int pathsWithSum(const T& targetSum, const chapter_02::BinaryNode<T>* head) {
+        std::unordered_map<T, int> hashTable;
+        hashTable[static_cast<T>(0)] = 1; // if runningSum - globalSum == 0, then by definition we have found a valid path to the targetSum
+        T globalSum = 0;
+        T runningSum = 0;
+        pathsWithSumHelper(targetSum, head, runningSum, globalSum, hashTable);
+        return globalSum;
     }
 }  // chapter_04
