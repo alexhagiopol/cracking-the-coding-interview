@@ -13,3 +13,4 @@
 #include "problem_04_08_firstCommonAncestor.h"
 #include "problem_04_10_checkSubtree.h"
 #include "problem_04_11_randomBST.h"
+#include "problem_04_12_pathsWithSum.h"

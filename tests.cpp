@@ -755,6 +755,31 @@ TEST_CASE("Chapter 04 - Problem 11 - randomBST()", "test"){
     REQUIRE(((950 <= occurrenceSum13) && (occurrenceSum13 <= 1050)));
 }
 
+TEST_CASE("Chapter 04 - Problem 12 - pathsWithSum()", "test"){
+    /*
+    construct binary tree like in textbook example
+                        10
+                5                   -3
+        3              1        __      11
+    3     -2         __    2
+    */
+    // leaf nodes at depth = 3
+    chapter_02::BinaryNode<int> n3_leaf(3);
+    chapter_02::BinaryNode<int> n_minus2(-2);
+    chapter_02::BinaryNode<int> n2(2);
+    // nodes at depth = 2
+    chapter_02::BinaryNode<int> n3(3, &n3_leaf, &n_minus2);
+    chapter_02::BinaryNode<int> n1(1, nullptr, &n2);
+    chapter_02::BinaryNode<int> n11(11);
+    // nodes at depth = 1
+    chapter_02::BinaryNode<int> n5(5, &n3, &n1);
+    chapter_02::BinaryNode<int> n_minus3(-3, nullptr, &n11);
+    // root node at depth = 0
+    chapter_02::BinaryNode<int> n10(10, &n5, &n_minus3);
+    // count paths that sum to 8
+    REQUIRE(8 == chapter_04::pathsWithSum(&n10));
+}
+
 TEST_CASE("Chapter 05 - Problem 01 - insertion()", "test"){
     REQUIRE(chapter_05::insertion(0b10000000000, 0b10011, 2, 6) == 0b10001001100);
 }
