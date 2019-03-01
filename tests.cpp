@@ -315,7 +315,7 @@ TEST_CASE("Chapter 02 - Problem 08 - findLoop()", "test") {
 }
 
 TEST_CASE("Chapter 03 - Stack", "test"){
-    chapter_03::Stack<int> myStack = chapter_03::Stack<int>();
+    chapter_03::Stack<int> myStack;
     for (int i = 1; i <= 4; i++){
         myStack.push(i);
     }
@@ -340,7 +340,7 @@ TEST_CASE("Chapter 03 - Stack", "test"){
 }
 
 TEST_CASE("Chapter 03 - Problem 02 - StackMin()", "test"){
-    chapter_03::StackMin<int> myStack = chapter_03::StackMin<int>();
+    chapter_03::StackMin<int> myStack;
     myStack.push(-8);
     myStack.push(-5);
     myStack.push(1);
@@ -355,13 +355,25 @@ TEST_CASE("Chapter 03 - Problem 02 - StackMin()", "test"){
     REQUIRE(myStack.seeMin() == -9);
 }
 
-TEST_CASE("Chapter 03 - Problem 04 - QueueViStacks()", "test"){
-    chapter_03::QueueViaStacks<int> myQueue = chapter_03::QueueViaStacks<int>();
+TEST_CASE("Chapter 03 - Problem 04 - QueueViaStacks()", "test"){
+    chapter_03::QueueViaStacks<int> myQueue;
     for (int i = 0; i < 10; i++) myQueue.enqueue(i);
     for (int i = 0; i < 5; i++) REQUIRE(myQueue.dequeue() == i);
     for (int i = 0; i < 5; i++) myQueue.enqueue(i);
     for (int i = 5; i < 10; i++) REQUIRE(myQueue.dequeue() == i);
     for (int i = 0; i < 5; i++) REQUIRE(myQueue.dequeue() == i);
+}
+
+TEST_CASE("Chapter 03 - Problem 05 - sortStack()", "test") {
+    chapter_03::Stack<int> stack;
+    std::vector<int> vector = {7, 6, 3, 5, 1, 2, 4};
+    for (int x : vector) {
+        stack.push(x);
+    }
+    chapter_03::sortStack(stack);
+    for (int x = 1; x <= 7; x++) {
+        REQUIRE(stack.pop() == x);
+    }
 }
 
 TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
