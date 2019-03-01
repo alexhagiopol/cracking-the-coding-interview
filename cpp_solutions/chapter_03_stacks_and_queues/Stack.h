@@ -9,14 +9,19 @@ namespace chapter_03{
     class Stack{
     protected:
         chapter_02::SinglyLinkedNode<T>* _head;
+        int _stackSize;
     public:
-        Stack(){_head = nullptr;}
+        Stack(){
+            _head = nullptr;
+            _stackSize = 0;
+        }
         // check if stack is empty
         bool isEmpty() {return _head == nullptr;}
         // add item to top of stack
         virtual void push(const T& data) {
             chapter_02::SinglyLinkedNode<T>* node = new chapter_02::SinglyLinkedNode<T>(data, _head);
             _head = node;
+            _stackSize ++;
         }
         // remove item from top of stack
         virtual T pop(){
@@ -25,6 +30,7 @@ namespace chapter_03{
                 T tempValue =  temp->getValue();
                 _head = _head->getNext();
                 delete temp;
+                _stackSize --;
                 return tempValue;
             } else {
                 return static_cast<T>(0);  // nothing to return if stack is empty;
@@ -39,6 +45,7 @@ namespace chapter_03{
                 return static_cast<T>(0);  // nothing to return if stack is empty;
             }
         }
+        int stackSize() const {return _stackSize;}
         // destructor
         ~Stack(){
             while (_head != nullptr){
@@ -47,6 +54,7 @@ namespace chapter_03{
                 delete temp;
             }
         }
+
         // compare values in stack top-to-bottom to values in vector front-to-back for easy unit testing
         bool operator==(const std::vector<T>& vector){
             chapter_02::SinglyLinkedNode<T>* temp = _head;
