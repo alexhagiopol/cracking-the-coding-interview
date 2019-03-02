@@ -37,31 +37,23 @@ namespace chapter_03 {
         Species _species;
 
     public:
-        Animal(const std::string& name, int ID=0) {
-            _name = name;
-            _ID = ID;
-            _species = Species::none;
-        }
+        Animal (const std::string& name, int ID=0);
         int getID() const {return _ID;}
         void setID(int ID) {_ID = ID;}
         std::string getName() const {return _name;}
         Species getSpecies() const {return _species;}
     };
 
-    // dog subsclass
+    // dog subclass
     class Dog : public Animal {
     public:
-        Dog(const std::string& name, int ID=0) : Animal(name, ID) {
-            _species = Species::dog;
-        }
+        Dog(const std::string& name, int ID=0);
     };
 
     // cat subclass
     class Cat : public Animal {
     public:
-        Cat(const std::string& name, int ID=0) : Animal(name, ID){
-            _species = Species::cat;
-        }
+        Cat(const std::string& name, int ID=0);
     };
 
     // animal shelter that is a wrapper around two queues containing dogs and cats
@@ -71,52 +63,10 @@ namespace chapter_03 {
         Queue<Cat*> _cats;
         int _timestamp;
     public:
-        AnimalShelter() {
-            _dogs = Queue<Dog*>();
-            _cats = Queue<Cat*>();
-            _timestamp = 0;
-        }
-        void enqueue(Animal* animal) {
-            if (animal == nullptr) return;
-            animal->setID(_timestamp);
-            _timestamp ++;
-            if (animal->getSpecies() == Species::cat) {
-                _cats.push(static_cast<Cat*>(animal));
-            } else if (animal->getSpecies() == Species::dog) {
-                _dogs.push(static_cast<Dog*>(animal));
-            }
-        }
-        Cat* dequeueCat() {
-            if (_cats.isEmpty()) {
-                return nullptr;
-            } else {
-                return _cats.pop();
-            }
-        }
-        Dog* dequeueDog() {
-            if (_dogs.isEmpty()) {
-                return nullptr;
-            } else {
-                return _dogs.pop();
-            }
-        }
-        Animal* dequeueAny() {
-            // if either of the queues is empty, we need to handle
-            if (_dogs.isEmpty() && _cats.isEmpty()) {
-                return nullptr;
-            } else if (_dogs.isEmpty()) {
-                return dequeueCat();
-            } else if (_cats.isEmpty()) {
-                return dequeueDog();
-            }
-            // return the animal with lowest ID
-            int dogID = _dogs.peek()->getID();
-            int catID = _cats.peek()->getID();
-            if (dogID <= catID) {
-                return dequeueDog();
-            } else {
-                return dequeueCat();
-            }
-        }
+        AnimalShelter();
+        void enqueue(Animal* animal);
+        Cat* dequeueCat();
+        Dog* dequeueDog();
+        Animal* dequeueAny();
     };
 }

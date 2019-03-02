@@ -37,7 +37,7 @@ namespace chapter_03 {
             return tempValue;
         }
 
-        T peek() {
+        T peek() const {
             if (_last == nullptr) return static_cast<T>(0);
             return _last->getValue();
         }
