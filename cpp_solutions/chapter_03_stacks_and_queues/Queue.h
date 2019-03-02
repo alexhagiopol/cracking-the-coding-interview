@@ -37,6 +37,11 @@ namespace chapter_03 {
             return tempValue;
         }
 
+        T peek() {
+            if (_last == nullptr) return static_cast<T>(0);
+            return _last->getValue();
+        }
+
         ~Queue(){
             while (_last != nullptr){
                 chapter_02::SinglyLinkedNode<T>* tempNode = _last;

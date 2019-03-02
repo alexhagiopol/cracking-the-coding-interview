@@ -28,8 +28,10 @@ Space complexity: O(N) for storing queues of N animals.
 namespace chapter_03 {
     enum Species {none, dog, cat};
 
+    // superclass for Animal that allows animals of any kind to be passed to the same function ot
+    // added to the same data structure
     class Animal {
-    private:
+    protected:
         std::string _name;
         int _ID;
         Species _species;
@@ -46,40 +48,75 @@ namespace chapter_03 {
         Species getSpecies() const {return _species;}
     };
 
+    // dog subsclass
     class Dog : public Animal {
-    private:
-        Species _species;
     public:
         Dog(const std::string& name, int ID=0) : Animal(name, ID) {
             _species = Species::dog;
         }
     };
 
+    // cat subclass
     class Cat : public Animal {
-    private:
-        Species _species;
     public:
         Cat(const std::string& name, int ID=0) : Animal(name, ID){
             _species = Species::cat;
         }
     };
 
+    // animal shelter that is a wrapper around two queues containing dogs and cats
     class AnimalShelter {
     private:
-        Queue<Dog> _dogs;
-        Queue<Cat> _cats;
+        Queue<Dog*> _dogs;
+        Queue<Cat*> _cats;
+        int _timestamp;
     public:
         AnimalShelter() {
-            _dogs = Queue<Dog>();
-            _cats = Queue<Cat>();
+            _dogs = Queue<Dog*>();
+            _cats = Queue<Cat*>();
+            _timestamp = 0;
         }
-        void enqueue(Animal animal) {
-            if (animal.getSpecies() == Species::cat) {
-                _cats.push(static_cast<Cat>(animal));
+        void enqueue(Animal* animal) {
+            if (animal == nullptr) return;
+            animal->setID(_timestamp);
+            _timestamp ++;
+            if (animal->getSpecies() == Species::cat) {
+                _cats.push(static_cast<Cat*>(animal));
+            } else if (animal->getSpecies() == Species::dog) {
+                _dogs.push(static_cast<Dog*>(animal));
             }
         }
-        Cat dequeueCat();
-        Dog dequeueDog();
-        Animal dequeueAny();
+        Cat* dequeueCat() {
+            if (_cats.isEmpty()) {
+                return nullptr;
+            } else {
+                return _cats.pop();
+            }
+        }
+        Dog* dequeueDog() {
+            if (_dogs.isEmpty()) {
+                return nullptr;
+            } else {
+                return _dogs.pop();
+            }
+        }
+        Animal* dequeueAny() {
+            // if either of the queues is empty, we need to handle
+            if (_dogs.isEmpty() && _cats.isEmpty()) {
+                return nullptr;
+            } else if (_dogs.isEmpty()) {
+                return dequeueCat();
+            } else if (_cats.isEmpty()) {
+                return dequeueDog();
+            }
+            // return the animal with lowest ID
+            int dogID = _dogs.peek()->getID();
+            int catID = _cats.peek()->getID();
+            if (dogID <= catID) {
+                return dequeueDog();
+            } else {
+                return dequeueCat();
+            }
+        }
     };
 }

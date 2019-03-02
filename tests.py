@@ -470,7 +470,9 @@ class Tests(unittest.TestCase):
         self.assertEqual("b", shelter.dequeue_any().name)
         self.assertEqual("c", shelter.dequeue_dog().name)
         self.assertEqual("d", shelter.dequeue_cat().name)
-
+        self.assertEqual("e", shelter.dequeue_any().name)
+        self.assertEqual("f", shelter.dequeue_any().name)
+        self.assertEqual(None, shelter.dequeue_any())
 
     def test_tree_binary_tree_traversals(self):
         """

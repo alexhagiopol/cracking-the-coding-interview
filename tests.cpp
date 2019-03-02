@@ -378,16 +378,25 @@ TEST_CASE("Chapter 03 - Problem 05 - sortStack()", "test") {
 
 TEST_CASE("Chapter 03 - Problem 06 - AnimalShelter", "test") {
     chapter_03::AnimalShelter shelter;
-    shelter.enqueue(chapter_03::Cat("a"));
-    shelter.enqueue(chapter_03::Dog("b"));
-    shelter.enqueue(chapter_03::Dog("c"));
-    shelter.enqueue(chapter_03::Cat("d"));
-    shelter.enqueue(chapter_03::Dog("e"));
-    shelter.enqueue(chapter_03::Cat("f"));
-    REQUIRE("a" == shelter.dequeueAny().getName());
-    REQUIRE("b" == shelter.dequeueAny().getName());
-    REQUIRE("c" == shelter.dequeueDog().getName());
-    REQUIRE("d" == shelter.dequeueCat().getName());
+    auto catA = chapter_03::Cat("a");
+    auto dogB = chapter_03::Dog("b");
+    auto dogC = chapter_03::Dog("c");
+    auto catD = chapter_03::Cat("d");
+    auto dogE = chapter_03::Dog("e");
+    auto catF = chapter_03::Cat("f");
+    shelter.enqueue(&catA);
+    shelter.enqueue(&dogB);
+    shelter.enqueue(&dogC);
+    shelter.enqueue(&catD);
+    shelter.enqueue(&dogE);
+    shelter.enqueue(&catF);
+    REQUIRE("a" == shelter.dequeueAny()->getName());
+    REQUIRE("b" == shelter.dequeueAny()->getName());
+    REQUIRE("c" == shelter.dequeueDog()->getName());
+    REQUIRE("d" == shelter.dequeueCat()->getName());
+    REQUIRE("e" == shelter.dequeueAny()->getName());
+    REQUIRE("f" == shelter.dequeueAny()->getName());
+    REQUIRE(nullptr == shelter.dequeueAny());
 }
 
 TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
