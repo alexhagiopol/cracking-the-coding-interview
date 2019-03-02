@@ -20,6 +20,7 @@ set(SOURCE_FILES
 		cpp_solutions/chapter_01_arrays_and_strings/problem_01_09_stringRotation.cpp
         # chapter 2 .cpp files not included because they are template functions implemented in .h files
 		# chapter 3 .cpp files not included because they are template functions implemented in .h files
+		cpp_solutions/chapter_03_stacks_and_queues/problem_03_06_animalShelter.cpp
 		# chapter 4 .cpp files not included because they are template functions implemented in .h files
 		cpp_solutions/chapter_04_trees_and_graphs/problem_04_07_buildOrder.cpp
 		cpp_solutions/chapter_05_bit_manipulation/problem_05_01_insertion.cpp

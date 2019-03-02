@@ -376,6 +376,29 @@ TEST_CASE("Chapter 03 - Problem 05 - sortStack()", "test") {
     }
 }
 
+TEST_CASE("Chapter 03 - Problem 06 - AnimalShelter", "test") {
+    chapter_03::AnimalShelter shelter;
+    auto catA = chapter_03::Cat("a");
+    auto dogB = chapter_03::Dog("b");
+    auto dogC = chapter_03::Dog("c");
+    auto catD = chapter_03::Cat("d");
+    auto dogE = chapter_03::Dog("e");
+    auto catF = chapter_03::Cat("f");
+    shelter.enqueue(&catA);
+    shelter.enqueue(&dogB);
+    shelter.enqueue(&dogC);
+    shelter.enqueue(&catD);
+    shelter.enqueue(&dogE);
+    shelter.enqueue(&catF);
+    REQUIRE("a" == shelter.dequeueAny()->getName());
+    REQUIRE("b" == shelter.dequeueAny()->getName());
+    REQUIRE("c" == shelter.dequeueDog()->getName());
+    REQUIRE("d" == shelter.dequeueCat()->getName());
+    REQUIRE("e" == shelter.dequeueAny()->getName());
+    REQUIRE("f" == shelter.dequeueAny()->getName());
+    REQUIRE(nullptr == shelter.dequeueAny());
+}
+
 TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
     chapter_02::TetraGraphNode<int> node(1);
     chapter_02::TetraGraphNode<int>* child0 = new chapter_02::TetraGraphNode<int>(0);
