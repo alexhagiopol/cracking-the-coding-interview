@@ -39,7 +39,7 @@ reference and contribute solutions with confidence.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-Total: `43 / 151`
+C++ Total: `43` solutions.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -61,7 +61,9 @@ Total: `43 / 151`
 16. [Chapter 16 - Moderate](python_solutions/chapter_16_moderate): `1 / 26` complete.
 17. [Chapter 17 - Hard](python_solutions/chapter_17_hard): `3 / 26` complete.
 
-Total: `56 / 145`
+Python Total: `56` solutions.
+
+#####Grand Total: `99` unique solutions.
 
 ### Building: 
 #### Mac:

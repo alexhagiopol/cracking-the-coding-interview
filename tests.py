@@ -459,15 +459,18 @@ class Tests(unittest.TestCase):
 
     def test_problem_3_6(self):
         shelter = p_3_6.AnimalShelter()
+        self.assertEqual(None, shelter.dequeue_cat())
         shelter.enqueue("cat", "a")
         shelter.enqueue("dog", "b")
         shelter.enqueue("dog", "c")
         shelter.enqueue("cat", "d")
+        shelter.enqueue("dog", "e")
+        shelter.enqueue("cat", "f")
         self.assertEqual("a", shelter.dequeue_any().name)
         self.assertEqual("b", shelter.dequeue_any().name)
         self.assertEqual("c", shelter.dequeue_dog().name)
         self.assertEqual("d", shelter.dequeue_cat().name)
-        self.assertEqual(None, shelter.dequeue_cat())
+
 
     def test_tree_binary_tree_traversals(self):
         """

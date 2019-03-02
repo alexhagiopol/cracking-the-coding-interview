@@ -16,7 +16,7 @@ namespace chapter_03{
             _stackSize = 0;
         }
         // check if stack is empty
-        bool isEmpty() {return _head == nullptr;}
+        bool isEmpty() const {return _head == nullptr;}
         // add item to top of stack
         virtual void push(const T& data) {
             chapter_02::SinglyLinkedNode<T>* node = new chapter_02::SinglyLinkedNode<T>(data, _head);
