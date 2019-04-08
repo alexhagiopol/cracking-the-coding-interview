@@ -8,5 +8,5 @@ See problem_08_07_permutationsNoDups.cpp for problem description.
 #include <string>
 
 namespace chapter_08 {
-    void permutationsNoDups(const std::string& string, std::set<std::string>& test);
+    void permutationsNoDups(const std::string& string, std::set<std::string>& permutations);
 }

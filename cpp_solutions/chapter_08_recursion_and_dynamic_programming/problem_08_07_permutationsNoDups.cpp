@@ -42,7 +42,18 @@ Space complexity: O(N!*N)
 #include "problem_08_07_permutationsNoDups.h"
 
 namespace chapter_08 {
-    void permutationsNoDups(const std::string& string, std::set<std::string>& test) {
-
+    void permutationsNoDups(const std::string& string, std::set<std::string>& permutations) {
+        if (string.length() <= 0) {
+            return;
+        } else if (string.length() == 1) {
+            permutations.insert(string);
+        } else if (string.length() == 2) {
+            permutations.insert(string);
+            permutations.insert(std::reverse(string));
+        } else {
+            
+        }
     }
+
+
 }
