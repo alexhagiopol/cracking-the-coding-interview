@@ -56,5 +56,4 @@ def combine(char, string_list):
     for string in string_list:
         for i in range(len(string) + 1):
             output_string_list += [string[0:i] + char + string[i:]]
-    print(output_string_list)
     return output_string_list

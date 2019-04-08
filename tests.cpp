@@ -915,6 +915,30 @@ TEST_CASE("Chapter 08 - Problem 05 - recursiveMultiply()", "test"){
     REQUIRE(chapter_08::recursiveMultiply(12, 12) == 144);
 }
 
+TEST_CASE("Chapter 08 - Problem 07 - permutationsWithoutDups()", "test") {
+    std::set<std::string> actual1 = {};
+    std::set<std::string> actual2 = {};
+    std::set<std::string> actual3 = {};
+    std::set<std::string> actual4 = {};
+    std::set<std::string> expected1 = {"a"};
+    std::set<std::string> expected2 = {"al", "la"};
+    std::set<std::string> expected3 = {"ela", "lea", "lae", "eal", "ael", "ale"};
+    std::set<std::string> expected4 = {"xela", "exla", "elxa", "elax",
+                                       "xlea", "lxea", "lexa", "leax",
+                                       "xlae", "lxae", "laxe", "laex",
+                                       "xeal", "exal", "eaxl", "ealx",
+                                       "xael", "axel", "aexl", "aelx",
+                                       "xale", "axle", "alxe", "alex"};
+    chapter_08::permutationsNoDups("a", actual1);
+    chapter_08::permutationsNoDups("al", actual2);
+    chapter_08::permutationsNoDups("ale", actual3);
+    chapter_08::permutationsNoDups("alex", actual4);
+    REQUIRE(actual1 == expected1);
+    REQUIRE(actual2 == expected2);
+    REQUIRE(actual3 == expected3);
+    REQUIRE(actual4 == expected4);
+}
+
 TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     Eigen::MatrixXi image(6, 6);
     image << 0, 1, 1, 0, 0, 3,
