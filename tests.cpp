@@ -915,15 +915,15 @@ TEST_CASE("Chapter 08 - Problem 05 - recursiveMultiply()", "test"){
     REQUIRE(chapter_08::recursiveMultiply(12, 12) == 144);
 }
 
-TEST_CASE("Chapter 08 - Problem 07 - permutationsWithoutDups()", "test") {
-    std::set<std::string> actual1 = {};
-    std::set<std::string> actual2 = {};
-    std::set<std::string> actual3 = {};
-    std::set<std::string> actual4 = {};
-    std::set<std::string> expected1 = {"a"};
-    std::set<std::string> expected2 = {"al", "la"};
-    std::set<std::string> expected3 = {"ela", "lea", "lae", "eal", "ael", "ale"};
-    std::set<std::string> expected4 = {"xela", "exla", "elxa", "elax",
+TEST_CASE("Chapter 08 - Problem 07 - permutationsNoDups()", "test") {
+    std::unordered_set<std::string> actual1 = {};
+    std::unordered_set<std::string> actual2 = {};
+    std::unordered_set<std::string> actual3 = {};
+    std::unordered_set<std::string> actual4 = {};
+    std::unordered_set<std::string> expected1 = {"a"};
+    std::unordered_set<std::string> expected2 = {"al", "la"};
+    std::unordered_set<std::string> expected3 = {"ela", "lea", "lae", "eal", "ael", "ale"};
+    std::unordered_set<std::string> expected4 = {"xela", "exla", "elxa", "elax",
                                        "xlea", "lxea", "lexa", "leax",
                                        "xlae", "lxae", "laxe", "laex",
                                        "xeal", "exal", "eaxl", "ealx",

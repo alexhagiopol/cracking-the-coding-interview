@@ -40,20 +40,37 @@ Space complexity: O(N!*N)
 */
 
 #include "problem_08_07_permutationsNoDups.h"
+#include <iostream>
 
 namespace chapter_08 {
-    void permutationsNoDups(const std::string& string, std::set<std::string>& permutations) {
-        if (string.length() <= 0) {
-            return;
-        } else if (string.length() == 1) {
+    void combine(const std::string& toInsert, const std::unordered_set<std::string>& oldPermutations, std::unordered_set<std::string>& newPermutations) {
+        for (const std::string& oldPermutation : oldPermutations) {
+            for (int i = 0; i < oldPermutation.length() + 1; i++) {
+                 std::string newPermutation =
+                         oldPermutation.substr(0, static_cast<unsigned long>(i)) +
+                         toInsert +
+                         oldPermutation.substr(static_cast<unsigned long>(i), std::string::npos);
+                 newPermutations.insert(newPermutation);
+             }
+         }
+    }
+
+    void permutationsNoDups(const std::string& string, std::unordered_set<std::string>& permutations) {
+        if (string.length() == 1) {
             permutations.insert(string);
         } else if (string.length() == 2) {
             permutations.insert(string);
-            permutations.insert(std::reverse(string));
-        } else {
-            
-        }
+            std::string copy(string);
+            std::reverse(copy.begin(), copy.end());
+            permutations.insert(copy);
+        } else if (string.length() > 2) {
+            std::unordered_set<std::string> oldPermutations = {};
+            std::unordered_set<std::string> newPermutations = {};
+            permutationsNoDups(string.substr(1, std::string::npos), oldPermutations);
+            combine(string.substr(0, 1), oldPermutations, newPermutations);
+            for (const std::string& permutation : newPermutations ) {
+                permutations.insert(permutation);
+            }
+        } // if string.length() <= 0 do nothing
     }
-
-
 }

@@ -28,7 +28,7 @@ reference and contribute solutions with confidence.
 5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `4 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
-8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `5 / 14`  complete.
+8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `7 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
 10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `1 / 11` complete.
 11. Chapter 11 - Testing: N/A
@@ -39,7 +39,7 @@ reference and contribute solutions with confidence.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-C++ Total: `44` solutions.
+C++ Total: `46` solutions.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -63,7 +63,7 @@ C++ Total: `44` solutions.
 
 Python Total: `56` solutions.
 
-##### Grand Total: `100` unique solutions.
+##### Grand Total: `102` unique solutions.
 
 ### Building: 
 #### Mac:
@@ -108,9 +108,8 @@ This will show exactly which lines are not covered by tests in each Python sourc
 
 ### Contributing
 The goal of this project is to write a tested Python and C++ solution for every problem in the 6th edition of the textbook.
-I definitely need help! PRs are of course very welcome. The work has become quite time consuming because each solution is *living*
-code that actually gets executed. Thus, each solution needs its own small dataset and infrastructure in order to be tested.
-Just writing the test for a problem is often harder than solving the problem itself. Here are some ways you can help:
+I definitely need help, so PRs are welcome. There is much to do because each solution needs its own 
+small dataset and infrastructure in order to be tested. Here are some ways you can help:
 
 1. Fixing bugs :bug:.
 2. Solving or improving solutions to problems in either language (see the completion progress in the table of contents).
