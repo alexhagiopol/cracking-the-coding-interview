@@ -939,6 +939,26 @@ TEST_CASE("Chapter 08 - Problem 07 - permutationsNoDups()", "test") {
     REQUIRE(actual4 == expected4);
 }
 
+TEST_CASE("Chapter 08 - Problem 08 - permutationsWithDups()", "test") {
+    std::unordered_set<std::string> actual1 = {};
+    std::unordered_set<std::string> actual2 = {};
+    std::unordered_set<std::string> actual3 = {};
+    std::unordered_set<std::string> expected1 = {"ala", "laa", "aal"};
+    std::unordered_set<std::string> expected2 = {"aala", "alaa", "alaa", "laaa", "aala", "aaal"};
+    std::unordered_set<std::string> expected3 = {"xela", "exla", "elxa", "elax",
+                                                 "xlea", "lxea", "lexa", "leax",
+                                                 "xlae", "lxae", "laxe", "laex",
+                                                 "xeal", "exal", "eaxl", "ealx",
+                                                 "xael", "axel", "aexl", "aelx",
+                                                 "xale", "axle", "alxe", "alex"};
+    chapter_08::permutationsWithDups("ala", actual1);
+    //chapter_08::permutationsWithDups("alaa", actual2);
+    //chapter_08::permutationsWithDups("alex", actual3);
+    REQUIRE(actual1 == expected1);
+    //REQUIRE(actual2 == expected2);
+    //REQUIRE(actual3 == expected3);
+}
+
 TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     Eigen::MatrixXi image(6, 6);
     image << 0, 1, 1, 0, 0, 3,

@@ -28,7 +28,7 @@ reference and contribute solutions with confidence.
 5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `4 / 7`  complete.
 6. Chapter 6 - Math and Logic: `0 / 10` complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
-8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `7 / 14`  complete.
+8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `8 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
 10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `1 / 11` complete.
 11. Chapter 11 - Testing: N/A
@@ -39,7 +39,7 @@ reference and contribute solutions with confidence.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-C++ Total: `46` solutions.
+C++ Total: `47` solutions.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -63,7 +63,7 @@ C++ Total: `46` solutions.
 
 Python Total: `56` solutions.
 
-##### Grand Total: `102` unique solutions.
+##### Grand Total: `103` unique solutions.
 
 ### Building: 
 #### Mac:
