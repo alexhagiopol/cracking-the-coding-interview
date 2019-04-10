@@ -8,4 +8,6 @@
 #include "problem_08_03_magicIndex.h"
 #include "problem_08_04_powerSet.h"
 #include "problem_08_05_recursiveMultiply.h"
+#include "problem_08_07_permutationsNoDups.h"
+#include "problem_08_08_permutationsWithDups.h"
 #include "problem_08_10_paintFill.h"

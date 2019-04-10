@@ -915,6 +915,50 @@ TEST_CASE("Chapter 08 - Problem 05 - recursiveMultiply()", "test"){
     REQUIRE(chapter_08::recursiveMultiply(12, 12) == 144);
 }
 
+TEST_CASE("Chapter 08 - Problem 07 - permutationsNoDups()", "test") {
+    std::unordered_set<std::string> actual1 = {};
+    std::unordered_set<std::string> actual2 = {};
+    std::unordered_set<std::string> actual3 = {};
+    std::unordered_set<std::string> actual4 = {};
+    std::unordered_set<std::string> expected1 = {"a"};
+    std::unordered_set<std::string> expected2 = {"al", "la"};
+    std::unordered_set<std::string> expected3 = {"ela", "lea", "lae", "eal", "ael", "ale"};
+    std::unordered_set<std::string> expected4 = {"xela", "exla", "elxa", "elax",
+                                       "xlea", "lxea", "lexa", "leax",
+                                       "xlae", "lxae", "laxe", "laex",
+                                       "xeal", "exal", "eaxl", "ealx",
+                                       "xael", "axel", "aexl", "aelx",
+                                       "xale", "axle", "alxe", "alex"};
+    chapter_08::permutationsNoDups("a", actual1);
+    chapter_08::permutationsNoDups("al", actual2);
+    chapter_08::permutationsNoDups("ale", actual3);
+    chapter_08::permutationsNoDups("alex", actual4);
+    REQUIRE(actual1 == expected1);
+    REQUIRE(actual2 == expected2);
+    REQUIRE(actual3 == expected3);
+    REQUIRE(actual4 == expected4);
+}
+
+TEST_CASE("Chapter 08 - Problem 08 - permutationsWithDups()", "test") {
+    std::unordered_set<std::string> actual1 = {};
+    std::unordered_set<std::string> actual2 = {};
+    std::unordered_set<std::string> actual3 = {};
+    std::unordered_set<std::string> expected1 = {"ala", "laa", "aal"};
+    std::unordered_set<std::string> expected2 = {"aala", "alaa", "alaa", "laaa", "aala", "aaal"};
+    std::unordered_set<std::string> expected3 = {"xela", "exla", "elxa", "elax",
+                                                 "xlea", "lxea", "lexa", "leax",
+                                                 "xlae", "lxae", "laxe", "laex",
+                                                 "xeal", "exal", "eaxl", "ealx",
+                                                 "xael", "axel", "aexl", "aelx",
+                                                 "xale", "axle", "alxe", "alex"};
+    chapter_08::permutationsWithDups("ala", actual1);
+    //chapter_08::permutationsWithDups("alaa", actual2);
+    //chapter_08::permutationsWithDups("alex", actual3);
+    REQUIRE(actual1 == expected1);
+    //REQUIRE(actual2 == expected2);
+    //REQUIRE(actual3 == expected3);
+}
+
 TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     Eigen::MatrixXi image(6, 6);
     image << 0, 1, 1, 0, 0, 3,

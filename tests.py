@@ -1026,7 +1026,6 @@ class Tests(unittest.TestCase):
     def test_problem_8_14(self):
         pass
 
-
     def test_problem_10_01(self):
         A = [5, 5, 10, 10, 15, 0, 0, 0, 0, 0]
         B = [3, 6,  9, 12, 15]
@@ -1042,7 +1041,6 @@ class Tests(unittest.TestCase):
         lastE = 5
         p_10_1.sorted_merge(D, lastD, E, lastE)
         self.assertEqual(D, C)
-
 
     def test_problem_16_03(self):
         segment1 = p_16_03.LineSegment(p_16_03.Point2(5, 5), p_16_03.Point2(0, 0))
@@ -1088,6 +1086,7 @@ class Tests(unittest.TestCase):
 
     def tearDown(self):
         pass
+
 
 if __name__ == '__main__':
     unittest.main()
