@@ -833,6 +833,16 @@ TEST_CASE("Chapter 05 - Problem 02 - binaryToString()", "test") {
     REQUIRE(binary_string_4 == "0.10111000110101001111110111110011"); // needs double precision to work
 }
 
+TEST_CASE("Chapter 05 - Problem 03 - flipBitToWin()", "test") {
+    REQUIRE(chapter_05::flipBitToWin(1775) == 8);
+    REQUIRE(chapter_05::flipBitToWin(0b0000) == 1);
+    REQUIRE(chapter_05::flipBitToWin(0b1011) == 4);
+    REQUIRE(chapter_05::flipBitToWin(0b1010111) == 5);
+    REQUIRE(chapter_05::flipBitToWin(0b1110101) == 5);
+    REQUIRE(chapter_05::flipBitToWin(0b00) == 1);
+    REQUIRE(chapter_05::flipBitToWin(0b10) == 2);
+}
+
 TEST_CASE("Chapter 05 - Problem 06 - conversion()", "test"){
     REQUIRE(chapter_05::conversion(0b11001100, 0b11110000) == 4);
     REQUIRE(chapter_05::conversion(29, 15) == 2);
