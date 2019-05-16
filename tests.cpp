@@ -952,11 +952,11 @@ TEST_CASE("Chapter 08 - Problem 08 - permutationsWithDups()", "test") {
                                                  "xael", "axel", "aexl", "aelx",
                                                  "xale", "axle", "alxe", "alex"};
     chapter_08::permutationsWithDups("ala", actual1);
-    //chapter_08::permutationsWithDups("alaa", actual2);
-    //chapter_08::permutationsWithDups("alex", actual3);
+    chapter_08::permutationsWithDups("alaa", actual2);
+    chapter_08::permutationsWithDups("alex", actual3);
     REQUIRE(actual1 == expected1);
-    //REQUIRE(actual2 == expected2);
-    //REQUIRE(actual3 == expected3);
+    REQUIRE(actual2 == expected2);
+    REQUIRE(actual3 == expected3);
 }
 
 TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
