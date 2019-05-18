@@ -7,8 +7,8 @@ namespace chapter_05 {
     int flipBitToWin(int input) {
         /*
         * PROBLEM:
-        * Given an integer, determine which bit to flip to make it contain the longest possible
-        * sequence of 1s.
+        * Flip Bit to Win: You have an integer and you can flip exactly one bit from a 13 to a 1.Write code to
+        * find the length of the longest sequence of ls you could create.
         *
         * TEST CASE:
         * 0b000 -> 1

@@ -26,6 +26,7 @@ set(SOURCE_FILES
 		cpp_solutions/chapter_05_bit_manipulation/problem_05_01_insertion.cpp
         cpp_solutions/chapter_05_bit_manipulation/problem_05_02_binaryToString.cpp
         cpp_solutions/chapter_05_bit_manipulation/problem_05_03_flipBitToWin.cpp
+        cpp_solutions/chapter_05_bit_manipulation/problem_05_04_nextNumber.cpp
         cpp_solutions/chapter_05_bit_manipulation/problem_05_06_conversion.cpp
         cpp_solutions/chapter_05_bit_manipulation/problem_05_07_pairwiseSwap.cpp
         cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_01_tripleStep.cpp
