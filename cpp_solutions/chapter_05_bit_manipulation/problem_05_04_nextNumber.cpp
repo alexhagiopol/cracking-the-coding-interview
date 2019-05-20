@@ -18,16 +18,12 @@ namespace chapter_05 {
     * 0b0101 -> (0b0011, 0b0110)
     *
     * ALGORITHM:
-    * 1. To make a smaller number, shift least significant 1 that has space to move right
-    *      a. Iterate through binary representation to find the rightmost 1 that has a 0 to its right
-    *      b. & the input integer with 111...1110111 then | with 000...0000100
-    *      c. when we've found the rightmost 1, note its index, then create masks by left shifting a 1 to that index
-    * 2. To make a bigger number, shift least significant 1 that has space to move left
-    *      ...same as above
-    * 3. Edge cases?
-    *      a. 0b00...1 -> return (the number itself, its left shift)
-    *      b. 0b10...0 -> return (its left shift, the number itself)
-    *      c. 0b0 -> return (0,0)
+    * getNext():
+    * 1. Use bit shifting to find the least significant 1.
+    * 2. Use bit shifting to find the least significant 0 *to the left of* the least significant 1
+    * 3. Flip the zero position to 1.
+    * 4. Clear all ones to the right of the flipped bit.
+    * 5. Add in zeroIndex - oneIndex - 1 ones in the least significant positions that have been cleared out
     *
     * SPACE & TIME:
     * Space: O(b) - we need to allocate masks the same size as the input
