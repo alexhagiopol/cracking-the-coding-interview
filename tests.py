@@ -849,11 +849,12 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_4.get_next(['0', '1', '0', '0']), ['1', '0', '0', '0'])
         self.assertEqual(p_5_4.get_prev(['0', '1', '0', '1']), ['0', '0', '1', '1'])
         self.assertEqual(p_5_4.get_next(['0', '1', '0', '1']), ['0', '1', '1', '0'])
-        self.assertEqual(p_5_4.get_prev(['1', '1', '1', '1']), None)
+        self.assertEqual(p_5_4.get_prev(['1', '1', '1', '1']), -1)
         self.assertEqual(p_5_4.get_next(['1', '1', '1', '1']), ['1', '0', '1', '1', '1'])
-        self.assertEqual(p_5_4.get_prev(['0', '0', '0', '0']), None)
-        self.assertEqual(p_5_4.get_next(['0', '0', '0', '0']), None)
+        self.assertEqual(p_5_4.get_prev(['0', '0', '0', '0']), -1)
+        self.assertEqual(p_5_4.get_next(['0', '0', '0', '0']), -1)
         self.assertEqual(p_5_4.get_prev(['1', '0', '0', '1']), ['0', '1', '0', '1'])
+        self.assertEqual(p_5_4.get_next(['1', '0', '0', '1']), ['1', '0', '1', '0'])
 
     def test_problem_5_6(self):
         self.assertEqual(p_5_6.conversion(0b11001100, 0b11110000), 4)

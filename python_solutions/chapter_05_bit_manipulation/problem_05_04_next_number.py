@@ -19,17 +19,17 @@ def get_prev(binary_list):
     3. Flip the 0 to a 1.
     """
     if all(x == binary_list[0] for x in binary_list):  # step 0
-        return None
+        return -1
 
-    zero_index = None
-    one_index = None
+    zero_index = -1
+    one_index = -1
     for index in range(len(binary_list) - 1, 0, -1):  # step 1. traverse list starting with least significant bit
         if binary_list[index] == '0' and binary_list[index - 1] == '1':
             one_index = index - 1
             zero_index = index
             break
-    if one_index is None:
-        return None
+    if one_index == -1:
+        return -1
     binary_list[one_index] = '0'  # step 2
     binary_list[zero_index] = '1'  # step 4
     return binary_list
@@ -47,23 +47,23 @@ def get_next(binary_list):
     if all(x == '1' for x in binary_list):  # step 0
         return ['1', '0'] + binary_list[1:]
 
-    zero_index = None
+    zero_index = -1
     for index in range(len(binary_list) - 1, 0, -1):  # step 1. traverse list starting with least significant bit
         if binary_list[index] == '1' and binary_list[index - 1] == '0':
             zero_index = index - 1
             break
-    if zero_index is None:
-        return None
+    if zero_index == -1:
+        return -1
 
-    one_index = None
+    one_index = -1
     for index in range(len(binary_list) - 1, 0, -1):  # step 3.
         if binary_list[index] == '1':
             one_index = index
             break
-    if one_index is None:
-        return None
+    if one_index == -1:
+        return -1
     if one_index <= zero_index:
-        return None
+        return -1
 
     binary_list[zero_index] = '1'  # step 2
     binary_list[one_index] = '0'  # step 4

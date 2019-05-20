@@ -2,5 +2,6 @@
 #include <vector>
 
 namespace chapter_05 {
-    std::pair<int, int> nextNumber(int positiveInteger);
+    int getNext(int positiveInteger);
+    int getPrev(int positiveInteger);
 }

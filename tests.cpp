@@ -843,6 +843,21 @@ TEST_CASE("Chapter 05 - Problem 03 - flipBitToWin()", "test") {
     REQUIRE(chapter_05::flipBitToWin(0b10) == 2);
 }
 
+TEST_CASE("Chapter 05 - Problem 04 - nextNumber()", "test"){
+    /*
+    //REQUIRE(chapter_05::getPrev(0b0100) == 0b0010);
+    REQUIRE(chapter_05::getNext(0b0100) == 0b1000);
+    //REQUIRE(chapter_05::getPrev(0b0101) == 0b0011);
+    REQUIRE(chapter_05::getNext(0b0101) == 0b0110);
+    //REQUIRE(chapter_05::getPrev(0b1111) == -1);    // there is no previous number possible
+    REQUIRE(chapter_05::getNext(0b1111) == 0b10111); // add an extra digit
+    //REQUIRE(chapter_05::getPrev(0b0000) == -1);    // there is no previous number possible
+    REQUIRE(chapter_05::getNext(0b0000) == -1);      // there is no next number possible
+    //REQUIRE(chapter_05::getPrev(0b1001) == 0b0101);
+    REQUIRE(chapter_05::getNext(0b1001) == 0b1010);
+     */
+}
+
 TEST_CASE("Chapter 05 - Problem 06 - conversion()", "test"){
     REQUIRE(chapter_05::conversion(0b11001100, 0b11110000) == 4);
     REQUIRE(chapter_05::conversion(29, 15) == 2);
