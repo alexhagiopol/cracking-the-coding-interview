@@ -39,7 +39,7 @@ def get_next(binary_list):
     """
     strategy:
     0. If the number is all ones e.g. [1111] insert a zero in the second most significant place e.g. [10111]
-    1. find least significant "01". Note the position of the 0.
+    1. Find least significant "1". Note the position of the 0.
     2. Flip the 0 to a 1.
     3. Find the least significant 1 whose position is *less significant* than the 0 we flipped.
     4. Flip that 1 to a 0.

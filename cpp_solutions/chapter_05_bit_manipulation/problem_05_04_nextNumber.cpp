@@ -2,6 +2,7 @@
 // Created by Alex Hagiopol on 2019-05-17.
 //
 #include "problem_05_04_nextNumber.h"
+#include <iostream>
 
 namespace chapter_05 {
     /*
@@ -34,11 +35,45 @@ namespace chapter_05 {
     *
     * CODE:
     */
-    int getNext(int positiveInteger) {
 
+    uint32_t getNext(uint32_t positiveInteger) {
+        uint32_t oneIndex = 0;   // index of the rightmost 1
+        uint32_t zeroIndex = 0;  // index of the rightmost 0 that has 1s to the right of it
+
+        if (positiveInteger == 0 || positiveInteger == UINT32_MAX) return -1;
+
+        // find rightmost (i.e. least significant) "1" in bit sequence
+        uint32_t positiveIntegerCopy = positiveInteger;
+        while (positiveIntegerCopy != 0 && (positiveIntegerCopy & 1) != 1) {
+            oneIndex ++;
+            positiveIntegerCopy >>= 1;
+        }
+
+        // find rightmost non-trailing "0" in bit sequence that is more significant than "1" position
+        positiveIntegerCopy = positiveInteger >> oneIndex + 1;  // for zero to be non-trailing, we need to right shift before checking
+        zeroIndex += oneIndex + 1;
+        while (positiveIntegerCopy != 0 && (positiveIntegerCopy & 1) != 0) {
+            zeroIndex ++;
+            positiveIntegerCopy >>= 1;
+        }
+
+        std::cout << "zeroIndex=" << zeroIndex << " \noneIndex=" << oneIndex << std::endl;
+        std::cout << "positiveInteger before flips" << positiveInteger << std::endl;
+
+        // flip the zeroIndex bit to 1
+        positiveInteger = positiveInteger | (1 << zeroIndex);
+
+        // clear all bits to the right of zeroIndex
+        positiveInteger = positiveInteger & (UINT32_MAX << zeroIndex);
+
+        // add in zeroIndex - oneIndex - 1 number of 1s to the end of the number (this accounts for examples like
+        // 0b11011001111100 where zeroIndex and oneIndex are separated by ones that need to be added in least significant
+        // places.
+        positiveInteger = positiveInteger | ((1 << (zeroIndex - oneIndex - 1)) - 1);
         return positiveInteger;
     }
-    int getPrev(int positiveInteger) {
+
+    uint32_t getPrev(uint32_t positiveInteger) {
 
         return positiveInteger;
     }
