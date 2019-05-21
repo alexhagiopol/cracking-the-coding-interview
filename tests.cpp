@@ -844,22 +844,27 @@ TEST_CASE("Chapter 05 - Problem 03 - flipBitToWin()", "test") {
 }
 
 TEST_CASE("Chapter 05 - Problem 04 - nextNumber()", "test"){
-    //REQUIRE(chapter_05::getPrev(0b0100) == 0b0010);
+    REQUIRE(chapter_05::getPrev(0b0001) == -1);
+    REQUIRE(chapter_05::getNext(0b0001) == 0b0010);
+    REQUIRE(chapter_05::getPrev(0b0100) == 0b0010);
     REQUIRE(chapter_05::getNext(0b0100) == 0b1000);
-    //REQUIRE(chapter_05::getPrev(0b0101) == 0b0011);
+    REQUIRE(chapter_05::getPrev(0b0101) == 0b0011);
     REQUIRE(chapter_05::getNext(0b0101) == 0b0110);
-    //REQUIRE(chapter_05::getPrev(0b1111) == -1);    // there is no previous number possible
+    REQUIRE(chapter_05::getPrev(0b1111) == -1);        // there is no previous number possible
     REQUIRE(chapter_05::getNext(0b1111) == 0b10111);
-    //REQUIRE(chapter_05::getPrev(0b0000) == -1);    // there is no previous number possible
-    REQUIRE(chapter_05::getNext(0b0000) == -1);      // there is no next number possible
-    //REQUIRE(chapter_05::getPrev(UINT32_MAX) == -1);    // there is no previous number possible
-    REQUIRE(chapter_05::getNext(UINT32_MAX) == -1);      // there is no next number possible
-    //REQUIRE(chapter_05::getPrev(0b1001) == 0b0101);
+    REQUIRE(chapter_05::getPrev(0b0000) == -1);        // there is no previous number possible
+    REQUIRE(chapter_05::getNext(0b0000) == -1);        // there is no next number possible
+    REQUIRE(chapter_05::getPrev(UINT32_MAX) == -1);    // there is no previous number possible
+    REQUIRE(chapter_05::getNext(UINT32_MAX) == -1);    // there is no next number possible
+    REQUIRE(chapter_05::getPrev(0b1001) == 0b0110);
+    // 0b1001 = 1*2^0 + 0*2^1 + 0*2^2 + 1*2^3 = 9
+    // 0b0101 = 1*2^0 + 0*2^1 + 1*2^2 + 0*2^3 = 5
+    // 0b0110 = 0*2^0 + 1*2^1 + 1*2^2 + 0*2^3 = 6 <- this is the true getPrev(0b1001) result, not 5!!
     REQUIRE(chapter_05::getNext(0b1001) == 0b1010);
-    //REQUIRE(chapter_05::getPrev(0b0110) == 0b0101);
+    REQUIRE(chapter_05::getPrev(0b0110) == 0b0101);
     REQUIRE(chapter_05::getNext(0b0110) == 0b1001);
-    REQUIRE(chapter_05::getNext(0b11011001111100) == 0b11011010001111);
-
+    REQUIRE(chapter_05::getPrev(0b10011110000011) == 0b10011101110000);  // example from textbook
+    REQUIRE(chapter_05::getNext(0b11011001111100) == 0b11011010001111);  // example from textbook
 }
 
 TEST_CASE("Chapter 05 - Problem 06 - conversion()", "test"){
