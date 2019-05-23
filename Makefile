@@ -11,14 +11,22 @@ clean:
 	rm -rf build && mkdir build && cd build && cmake ..
 
 test:
+	@echo ---------------------
 	@echo TESTING C++ SOLUTIONS
+	@echo ---------------------
 	cd build && make -j6 && ./tests
+	@echo ------------------------
 	@echo TESTING PYTHON SOLUTIONS
+	@echo ------------------------
 	python3 tests.py
 
 test_coverage:
+	@echo ---------------------
 	@echo TESTING C++ SOLUTIONS
+	@echo ---------------------
 	cd build && make -j6 && ./tests
+	@echo ------------------------
 	@echo TESTING PYTHON SOLUTIONS
+	@echo ------------------------
 	coverage run --source=python_solutions tests.py
 	coverage report -m
