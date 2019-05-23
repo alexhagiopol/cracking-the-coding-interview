@@ -67,7 +67,7 @@ Python Total: `56` solutions.
 
 ### Building: 
 #### Mac:
-Mac usage requires the package managers Homebrew and Pip which is done for you in the Makefile: 
+Mac usage requires installing the package managers Homebrew and Pip which is done for you in the Makefile: 
 	
     git clone https://github.com/alexhagiopol/cracking-the-coding-interview.git ctci
     cd ctci
