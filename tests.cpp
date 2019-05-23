@@ -859,7 +859,7 @@ TEST_CASE("Chapter 05 - Problem 04 - nextNumber()", "test"){
     REQUIRE(chapter_05::getPrev(0b1001) == 0b0110);
     // 0b1001 = 1*2^0 + 0*2^1 + 0*2^2 + 1*2^3 = 9
     // 0b0101 = 1*2^0 + 0*2^1 + 1*2^2 + 0*2^3 = 5
-    // 0b0110 = 0*2^0 + 1*2^1 + 1*2^2 + 0*2^3 = 6 <- this is the true getPrev(0b1001) result, not 5!!
+    // 0b0110 = 0*2^0 + 1*2^1 + 1*2^2 + 0*2^3 = 6 <- N.B. this is the true getPrev(0b1001) result, not 5
     REQUIRE(chapter_05::getNext(0b1001) == 0b1010);
     REQUIRE(chapter_05::getPrev(0b0110) == 0b0101);
     REQUIRE(chapter_05::getNext(0b0110) == 0b1001);

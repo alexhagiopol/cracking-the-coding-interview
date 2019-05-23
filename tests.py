@@ -844,59 +844,24 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_3.flip_bit_to_win(0b10), 2)
 
     def test_problem_5_4(self):
-        '''
-        # See the note in the problem implementation for the reasoning behind using lists of string characters.
-        self.assertEqual(p_5_4.get_prev(['0', '1', '0', '0']), ['0', '0', '1', '0'])
-        self.assertEqual(p_5_4.get_next(['0', '1', '0', '0']), ['1', '0', '0', '0'])
-        self.assertEqual(p_5_4.get_prev(['0', '1', '0', '1']), ['0', '0', '1', '1'])
-        self.assertEqual(p_5_4.get_next(['0', '1', '0', '1']), ['0', '1', '1', '0'])
-        self.assertEqual(p_5_4.get_prev(['1', '1', '1', '1']), -1)
-        self.assertEqual(p_5_4.get_next(['1', '1', '1', '1']), ['1', '0', '1', '1', '1'])
-        self.assertEqual(p_5_4.get_prev(['0', '0', '0', '0']), -1)
-        self.assertEqual(p_5_4.get_next(['0', '0', '0', '0']), -1)
-        self.assertEqual(p_5_4.get_prev(['1', '0', '0', '1']), ['0', '1', '0', '1'])
-        self.assertEqual(p_5_4.get_next(['1', '0', '0', '1']), ['1', '0', '1', '0'])
-        self.assertEqual(p_5_4.get_prev(['0', '1', '1', '0']), ['0', '1', '0', '1'])
-        self.assertEqual(p_5_4.get_next(['0', '1', '1', '0']), ['1', '0', '1', '0'])
-        '''
-
-        '''
-        REQUIRE(chapter_05::getPrev(0b0001) == -1);
-        REQUIRE(chapter_05::getNext(0b0001) == 0b0010);
-        REQUIRE(chapter_05::getPrev(0b0100) == 0b0010);
-        REQUIRE(chapter_05::getNext(0b0100) == 0b1000);
-        REQUIRE(chapter_05::getPrev(0b0101) == 0b0011);
-        REQUIRE(chapter_05::getNext(0b0101) == 0b0110);
-        REQUIRE(chapter_05::getPrev(0b1111) == -1);        // there is no previous number possible
-        REQUIRE(chapter_05::getNext(0b1111) == 0b10111);
-        REQUIRE(chapter_05::getPrev(0b0000) == -1);        // there is no previous number possible
-        
-        REQUIRE(chapter_05::getNext(0b0000) == -1);        // there is no next number possible
-        REQUIRE(chapter_05::getPrev(UINT32_MAX) == -1);    // there is no previous number possible
-        
-        REQUIRE(chapter_05::getNext(UINT32_MAX) == -1);    // there is no next number possible
-        REQUIRE(chapter_05::getPrev(0b1001) == 0b0110);
-        
-        // 0b1001 = 1*2^0 + 0*2^1 + 0*2^2 + 1*2^3 = 9
-        // 0b0101 = 1*2^0 + 0*2^1 + 1*2^2 + 0*2^3 = 5
-        // 0b0110 = 0*2^0 + 1*2^1 + 1*2^2 + 0*2^3 = 6 <- this is the true getPrev(0b1001) result, not 5!!
-        REQUIRE(chapter_05::getNext(0b1001) == 0b1010);
-        REQUIRE(chapter_05::getPrev(0b0110) == 0b0101);
-        REQUIRE(chapter_05::getNext(0b0110) == 0b1001);
-        REQUIRE(chapter_05::getPrev(0b10011110000011) == 0b10011101110000);  // example from textbook
-        REQUIRE(chapter_05::getNext(0b11011001111100) == 0b11011010001111);  // example from textbook
-        '''
         self.assertEqual(p_5_4.get_prev(0b0001), -1)
+        self.assertEqual(p_5_4.get_next(0b0001), 0b0010)
         self.assertEqual(p_5_4.get_prev(0b0100), 0b0010)
+        self.assertEqual(p_5_4.get_next(0b0100), 0b1000)
         self.assertEqual(p_5_4.get_prev(0b0101), 0b0011)
+        self.assertEqual(p_5_4.get_next(0b0101), 0b0110)
         self.assertEqual(p_5_4.get_prev(0b1111), -1)
+        self.assertEqual(p_5_4.get_next(0b1111), 0b10111)
         self.assertEqual(p_5_4.get_prev(0b0000), -1)
+        self.assertEqual(p_5_4.get_next(0b0000), -1)
         self.assertEqual(p_5_4.get_prev(np.uint32(0xffffffff)), -1)
+        self.assertEqual(p_5_4.get_next(np.uint32(0xffffffff)), -1)
         self.assertEqual(p_5_4.get_prev(0b1001), 0b0110)
+        self.assertEqual(p_5_4.get_next(0b1001), 0b1010)
         self.assertEqual(p_5_4.get_prev(0b0110), 0b0101)
+        self.assertEqual(p_5_4.get_next(0b0110), 0b1001)
         self.assertEqual(p_5_4.get_prev(0b10011110000011), 0b10011101110000)
-
-
+        self.assertEqual(p_5_4.get_next(0b11011001111100), 0b11011010001111)
 
     def test_problem_5_6(self):
         self.assertEqual(p_5_6.conversion(0b11001100, 0b11110000), 4)
