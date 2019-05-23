@@ -80,7 +80,7 @@ namespace chapter_05 {
         uint32_t oneIndex = 0;   // index of the rightmost 1
         uint32_t zeroIndex = 0;  // index of the rightmost 0 that has 1s to the right of it
 
-        if (positiveInteger == 0 || positiveInteger == UINT32_MAX) return static_cast<uint32_t>(-1);
+        if (positiveInteger == 0 || positiveInteger >= UINT32_MAX) return static_cast<uint32_t>(-1);
 
         // find the least significant zero
         uint32_t positiveIntegerCopy = positiveInteger;
