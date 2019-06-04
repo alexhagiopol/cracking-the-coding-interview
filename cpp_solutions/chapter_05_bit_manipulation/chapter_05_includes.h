@@ -10,3 +10,4 @@
 #include "problem_05_04_nextNumber.h"
 #include "problem_05_06_conversion.h"
 #include "problem_05_07_pairwiseSwap.h"
+#include "problem_05_08_drawLine.h"

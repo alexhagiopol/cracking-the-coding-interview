@@ -880,7 +880,7 @@ class Tests(unittest.TestCase):
         y_1 = 5
         processed_screen_1 = [0] * 5 + [0b00011111] + [0] * 2
         self.assertEqual(p_5_8.stringify_screen(screen_1, width_1),
-                         '\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000')
+                         '00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n')
         p_5_8.draw_line(screen_1, width_1, x1_1, x2_1, y_1)
         self.assertEqual(screen_1, processed_screen_1)
 

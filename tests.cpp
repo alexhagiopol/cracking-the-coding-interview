@@ -878,6 +878,44 @@ TEST_CASE("Chapter 05 - Problem 07 - pairwiseSwap()", "test"){
     REQUIRE(chapter_05::pairwiseSwap(0b110) == 0b1001);
 }
 
+TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
+    /*
+    screen_1 = [0] * 8
+    width_1 = 8
+    x1_1 = 3
+    x2_1 = 7
+    y_1 = 5
+    processed_screen_1 = [0] * 5 + [0b00011111] + [0] * 2
+    self.assertEqual(p_5_8.stringify_screen(screen_1, width_1),
+                 '\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000')
+    p_5_8.draw_line(screen_1, width_1, x1_1, x2_1, y_1)
+    self.assertEqual(screen_1, processed_screen_1)
+
+    screen_2 = [0] * 8
+    width_2 = 32
+    x1_2 = 0
+    x2_2 = 13
+    y_2 = 1
+    processed_screen_2 = [0] * 4 + [255] + [0b11111100] + [0] * 2
+    p_5_8.draw_line(screen_2, width_2, x1_2, x2_2, y_2)
+    self.assertEqual(screen_2, processed_screen_2)
+
+    screen_3 = [0] * 32
+    width_3 = 64
+    x1_3 = 5
+    x2_3 = 24
+    y_3 = 1
+    processed_screen_3 = [0] * 8 + [0b00000111] + [255] + [255] + [0b10000000] + [0] * 20
+    p_5_8.draw_line(screen_3, width_3, x1_3, x2_3, y_3)
+    self.assertEqual(screen_3, processed_screen_3)
+    */
+    uint8_t screen1[8] = {0,0,0,0,0,0,0,0};
+    uint32_t bitWidth1 = 8;
+    uint32_t bitLength1 = 64;
+    std::string expectedScreen1 = "00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n";
+    REQUIRE(expectedScreen1 == chapter_05::stringifyScreen(&screen1[0], bitWidth1, bitLength1));
+}
+
 TEST_CASE("Chapter 08 - Problem 01 - tripleStep()", "test"){
     REQUIRE(chapter_08::tripleStep(3) == 4);
     REQUIRE(chapter_08::tripleStep(4) == 7);
