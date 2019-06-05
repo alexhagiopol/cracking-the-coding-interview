@@ -909,12 +909,28 @@ TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
     p_5_8.draw_line(screen_3, width_3, x1_3, x2_3, y_3)
     self.assertEqual(screen_3, processed_screen_3)
     */
-    uint8_t screen1[8] = {0,0,0,0,0,0,0,0};
+
     uint32_t bitWidth1 = 8;
     uint32_t bitLength1 = 64;
+    uint8_t screen1[bitLength1 / 8] = {0};
     std::string expectedScreen1 = "00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n";
-    REQUIRE(expectedScreen1 == chapter_05::stringifyScreen(&screen1[0], bitWidth1, bitLength1));
-}
+    REQUIRE(expectedScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
+
+    uint32_t bitWidth2 = 32;
+    uint32_t bitLength2 = 64;
+    uint8_t screen2[bitLength2 / 8] = {0};
+    std::string expectedScreen2 = "00000000000000000000000000000000\n00000000000000000000000000000000\n";
+    REQUIRE(expectedScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
+
+    uint32_t bitWidth3 = 64;
+    uint32_t bitLength3 = 256;
+    uint8_t screen3[bitLength3 / 8] = {0};
+    std::string expectedScreen3 = "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                  "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                  "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                  "0000000000000000000000000000000000000000000000000000000000000000\n";
+    REQUIRE(expectedScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
+};
 
 TEST_CASE("Chapter 08 - Problem 01 - tripleStep()", "test"){
     REQUIRE(chapter_08::tripleStep(3) == 4);

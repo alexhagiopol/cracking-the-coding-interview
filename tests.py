@@ -890,6 +890,8 @@ class Tests(unittest.TestCase):
         x2_2 = 13
         y_2 = 1
         processed_screen_2 = [0] * 4 + [255] + [0b11111100] + [0] * 2
+        self.assertEqual(p_5_8.stringify_screen(screen_2, width_2),
+                         '00000000000000000000000000000000\n00000000000000000000000000000000\n')
         p_5_8.draw_line(screen_2, width_2, x1_2, x2_2, y_2)
         self.assertEqual(screen_2, processed_screen_2)
 
@@ -899,6 +901,11 @@ class Tests(unittest.TestCase):
         x2_3 = 24
         y_3 = 1
         processed_screen_3 = [0] * 8 + [0b00000111] + [255] + [255] + [0b10000000] + [0] * 20
+        self.assertEqual(p_5_8.stringify_screen(screen_3, width_3),
+                         '0000000000000000000000000000000000000000000000000000000000000000\n'
+                         '0000000000000000000000000000000000000000000000000000000000000000\n'
+                         '0000000000000000000000000000000000000000000000000000000000000000\n'
+                         '0000000000000000000000000000000000000000000000000000000000000000\n')
         p_5_8.draw_line(screen_3, width_3, x1_3, x2_3, y_3)
         self.assertEqual(screen_3, processed_screen_3)
 
