@@ -6,3 +6,4 @@ build
 cmake-build-debug
 CppProperties.json
 .vs
+**/.DS_Store

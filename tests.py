@@ -844,16 +844,24 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_3.flip_bit_to_win(0b10), 2)
 
     def test_problem_5_4(self):
-        # See the note in the problem implementation for the reasoning behind using lists of string characters.
-        self.assertEqual(p_5_4.get_prev(['0', '1', '0', '0']), ['0', '0', '1', '0'])
-        self.assertEqual(p_5_4.get_next(['0', '1', '0', '0']), ['1', '0', '0', '0'])
-        self.assertEqual(p_5_4.get_prev(['0', '1', '0', '1']), ['0', '0', '1', '1'])
-        self.assertEqual(p_5_4.get_next(['0', '1', '0', '1']), ['0', '1', '1', '0'])
-        self.assertEqual(p_5_4.get_prev(['1', '1', '1', '1']), None)
-        self.assertEqual(p_5_4.get_next(['1', '1', '1', '1']), ['1', '0', '1', '1', '1'])
-        self.assertEqual(p_5_4.get_prev(['0', '0', '0', '0']), None)
-        self.assertEqual(p_5_4.get_next(['0', '0', '0', '0']), None)
-        self.assertEqual(p_5_4.get_prev(['1', '0', '0', '1']), ['0', '1', '0', '1'])
+        self.assertEqual(p_5_4.get_prev(0b0001), -1)
+        self.assertEqual(p_5_4.get_next(0b0001), 0b0010)
+        self.assertEqual(p_5_4.get_prev(0b0100), 0b0010)
+        self.assertEqual(p_5_4.get_next(0b0100), 0b1000)
+        self.assertEqual(p_5_4.get_prev(0b0101), 0b0011)
+        self.assertEqual(p_5_4.get_next(0b0101), 0b0110)
+        self.assertEqual(p_5_4.get_prev(0b1111), -1)
+        self.assertEqual(p_5_4.get_next(0b1111), 0b10111)
+        self.assertEqual(p_5_4.get_prev(0b0000), -1)
+        self.assertEqual(p_5_4.get_next(0b0000), -1)
+        self.assertEqual(p_5_4.get_prev(np.uint32(0xffffffff)), -1)
+        self.assertEqual(p_5_4.get_next(np.uint32(0xffffffff)), -1)
+        self.assertEqual(p_5_4.get_prev(0b1001), 0b0110)
+        self.assertEqual(p_5_4.get_next(0b1001), 0b1010)
+        self.assertEqual(p_5_4.get_prev(0b0110), 0b0101)
+        self.assertEqual(p_5_4.get_next(0b0110), 0b1001)
+        self.assertEqual(p_5_4.get_prev(0b10011110000011), 0b10011101110000)
+        self.assertEqual(p_5_4.get_next(0b11011001111100), 0b11011010001111)
 
     def test_problem_5_6(self):
         self.assertEqual(p_5_6.conversion(0b11001100, 0b11110000), 4)
@@ -865,34 +873,80 @@ class Tests(unittest.TestCase):
         self.assertEqual(p_5_7.pairwise_swap(0b110), 0b1001)
 
     def test_problem_5_8(self):
+        # Screen #1: Line spans less than 8 bits.
         screen_1 = [0] * 8
         width_1 = 8
         x1_1 = 3
         x2_1 = 7
         y_1 = 5
-        processed_screen_1 = [0] * 5 + [0b00011111] + [0] * 2
-        self.assertEqual(p_5_8.stringify_screen(screen_1, width_1),
-                         '\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000')
+        # processed_screen_1 = [0] * 5 + [0b00011111] + [0] * 2
+        expected_initial_screen_1 = '00000000\n'\
+                                    '00000000\n'\
+                                    '00000000\n'\
+                                    '00000000\n'\
+                                    '00000000\n'\
+                                    '00000000\n'\
+                                    '00000000\n'\
+                                    '00000000\n'
+        expected_final_screen_1 = '00000000\n'\
+                                  '00000000\n'\
+                                  '00000000\n'\
+                                  '00000000\n'\
+                                  '00000000\n'\
+                                  '00011111\n'\
+                                  '00000000\n'\
+                                  '00000000\n'
+        self.assertEqual(expected_initial_screen_1, p_5_8.stringify_screen(screen_1, width_1))
         p_5_8.draw_line(screen_1, width_1, x1_1, x2_1, y_1)
-        self.assertEqual(screen_1, processed_screen_1)
+        self.assertEqual(expected_final_screen_1, p_5_8.stringify_screen(screen_1, width_1))
 
+        # Screen #2: Line spans more than 8 bits.
         screen_2 = [0] * 8
         width_2 = 32
         x1_2 = 0
         x2_2 = 13
         y_2 = 1
-        processed_screen_2 = [0] * 4 + [255] + [0b11111100] + [0] * 2
-        p_5_8.draw_line(screen_2, width_2, x1_2, x2_2, y_2)
-        self.assertEqual(screen_2, processed_screen_2)
+        # processed_screen_2 = [0] * 4 + [255] + [0b11111100] + [0] * 2
+        expected_initial_screen_2 = '00000000000000000000000000000000\n'\
+                                    '00000000000000000000000000000000\n'
+        expected_final_screen_2 = '00000000000000000000000000000000\n'\
+                                  '11111111111111000000000000000000\n'
 
+        self.assertEqual(expected_initial_screen_2, p_5_8.stringify_screen(screen_2, width_2))
+        p_5_8.draw_line(screen_2, width_2, x1_2, x2_2, y_2)
+        self.assertEqual(expected_final_screen_2, p_5_8.stringify_screen(screen_2, width_2))
+
+        # Screen #3: Line spans more than 8 bits.
         screen_3 = [0] * 32
         width_3 = 64
         x1_3 = 5
         x2_3 = 24
         y_3 = 1
-        processed_screen_3 = [0] * 8 + [0b00000111] + [255] + [255] + [0b10000000] + [0] * 20
+        # processed_screen_3 = [0] * 8 + [0b00000111] + [255] + [255] + [0b10000000] + [0] * 20
+        expected_initial_screen_3 = '0000000000000000000000000000000000000000000000000000000000000000\n'\
+                                    '0000000000000000000000000000000000000000000000000000000000000000\n'\
+                                    '0000000000000000000000000000000000000000000000000000000000000000\n'\
+                                    '0000000000000000000000000000000000000000000000000000000000000000\n'
+        expected_final_screen_3 = '0000000000000000000000000000000000000000000000000000000000000000\n'\
+                                  '0000011111111111111111111000000000000000000000000000000000000000\n'\
+                                  '0000000000000000000000000000000000000000000000000000000000000000\n'\
+                                  '0000000000000000000000000000000000000000000000000000000000000000\n'
+
+        self.assertEqual(expected_initial_screen_3, p_5_8.stringify_screen(screen_3, width_3))
         p_5_8.draw_line(screen_3, width_3, x1_3, x2_3, y_3)
-        self.assertEqual(screen_3, processed_screen_3)
+        self.assertEqual(expected_final_screen_3, p_5_8.stringify_screen(screen_3, width_3))
+
+        # Screen #4: Line spans a single bit.
+        screen_4 = [0]
+        width_4 = 8
+        x1_4 = 3
+        x2_4 = 3
+        y_4 = 0
+        expected_initial_screen_4 = '00000000\n'
+        expected_final_screen_4 = '00010000\n'
+        self.assertEqual(expected_initial_screen_4, p_5_8.stringify_screen(screen_4, width_4))
+        p_5_8.draw_line(screen_4, width_4, x1_4, x2_4, y_4)
+        self.assertEqual(expected_final_screen_4, p_5_8.stringify_screen(screen_4, width_4))
 
     def test_problem_8_1(self):
         self.assertEqual(p_8_1.triple_step(3), 4)

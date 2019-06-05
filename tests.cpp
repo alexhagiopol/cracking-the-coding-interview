@@ -833,6 +833,40 @@ TEST_CASE("Chapter 05 - Problem 02 - binaryToString()", "test") {
     REQUIRE(binary_string_4 == "0.10111000110101001111110111110011"); // needs double precision to work
 }
 
+TEST_CASE("Chapter 05 - Problem 03 - flipBitToWin()", "test") {
+    REQUIRE(chapter_05::flipBitToWin(1775) == 8);
+    REQUIRE(chapter_05::flipBitToWin(0b0000) == 1);
+    REQUIRE(chapter_05::flipBitToWin(0b1011) == 4);
+    REQUIRE(chapter_05::flipBitToWin(0b1010111) == 5);
+    REQUIRE(chapter_05::flipBitToWin(0b1110101) == 5);
+    REQUIRE(chapter_05::flipBitToWin(0b00) == 1);
+    REQUIRE(chapter_05::flipBitToWin(0b10) == 2);
+}
+
+TEST_CASE("Chapter 05 - Problem 04 - nextNumber()", "test"){
+    REQUIRE(chapter_05::getPrev(0b0001) == -1);
+    REQUIRE(chapter_05::getNext(0b0001) == 0b0010);
+    REQUIRE(chapter_05::getPrev(0b0100) == 0b0010);
+    REQUIRE(chapter_05::getNext(0b0100) == 0b1000);
+    REQUIRE(chapter_05::getPrev(0b0101) == 0b0011);
+    REQUIRE(chapter_05::getNext(0b0101) == 0b0110);
+    REQUIRE(chapter_05::getPrev(0b1111) == -1);        // there is no previous number possible
+    REQUIRE(chapter_05::getNext(0b1111) == 0b10111);
+    REQUIRE(chapter_05::getPrev(0b0000) == -1);        // there is no previous number possible
+    REQUIRE(chapter_05::getNext(0b0000) == -1);        // there is no next number possible
+    REQUIRE(chapter_05::getPrev(UINT32_MAX) == -1);    // there is no previous number possible
+    REQUIRE(chapter_05::getNext(UINT32_MAX) == -1);    // there is no next number possible
+    REQUIRE(chapter_05::getPrev(0b1001) == 0b0110);
+    // 0b1001 = 1*2^0 + 0*2^1 + 0*2^2 + 1*2^3 = 9
+    // 0b0101 = 1*2^0 + 0*2^1 + 1*2^2 + 0*2^3 = 5
+    // 0b0110 = 0*2^0 + 1*2^1 + 1*2^2 + 0*2^3 = 6 <- N.B. this is the true getPrev(0b1001) result, not 5
+    REQUIRE(chapter_05::getNext(0b1001) == 0b1010);
+    REQUIRE(chapter_05::getPrev(0b0110) == 0b0101);
+    REQUIRE(chapter_05::getNext(0b0110) == 0b1001);
+    REQUIRE(chapter_05::getPrev(0b10011110000011) == 0b10011101110000);  // example from textbook
+    REQUIRE(chapter_05::getNext(0b11011001111100) == 0b11011010001111);  // example from textbook
+}
+
 TEST_CASE("Chapter 05 - Problem 06 - conversion()", "test"){
     REQUIRE(chapter_05::conversion(0b11001100, 0b11110000) == 4);
     REQUIRE(chapter_05::conversion(29, 15) == 2);
@@ -842,6 +876,83 @@ TEST_CASE("Chapter 05 - Problem 07 - pairwiseSwap()", "test"){
     REQUIRE(chapter_05::pairwiseSwap(0b10101010) == 0b01010101);
     REQUIRE(chapter_05::pairwiseSwap(0b11110000) == 0b11110000);
     REQUIRE(chapter_05::pairwiseSwap(0b110) == 0b1001);
+}
+
+TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
+    // Screen #1: Line goes middle to end. Line spans less than 8 bits.
+    uint32_t bitWidth1 = 8;
+    uint32_t bitLength1 = 64;
+    uint8_t screen1[64 / 8] = {0};
+    uint32_t x1_1 = 3;
+    uint32_t x2_1 = 7;
+    uint32_t y_1 = 5;
+    std::string expectedInitialScreen1 = "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n";
+    std::string expectedFinalScreen1 = "00000000\n"
+                                       "00000000\n"
+                                       "00000000\n"
+                                       "00000000\n"
+                                       "00000000\n"
+                                       "00011111\n"
+                                       "00000000\n"
+                                       "00000000\n";
+    REQUIRE(expectedInitialScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
+    chapter_05::drawLine(screen1, bitWidth1, bitLength1, x1_1, x2_1, y_1);
+    REQUIRE(expectedFinalScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
+
+
+    // Screen #2: Line spans more than 8 bits.
+    uint32_t bitWidth2 = 32;
+    uint32_t bitLength2 = 64;
+    uint8_t screen2[64 / 8] = {0};
+    uint32_t x1_2 = 0;
+    uint32_t x2_2 = 13;
+    uint32_t y_2 = 1;
+    std::string expectedInitialScreen2 = "00000000000000000000000000000000\n"
+                                         "00000000000000000000000000000000\n";
+    std::string expectedFinalScreen2 = "00000000000000000000000000000000\n"
+                                       "11111111111111000000000000000000\n";
+    REQUIRE(expectedInitialScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
+    chapter_05::drawLine(screen2, bitWidth2, bitLength2, x1_2, x2_2, y_2);
+    REQUIRE(expectedFinalScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
+
+    // Screen #3: Line spans more than 8 bits.
+    uint32_t bitWidth3 = 64;
+    uint32_t bitLength3 = 256;
+    uint8_t screen3[256 / 8] = {0};
+    uint32_t x1_3 = 5;
+    uint32_t x2_3 = 24;
+    uint32_t y_3 = 1;
+    std::string expectedInitialScreen3 = "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                         "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                         "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                         "0000000000000000000000000000000000000000000000000000000000000000\n";
+    std::string expectedFinalScreen3 = "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                       "0000011111111111111111111000000000000000000000000000000000000000\n"
+                                       "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                       "0000000000000000000000000000000000000000000000000000000000000000\n";
+    REQUIRE(expectedInitialScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
+    chapter_05::drawLine(screen3, bitWidth3, bitLength3, x1_3, x2_3, y_3);
+    REQUIRE(expectedFinalScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
+
+    // Screen #4: Line spans a single bit.
+    uint32_t bitWidth4 = 8;
+    uint32_t bitLength4 = 8;
+    uint8_t screen4[1] = {0};
+    uint32_t x1_4 = 3;
+    uint32_t x2_4 = 3;
+    uint32_t y_4 = 0;
+    std::string expectedInitialScreen4 = "00000000\n";
+    std::string expectedFinalScreen4 = "00010000\n";
+    REQUIRE(expectedInitialScreen4 == chapter_05::stringifyScreen(screen4, bitWidth4, bitLength4));
+    chapter_05::drawLine(screen4, bitWidth4, bitLength4, x1_4, x2_4, y_4);
+    REQUIRE(expectedFinalScreen4 == chapter_05::stringifyScreen(screen4, bitWidth4, bitLength4));
 }
 
 TEST_CASE("Chapter 08 - Problem 01 - tripleStep()", "test"){
@@ -952,11 +1063,11 @@ TEST_CASE("Chapter 08 - Problem 08 - permutationsWithDups()", "test") {
                                                  "xael", "axel", "aexl", "aelx",
                                                  "xale", "axle", "alxe", "alex"};
     chapter_08::permutationsWithDups("ala", actual1);
-    //chapter_08::permutationsWithDups("alaa", actual2);
-    //chapter_08::permutationsWithDups("alex", actual3);
+    chapter_08::permutationsWithDups("alaa", actual2);
+    chapter_08::permutationsWithDups("alex", actual3);
     REQUIRE(actual1 == expected1);
-    //REQUIRE(actual2 == expected2);
-    //REQUIRE(actual3 == expected3);
+    REQUIRE(actual2 == expected2);
+    REQUIRE(actual3 == expected3);
 }
 
 TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
