@@ -50,14 +50,17 @@ namespace chapter_05 {
         assert((byteLength % byteWidth) == 0);
         int height = byteLength / byteWidth;
         // we use one character for each pixel plus byteWidth * height extra characters for spaces and newline characters
-        std::string stringScreen(bitLength + height, ' ');
+        std::string stringScreen(bitLength + height, 'X');
         int i = 0;
-        for (int r = 0; r < height; r++) {
-            for (int c = 0; c < byteWidth; c++) {
+        for (uint32_t r = 0; r < height; r++) {
+            for (uint32_t c = 0; c < byteWidth; c++) {
                 uint8_t currentByte = screen[r * byteWidth + c];
-                for (int b = 0; b < 8; b++) {
-                    stringScreen[i] = static_cast<char>(((currentByte >> b) & 1) + 48);  // ASCII table: 48 = 0; 49 = 1
+                for (int b = 7; b >= 0; b--) {  // use int b because we must allow neg values for zero comparison. reverse traversal order for bits to match little endian format
+                    uint8_t mask = static_cast<uint8_t>(1) << b;
+                    bool maskMatchesCurrentByte = (currentByte & mask) != 0;
+                    stringScreen[i] = static_cast<char>(static_cast<uint8_t>(maskMatchesCurrentByte) + 48);  // ASCII table: 48 = 0; 49 = 1
                     i++;
+
                 }
                 if (c == (byteWidth - 1)) {
                     stringScreen[i] = '\n';
@@ -68,13 +71,44 @@ namespace chapter_05 {
         return stringScreen;
     }
 
+    uint8_t singleByteLine(uint8_t x1, uint8_t x2) {
+        assert((x1 >= 0) && (x1 < 8) && (x2 >= 0) && (x2 < 8) && (x2 >= x1));
+        uint8_t numOnes = x2 - x1 + 1;
+        uint8_t byte = (static_cast<uint8_t>(1) << numOnes) - 1;
+        byte <<= static_cast<uint8_t>(8 - x2 - 1);
+        return byte;
+    }
+
     void drawLine(
             uint8_t* screen,
             uint32_t bitWidth,
             uint32_t bitLength,
-            uint32_t x1,
-            uint32_t x2,
+            uint32_t x1BitIndex,
+            uint32_t x2BitIndex,
             uint32_t y) {
 
+        assert((x1BitIndex >=0) &&
+               (x1BitIndex < bitWidth) &&
+               (x2BitIndex > 0) &&
+               (x2BitIndex < bitWidth) &&
+               (x2BitIndex >= x1BitIndex) &&
+               (y*bitWidth + x1BitIndex <= bitLength) &&
+               (y*bitWidth + x2BitIndex <= bitLength));
+
+        uint32_t x1ByteIndex = y * bitWidth / 8 + x1BitIndex / 8;
+        uint32_t x2ByteIndex = y * bitWidth / 8 + x2BitIndex / 8;
+        if (x1ByteIndex == x2ByteIndex) {
+            screen[x1ByteIndex] = singleByteLine(x1BitIndex % 8, x2BitIndex % 8);
+        }
+        else {
+            // draw 1s from x1 to end of its byte
+            screen[x1ByteIndex] = singleByteLine(x1BitIndex % 8, 7);
+            // draw 1s from 0 to x2 in its byte
+            screen[x2ByteIndex] = singleByteLine(0, x2BitIndex % 8);
+            // fill in in-between bytes with all 1s
+            for (int i = x1ByteIndex + 1; i < x2ByteIndex; i++) {
+                screen[i] = 255;
+            }
+        }
     }
 }

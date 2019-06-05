@@ -879,9 +879,7 @@ TEST_CASE("Chapter 05 - Problem 07 - pairwiseSwap()", "test"){
 }
 
 TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
-    /*
-     * Screen #1: Line goes middle to end. Line spans less than 8 bits.
-     */
+    // Screen #1: Line goes middle to end. Line spans less than 8 bits.
     uint32_t bitWidth1 = 8;
     uint32_t bitLength1 = 64;
     uint8_t screen1[64 / 8] = {0};
@@ -906,11 +904,10 @@ TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
                                        "00000000\n";
     REQUIRE(expectedInitialScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
     chapter_05::drawLine(screen1, bitWidth1, bitLength1, x1_1, x2_1, y_1);
-    // REQUIRE(expectedFinalScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
+    REQUIRE(expectedFinalScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
 
-    /*
-     * Screen #2: Line spans more than 8 bits.
-     */
+
+    // Screen #2: Line spans more than 8 bits.
     uint32_t bitWidth2 = 32;
     uint32_t bitLength2 = 64;
     uint8_t screen2[64 / 8] = {0};
@@ -923,11 +920,9 @@ TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
                                        "11111111111111000000000000000000\n";
     REQUIRE(expectedInitialScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
     chapter_05::drawLine(screen2, bitWidth2, bitLength2, x1_2, x2_2, y_2);
-    // REQUIRE(expectedFinalScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
+    REQUIRE(expectedFinalScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
 
-    /*
-     * Screen #3: Line spans more than 8 bits.
-     */
+    // Screen #3: Line spans more than 8 bits.
     uint32_t bitWidth3 = 64;
     uint32_t bitLength3 = 256;
     uint8_t screen3[256 / 8] = {0};
@@ -944,11 +939,9 @@ TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
                                        "0000000000000000000000000000000000000000000000000000000000000000\n";
     REQUIRE(expectedInitialScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
     chapter_05::drawLine(screen3, bitWidth3, bitLength3, x1_3, x2_3, y_3);
-    // REQUIRE(expectedFinalScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
+    REQUIRE(expectedFinalScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
 
-    /*
-     * Screen #4: Line spans a single bit.
-     */
+    // Screen #4: Line spans a single bit.
     uint32_t bitWidth4 = 8;
     uint32_t bitLength4 = 8;
     uint8_t screen4[1] = {0};
@@ -959,7 +952,7 @@ TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
     std::string expectedFinalScreen4 = "00010000\n";
     REQUIRE(expectedInitialScreen4 == chapter_05::stringifyScreen(screen4, bitWidth4, bitLength4));
     chapter_05::drawLine(screen4, bitWidth4, bitLength4, x1_4, x2_4, y_4);
-    // REQUIRE(expectedFinalScreen1 == chapter_05::stringifyScreen(screen4, bitWidth4, bitLength4));
+    REQUIRE(expectedFinalScreen4 == chapter_05::stringifyScreen(screen4, bitWidth4, bitLength4));
 }
 
 TEST_CASE("Chapter 08 - Problem 01 - tripleStep()", "test"){
