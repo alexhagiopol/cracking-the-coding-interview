@@ -63,7 +63,7 @@ def single_byte_line(x1, x2):
 
 def draw_line(screen, width, x1, x2, y):
     assert(width % 8 == 0)
-    assert(0 <= x1 < x2 <= width)
+    assert(0 <= x1 <= x2 <= width)
     assert(0 <= y <= len(screen) * 8 / width - 1)
 
     x1_byte_index = y * width // 8 + x1 // 8

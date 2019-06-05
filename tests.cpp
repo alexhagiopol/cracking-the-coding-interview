@@ -880,57 +880,87 @@ TEST_CASE("Chapter 05 - Problem 07 - pairwiseSwap()", "test"){
 
 TEST_CASE("Chapter 05 - Problem 08 - drawLine()", "test"){
     /*
-    screen_1 = [0] * 8
-    width_1 = 8
-    x1_1 = 3
-    x2_1 = 7
-    y_1 = 5
-    processed_screen_1 = [0] * 5 + [0b00011111] + [0] * 2
-    self.assertEqual(p_5_8.stringify_screen(screen_1, width_1),
-                 '\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000')
-    p_5_8.draw_line(screen_1, width_1, x1_1, x2_1, y_1)
-    self.assertEqual(screen_1, processed_screen_1)
-
-    screen_2 = [0] * 8
-    width_2 = 32
-    x1_2 = 0
-    x2_2 = 13
-    y_2 = 1
-    processed_screen_2 = [0] * 4 + [255] + [0b11111100] + [0] * 2
-    p_5_8.draw_line(screen_2, width_2, x1_2, x2_2, y_2)
-    self.assertEqual(screen_2, processed_screen_2)
-
-    screen_3 = [0] * 32
-    width_3 = 64
-    x1_3 = 5
-    x2_3 = 24
-    y_3 = 1
-    processed_screen_3 = [0] * 8 + [0b00000111] + [255] + [255] + [0b10000000] + [0] * 20
-    p_5_8.draw_line(screen_3, width_3, x1_3, x2_3, y_3)
-    self.assertEqual(screen_3, processed_screen_3)
-    */
-
+     * Screen #1: Line goes middle to end. Line spans less than 8 bits.
+     */
     uint32_t bitWidth1 = 8;
     uint32_t bitLength1 = 64;
     uint8_t screen1[64 / 8] = {0};
-    std::string expectedScreen1 = "00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n00000000\n";
-    REQUIRE(expectedScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
+    uint32_t x1_1 = 3;
+    uint32_t x2_1 = 7;
+    uint32_t y_1 = 5;
+    std::string expectedInitialScreen1 = "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n"
+                                         "00000000\n";
+    std::string expectedFinalScreen1 = "00000000\n"
+                                       "00000000\n"
+                                       "00000000\n"
+                                       "00000000\n"
+                                       "00000000\n"
+                                       "00011111\n"
+                                       "00000000\n"
+                                       "00000000\n";
+    REQUIRE(expectedInitialScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
+    chapter_05::drawLine(screen1, bitWidth1, bitLength1, x1_1, x2_1, y_1);
+    // REQUIRE(expectedFinalScreen1 == chapter_05::stringifyScreen(screen1, bitWidth1, bitLength1));
 
+    /*
+     * Screen #2: Line spans more than 8 bits.
+     */
     uint32_t bitWidth2 = 32;
     uint32_t bitLength2 = 64;
     uint8_t screen2[64 / 8] = {0};
-    std::string expectedScreen2 = "00000000000000000000000000000000\n00000000000000000000000000000000\n";
-    REQUIRE(expectedScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
+    uint32_t x1_2 = 0;
+    uint32_t x2_2 = 13;
+    uint32_t y_2 = 1;
+    std::string expectedInitialScreen2 = "00000000000000000000000000000000\n"
+                                         "00000000000000000000000000000000\n";
+    std::string expectedFinalScreen2 = "00000000000000000000000000000000\n"
+                                       "11111111111111000000000000000000\n";
+    REQUIRE(expectedInitialScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
+    chapter_05::drawLine(screen2, bitWidth2, bitLength2, x1_2, x2_2, y_2);
+    // REQUIRE(expectedFinalScreen2 == chapter_05::stringifyScreen(screen2, bitWidth2, bitLength2));
 
+    /*
+     * Screen #3: Line spans more than 8 bits.
+     */
     uint32_t bitWidth3 = 64;
     uint32_t bitLength3 = 256;
     uint8_t screen3[256 / 8] = {0};
-    std::string expectedScreen3 = "0000000000000000000000000000000000000000000000000000000000000000\n"
-                                  "0000000000000000000000000000000000000000000000000000000000000000\n"
-                                  "0000000000000000000000000000000000000000000000000000000000000000\n"
-                                  "0000000000000000000000000000000000000000000000000000000000000000\n";
-    REQUIRE(expectedScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
-};
+    uint32_t x1_3 = 5;
+    uint32_t x2_3 = 24;
+    uint32_t y_3 = 1;
+    std::string expectedInitialScreen3 = "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                         "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                         "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                         "0000000000000000000000000000000000000000000000000000000000000000\n";
+    std::string expectedFinalScreen3 = "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                       "0000011111111111111111111000000000000000000000000000000000000000\n"
+                                       "0000000000000000000000000000000000000000000000000000000000000000\n"
+                                       "0000000000000000000000000000000000000000000000000000000000000000\n";
+    REQUIRE(expectedInitialScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
+    chapter_05::drawLine(screen3, bitWidth3, bitLength3, x1_3, x2_3, y_3);
+    // REQUIRE(expectedFinalScreen3 == chapter_05::stringifyScreen(screen3, bitWidth3, bitLength3));
+
+    /*
+     * Screen #4: Line spans a single bit.
+     */
+    uint32_t bitWidth4 = 8;
+    uint32_t bitLength4 = 8;
+    uint8_t screen4[1] = {0};
+    uint32_t x1_4 = 3;
+    uint32_t x2_4 = 3;
+    uint32_t y_4 = 0;
+    std::string expectedInitialScreen4 = "00000000\n";
+    std::string expectedFinalScreen4 = "00010000\n";
+    REQUIRE(expectedInitialScreen4 == chapter_05::stringifyScreen(screen4, bitWidth4, bitLength4));
+    chapter_05::drawLine(screen4, bitWidth4, bitLength4, x1_4, x2_4, y_4);
+    // REQUIRE(expectedFinalScreen1 == chapter_05::stringifyScreen(screen4, bitWidth4, bitLength4));
+}
 
 TEST_CASE("Chapter 08 - Problem 01 - tripleStep()", "test"){
     REQUIRE(chapter_08::tripleStep(3) == 4);

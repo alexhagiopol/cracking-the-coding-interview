@@ -67,4 +67,14 @@ namespace chapter_05 {
         }
         return stringScreen;
     }
+
+    void drawLine(
+            uint8_t* screen,
+            uint32_t bitWidth,
+            uint32_t bitLength,
+            uint32_t x1,
+            uint32_t x2,
+            uint32_t y) {
+
+    }
 }
