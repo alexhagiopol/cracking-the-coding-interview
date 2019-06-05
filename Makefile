@@ -5,7 +5,7 @@ configure-mac:
 	git submodule update --init && ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)" && brew install python && easy_install pip && pip install numpy && cd cpp_solutions/third_party/eigen && rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && sudo make install && cd ../../../.. && rm -rf build && mkdir build && cd build && cmake ..
 
 configure-ubuntu:
-	git submodule update --init && sudo apt-get install -y build-essential cmake python3 python3-numpy gcc-7 && cd cpp_solutions/third_party/eigen && rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && sudo make install && cd ../../../.. && rm -rf build && mkdir build && cd build && cmake ..
+	git submodule update --init && sudo apt-get install -y build-essential cmake python3 python3-numpy && cd cpp_solutions/third_party/eigen && rm -rf build && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && sudo make install && cd ../../../.. && rm -rf build && mkdir build && cd build && cmake ..
 
 clean:
 	rm -rf build && mkdir build && cd build && cmake ..
