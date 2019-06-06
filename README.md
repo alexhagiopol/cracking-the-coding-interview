@@ -26,7 +26,7 @@ reference and contribute solutions with confidence.
 3. [Chapter 3 - Stacks and Queues](cpp_solutions/chapter_03_stacks_and_queues): `4 / 6`  complete.
 4. [Chapter 4 - Trees and Graphs](cpp_solutions/chapter_04_trees_and_graphs): `11 / 12` complete.  
 5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `7 / 7`  complete.
-6. Chapter 6 - Math and Logic: `0 / 10` complete.
+6. Chapter 6 - Math and Logic: N/A
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `8 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
@@ -39,7 +39,7 @@ reference and contribute solutions with confidence.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-C++ Total: `50` solutions.
+C++ Total: `50` of `141` solutions complete.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -48,7 +48,7 @@ C++ Total: `50` solutions.
 3. [Chapter 3 - Stacks and Queues](python_solutions/chapter_03_stacks_queues): `6 / 6`  complete.
 4. [Chapter 4 - Trees and Graphs](python_solutions/chapter_04_trees_and_graphs): `11 / 12` complete.  
 5. [Chapter 5 - Bit Manipulation](python_solutions/chapter_05_bit_manipulation): `7 / 7`  complete.
-6. Chapter 6 - Math and Logic: `0 / 10` complete.
+6. Chapter 6 - Math and Logic: N/A
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. [Chapter 8 - Recursion and Dynamic Programming](python_solutions/chapter_08_recursion_and_dynamic_programming): `11 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
@@ -57,13 +57,13 @@ C++ Total: `50` solutions.
 12. Chapter 12 - C and C++: N/A
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: N/A
-15. Chapter 15 - Threads and Locks: `0 / 4` complete.
+15. Chapter 15 - Threads and Locks: N/A
 16. [Chapter 16 - Moderate](python_solutions/chapter_16_moderate): `1 / 26` complete.
 17. [Chapter 17 - Hard](python_solutions/chapter_17_hard): `3 / 26` complete.
 
-Python Total: `56` solutions.
+Python Total: `56` of `131` solutions complete.
 
-##### Grand Total: `106` unique solutions.
+##### Grand Total: `106` unique solutions complete.
 
 ### Building: 
 #### Mac:
