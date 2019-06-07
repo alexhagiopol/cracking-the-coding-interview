@@ -240,7 +240,7 @@ TEST_CASE("Chapter 02 - Problem 05 - sumLists()", "test"){
     chapter_02::SinglyLinkedNode<uint8_t>* n2Head = chapter_02::vectorToList(n2Vec);
     std::vector<uint8_t> sumVecActual = chapter_02::listToVector(chapter_02::sumLists(n1Head, n2Head));
     REQUIRE(sumVecExpected == sumVecActual);
-};
+}
 
 TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
     // create test dataset
@@ -259,7 +259,7 @@ TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
     REQUIRE(!chapter_02::palindrome(head3));
     REQUIRE(!chapter_02::palindrome(head4));
     REQUIRE(chapter_02::palindrome(head5));
-};
+}
 
 TEST_CASE("Chapter 02 - Problem 07 - intersection()", "test") {
 	// list 1
@@ -1015,7 +1015,7 @@ TEST_CASE("Chapter 08 - Problem 04 - powerSet()", "test"){
     testPowerSet = {};
     chapter_08::createPowerSet(set1, testPowerSet);
     REQUIRE(testPowerSet == powerSet1);
-};
+}
 
 TEST_CASE("Chapter 08 - Problem 05 - recursiveMultiply()", "test"){
     REQUIRE(chapter_08::recursiveMultiply(1, 1) == 1);
@@ -1186,8 +1186,4 @@ TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
                6,  18, 36,  60,
                10, 30, 60, 100;
     REQUIRE(output2.isApprox(misc::makeIntegralImage(output1)));
-}
-
-TEST_CASE("Misc Exercises - boxFilter()", "test"){
-
 }
