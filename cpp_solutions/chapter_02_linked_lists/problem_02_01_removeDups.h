@@ -1,12 +1,8 @@
-//
-// Created by Alex Hagiopol on 9/5/17.
-//
 #pragma once
 #include "Node.h"
 #include <unordered_map>
 
 namespace chapter_02{
-    // template function implemented in header file
     template <typename T>
     void removeDups(SinglyLinkedNode<T>* head){
         SinglyLinkedNode<T>* slowRunner = head;

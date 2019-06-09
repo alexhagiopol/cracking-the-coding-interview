@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 9/5/17.
-//
 #include <string>
 
 namespace chapter_01{

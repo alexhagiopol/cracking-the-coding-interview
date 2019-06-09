@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 10/16/17.
-//
 /*
 Chapter 02 - Problem 04 - Partition - CTCI 6th Edition page 94
 

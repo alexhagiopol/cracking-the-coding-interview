@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 2019-05-17.
-//
 #include "problem_05_04_nextNumber.h"
 #include <iostream>
 

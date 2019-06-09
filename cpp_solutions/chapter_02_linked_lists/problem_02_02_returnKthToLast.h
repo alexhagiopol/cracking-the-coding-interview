@@ -1,11 +1,7 @@
-//
-// Created by Alex Hagiopol on 9/5/17.
-//
 #pragma once
 #include "Node.h"
 
 namespace chapter_02{
-    // template function implemented in header file
     template <typename T>
     SinglyLinkedNode<T>* returnKthToLast(SinglyLinkedNode<T>* head, int k){
         if (head == nullptr) return nullptr;

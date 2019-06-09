@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 8/26/18.
-//
-
 /*
 Chapter 12 - Problem 08 - Copy Node
 

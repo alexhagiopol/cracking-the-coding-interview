@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 8/6/17.
-//
-
 #pragma once
 #include "problem_08_01_tripleStep.h"
 #include "problem_08_02_robotGrid.h"

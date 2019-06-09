@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 1/13/18.
-//
-
 /*
 Chapter 01 - Problem 09 - String Rotation - CTCI 6th Edition page 91
 

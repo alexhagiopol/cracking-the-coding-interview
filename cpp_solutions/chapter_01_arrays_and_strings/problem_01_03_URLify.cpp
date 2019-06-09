@@ -1,7 +1,3 @@
-//
-// Created by alex on 1/10/18.
-//
-
 /*
 Chapter 01 - Problem 03 - URLify - CTCI 6th Edition page 90
 

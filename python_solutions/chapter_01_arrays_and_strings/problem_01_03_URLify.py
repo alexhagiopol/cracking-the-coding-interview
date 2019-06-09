@@ -28,7 +28,7 @@ to extend the input string by 2*N characters.
 """
 
 
-# in Python, strings are immutable, thus we are forced to implement with lists of single characters e.g.
+# in Python, strings are immutable, thus we are forced to implement with lists of single characters
 def URLify(string):
     # compute length of new string based on # of spaces in input string
     new_len = 0

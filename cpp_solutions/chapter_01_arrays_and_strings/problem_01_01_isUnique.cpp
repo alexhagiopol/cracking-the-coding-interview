@@ -1,7 +1,3 @@
-//
-// Created by alex on 7/31/17.
-//
-
 /*
 Chapter 01 - Problem 01 - Is Unique - CTCI 6th Edition page 90
 
