@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 8/21/17.
-//
-
 /*
 Chapter 01 - Problem 02 - Check Permutation - CTCI 6th Edition page 90
 

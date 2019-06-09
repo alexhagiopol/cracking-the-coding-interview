@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 2/3/18.
-//
 /*
 Chapter 02 - Problem 06 - Palindrome - CTCI 6th Edition page 95
 

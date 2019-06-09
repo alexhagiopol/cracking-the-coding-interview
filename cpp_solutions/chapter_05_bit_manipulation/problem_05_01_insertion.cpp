@@ -1,6 +1,3 @@
-//
-// Created by alex on 8/2/17.
-//
 #include "problem_05_01_insertion.h"
 
 namespace chapter_05{

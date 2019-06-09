@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 1/19/18.
-//
 /*
 Chapter 01 - Problem 08 - Set Zero - CTCI 6th Edition page 91
 

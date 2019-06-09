@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 9/5/17.
-//
-
 /*
 Chapter 12 - Problem 02 - Reverse - CTCI 6th Edition page 163
 

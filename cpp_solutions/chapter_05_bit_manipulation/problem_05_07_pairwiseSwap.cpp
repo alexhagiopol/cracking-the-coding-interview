@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 8/5/17.
-//
-
 #include "problem_05_07_pairwiseSwap.h"
 
 namespace chapter_05{

@@ -1,9 +1,5 @@
-//
-// Created by Alex Hagiopol on 8/6/17.
-//
-
 /*
-Gayle's note:
+Note from textbook:
 
 Regardless of whether or not you use memoization, note that the
 number of ways will quickly overflow the bounds of an integer.

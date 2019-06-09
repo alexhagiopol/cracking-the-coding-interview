@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 2019-01-11.
-//
 /*
 Chapter 04 - Problem 02 - Minimal Tree
 

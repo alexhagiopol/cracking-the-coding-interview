@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 1/19/18.
-//
 /*
 Chapter 02 - Problem 05 - Sum Lists - CTCI 6th Edition page 95
 

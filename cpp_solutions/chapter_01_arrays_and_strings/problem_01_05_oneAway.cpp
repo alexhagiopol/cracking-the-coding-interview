@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 1/13/18.
-//
-
 /*
 Chapter 01 - Problem 05 - One Away - CTCI 6th Edition page 91
 

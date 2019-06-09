@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 10/14/17.
-//
-
 /*
 Chapter 02 - Problem 03 - Delete Middle Node - CTCI 6th Edition page 211
 
@@ -25,7 +21,6 @@ Space complexity: O(1).
 #include "Node.h"
 
 namespace chapter_02{
-    // template function implemented in header file
     template <typename T>
     void deleteMiddleNode(SinglyLinkedNode<T>* middle){
         if (middle == nullptr || middle->getNext() == nullptr){

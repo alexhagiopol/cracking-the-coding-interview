@@ -1,6 +1,3 @@
-//
-// Created by alex on 5/15/2019.
-//
 #include "problem_05_03_flipBitToWin.h"
 
 namespace chapter_05 {

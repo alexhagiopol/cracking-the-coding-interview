@@ -1,7 +1,3 @@
-//
-// Created by Alex Hagiopol on 8/5/17.
-//
-
 #pragma once
 
 #include "problem_05_01_insertion.h"

@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 7/30/18.
-//
 #pragma once
 #include "chapter_02_linked_lists/Node.h"
 

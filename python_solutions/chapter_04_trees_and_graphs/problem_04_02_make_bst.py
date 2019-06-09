@@ -1,4 +1,4 @@
-'''
+"""
 Chapter 04 - Problem 02 - Minimal Tree
 
 Problem Statement:
@@ -15,7 +15,8 @@ recursing on each half for the left and right BST child nodes.
 
 Time complexity: O(log(N))
 Space complexity: O(log(N))
-'''
+"""
+
 
 class Node:
     def __init__(self, left, right, val):

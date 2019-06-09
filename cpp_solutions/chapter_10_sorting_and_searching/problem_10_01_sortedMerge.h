@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 8/27/18.
-//
 /*
 Chapter 10 - Problem 01 - Sorted Merge
 

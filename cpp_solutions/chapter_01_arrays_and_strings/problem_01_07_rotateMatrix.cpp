@@ -1,6 +1,3 @@
-//
-// Created by Alex Hagiopol on 8/24/17.
-//
 /*
 Chapter 01 - Problem 07 - Rotate Matrix - CTCI 6th Edition page 91
 
