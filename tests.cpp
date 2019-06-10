@@ -1120,6 +1120,17 @@ TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     REQUIRE(threeFilled.isApprox(expectedThreeFilled));
 }
 
+TEST_CASE("Chapter 10 - mergeSort()"){
+    std::vector<int> input1 = {1000, 10, 7, 3, -1000, 5, 100, 9, 1, 10000, -10000, 6, 2, -10, 4, 8, -100, 0};
+    std::vector<int> expectedOutput1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    std::vector<int> input2 = {};
+    std::vector<int> expectedOutput2 = {};
+    std::vector<int> input3 = {1};
+    std::vector<int> expectedOutput3 = {1};
+    std::vector<int> input4 = {-5, -4, -3, -2, -1};
+    std::vector<int> expectedOutput4 = {-5, -4, -3, -2, -1};
+}
+
 TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
     int A[10] = {5, 5, 10, 10, 15};  // remainder of uninitialized values set to zero implicitly
     int B[5]  = {3, 6,  9, 12, 15};
