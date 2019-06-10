@@ -1125,10 +1125,22 @@ TEST_CASE("Chapter 10 - mergeSort()"){
     std::vector<int> expectedOutput1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
     std::vector<int> input2 = {};
     std::vector<int> expectedOutput2 = {};
-    std::vector<int> input3 = {1};
-    std::vector<int> expectedOutput3 = {1};
-    std::vector<int> input4 = {-5, -4, -3, -2, -1};
-    std::vector<int> expectedOutput4 = {-5, -4, -3, -2, -1};
+    std::vector<float> input3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    std::vector<float> expectedOutput3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    std::vector<float> input4 = {1.1};
+    std::vector<float> expectedOutput4 = {1.1};
+    std::vector<float> input5 = {1.4, 1.6, 1.1, 1.3, 1.5, 1.7, 1.2};
+    std::vector<float> expectedOutput5 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    chapter_10::mergeSort(input1);
+    chapter_10::mergeSort(input2);
+    chapter_10::mergeSort(input3);
+    chapter_10::mergeSort(input4);
+    chapter_10::mergeSort(input5);
+    REQUIRE(expectedOutput1 == input1);
+    REQUIRE(expectedOutput2 == input2);
+    REQUIRE(expectedOutput3 == input3);
+    REQUIRE(expectedOutput4 == input4);
+    REQUIRE(expectedOutput5 == input5);
 }
 
 TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
