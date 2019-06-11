@@ -16,6 +16,7 @@ Space complexity: O(1) because our lists are mutable in Python, we do not send c
 the function does not cause more memory allocations that scale with the size of the input
 """
 
+
 def sorted_merge(A, lastA, B, lastB):
     mergeA = lastA + lastB + 1
     # iterate through arrays A and B from back to front performing the merge operation along the way

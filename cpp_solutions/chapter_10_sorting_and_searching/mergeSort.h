@@ -9,6 +9,7 @@ namespace chapter_10 {
         int leftIdx = start;
         int rightIdx = middle + 1;
         // perform merge operation from left and right halves of input array into helper array
+        // this operation stops when either the left or right subarray is depleted
         while (leftIdx <= middle && rightIdx <= end) {
             if (array[leftIdx] <= array[rightIdx]) {
                 helperArray[helperIdx] = array[leftIdx];
@@ -33,17 +34,20 @@ namespace chapter_10 {
             helperIdx ++;
         }
         // copy content of helper array into input array at the appropriate indices
+        /*
         for (int i = start; i <= end; i++) {
             array[i] = helperArray[i];
         }
+         */
+        array = helperArray;
     }
 
     template <typename T>
     void sortHelper(std::vector<T>& array, std::vector<T>& helperArray, int start, int end) {
         assert(array.size() == helperArray.size());
-        int middle = (end - start) / 2 + start;
         // check for terminating condition and recursively sort left and right halves
         if (start < end) {
+            int middle = (end - start) / 2 + start;
             if (start < middle) sortHelper(array, helperArray, start, middle);
             if ((middle + 1) < end) sortHelper(array, helperArray, middle + 1, end);
             mergeHelper(array, helperArray, start, middle, end);
