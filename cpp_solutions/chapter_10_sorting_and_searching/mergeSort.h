@@ -34,11 +34,6 @@ namespace chapter_10 {
             helperIdx ++;
         }
         // copy content of helper array into input array at the appropriate indices
-        /*
-        for (int i = start; i <= end; i++) {
-            array[i] = helperArray[i];
-        }
-         */
         array = helperArray;
     }
 
