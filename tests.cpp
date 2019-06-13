@@ -1120,7 +1120,7 @@ TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     REQUIRE(threeFilled.isApprox(expectedThreeFilled));
 }
 
-TEST_CASE("Chapter 10 - mergeSort()"){
+TEST_CASE("Chapter 10 - mergeSort()", "test"){
     std::vector<int> input1 = {1000, 10, 7, 3, -1000, 5, 100, 9, 1, 10000, -10000, 6, 2, -10, 4, 8, -100, 0};
     std::vector<int> expectedOutput1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
     std::vector<int> input2 = {};
@@ -1143,7 +1143,7 @@ TEST_CASE("Chapter 10 - mergeSort()"){
     REQUIRE(expectedOutput5 == input5);
 }
 
-TEST_CASE("Chapter 10 - quickSort()"){
+TEST_CASE("Chapter 10 - quickSort()", "test"){
     std::vector<int> input1 = {1000, 10, 7, 3, -1000, 5, 100, 9, 1, 10000, -10000, 6, 2, -10, 4, 8, -100, 0};
     std::vector<int> expectedOutput1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
     std::vector<int> input2 = {};
@@ -1164,6 +1164,21 @@ TEST_CASE("Chapter 10 - quickSort()"){
     REQUIRE(expectedOutput3 == input3);
     REQUIRE(expectedOutput4 == input4);
     REQUIRE(expectedOutput5 == input5);
+}
+
+TEST_CASE("Chapter 10 - binarySearch()", "test"){
+    std::vector<int> input1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    std::vector<int> input2 = {};
+    std::vector<float> input3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    REQUIRE(-1 == chapter_10::binarySearch(input1, 101));
+    REQUIRE(16 == chapter_10::binarySearch(input1, 1000));
+    REQUIRE(4 == chapter_10::binarySearch(input1, 0));
+    REQUIRE(15 == chapter_10::binarySearch(input1, 100));
+    REQUIRE(13 == chapter_10::binarySearch(input1, 9));
+    REQUIRE(10 == chapter_10::binarySearch(input1, 6));
+    REQUIRE(-1 == chapter_10::binarySearch(input2, 101));
+    REQUIRE(3 == chapter_10::binarySearch<float>(input3, 1.4));
+    REQUIRE(5 == chapter_10::binarySearch<float>(input3, 1.6));
 }
 
 TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
