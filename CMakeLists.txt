@@ -42,6 +42,7 @@ set(SOURCE_FILES
         cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_08_permutationsWithDups.cpp
         cpp_solutions/chapter_08_recursion_and_dynamic_programming/problem_08_10_paintFill.cpp
 		# problem 10.01 not included because it is a template function implemented in .h file
+		cpp_solutions/chapter_10_sorting_and_searching/problem_10_02_anagramSort.cpp
 		cpp_solutions/chapter_12_cpp/problem_12_02_reverse.cpp
 		# problem 12.08 not included because it is a template function implemented in .h file
         cpp_solutions/misc_exercises/integralImage.cpp)

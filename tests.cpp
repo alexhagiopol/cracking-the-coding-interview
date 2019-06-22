@@ -1181,7 +1181,7 @@ TEST_CASE("Chapter 10 - binarySearch()", "test"){
     REQUIRE(5 == chapter_10::binarySearch<float>(input3, 1.6));
 }
 
-TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
+TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()", "test"){
     int A[10] = {5, 5, 10, 10, 15};  // remainder of uninitialized values set to zero implicitly
     int B[5]  = {3, 6,  9, 12, 15};
     int lastA = 4;  // index of last item placed in A
@@ -1199,6 +1199,10 @@ TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
     for (int i = 0; i < 10; i++){
         REQUIRE(D[i] == C[i]);
     }
+}
+
+TEST_CASE("Chapter 10 - Problem 02 - anagramSort()", "test"){
+
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
