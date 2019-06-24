@@ -1202,19 +1202,8 @@ TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()", "test"){
 }
 
 TEST_CASE("Chapter 10 - Problem 02 - anagramSort()", "test"){
-    // define strings as std::vector<char> for compatibility with sort algorithms already implemented in this section
-    std::vector<char> abc = {'a', 'b', 'c'};
-    std::vector<char> acb = {'a', 'c', 'b'};
-    std::vector<char> bac = {'b', 'a', 'c'};
-    std::vector<char> bca = {'b', 'c', 'a'};
-    std::vector<char> cab = {'c', 'a', 'b'};
-    std::vector<char> cba = {'c', 'b', 'a'};
-    std::vector<char> aaa = {'a', 'a', 'a'};
-    std::vector<char> bbb = {'b', 'b', 'b'};
-    std::vector<char> ccc = {'c', 'c', 'c'};
-    std::vector<char> ddd = {'c', 'c', 'c'};
-    std::vector<std::vector<char>> example1 = {ddd, abc, ccc, bac, aaa, cab, bbb, acb};
-    std::vector<std::vector<char>> expected1 = {aaa, abc, acb, bac, cab, bbb, ccc, ddd};
+    std::vector<std::string> example1 = {"ddd", "abc", "ccc", "bac", "aaa", "cab", "bbb", "acb"};
+    std::vector<std::string> expected1 = {"aaa", "abc", "acb", "bac", "cab", "bbb", "ccc", "ddd"};
     chapter_10::anagramSort(example1);
     REQUIRE(expected1 == example1);
 }
