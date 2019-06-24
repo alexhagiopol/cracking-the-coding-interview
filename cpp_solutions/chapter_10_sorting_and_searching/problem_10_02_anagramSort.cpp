@@ -24,7 +24,7 @@
  * Step (1) takes O(1) time.
  * Step (2) takes O(N) time assuming the strings are of constant length.
  * Step (3) takes O(N) time.
- * Thus the algorithm takes O(N) time.
+ * Thus, the algorithm takes O(N) time.
  *
  * SPACE COMPLEXITY:
  * The hash table will require O(N) space.
@@ -33,9 +33,32 @@
  */
 
 #include "problem_10_02_anagramSort.h"
+#include <unordered_map>
 
 namespace chapter_10 {
     void anagramSort(std::vector<std::string>& array) {
-
+        std::unordered_map<std::string, std::vector<std::string>> hashMap;
+        // traverse input array
+        for (const std::string& string : array) {
+            std::string sortedString = string;
+            std::sort(sortedString.begin(), sortedString.end());
+            // sortedString in hashMap
+            if (hashMap.find(sortedString) != hashMap.end()) {
+                hashMap[sortedString].push_back(string);
+            }
+            // if sortedString not in hashMap ...
+            else {
+                std::vector<std::string> anagramVector = {string};
+                hashMap[sortedString] = anagramVector;
+            }
+        }
+        // place all values contents of hashMap into array thus placing anagrams next to each other
+        int index = 0;
+        for (const std::pair<std::string, std::vector<std::string>> pair : hashMap) {
+            for (const std::string& anagramString : pair.second) {
+                array[index] = anagramString;
+                index ++;
+            }
+        }
     }
 }

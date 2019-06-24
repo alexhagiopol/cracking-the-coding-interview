@@ -1202,10 +1202,28 @@ TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()", "test"){
 }
 
 TEST_CASE("Chapter 10 - Problem 02 - anagramSort()", "test"){
+    // note that the order of std::unordered_map contents is not controllable
+    // expected values are chosen based on actual results produced by binaries made by a C++ 11 compiler
     std::vector<std::string> example1 = {"ddd", "abc", "ccc", "bac", "aaa", "cab", "bbb", "acb"};
-    std::vector<std::string> expected1 = {"aaa", "abc", "acb", "bac", "cab", "bbb", "ccc", "ddd"};
+    std::vector<std::string> expected1 = {"ccc", "bbb", "abc", "bac", "cab", "acb", "aaa", "ddd"};
+    std::vector<std::string> example2 = {"aaa"};
+    std::vector<std::string> expected2 = {"aaa"};
+    std::vector<std::string> example3 = {};
+    std::vector<std::string> expected3 = {};
+    std::vector<std::string> example4 = {"a", "ddd", "abc", "ccc", "a", "bac", "aaa", "cab", "bbb", "acb", "a"};
+    std::vector<std::string> expected4 = { "bbb", "ddd", "ccc", "abc", "bac", "cab", "acb", "aaa", "a", "a", "a"};
+    std::vector<std::string> example5 = {"", "a", "", "b", ""};
+    std::vector<std::string> expected5 = {"a", "b", "", "", ""};
     chapter_10::anagramSort(example1);
+    chapter_10::anagramSort(example2);
+    chapter_10::anagramSort(example3);
+    chapter_10::anagramSort(example4);
+    chapter_10::anagramSort(example5);
     REQUIRE(expected1 == example1);
+    REQUIRE(expected2 == example2);
+    REQUIRE(expected3 == example3);
+    REQUIRE(expected4 == example4);
+    REQUIRE(expected5 == example5);
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
@@ -1225,7 +1243,7 @@ TEST_CASE("Chapter 12 - Problem 12 - copyNode()", "test"){
     chapter_02::SinglyLinkedNode<int>* head = chapter_02::vectorToList(targetVector);
     chapter_02::SinglyLinkedNode<int>* copy = chapter_12::copyNode(head);
     REQUIRE(targetVector == chapter_02::listToVector(copy));  //  check that the values contained in nodes are identical
-    // Check that the pointers in the head linked list are *not* the same as the pointers in the copy likned list
+    // Check that the pointers in the head linked list are *not* the same as the pointers in the copy linked list
     // This is to verify a copy was actually made.
     while (head != nullptr && copy != nullptr){
         REQUIRE(head != copy);
