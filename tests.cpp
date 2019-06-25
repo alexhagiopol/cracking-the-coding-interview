@@ -1202,18 +1202,16 @@ TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()", "test"){
 }
 
 TEST_CASE("Chapter 10 - Problem 02 - anagramSort()", "test"){
-    // note that the order of std::unordered_map contents is not controllable
-    // expected values are chosen based on actual results produced by binaries made by a C++ 11 compiler
     std::vector<std::string> example1 = {"ddd", "abc", "ccc", "bac", "aaa", "cab", "bbb", "acb"};
-    std::vector<std::string> expected1 = {"ccc", "bbb", "abc", "bac", "cab", "acb", "aaa", "ddd"};
+    std::vector<std::string> expected1 = {"aaa", "abc", "bac", "cab", "acb", "bbb", "ccc", "ddd" };
     std::vector<std::string> example2 = {"aaa"};
     std::vector<std::string> expected2 = {"aaa"};
     std::vector<std::string> example3 = {};
     std::vector<std::string> expected3 = {};
     std::vector<std::string> example4 = {"a", "ddd", "abc", "ccc", "a", "bac", "aaa", "cab", "bbb", "acb", "a"};
-    std::vector<std::string> expected4 = { "bbb", "ddd", "ccc", "abc", "bac", "cab", "acb", "aaa", "a", "a", "a"};
+    std::vector<std::string> expected4 = {"a", "a", "a", "aaa", "abc", "bac", "cab", "acb", "bbb", "ccc", "ddd" };
     std::vector<std::string> example5 = {"", "a", "", "b", ""};
-    std::vector<std::string> expected5 = {"a", "b", "", "", ""};
+    std::vector<std::string> expected5 = { "", "", "", "a", "b" };
     chapter_10::anagramSort(example1);
     chapter_10::anagramSort(example2);
     chapter_10::anagramSort(example3);

@@ -10,9 +10,9 @@
  * order of the sorted array does not matter.
  *
  * ALGORITHM:
- * 1. Initialize a hash table (std::unordered_map<std::string, std::vector<std::string>>) where keys are sorted anagrams
+ * 1. Initialize a hash table (std::map<std::string, std::vector<std::string>>) where keys are sorted anagrams
  * and values are vectors of unsorted anagrams. This takes advantage of the observation that anagrams, when sorted, are
- * identical.
+ * identical. Use std::map instead of std:unordered_map to allow testability regardless of C++ compiler.
  * 2. For each string in input array:
  *  a. Create a sorted version of the string.
  *  b. If the sorted string is already in the hash table, add the unsorted string to the vector of strings associated \
@@ -33,12 +33,12 @@
  */
 
 #include "problem_10_02_anagramSort.h"
-#include <unordered_map>
+#include <map>
 #include <algorithm>
 
 namespace chapter_10 {
     void anagramSort(std::vector<std::string>& array) {
-        std::unordered_map<std::string, std::vector<std::string>> hashMap;
+        std::map<std::string, std::vector<std::string>> hashMap;
         // traverse input array
         for (const std::string& string : array) {
             std::string sortedString = string;
