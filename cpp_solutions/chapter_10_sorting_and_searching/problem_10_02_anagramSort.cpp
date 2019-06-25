@@ -34,6 +34,7 @@
 
 #include "problem_10_02_anagramSort.h"
 #include <unordered_map>
+#include <algorithm>
 
 namespace chapter_10 {
     void anagramSort(std::vector<std::string>& array) {
