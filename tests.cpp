@@ -1224,6 +1224,35 @@ TEST_CASE("Chapter 10 - Problem 02 - anagramSort()", "test"){
     REQUIRE(expected5 == example5);
 }
 
+TEST_CASE("Chapter 10 - Problem 03 - rotatedSearch()", "test"){
+    // test unrotated
+    std::vector<int> input1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    std::vector<int> input2 = {};
+    std::vector<float> input3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    REQUIRE(-1 == chapter_10::rotatedSearch(input1, 101));
+    REQUIRE(16 == chapter_10::rotatedSearch(input1, 1000));
+    REQUIRE(4 == chapter_10::rotatedSearch(input1, 0));
+    REQUIRE(15 == chapter_10::rotatedSearch(input1, 100));
+    REQUIRE(13 == chapter_10::rotatedSearch(input1, 9));
+    REQUIRE(10 == chapter_10::rotatedSearch(input1, 6));
+    REQUIRE(-1 == chapter_10::rotatedSearch(input2, 101));
+    REQUIRE(3 == chapter_10::rotatedSearch<float>(input3, 1.4));
+    REQUIRE(5 == chapter_10::rotatedSearch<float>(input3, 1.6));
+    // test rotated
+    std::vector<int> rotatedInput1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000, -10000, -1000, -100, -10, 0};  // -5 rotation
+    std::vector<int> rotatedInput2 = {};
+    std::vector<float> rotatedInput3 = {1.5, 1.6, 1.7, 1.1, 1.2, 1.3, 1.4};  // +3 rotation
+    REQUIRE(-1 == chapter_10::rotatedSearch(rotatedInput1, 101));
+    REQUIRE(11 == chapter_10::rotatedSearch(rotatedInput1, 1000));
+    REQUIRE(17 == chapter_10::rotatedSearch(rotatedInput1, 0));
+    REQUIRE(10 == chapter_10::rotatedSearch(rotatedInput1, 100));
+    REQUIRE(8 == chapter_10::rotatedSearch(rotatedInput1, 9));
+    REQUIRE(5 == chapter_10::rotatedSearch(rotatedInput1, 6));
+    REQUIRE(-1 == chapter_10::rotatedSearch(rotatedInput2, 101));
+    REQUIRE(6 == chapter_10::rotatedSearch<float>(rotatedInput3, 1.4));
+    REQUIRE(1 == chapter_10::rotatedSearch<float>(rotatedInput3, 1.6));
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";
