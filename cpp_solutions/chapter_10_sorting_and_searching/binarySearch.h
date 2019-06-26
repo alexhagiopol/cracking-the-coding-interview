@@ -8,7 +8,7 @@ namespace chapter_10 {
         if (value == array[midpoint]) {  // terminating condition: found query
             return midpoint;
         }
-        else if (start >= end) { // terminating condition: asked to search single element list which is not query
+        else if (start == end) { // terminating condition: asked to search single element list which is not query
             return -1;
         }
         else if (value < array[midpoint]) {  // recurse left
