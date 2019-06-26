@@ -58,6 +58,8 @@ from python_solutions.chapter_08_recursion_and_dynamic_programming import proble
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_09_parens as p_8_9
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_10_paint_fill as p_8_10
 from python_solutions.chapter_08_recursion_and_dynamic_programming import problem_08_11_coins as p_8_11
+from python_solutions.chapter_10_sorting_and_searching import merge_sort
+from python_solutions.chapter_10_sorting_and_searching import quick_sort
 from python_solutions.chapter_10_sorting_and_searching import problem_10_01_sorted_merge as p_10_1
 from python_solutions.chapter_16_moderate import problem_16_03_intersection as p_16_03
 from python_solutions.chapter_17_hard import problem_17_10_majority_element as p_17_10
@@ -1079,6 +1081,50 @@ class Tests(unittest.TestCase):
 
     def test_problem_8_14(self):
         pass
+
+    def test_merge_sort(self):
+        input1 = [1000, 10, 7, 3, -1000, 5, 100, 9, 1, 10000, -10000, 6, 2, -10, 4, 8, -100, 0]
+        expected_output_1 = [-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000]
+        input2 = []
+        expected_output_2 = []
+        input3 = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
+        expected_output_3 = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
+        input4 = [1.1]
+        expected_output_4 = [1.1]
+        input5 = [1.4, 1.6, 1.1, 1.3, 1.5, 1.7, 1.2]
+        expected_output_5 = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
+        merge_sort.merge_sort(input1)
+        merge_sort.merge_sort(input2)
+        merge_sort.merge_sort(input3)
+        merge_sort.merge_sort(input4)
+        merge_sort.merge_sort(input5)
+        self.assertEqual(expected_output_1, input1)
+        self.assertEqual(expected_output_2, input2)
+        self.assertEqual(expected_output_3, input3)
+        self.assertEqual(expected_output_4, input4)
+        self.assertEqual(expected_output_5, input5)
+
+    def test_quick_sort(self):
+        input1 = [1000, 10, 7, 3, -1000, 5, 100, 9, 1, 10000, -10000, 6, 2, -10, 4, 8, -100, 0]
+        expected_output_1 = [-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000]
+        input2 = []
+        expected_output_2 = []
+        input3 = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
+        expected_output_3 = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
+        input4 = [1.1]
+        expected_output_4 = [1.1]
+        input5 = [1.4, 1.6, 1.1, 1.3, 1.5, 1.7, 1.2]
+        expected_output_5 = [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
+        quick_sort.quick_sort(input1)
+        quick_sort.quick_sort(input2)
+        quick_sort.quick_sort(input3)
+        quick_sort.quick_sort(input4)
+        quick_sort.quick_sort(input5)
+        self.assertEqual(expected_output_1, input1)
+        self.assertEqual(expected_output_2, input2)
+        self.assertEqual(expected_output_3, input3)
+        self.assertEqual(expected_output_4, input4)
+        self.assertEqual(expected_output_5, input5)
 
     def test_problem_10_01(self):
         A = [5, 5, 10, 10, 15, 0, 0, 0, 0, 0]

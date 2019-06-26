@@ -1120,7 +1120,68 @@ TEST_CASE("Chapter 08 - Problem 10 - paintFill()", "test"){
     REQUIRE(threeFilled.isApprox(expectedThreeFilled));
 }
 
-TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
+TEST_CASE("Chapter 10 - mergeSort()", "test"){
+    std::vector<int> input1 = {1000, 10, 7, 3, -1000, 5, 100, 9, 1, 10000, -10000, 6, 2, -10, 4, 8, -100, 0};
+    std::vector<int> expectedOutput1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    std::vector<int> input2 = {};
+    std::vector<int> expectedOutput2 = {};
+    std::vector<float> input3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    std::vector<float> expectedOutput3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    std::vector<float> input4 = {1.1};
+    std::vector<float> expectedOutput4 = {1.1};
+    std::vector<float> input5 = {1.4, 1.6, 1.1, 1.3, 1.5, 1.7, 1.2};
+    std::vector<float> expectedOutput5 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    chapter_10::mergeSort(input1);
+    chapter_10::mergeSort(input2);
+    chapter_10::mergeSort(input3);
+    chapter_10::mergeSort(input4);
+    chapter_10::mergeSort(input5);
+    REQUIRE(expectedOutput1 == input1);
+    REQUIRE(expectedOutput2 == input2);
+    REQUIRE(expectedOutput3 == input3);
+    REQUIRE(expectedOutput4 == input4);
+    REQUIRE(expectedOutput5 == input5);
+}
+
+TEST_CASE("Chapter 10 - quickSort()", "test"){
+    std::vector<int> input1 = {1000, 10, 7, 3, -1000, 5, 100, 9, 1, 10000, -10000, 6, 2, -10, 4, 8, -100, 0};
+    std::vector<int> expectedOutput1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    std::vector<int> input2 = {};
+    std::vector<int> expectedOutput2 = {};
+    std::vector<float> input3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    std::vector<float> expectedOutput3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    std::vector<float> input4 = {1.1};
+    std::vector<float> expectedOutput4 = {1.1};
+    std::vector<float> input5 = {1.4, 1.6, 1.1, 1.3, 1.5, 1.7, 1.2};
+    std::vector<float> expectedOutput5 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    chapter_10::quickSort(input1);
+    chapter_10::quickSort(input2);
+    chapter_10::quickSort(input3);
+    chapter_10::quickSort(input4);
+    chapter_10::quickSort(input5);
+    REQUIRE(expectedOutput1 == input1);
+    REQUIRE(expectedOutput2 == input2);
+    REQUIRE(expectedOutput3 == input3);
+    REQUIRE(expectedOutput4 == input4);
+    REQUIRE(expectedOutput5 == input5);
+}
+
+TEST_CASE("Chapter 10 - binarySearch()", "test"){
+    std::vector<int> input1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    std::vector<int> input2 = {};
+    std::vector<float> input3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    REQUIRE(-1 == chapter_10::binarySearch(input1, 101));
+    REQUIRE(16 == chapter_10::binarySearch(input1, 1000));
+    REQUIRE(4 == chapter_10::binarySearch(input1, 0));
+    REQUIRE(15 == chapter_10::binarySearch(input1, 100));
+    REQUIRE(13 == chapter_10::binarySearch(input1, 9));
+    REQUIRE(10 == chapter_10::binarySearch(input1, 6));
+    REQUIRE(-1 == chapter_10::binarySearch(input2, 101));
+    REQUIRE(3 == chapter_10::binarySearch<float>(input3, 1.4));
+    REQUIRE(5 == chapter_10::binarySearch<float>(input3, 1.6));
+}
+
+TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()", "test"){
     int A[10] = {5, 5, 10, 10, 15};  // remainder of uninitialized values set to zero implicitly
     int B[5]  = {3, 6,  9, 12, 15};
     int lastA = 4;  // index of last item placed in A
@@ -1130,8 +1191,6 @@ TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
     for (int i = 0; i < 10; i++){
         REQUIRE(A[i] == C[i]);
     }
-
-
     int D[10] = {5, 5, 10, 10};  // remainder of uninitialized values set to zero implicitly
     int E[6]  = {3, 6,  9, 12, 15, 15};
     int lastD = 3;  // index of last item placed in D
@@ -1140,6 +1199,58 @@ TEST_CASE("Chapter 10 - Problem 01 - sortedMerge()","test"){
     for (int i = 0; i < 10; i++){
         REQUIRE(D[i] == C[i]);
     }
+}
+
+TEST_CASE("Chapter 10 - Problem 02 - anagramSort()", "test"){
+    std::vector<std::string> example1 = {"ddd", "abc", "ccc", "bac", "aaa", "cab", "bbb", "acb"};
+    std::vector<std::string> expected1 = {"aaa", "abc", "bac", "cab", "acb", "bbb", "ccc", "ddd" };
+    std::vector<std::string> example2 = {"aaa"};
+    std::vector<std::string> expected2 = {"aaa"};
+    std::vector<std::string> example3 = {};
+    std::vector<std::string> expected3 = {};
+    std::vector<std::string> example4 = {"a", "ddd", "abc", "ccc", "a", "bac", "aaa", "cab", "bbb", "acb", "a"};
+    std::vector<std::string> expected4 = {"a", "a", "a", "aaa", "abc", "bac", "cab", "acb", "bbb", "ccc", "ddd" };
+    std::vector<std::string> example5 = {"", "a", "", "b", ""};
+    std::vector<std::string> expected5 = { "", "", "", "a", "b" };
+    chapter_10::anagramSort(example1);
+    chapter_10::anagramSort(example2);
+    chapter_10::anagramSort(example3);
+    chapter_10::anagramSort(example4);
+    chapter_10::anagramSort(example5);
+    REQUIRE(expected1 == example1);
+    REQUIRE(expected2 == example2);
+    REQUIRE(expected3 == example3);
+    REQUIRE(expected4 == example4);
+    REQUIRE(expected5 == example5);
+}
+
+TEST_CASE("Chapter 10 - Problem 03 - rotatedSearch()", "test"){
+    // test unrotated
+    std::vector<int> input1 = {-10000, -1000, -100, -10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    std::vector<int> input2 = {};
+    std::vector<float> input3 = {1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7};
+    REQUIRE(-1 == chapter_10::rotatedSearch(input1, 101));
+    REQUIRE(16 == chapter_10::rotatedSearch(input1, 1000));
+    REQUIRE(4 == chapter_10::rotatedSearch(input1, 0));
+    REQUIRE(15 == chapter_10::rotatedSearch(input1, 100));
+    REQUIRE(13 == chapter_10::rotatedSearch(input1, 9));
+    REQUIRE(10 == chapter_10::rotatedSearch(input1, 6));
+    REQUIRE(-1 == chapter_10::rotatedSearch(input2, 101));
+    REQUIRE(3 == chapter_10::rotatedSearch<float>(input3, 1.4));
+    REQUIRE(5 == chapter_10::rotatedSearch<float>(input3, 1.6));
+    // test rotated
+    std::vector<int> rotatedInput1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000, -10000, -1000, -100, -10, 0};  // -5 rotation
+    std::vector<int> rotatedInput2 = {};
+    std::vector<float> rotatedInput3 = {1.5, 1.6, 1.7, 1.1, 1.2, 1.3, 1.4};  // +3 rotation
+    REQUIRE(-1 == chapter_10::rotatedSearch(rotatedInput1, 101));
+    REQUIRE(11 == chapter_10::rotatedSearch(rotatedInput1, 1000));
+    REQUIRE(17 == chapter_10::rotatedSearch(rotatedInput1, 0));
+    REQUIRE(10 == chapter_10::rotatedSearch(rotatedInput1, 100));
+    REQUIRE(8 == chapter_10::rotatedSearch(rotatedInput1, 9));
+    REQUIRE(5 == chapter_10::rotatedSearch(rotatedInput1, 6));
+    REQUIRE(-1 == chapter_10::rotatedSearch(rotatedInput2, 101));
+    REQUIRE(6 == chapter_10::rotatedSearch<float>(rotatedInput3, 1.4));
+    REQUIRE(1 == chapter_10::rotatedSearch<float>(rotatedInput3, 1.6));
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
@@ -1159,7 +1270,7 @@ TEST_CASE("Chapter 12 - Problem 12 - copyNode()", "test"){
     chapter_02::SinglyLinkedNode<int>* head = chapter_02::vectorToList(targetVector);
     chapter_02::SinglyLinkedNode<int>* copy = chapter_12::copyNode(head);
     REQUIRE(targetVector == chapter_02::listToVector(copy));  //  check that the values contained in nodes are identical
-    // Check that the pointers in the head linked list are *not* the same as the pointers in the copy likned list
+    // Check that the pointers in the head linked list are *not* the same as the pointers in the copy linked list
     // This is to verify a copy was actually made.
     while (head != nullptr && copy != nullptr){
         REQUIRE(head != copy);
