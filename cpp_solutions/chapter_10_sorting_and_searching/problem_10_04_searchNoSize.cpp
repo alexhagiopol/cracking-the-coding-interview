@@ -1,5 +1,6 @@
 #include "problem_10_04_searchNoSize.h"
 #include <cmath>
+#include <limits>
 
 namespace chapter_10 {
     int searchNoSizeHelper(const Listy& array, const int& value, int start, int end) {
@@ -12,7 +13,7 @@ namespace chapter_10 {
             return -1;
         }
         int leftRecursionMidpointValue = array.elementAt(midpoint -1);
-        if (leftRecursionMidpointValue == -1) leftRecursionMidpointValue = INT_MAX;
+        if (leftRecursionMidpointValue == -1) leftRecursionMidpointValue = std::numeric_limits<int>::max();
         if (array.elementAt(start) <= value && value <= leftRecursionMidpointValue) {
             return searchNoSizeHelper(array, value, start, midpoint - 1);
         }
