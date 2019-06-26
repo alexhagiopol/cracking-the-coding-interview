@@ -1253,6 +1253,17 @@ TEST_CASE("Chapter 10 - Problem 03 - rotatedSearch()", "test"){
     REQUIRE(1 == chapter_10::rotatedSearch<float>(rotatedInput3, 1.6));
 }
 
+TEST_CASE("Chapter 10 - Problem 04 - rotatedSearch()", "test"){
+    chapter_10::Listy input1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    chapter_10::Listy input2 = {};
+    REQUIRE(-1 == chapter_10::searchNoSize(input1, 101));
+    REQUIRE(11 == chapter_10::searchNoSize(input1, 1000));
+    REQUIRE(10 == chapter_10::searchNoSize(input1, 100));
+    REQUIRE(8 == chapter_10::searchNoSize(input1, 9));
+    REQUIRE(5 == chapter_10::searchNoSize(input1, 6));
+    REQUIRE(-1 == chapter_10::searchNoSize(input2, 101));
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";

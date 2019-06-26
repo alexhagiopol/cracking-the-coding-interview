@@ -2,6 +2,7 @@
 #include "problem_10_01_sortedMerge.h"
 #include "problem_10_02_anagramSort.h"
 #include "problem_10_03_rotatedSearch.h"
+#include "problem_10_04_searchNoSize.h"
 #include "quickSort.h"
 #include "mergeSort.h"
 #include "binarySearch.h"
