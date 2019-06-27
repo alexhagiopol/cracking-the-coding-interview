@@ -30,7 +30,7 @@ reference and contribute solutions with confidence.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `8 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
-10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `4 / 11` complete.
+10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `5 / 11` complete.
 11. Chapter 11 - Testing: N/A
 12. [Chapter 12 - C and C++](cpp_solutions/chapter_12_cpp): `2 / 6`
 13. Chapter 13 - Java: N/A
@@ -39,7 +39,7 @@ reference and contribute solutions with confidence.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-C++ Total: `53` of `141` solutions complete.
+C++ Total: `54` of `141` solutions complete.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -63,7 +63,7 @@ C++ Total: `53` of `141` solutions complete.
 
 Python Total: `56` of `131` solutions complete.
 
-##### Grand Total: `109` unique solutions complete.
+##### Grand Total: `110` unique solutions complete.
 
 ### Building: 
 #### Mac:
