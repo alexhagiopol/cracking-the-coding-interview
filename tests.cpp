@@ -1280,6 +1280,10 @@ TEST_CASE("Chapter 10 - Problem 05 - sparseSearch()", "test"){
     REQUIRE(0 == chapter_10::sparseSearch(input4, "alex"));
 }
 
+TEST_CASE("Chpater 10 - Problem 07 - missingInt()", "test") {
+
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";
