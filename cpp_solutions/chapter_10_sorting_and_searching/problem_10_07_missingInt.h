@@ -34,7 +34,9 @@
  */
 
 #pragma once
+#include <cstdint>
+#include <string>
 
 namespace chapter_10 {
-
+    uint32_t missingInt(const std::string& filename);
 }
