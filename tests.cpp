@@ -1253,6 +1253,38 @@ TEST_CASE("Chapter 10 - Problem 03 - rotatedSearch()", "test"){
     REQUIRE(1 == chapter_10::rotatedSearch<float>(rotatedInput3, 1.6));
 }
 
+TEST_CASE("Chapter 10 - Problem 04 - rotatedSearch()", "test"){
+    chapter_10::Listy input1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 10000};
+    chapter_10::Listy input2 = {};
+    REQUIRE(-1 == chapter_10::searchNoSize(input1, 101));
+    REQUIRE(11 == chapter_10::searchNoSize(input1, 1000));
+    REQUIRE(10 == chapter_10::searchNoSize(input1, 100));
+    REQUIRE(8 == chapter_10::searchNoSize(input1, 9));
+    REQUIRE(5 == chapter_10::searchNoSize(input1, 6));
+    REQUIRE(-1 == chapter_10::searchNoSize(input2, 101));
+}
+
+TEST_CASE("Chapter 10 - Problem 05 - sparseSearch()", "test"){
+    std::vector<std::string> input1 = {"at", "", "", "", "ball", "" , "", "car", "", "", "dad", "", ""};
+    std::vector<std::string> input2 = {"", "", "", "", ""};
+    std::vector<std::string> input3 = {};
+    std::vector<std::string> input4 = {"alex"};
+    REQUIRE(0 == chapter_10::sparseSearch(input1, "at"));
+    REQUIRE(4 == chapter_10::sparseSearch(input1, "ball"));
+    REQUIRE(7 == chapter_10::sparseSearch(input1, "car"));
+    REQUIRE(10 == chapter_10::sparseSearch(input1, "dad"));
+    REQUIRE(-1 == chapter_10::sparseSearch(input1, "alex"));
+    REQUIRE(-1 == chapter_10::sparseSearch(input2, "alex"));
+    REQUIRE(-1 == chapter_10::sparseSearch(input3, ""));
+    REQUIRE(-1 == chapter_10::sparseSearch(input3, "alex"));
+    REQUIRE(0 == chapter_10::sparseSearch(input4, "alex"));
+ }
+
+
+TEST_CASE("Chpater 10 - Problem 07 - missingInt()", "test") {
+    REQUIRE(64 == chapter_10::missingInt("../cpp_solutions/chapter_10_sorting_and_searching/chapter_10_dataset_generation/random_number_dataset.csv"));
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";
