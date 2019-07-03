@@ -19,6 +19,10 @@ the Internet's only solutions repository with this level of testing rigor: >90% 
 reference and contribute solutions with confidence.
 
 ### Table of Contents
+
+N.B. this project contains solutions only to problems solvable with C++ or Python program code. 
+Conceptual problems solved through discussion are omitted.
+
 #### [C++ Solutions](cpp_solutions):
 0. [C++ Unit Tests](tests.cpp)
 1. [Chapter 1 - Arrays and Strings](cpp_solutions/chapter_01_arrays_and_strings): `9 / 9`  complete.
@@ -30,7 +34,7 @@ reference and contribute solutions with confidence.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `8 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
-10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `6 / 11` complete.
+10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `6 / 10` complete.
 11. Chapter 11 - Testing: N/A
 12. [Chapter 12 - C and C++](cpp_solutions/chapter_12_cpp): `2 / 6`
 13. Chapter 13 - Java: N/A
@@ -39,7 +43,7 @@ reference and contribute solutions with confidence.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-C++ Total: `55` of `141` solutions complete.
+C++ Total: `55` of `140` solutions complete.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -52,7 +56,7 @@ C++ Total: `55` of `141` solutions complete.
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. [Chapter 8 - Recursion and Dynamic Programming](python_solutions/chapter_08_recursion_and_dynamic_programming): `11 / 14`  complete.
 9. Chapter 9 - System Design and Scalability: N/A
-10. [Chapter 10 - Sorting and Searching](python_solutions/chapter_10_sorting_and_searching): `1 / 11` complete.
+10. [Chapter 10 - Sorting and Searching](python_solutions/chapter_10_sorting_and_searching): `1 / 10` complete.
 11. Chapter 11 - Testing: N/A
 12. Chapter 12 - C and C++: N/A
 13. Chapter 13 - Java: N/A
@@ -61,7 +65,7 @@ C++ Total: `55` of `141` solutions complete.
 16. [Chapter 16 - Moderate](python_solutions/chapter_16_moderate): `1 / 26` complete.
 17. [Chapter 17 - Hard](python_solutions/chapter_17_hard): `3 / 26` complete.
 
-Python Total: `56` of `131` solutions complete.
+Python Total: `56` of `130` solutions complete.
 
 ##### Grand Total: `111` unique solutions complete.
 
