@@ -1282,7 +1282,7 @@ TEST_CASE("Chapter 10 - Problem 05 - sparseSearch()", "test"){
 
 
 TEST_CASE("Chpater 10 - Problem 07 - missingInt()", "test") {
-    REQUIRE(1 == chapter_10::missingInt("../cpp_solutions/chapter_10_sorting_and_searching/chapter_10_dataset_generation/random_number_dataset.csv"));
+    REQUIRE(64 == chapter_10::missingInt("../cpp_solutions/chapter_10_sorting_and_searching/chapter_10_dataset_generation/random_number_dataset.csv"));
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
