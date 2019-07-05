@@ -10,7 +10,7 @@ namespace chapter_10 {
         // for reasonable test dataset size, we use a smaller range of [0,2000]
         // create a bitVector with one bit for each possible number
         const int numberRange = 1000;
-        bool bitVector[numberRange + 1] = {0};
+        bool bitVector[numberRange + 1] = {false};
         // problem 10.7 specifies 4 billion numbers, for testing speed, we only read 4000
         // read integers from file
         std::ifstream file(filename);

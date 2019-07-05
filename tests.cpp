@@ -1278,11 +1278,21 @@ TEST_CASE("Chapter 10 - Problem 05 - sparseSearch()", "test"){
     REQUIRE(-1 == chapter_10::sparseSearch(input3, ""));
     REQUIRE(-1 == chapter_10::sparseSearch(input3, "alex"));
     REQUIRE(0 == chapter_10::sparseSearch(input4, "alex"));
- }
+}
 
-
-TEST_CASE("Chpater 10 - Problem 07 - missingInt()", "test") {
+TEST_CASE("Chapter 10 - Problem 07 - missingInt()", "test") {
     REQUIRE(64 == chapter_10::missingInt("../cpp_solutions/chapter_10_sorting_and_searching/chapter_10_dataset_generation/random_number_dataset.csv"));
+}
+
+TEST_CASE("Chapter 10 - Problem 08 - findDuplicates()", "test") {
+    const std::string filepath = "../cpp_solutions/chapter_10_sorting_and_searching/chapter_10_dataset_generation/random_number_dataset_32000.csv";
+    const std::vector<int> expectedDuplicates = { 1827, 3769, 5645, 5824, 8767,
+                                                  8969, 12565, 12862, 13643, 13803,
+                                                  13854, 17496, 18281, 20776, 23323,
+                                                  25799, 26371, 27343, 30323 };
+    std::vector<int> actualDuplicates = {};
+    chapter_10::findDuplicates(actualDuplicates, filepath);
+    REQUIRE(expectedDuplicates == actualDuplicates);
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
