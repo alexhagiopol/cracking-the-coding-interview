@@ -1303,13 +1303,17 @@ TEST_CASE("Chapter 10 - Problem 09 - matrixSearch()", "test") {
                 1, 2, 2, 3, 5, 5,
                 1, 5, 5, 5, 5, 5,
                 1, 5, 5, 5, 5, 5;
-    Eigen::Matrix<int, 7, 7> example2;
+    Eigen::Matrix<int, 6, 7> example2;
     example2 << 0,  1,  2,  3,  4,  5,   6,
                 1, 11, 21, 31, 41, 51,  61,
                 2, 22, 32, 42, 52, 62,  72,
                 3, 33, 43, 53, 63, 73,  83,
                 4, 44, 54, 64, 74, 84,  94,
                 5, 55, 65, 75, 85, 95, 105;
+    std::pair<int, int> expectedCoordinate1(1, 4);
+    std::pair<int, int> expectedCoordinate2(2, 4);
+    REQUIRE(expectedCoordinate1 == chapter_10::matrixSearch(example1, 2));
+    REQUIRE(expectedCoordinate2 == chapter_10::matrixSearch(example2, 52));
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
