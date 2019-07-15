@@ -1295,6 +1295,23 @@ TEST_CASE("Chapter 10 - Problem 08 - findDuplicates()", "test") {
     REQUIRE(expectedDuplicates == actualDuplicates);
 }
 
+TEST_CASE("Chapter 10 - Problem 09 - matrixSearch()", "test") {
+    Eigen::Matrix<int, 6, 6> example1;
+    example1 << 0, 1, 1, 1, 2, 3,
+                1, 1, 1, 1, 2, 2,
+                1, 1, 1, 2, 2, 5,
+                1, 2, 2, 3, 5, 5,
+                1, 5, 5, 5, 5, 5,
+                1, 5, 5, 5, 5, 5;
+    Eigen::Matrix<int, 7, 7> example2;
+    example2 << 0,  1,  2,  3,  4,  5,   6,
+                1, 11, 21, 31, 41, 51,  61,
+                2, 22, 32, 42, 52, 62,  72,
+                3, 33, 43, 53, 63, 73,  83,
+                4, 44, 54, 64, 74, 84,  94,
+                5, 55, 65, 75, 85, 95, 105;
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";
