@@ -73,10 +73,17 @@ namespace chapter_10 {
         bool operator== (const Point2& other) {
             return (_row == other._row && _col == other._col);
         }
+        bool operator> (const Point2& other) {
+            return (_row > other._row || _col > other._col);
+        }
     };
 
     template <typename Type, int Rows, int Cols>
     Point2 submatrixSearchHelper(const Eigen::Matrix<Type, Rows, Cols>& matrix, const Type& query, const Point2& start, const Point2& end){
+        // if starting point has higher values row and col values than ending point,
+        if (start > end) return Point2(-1, -1);
+        // if bottom right value is less than the query, then there is no way that the query can be contained in this submatrix
+        // apply binary search to diagonal values
         return Point2(0,0);
     }
 
@@ -85,3 +92,28 @@ namespace chapter_10 {
         return submatrixSearchHelper(matrix, query, Point2(0,0), Point2(Rows - 1, Cols - 1));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
