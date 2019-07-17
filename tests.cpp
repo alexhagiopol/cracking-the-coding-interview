@@ -1298,11 +1298,11 @@ TEST_CASE("Chapter 10 - Problem 08 - findDuplicates()", "test") {
 TEST_CASE("Chapter 10 - Problem 09 - matrixSearch()", "test") {
     Eigen::Matrix<int, 6, 6> example1;
     example1 << 0, 1, 1, 1, 2, 3,
-                1, 1, 1, 1, 2, 2,
-                1, 1, 1, 2, 2, 5,
-                1, 2, 2, 3, 5, 5,
-                1, 5, 5, 5, 5, 5,
-                1, 5, 5, 5, 5, 5;
+            1, 1, 1, 1, 2, 2,
+            1, 1, 1, 2, 2, 5,
+            1, 2, 2, 3, 5, 5,
+            1, 5, 5, 5, 5, 5,
+            1, 5, 5, 5, 5, 5;
     Eigen::Matrix<int, 6, 7> example2;
     example2 << 0,  1,  2,  3,  4,  5,   6,
                 1, 11, 21, 31, 41, 51,  61,
