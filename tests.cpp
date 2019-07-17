@@ -1313,7 +1313,7 @@ TEST_CASE("Chapter 10 - Problem 09 - matrixSearch()", "test") {
     chapter_10::Point2 expectedCoordinate1(1, 4);
     chapter_10::Point2 expectedCoordinate2(2, 4);
     REQUIRE(expectedCoordinate1 == chapter_10::matrixSearch(example1, 2));
-    //REQUIRE(expectedCoordinate2 == chapter_10::matrixSearch(example2, 52));
+    REQUIRE(expectedCoordinate2 == chapter_10::matrixSearch(example2, 52));
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){

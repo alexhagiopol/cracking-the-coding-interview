@@ -70,21 +70,82 @@ namespace chapter_10 {
         int _row;
         int _col;
         Point2(int row, int col) : _row(row), _col(col) {}
-        bool operator== (const Point2& other) {
+        bool operator!= (const Point2& other) const {
+            return !(*this == other);
+        }
+        bool operator== (const Point2& other) const {
             return (_row == other._row && _col == other._col);
         }
-        bool operator> (const Point2& other) {
+        bool operator> (const Point2& other) const {
             return (_row > other._row || _col > other._col);
+        }
+        bool operator>= (const Point2& other) const {
+            return (_row >= other._row || _col >= other._col);
+        }
+        bool operator< (const Point2& other) const {
+            return (_row < other._row || _col < other._col);
+        }
+        bool operator<= (const Point2& other) const {
+            return (_row <= other._row || _col <= other._col);
+        }
+        Point2 operator- (const Point2& other) const {
+            return Point2(_row - other._row, _col - other._col);
+        }
+        Point2 operator+ (const Point2& other) const {
+            return Point2(_row + other._row, _col + other._col);
+        }
+        Point2 operator/ (const Point2& other) const {
+            return Point2(_row * other._row, _col * other._col);
+        }
+        Point2 operator* (const Point2& other) const {
+            return Point2(_row / other._row, _col / other._col);
+        }
+        template <typename T>
+        Point2 operator- (const T& scalar) const {
+            return Point2(_row - scalar, _col - scalar);
+        }
+        template <typename T>
+        Point2 operator+ (const T& scalar) const {
+            return Point2(_row + scalar, _col + scalar);
+        }
+        template <typename T>
+        Point2 operator/ (const T& scalar) const {
+            return Point2(_row / scalar, _col / scalar);
+        }
+        template <typename T>
+        Point2 operator* (const T& scalar) const {
+            return Point2(_row * scalar, _col * scalar);
         }
     };
 
     template <typename Type, int Rows, int Cols>
     Point2 submatrixSearchHelper(const Eigen::Matrix<Type, Rows, Cols>& matrix, const Type& query, const Point2& start, const Point2& end){
-        // if starting point has higher values row and col values than ending point,
-        if (start > end) return Point2(-1, -1);
-        // if bottom right value is less than the query, then there is no way that the query can be contained in this submatrix
-        // apply binary search to diagonal values
-        return Point2(0,0);
+        // check for out of bounds termination conditions
+        if (start > end || start >= Point2(Rows, Cols) || start < Point2(0, 0) || end >= Point2(Rows, Cols) || end < Point2(0, 0)) return Point2(-1, -1);
+        // check for endpoint query equality
+        if (matrix(start._row, start._col) == query) return start;
+        if (matrix(end._row, end._col) == query) return end;
+        // if start > query || end < query, then there is no way that the query can be contained in this submatrix
+        if (matrix(end._row, start._col) < query || matrix(start._row, start._col) > query) return Point2(-1, -1);
+        // compute midpoint and determine submatrices for further search
+        Point2 midpoint = (end - start) / 2 + start;
+        // try "upper left" submatrix
+        if (matrix(midpoint._row, midpoint._col) >= query) {
+            return submatrixSearchHelper(matrix, query, start, midpoint);
+        }
+        // try "lower left" submatrix
+        Point2 returnValue = submatrixSearchHelper(matrix, query, Point2(midpoint._row + 1, start._col), Point2(end._row, midpoint._col));
+        if (returnValue != Point2(-1, -1)) {
+            return returnValue;
+        }
+        // try "upper right" submatrix
+        returnValue = submatrixSearchHelper(matrix, query, Point2(start._row, midpoint._col + 1), Point2(midpoint._row, end._col));
+        if (returnValue != Point2(-1, -1)) {
+            return returnValue;
+        }
+        // try "lower right" submatrix
+        returnValue = submatrixSearchHelper(matrix, query, Point2(midpoint._row + 1, midpoint._col + 1), Point2(end._row, end._col));
+        return returnValue;
     }
 
     template <typename Type, int Rows, int Cols>
