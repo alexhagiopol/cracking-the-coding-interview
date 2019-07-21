@@ -1295,6 +1295,41 @@ TEST_CASE("Chapter 10 - Problem 08 - findDuplicates()", "test") {
     REQUIRE(expectedDuplicates == actualDuplicates);
 }
 
+TEST_CASE("Chapter 10 - Problem 09 - matrixSearch()", "test") {
+    Eigen::Matrix<int, 6, 6> example1;
+    example1 << 0, 1, 1, 1, 2, 3,
+                1, 1, 1, 1, 2, 2,
+                1, 1, 1, 2, 2, 5,
+                1, 2, 2, 3, 5, 5,
+                1, 5, 5, 5, 5, 5,
+                1, 5, 5, 5, 5, 5;
+    Eigen::Matrix<int, 6, 7> example2;
+    example2 << 0,  1,  2,  3,  4,  5,   6,
+                1, 11, 21, 31, 41, 51,  61,
+                2, 22, 32, 42, 52, 62,  72,
+                3, 33, 43, 53, 63, 73,  83,
+                4, 44, 54, 64, 74, 84,  94,
+                5, 55, 65, 75, 85, 95, 105;
+    chapter_10::Point2 expectedCoordinate1(3, 1);
+    chapter_10::Point2 expectedCoordinate2(2, 4);
+    chapter_10::Point2 expectedCoordinate3(5, 6);
+    chapter_10::Point2 expectedCoordinate4(0, 5);
+    chapter_10::Point2 expectedCoordinate5(5, 4);
+    chapter_10::Point2 expectedCoordinate6(3, 3);
+    chapter_10::Point2 actualCoordinate1 = chapter_10::matrixSearch(example1, 2);
+    chapter_10::Point2 actualCoordinate2 = chapter_10::matrixSearch(example2, 52);
+    chapter_10::Point2 actualCoordinate3 = chapter_10::matrixSearch(example2, 105);
+    chapter_10::Point2 actualCoordinate4 = chapter_10::matrixSearch(example2, 5);
+    chapter_10::Point2 actualCoordinate5 = chapter_10::matrixSearch(example2, 85);
+    chapter_10::Point2 actualCoordinate6 = chapter_10::matrixSearch(example1, 3);
+    REQUIRE(expectedCoordinate1 == actualCoordinate1);
+    REQUIRE(expectedCoordinate2 == actualCoordinate2);
+    REQUIRE(expectedCoordinate3 == actualCoordinate3);
+    REQUIRE(expectedCoordinate4 == actualCoordinate4);
+    REQUIRE(expectedCoordinate5 == actualCoordinate5);
+    REQUIRE(expectedCoordinate6 == actualCoordinate6);
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";
