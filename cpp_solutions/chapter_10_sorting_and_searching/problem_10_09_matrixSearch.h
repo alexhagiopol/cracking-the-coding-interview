@@ -95,10 +95,10 @@ namespace chapter_10 {
             return Point2(_row + other._row, _col + other._col);
         }
         Point2 operator/ (const Point2& other) const {
-            return Point2(_row * other._row, _col * other._col);
+            return Point2(_row / other._row, _col / other._col);
         }
         Point2 operator* (const Point2& other) const {
-            return Point2(_row / other._row, _col / other._col);
+            return Point2(_row * other._row, _col * other._col);
         }
         template <typename T>
         Point2 operator- (const T& scalar) const {
@@ -116,6 +116,9 @@ namespace chapter_10 {
         Point2 operator* (const T& scalar) const {
             return Point2(_row * scalar, _col * scalar);
         }
+        void print(const std::string& title) const {
+            std::cout << title << "[" << _row << "," << _col << "]" << std::endl;
+        }
     };
 
     template <typename Type, int Rows, int Cols>
@@ -126,26 +129,39 @@ namespace chapter_10 {
         if (matrix(start._row, start._col) == query) return start;
         if (matrix(end._row, end._col) == query) return end;
         // if start > query || end < query, then there is no way that the query can be contained in this submatrix
-        if (matrix(end._row, start._col) < query || matrix(start._row, start._col) > query) return Point2(-1, -1);
+        if (matrix(end._row, end._col) < query || matrix(start._row, start._col) > query) return Point2(-1, -1);
         // compute midpoint and determine submatrices for further search
         Point2 midpoint = (end - start) / 2 + start;
-        // try "upper left" submatrix
-        if (matrix(midpoint._row, midpoint._col) >= query) {
-            return submatrixSearchHelper(matrix, query, start, midpoint);
+        // if midpoint == query, return
+        if (matrix(midpoint._row, midpoint._col) == query) return midpoint;
+
+        // if midpoint > query, then query can be in UL, UR, LL
+        Point2 returnedLocation(-1, -1);
+        if (matrix(midpoint._row, midpoint._col) > query) {
+            // try UL
+            returnedLocation = submatrixSearchHelper(matrix, query, start, midpoint);
+            if (returnedLocation != Point2(-1, -1)) return returnedLocation;
+            // try UR
+            returnedLocation = submatrixSearchHelper(matrix, query, Point2(start._row, midpoint._col + 1), Point2(midpoint._row, end._col));
+            if (returnedLocation != Point2(-1, -1)) return returnedLocation;
+            // try LL
+            returnedLocation = submatrixSearchHelper(matrix, query, Point2(midpoint._row + 1, start._col), Point2(end._row, midpoint._col));
+            if (returnedLocation != Point2(-1, -1)) return returnedLocation;
         }
-        // try "lower left" submatrix
-        Point2 returnValue = submatrixSearchHelper(matrix, query, Point2(midpoint._row + 1, start._col), Point2(end._row, midpoint._col));
-        if (returnValue != Point2(-1, -1)) {
-            return returnValue;
+
+        // if midpoint < query, then query can be in LR, LL, UL
+        if (matrix(midpoint._row, midpoint._col) < query) {
+            // try LR
+            returnedLocation = submatrixSearchHelper(matrix, query, Point2(midpoint._row + 1, midpoint._col + 1), Point2(end._row, end._col));
+            if (returnedLocation != Point2(-1, -1)) return returnedLocation;
+            // try LL
+            returnedLocation = submatrixSearchHelper(matrix, query, Point2(midpoint._row + 1, start._col), Point2(end._row, midpoint._col));
+            if (returnedLocation != Point2(-1, -1)) return returnedLocation;
+            // try UR
+            returnedLocation = submatrixSearchHelper(matrix, query, Point2(start._row, midpoint._col + 1), Point2(midpoint._row, end._col));
+            if (returnedLocation != Point2(-1, -1)) return returnedLocation;
         }
-        // try "upper right" submatrix
-        returnValue = submatrixSearchHelper(matrix, query, Point2(start._row, midpoint._col + 1), Point2(midpoint._row, end._col));
-        if (returnValue != Point2(-1, -1)) {
-            return returnValue;
-        }
-        // try "lower right" submatrix
-        returnValue = submatrixSearchHelper(matrix, query, Point2(midpoint._row + 1, midpoint._col + 1), Point2(end._row, end._col));
-        return returnValue;
+        return returnedLocation;
     }
 
     template <typename Type, int Rows, int Cols>
