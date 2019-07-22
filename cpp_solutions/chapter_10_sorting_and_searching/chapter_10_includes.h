@@ -7,6 +7,7 @@
 #include "problem_10_07_missingInt.h"
 #include "problem_10_08_findDuplicates.h"
 #include "problem_10_09_matrixSearch.h"
+#include "problem_10_10_rankFromStream.h"
 #include "quickSort.h"
 #include "mergeSort.h"
 #include "binarySearch.h"

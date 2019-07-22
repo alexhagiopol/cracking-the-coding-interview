@@ -1330,6 +1330,28 @@ TEST_CASE("Chapter 10 - Problem 09 - matrixSearch()", "test") {
     REQUIRE(expectedCoordinate6 == actualCoordinate6);
 }
 
+TEST_CASE("Chapter 10 - Problem 10 - rankFromStream()", "test") {
+    chapter_10::RankTracker rankTracker;
+    rankTracker.track(5);
+    rankTracker.track(1);
+    rankTracker.track(4);
+    rankTracker.track(4);
+    rankTracker.track(5);
+    rankTracker.track(9);
+    rankTracker.track(7);
+    rankTracker.track(13);
+    rankTracker.track(3);
+    rankTracker.track(6);
+    rankTracker.track(7);
+    REQUIRE(rankTracker.getRank(1) == 0);
+    REQUIRE(rankTracker.getRank(3) == 1);
+    REQUIRE(rankTracker.getRank(4) == 3);
+    REQUIRE(rankTracker.getRank(0) == -1);
+    REQUIRE(rankTracker.getRank(7) == 8);
+    REQUIRE(rankTracker.getRank(13) == 10);
+    REQUIRE(rankTracker.getRank(6) == 6);
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";
