@@ -1352,6 +1352,45 @@ TEST_CASE("Chapter 10 - Problem 10 - rankFromStream()", "test") {
     REQUIRE(rankTracker.getRank(6) == 6);
 }
 
+TEST_CASE("Chapter 10 - Problem 11 - peaksAndValleys()", "test") {
+    std::vector<int> input1 = {5, 3, 1, 2, 3};
+    std::vector<int> expectedOutput1 = {5, 1, 3, 2, 3};
+    std::vector<int> input2 = {5, 8, 6, 2, 3, 4, 6};
+    std::vector<int> expectedOutput2 = {5, 8, 2, 6, 3, 6, 4};
+    std::vector<int> input3 = {};
+    std::vector<int> expectedOutput3 = {};
+    std::vector<int> input4 = {5};
+    std::vector<int> expectedOutput4 = {5};
+    std::vector<int> input5 = {55};
+    std::vector<int> expectedOutput5 = {55};
+    std::vector<int> input6 = {54};
+    std::vector<int> expectedOutput6 = {54};
+    std::vector<int> input7 = {45};
+    std::vector<int> expectedOutput7 = {45};
+    std::vector<int> input8 = {554};
+    std::vector<int> expectedOutput8 = {554};
+    std::vector<int> input9 = {5, 5, 8, 6, 6, 2, 3, 3, 4, 6, 6};
+    std::vector<int> expectedOutput9 = {5, 5, 8, 6, 6, 2, 3, 3, 6, 4, 6};
+    chapter_10::peaksAndValleys(input1);
+    chapter_10::peaksAndValleys(input2);
+    chapter_10::peaksAndValleys(input3);
+    chapter_10::peaksAndValleys(input4);
+    chapter_10::peaksAndValleys(input5);
+    chapter_10::peaksAndValleys(input6);
+    chapter_10::peaksAndValleys(input7);
+    chapter_10::peaksAndValleys(input8);
+    chapter_10::peaksAndValleys(input9);
+    REQUIRE(input1 == expectedOutput1);
+    REQUIRE(input2 == expectedOutput2);
+    REQUIRE(input3 == expectedOutput3);
+    REQUIRE(input4 == expectedOutput4);
+    REQUIRE(input5 == expectedOutput5);
+    REQUIRE(input6 == expectedOutput6);
+    REQUIRE(input7 == expectedOutput7);
+    REQUIRE(input8 == expectedOutput8);
+    REQUIRE(input9 == expectedOutput9);
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
     char s1Rev[] = "xelA";

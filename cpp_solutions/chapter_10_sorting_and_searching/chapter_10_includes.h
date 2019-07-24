@@ -8,6 +8,7 @@
 #include "problem_10_08_findDuplicates.h"
 #include "problem_10_09_matrixSearch.h"
 #include "problem_10_10_rankFromStream.h"
+#include "problem_10_11_peaksAndValleys.h"
 #include "quickSort.h"
 #include "mergeSort.h"
 #include "binarySearch.h"
