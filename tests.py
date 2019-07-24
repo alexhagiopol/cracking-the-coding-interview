@@ -132,7 +132,6 @@ class Tests(unittest.TestCase):
         self.assertEqual('a10', p_1_6.string_compression('aaaaaaaaaa'))
 
     def test_problem_1_7(self):
-        import numpy as np
         input_4x4 = np.array([[1, 2, 3, 4],
                               [1, 2, 3, 4],
                               [1, 2, 3, 4],
@@ -156,7 +155,6 @@ class Tests(unittest.TestCase):
         self.assertTrue(np.array_equal(p_1_7.rotate_matrix(input_5x5), output_5x5))
 
     def test_problem_1_8(self):
-        import numpy as np
         input_4x4 = np.array([[1, 2, 3, 4],
                               [1, 2, 0, 4],
                               [1, 2, 3, 4],
