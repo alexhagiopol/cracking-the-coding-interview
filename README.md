@@ -20,30 +20,27 @@ reference and contribute solutions with confidence.
 
 ### Table of Contents
 
-N.B. this project contains solutions only to problems solvable with C++ or Python program code. 
-Conceptual problems solved through discussion are omitted.
-
 #### [C++ Solutions](cpp_solutions):
 0. [C++ Unit Tests](tests.cpp)
 1. [Chapter 1 - Arrays and Strings](cpp_solutions/chapter_01_arrays_and_strings): `9 / 9`  complete.
 2. [Chapter 2 - Linked Lists](cpp_solutions/chapter_02_linked_lists): `8 / 8` complete.
 3. [Chapter 3 - Stacks and Queues](cpp_solutions/chapter_03_stacks_and_queues): `4 / 6`  complete.
 4. [Chapter 4 - Trees and Graphs](cpp_solutions/chapter_04_trees_and_graphs): `11 / 12` complete.  
-5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `7 / 7`  complete.
-6. Chapter 6 - Math and Logic: N/A
+5. [Chapter 5 - Bit Manipulation](cpp_solutions/chapter_05_bit_manipulation): `7 / 8`  complete.
+6. Chapter 6 - Math and Logic: `0 / 10` complete. 
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. [Chapter 8 - Recursion and Dynamic Programming](cpp_solutions/chapter_08_recursion_and_dynamic_programming): `8 / 14`  complete.
-9. Chapter 9 - System Design and Scalability: N/A
-10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `10 / 10` complete.
-11. Chapter 11 - Testing: N/A
+9. Chapter 9 - System Design and Scalability: `0 / 8` complete.
+10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `10 / 11` complete.
+11. Chapter 11 - Testing: `0 / 6` complete.
 12. [Chapter 12 - C and C++](cpp_solutions/chapter_12_cpp): `2 / 6`
 13. Chapter 13 - Java: N/A
-14. Chapter 14 - Databases: N/A
-15. Chapter 15 - Threads and Locks: `0 / 4`
+14. Chapter 14 - Databases: `0 / 7` complete.
+15. Chapter 15 - Threads and Locks: `0 / 4` complete.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-C++ Total: `59` of `140` solutions complete.
+C++ Total: `59` solutions complete.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -51,21 +48,21 @@ C++ Total: `59` of `140` solutions complete.
 2. [Chapter 2 - Linked Lists](python_solutions/chapter_02_linked_lists): `8 / 8` complete.   
 3. [Chapter 3 - Stacks and Queues](python_solutions/chapter_03_stacks_queues): `6 / 6`  complete.
 4. [Chapter 4 - Trees and Graphs](python_solutions/chapter_04_trees_and_graphs): `11 / 12` complete.  
-5. [Chapter 5 - Bit Manipulation](python_solutions/chapter_05_bit_manipulation): `7 / 7`  complete.
-6. Chapter 6 - Math and Logic: N/A
+5. [Chapter 5 - Bit Manipulation](python_solutions/chapter_05_bit_manipulation): `7 / 8`  complete.
+6. Chapter 6 - Math and Logic: `0 / 10` complete. 
 7. Chapter 7 - Object Oriented Design: `0 / 12` complete. 
 8. [Chapter 8 - Recursion and Dynamic Programming](python_solutions/chapter_08_recursion_and_dynamic_programming): `11 / 14`  complete.
-9. Chapter 9 - System Design and Scalability: N/A
-10. [Chapter 10 - Sorting and Searching](python_solutions/chapter_10_sorting_and_searching): `1 / 10` complete.
-11. Chapter 11 - Testing: N/A
+9. Chapter 9 - System Design and Scalability: `0 / 8` complete.
+10. [Chapter 10 - Sorting and Searching](python_solutions/chapter_10_sorting_and_searching): `1 / 11` complete.
+11. Chapter 11 - Testing: `0 / 6` complete.
 12. Chapter 12 - C and C++: N/A
 13. Chapter 13 - Java: N/A
-14. Chapter 14 - Databases: N/A
+14. Chapter 14 - Databases: `0 / 7` complete.
 15. Chapter 15 - Threads and Locks: N/A
 16. [Chapter 16 - Moderate](python_solutions/chapter_16_moderate): `1 / 26` complete.
 17. [Chapter 17 - Hard](python_solutions/chapter_17_hard): `3 / 26` complete.
 
-Python Total: `56` of `130` solutions complete.
+Python Total: `56` solutions complete.
 
 ##### Grand Total: `115` unique solutions complete.
 
