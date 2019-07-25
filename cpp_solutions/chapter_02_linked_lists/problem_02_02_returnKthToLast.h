@@ -3,10 +3,10 @@
 
 namespace chapter_02{
     template <typename T>
-    SinglyLinkedNode<T>* returnKthToLast(SinglyLinkedNode<T>* head, int k){
+    const SinglyLinkedNode<T>* returnKthToLast(const SinglyLinkedNode<T>* head, int k) {
         if (head == nullptr) return nullptr;
-        SinglyLinkedNode<T>* slowRunner = head;
-        SinglyLinkedNode<T>* fastRunner = head;
+        const SinglyLinkedNode<T>* slowRunner = head;
+        const SinglyLinkedNode<T>* fastRunner = head;
         while(k > 0){
             if (fastRunner == nullptr) return nullptr;
             fastRunner = fastRunner->getNext();
