@@ -31,20 +31,19 @@
  * SPACE COMPLEXITY: O(1)
  */
 
-/*
+
 #pragma once
 #include "../chapter_02_linked_lists/Node.h"
 #include <vector>
 #include <string>
-//#include <cstring>
-//#include <iostream>
 #include <fstream>
-//#include <istream>
+
 
 namespace chapter_12 {
     void lastKLines(std::vector<std::string> lines, const std::string& filepath) {
-        int K = lines.size();
+        const int K = lines.size();
         if (K <= 0) return; // handle empty lines vector
+
         // initialize circular array
         auto head = new chapter_02::SinglyLinkedNode<std::string>("");
         auto prev = head;
@@ -54,12 +53,21 @@ namespace chapter_12 {
             prev = node;
         }
         prev->setNext(head);
-        // read from file
+
+        // read from file into circular array
         std::ifstream file(filepath);
         std::string line = "";
         while (std::getline(file, line)){
+            head->setValue(line);
+            head = head->getNext();
+        }
 
+        // copy contents of circular array to vector of strings; clean up allocated memory
+        for (int i = 0; i < K; i++) {
+            lines[i] = head->getValue();
+            auto temp = head;
+            head=head->getNext();
+            delete temp;
         }
     }
 }
-*/
