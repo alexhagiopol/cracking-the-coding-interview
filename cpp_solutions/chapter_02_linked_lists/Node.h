@@ -8,7 +8,7 @@ namespace chapter_02{
     protected:
         T _value;
     public:
-        Node(T value) : _value(value) {}  // constructor
+        Node(const T& value) : _value(value) {}  // constructor
         Node(const Node& other) : _value(other.getValue()) {}  // copy constructor
         ~Node(){}  // destructor
         bool operator== (const Node& other) {return _value == other.getValue();}  // equality check
