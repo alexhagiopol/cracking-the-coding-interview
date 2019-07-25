@@ -1391,9 +1391,24 @@ TEST_CASE("Chapter 10 - Problem 11 - peaksAndValleys()", "test") {
 }
 
 TEST_CASE("Chapter 12 - Problem 01 - lastKLines()", "test"){
-    const std::string filepath1 = "../cpp_solutions/chapter_12_sorting_and_searching/problem_12_01_data1.txt";
-    const std::string filepath2 = "../cpp_solutions/chapter_12_sorting_and_searching/problem_12_01_data2.txt";
-    const std::string filepath3 = "../cpp_solutions/chapter_12_sorting_and_searching/problem_12_01_data3.txt";
+    const std::string filepath1 = "../cpp_solutions/chapter_12_cpp/problem_12_01_data_1.txt";
+    const std::string filepath2 = "../cpp_solutions/chapter_12_cpp/problem_12_01_data_2.txt";
+    const std::string filepath3 = "../cpp_solutions/chapter_12_cpp/problem_12_01_data_3.txt";
+    std::vector<std::string> lines1 = {"", "", "", ""};
+    std::vector<std::string> lines2 = {"", "", "", ""};
+    std::vector<std::string> lines3 = {"", "", "", ""};
+    const std::vector<std::string> expectedLines1 = {"It matters not how strait the gate, ",
+                                                     "How charged with punishments the scroll, ",
+                                                     "I am the master of my fate, ",
+                                                     "I am the captain of my soul."};
+    const std::vector<std::string> expectedLines2 = {"this is a single line", "", "", ""};
+    const std::vector<std::string> expectedLines3 = {"", "", "", ""};
+    chapter_12::lastKLines(lines1, filepath1);
+    chapter_12::lastKLines(lines2, filepath2);
+    chapter_12::lastKLines(lines3, filepath3);
+    REQUIRE(lines1 == expectedLines1);
+    REQUIRE(lines2 == expectedLines2);
+    REQUIRE(lines3 == expectedLines3);
 }
 
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){

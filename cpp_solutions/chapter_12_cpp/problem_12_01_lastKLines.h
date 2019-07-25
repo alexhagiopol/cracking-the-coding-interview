@@ -40,7 +40,7 @@
 
 
 namespace chapter_12 {
-    void lastKLines(std::vector<std::string> lines, const std::string& filepath) {
+    void lastKLines(std::vector<std::string>& lines, const std::string& filepath) {
         const int K = lines.size();
         if (K <= 0) return; // handle empty lines vector
 
@@ -55,11 +55,22 @@ namespace chapter_12 {
         prev->setNext(head);
 
         // read from file into circular array
+        int numLines = 0;  // track number of lines to account for case where numLines < K
         std::ifstream file(filepath);
         std::string line = "";
         while (std::getline(file, line)){
             head->setValue(line);
             head = head->getNext();
+            numLines ++;
+        }
+        file.close();
+
+        // reset position of head pointer back to beginning if there were fewer lines than K
+        // this is to make the output remain in order with blank lines below non-blank ones
+        if (numLines < K) {
+            for (int i = 0; i < (K - numLines); i++) {
+                head = head->getNext();
+            }
         }
 
         // copy contents of circular array to vector of strings; clean up allocated memory
