@@ -1,8 +1,6 @@
 #include "problem_10_08_findDuplicates.h"
 #include <cstring>
-#include <iostream>
 #include <fstream>
-#include <istream>
 
 namespace chapter_10 {
     // Returns pair associated with number

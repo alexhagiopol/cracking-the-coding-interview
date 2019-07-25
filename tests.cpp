@@ -34,21 +34,21 @@ TEST_CASE("Chapter 01 - Problem 02 - isPermutation()", "test"){
 TEST_CASE("Chapter 01 - Problem 03 - URLify()", "test") {
 	// expect 'Mr. John Smith' -> 'Mr.%20John%20Smith'
 	std::string input1 = "Mr. John Smith ";
-	std::string output1 = "Mr.%20John%20Smith%20";
+    std::string input2 = "";
+    std::string input3 = " ";
+    std::string input4 = "Alex";
+    const std::string expectedOutput1 = "Mr.%20John%20Smith%20";
+    const std::string expectedOutput2 = "";
+    const std::string expectedOutput3 = "%20";
+    const std::string expectedOutput4 = "Alex";
 	chapter_01::URLify(input1);
-	REQUIRE(input1 == output1);
-	std::string input2 = "";
-	std::string output2 = "";
-	chapter_01::URLify(input2);
-	REQUIRE(input2 == output2);
-	std::string input3 = " ";
-	std::string output3 = "%20";
-	chapter_01::URLify(input3);
-	REQUIRE(input3 == output3);
-	std::string input4 = "Alex";
-	std::string output4 = "Alex";
-	chapter_01::URLify(input4);
-	REQUIRE(input4 == output4);
+    chapter_01::URLify(input2);
+    chapter_01::URLify(input3);
+    chapter_01::URLify(input4);
+	REQUIRE(input1 == expectedOutput1);
+	REQUIRE(input2 == expectedOutput2);
+	REQUIRE(input3 == expectedOutput3);
+	REQUIRE(input4 == expectedOutput4);
 }
 
 TEST_CASE("Chapter 01 - Problem 04 - palindromePermutation()", "test") {
@@ -154,10 +154,10 @@ TEST_CASE("Chapter 02 - Basic LinkedList Functionality", "test"){
 }
 
 TEST_CASE("Chapter 02 - Problem 01 - removeDups()", "test"){
-    std::vector<int> noDups = {1,7,3,6,5,4,2};
-    std::vector<int> dups = {2,2,1,5,6,2,5,2,7,7};
-    std::vector<int> fixedDups = {2,1,5,6,7};
-    std::vector<int> emptyVec;
+    const std::vector<int> noDups = {1,7,3,6,5,4,2};
+    const std::vector<int> dups = {2,2,1,5,6,2,5,2,7,7};
+    const std::vector<int> fixedDups = {2,1,5,6,7};
+    const std::vector<int> emptyVec;
 
     // check that remove dups function doesn't affect lists with no dups
     chapter_02::SinglyLinkedNode<int>* noDupsHead = chapter_02::vectorToList(noDups);
@@ -176,12 +176,12 @@ TEST_CASE("Chapter 02 - Problem 01 - removeDups()", "test"){
 }
 
 TEST_CASE("Chapter 02 - Problem 02 - returnKthToLast()", "test"){
-    std::vector<int> testVec1 = {1,7,3,6,5,4,2};
-    std::vector<int> testVec2 = {2,2,1,5,6,2,5,2,7,7};
-    std::vector<int> testVec3;
-    chapter_02::SinglyLinkedNode<int>* testVec1Head = chapter_02::vectorToList(testVec1);
-    chapter_02::SinglyLinkedNode<int>* testVec2Head = chapter_02::vectorToList(testVec2);
-    chapter_02::SinglyLinkedNode<int>* testVec3Head = chapter_02::vectorToList(testVec3);
+    const std::vector<int> testVec1 = {1,7,3,6,5,4,2};
+    const std::vector<int> testVec2 = {2,2,1,5,6,2,5,2,7,7};
+    const std::vector<int> testVec3;
+    const chapter_02::SinglyLinkedNode<int>* testVec1Head = chapter_02::vectorToList(testVec1);
+    const chapter_02::SinglyLinkedNode<int>* testVec2Head = chapter_02::vectorToList(testVec2);
+    const chapter_02::SinglyLinkedNode<int>* testVec3Head = chapter_02::vectorToList(testVec3);
     REQUIRE(5 == chapter_02::returnKthToLast(testVec1Head, 3)->getValue());
     REQUIRE(2 == chapter_02::returnKthToLast(testVec1Head, 1)->getValue());
     REQUIRE(1 == chapter_02::returnKthToLast(testVec1Head, testVec1.size())->getValue());
@@ -195,10 +195,10 @@ TEST_CASE("Chapter 02 - Problem 02 - returnKthToLast()", "test"){
 
 TEST_CASE("Chapter 02 - Problem 03 - deleteMiddleNode()", "test"){
     // create test dataset
-    std::vector<std::string> testVec = {"a", "b", "c", "d", "e", "f"};
-    std::vector<std::string> expectedVec = {"a", "b", "d", "e", "f"};
+    const std::vector<std::string> testVec = {"a", "b", "c", "d", "e", "f"};
+    const std::vector<std::string> expectedVec = {"a", "b", "d", "e", "f"};
     chapter_02::SinglyLinkedNode<std::string>* testVecHead = chapter_02::vectorToList(testVec);
-    chapter_02::SinglyLinkedNode<std::string>* expectedVecHead = chapter_02::vectorToList(expectedVec);
+    const chapter_02::SinglyLinkedNode<std::string>* expectedVecHead = chapter_02::vectorToList(expectedVec);
     // traverse input to find node with content "c"
     chapter_02::SinglyLinkedNode<std::string>* head = testVecHead;
     while (head != nullptr && head->getValue() != "c"){
@@ -216,10 +216,10 @@ TEST_CASE("Chapter 02 - Problem 03 - deleteMiddleNode()", "test"){
 
 TEST_CASE("Chapter 02 - Problem 04 - partition()", "test"){
     // create test dataset
-    std::vector<int> inputVec = {3, 5, 8, 5, 10, 2, 1};
-    std::vector<int> expectedVec = {1, 2, 3, 5, 8, 5, 10};
+    const std::vector<int> inputVec = {3, 5, 8, 5, 10, 2, 1};
+    const std::vector<int> expectedVec = {1, 2, 3, 5, 8, 5, 10};
     chapter_02::SinglyLinkedNode<int>* inputVecHead = chapter_02::vectorToList(inputVec);
-    chapter_02::SinglyLinkedNode<int>* expectedVecHead = chapter_02::vectorToList(expectedVec);
+    const chapter_02::SinglyLinkedNode<int>* expectedVecHead = chapter_02::vectorToList(expectedVec);
     // perform partition
     inputVecHead = chapter_02::partition(inputVecHead, 5);
     // check that vec 1 and vec 2 are the same
@@ -233,27 +233,26 @@ TEST_CASE("Chapter 02 - Problem 04 - partition()", "test"){
 TEST_CASE("Chapter 02 - Problem 05 - sumLists()", "test"){
     // create test dataset
     // 9423 + 951 = 10374
-    std::vector<uint8_t> n1Vec = {3, 2, 4, 9};
-    std::vector<uint8_t> n2Vec = {1, 5, 9};
-    std::vector<uint8_t> sumVecExpected = {4, 7, 3, 0, 1};
-    chapter_02::SinglyLinkedNode<uint8_t>* n1Head = chapter_02::vectorToList(n1Vec);
-    chapter_02::SinglyLinkedNode<uint8_t>* n2Head = chapter_02::vectorToList(n2Vec);
-    std::vector<uint8_t> sumVecActual = chapter_02::listToVector(chapter_02::sumLists(n1Head, n2Head));
+    const std::vector<uint8_t> n1Vec = {3, 2, 4, 9};
+    const std::vector<uint8_t> n2Vec = {1, 5, 9};
+    const std::vector<uint8_t> sumVecExpected = {4, 7, 3, 0, 1};
+    const chapter_02::SinglyLinkedNode<uint8_t>* n1Head = chapter_02::vectorToList(n1Vec);
+    const chapter_02::SinglyLinkedNode<uint8_t>* n2Head = chapter_02::vectorToList(n2Vec);
+    const std::vector<uint8_t> sumVecActual = chapter_02::listToVector(chapter_02::sumLists(n1Head, n2Head));
     REQUIRE(sumVecExpected == sumVecActual);
 }
 
 TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
-    // create test dataset
-    std::vector<int> list1 = {0, 4, 7, 0, 0, 7, 4, 0};
-    std::vector<int> list2 = {3, 5, 2, 5, 3};
-    std::vector<int> list3 = {0, 1, 0, 1, 0, 1};
-    std::vector<std::string> list4 = {"a", "l", "e",  "x"};
-    std::vector<std::string> list5 = {"A", "B", "B",  "A"};
-    chapter_02::SinglyLinkedNode<int>* head1 = chapter_02::vectorToList(list1);
-    chapter_02::SinglyLinkedNode<int>* head2 = chapter_02::vectorToList(list2);
-    chapter_02::SinglyLinkedNode<int>* head3 = chapter_02::vectorToList(list3);
-    chapter_02::SinglyLinkedNode<std::string>* head4 = chapter_02::vectorToList(list4);
-    chapter_02::SinglyLinkedNode<std::string>* head5 = chapter_02::vectorToList(list5);
+    const std::vector<int> list1 = {0, 4, 7, 0, 0, 7, 4, 0};
+    const std::vector<int> list2 = {3, 5, 2, 5, 3};
+    const std::vector<int> list3 = {0, 1, 0, 1, 0, 1};
+    const std::vector<std::string> list4 = {"a", "l", "e",  "x"};
+    const std::vector<std::string> list5 = {"A", "B", "B",  "A"};
+    const chapter_02::SinglyLinkedNode<int>* head1 = chapter_02::vectorToList(list1);
+    const chapter_02::SinglyLinkedNode<int>* head2 = chapter_02::vectorToList(list2);
+    const chapter_02::SinglyLinkedNode<int>* head3 = chapter_02::vectorToList(list3);
+    const chapter_02::SinglyLinkedNode<std::string>* head4 = chapter_02::vectorToList(list4);
+    const chapter_02::SinglyLinkedNode<std::string>* head5 = chapter_02::vectorToList(list5);
     REQUIRE(chapter_02::palindrome(head1));
     REQUIRE(chapter_02::palindrome(head2));
     REQUIRE(!chapter_02::palindrome(head3));
@@ -263,19 +262,19 @@ TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
 
 TEST_CASE("Chapter 02 - Problem 07 - intersection()", "test") {
 	// list 1
-	chapter_02::SinglyLinkedNode<int>* node1_6 = new chapter_02::SinglyLinkedNode<int>(1, nullptr);
-	chapter_02::SinglyLinkedNode<int>* node1_5 = new chapter_02::SinglyLinkedNode<int>(2, node1_6);
-	chapter_02::SinglyLinkedNode<int>* node1_4 = new chapter_02::SinglyLinkedNode<int>(7, node1_5);
-	chapter_02::SinglyLinkedNode<int>* node1_3 = new chapter_02::SinglyLinkedNode<int>(9, node1_4);
-	chapter_02::SinglyLinkedNode<int>* node1_2 = new chapter_02::SinglyLinkedNode<int>(5, node1_3);
-	chapter_02::SinglyLinkedNode<int>* node1_1 = new chapter_02::SinglyLinkedNode<int>(1, node1_2);
-	chapter_02::SinglyLinkedNode<int>* node1_0 = new chapter_02::SinglyLinkedNode<int>(3, node1_1);
+    chapter_02::SinglyLinkedNode<int>* node1_6 = new chapter_02::SinglyLinkedNode<int>(1, nullptr);
+    chapter_02::SinglyLinkedNode<int>* node1_5 = new chapter_02::SinglyLinkedNode<int>(2, node1_6);
+    chapter_02::SinglyLinkedNode<int>* node1_4 = new chapter_02::SinglyLinkedNode<int>(7, node1_5);
+    chapter_02::SinglyLinkedNode<int>* node1_3 = new chapter_02::SinglyLinkedNode<int>(9, node1_4);
+    chapter_02::SinglyLinkedNode<int>* node1_2 = new chapter_02::SinglyLinkedNode<int>(5, node1_3);
+    chapter_02::SinglyLinkedNode<int>* node1_1 = new chapter_02::SinglyLinkedNode<int>(1, node1_2);
+    chapter_02::SinglyLinkedNode<int>* node1_0 = new chapter_02::SinglyLinkedNode<int>(3, node1_1);
 	// list 2
-	chapter_02::SinglyLinkedNode<int>* node2_1 = new chapter_02::SinglyLinkedNode<int>(6, node1_4);  // intersection point
-	chapter_02::SinglyLinkedNode<int>* node2_0 = new chapter_02::SinglyLinkedNode<int>(4, node2_1);
+    chapter_02::SinglyLinkedNode<int>* node2_1 = new chapter_02::SinglyLinkedNode<int>(6, node1_4);  // intersection point
+    chapter_02::SinglyLinkedNode<int>* node2_0 = new chapter_02::SinglyLinkedNode<int>(4, node2_1);
 	// list 3
-	chapter_02::SinglyLinkedNode<int>* node3_1 = new chapter_02::SinglyLinkedNode<int>(6, nullptr);
-	chapter_02::SinglyLinkedNode<int>* node3_0 = new chapter_02::SinglyLinkedNode<int>(4, node3_1);
+    chapter_02::SinglyLinkedNode<int>* node3_1 = new chapter_02::SinglyLinkedNode<int>(6, nullptr);
+    chapter_02::SinglyLinkedNode<int>* node3_0 = new chapter_02::SinglyLinkedNode<int>(4, node3_1);
 	REQUIRE(node1_4 == chapter_02::intersection(node1_0, node2_0));
 	REQUIRE(nullptr == chapter_02::intersection(node1_0, node3_0));
 	REQUIRE(nullptr == chapter_02::intersection(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr), static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr)));
@@ -1354,7 +1353,7 @@ TEST_CASE("Chapter 10 - Problem 10 - rankFromStream()", "test") {
 
 TEST_CASE("Chapter 10 - Problem 11 - peaksAndValleys()", "test") {
     std::vector<int> input1 = {5, 3, 1, 2, 3};
-    std::vector<int> expectedOutput1 = {5, 1, 3, 2, 3};
+    const std::vector<int> expectedOutput1 = {5, 1, 3, 2, 3};
     std::vector<int> input2 = {5, 8, 6, 2, 3, 4, 6};
     std::vector<int> expectedOutput2 = {5, 8, 2, 6, 3, 6, 4};
     std::vector<int> input3 = {};
@@ -1391,11 +1390,32 @@ TEST_CASE("Chapter 10 - Problem 11 - peaksAndValleys()", "test") {
     REQUIRE(input9 == expectedOutput9);
 }
 
+TEST_CASE("Chapter 12 - Problem 01 - lastKLines()", "test"){
+    const std::string filepath1 = "../cpp_solutions/chapter_12_cpp/problem_12_01_data_1.txt";
+    const std::string filepath2 = "../cpp_solutions/chapter_12_cpp/problem_12_01_data_2.txt";
+    const std::string filepath3 = "../cpp_solutions/chapter_12_cpp/problem_12_01_data_3.txt";
+    std::vector<std::string> lines1 = {"", "", "", ""};
+    std::vector<std::string> lines2 = {"", "", "", ""};
+    std::vector<std::string> lines3 = {"", "", "", ""};
+    const std::vector<std::string> expectedLines1 = {"It matters not how strait the gate, ",
+                                                     "How charged with punishments the scroll, ",
+                                                     "I am the master of my fate, ",
+                                                     "I am the captain of my soul."};
+    const std::vector<std::string> expectedLines2 = {"this is a single line", "", "", ""};
+    const std::vector<std::string> expectedLines3 = {"", "", "", ""};
+    chapter_12::lastKLines(lines1, filepath1);
+    chapter_12::lastKLines(lines2, filepath2);
+    chapter_12::lastKLines(lines3, filepath3);
+    REQUIRE(lines1 == expectedLines1);
+    REQUIRE(lines2 == expectedLines2);
+    REQUIRE(lines3 == expectedLines3);
+}
+
 TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     char s1[] = "Alex";
-    char s1Rev[] = "xelA";
+    const char s1Rev[] = "xelA";
     char s2[] = "a";
-    char s2Rev[] = "a";
+    const char s2Rev[] = "a";
     chapter_12::reverse(&s1[0]);
     chapter_12::reverse(&s2[0]);
     // strcmp returns 0 if the 2 strings are equal.
