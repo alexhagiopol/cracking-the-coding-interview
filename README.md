@@ -64,7 +64,7 @@ C++ Total: `60` solutions complete.
 
 Python Total: `56` solutions complete.
 
-##### Grand Total: `115` unique solutions complete.
+##### Grand Total: `116` unique solutions complete.
 
 ### Building: 
 #### Mac:
