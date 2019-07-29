@@ -33,14 +33,14 @@ reference and contribute solutions with confidence.
 9. Chapter 9 - System Design and Scalability: `0 / 8` complete.
 10. [Chapter 10 - Sorting and Searching](cpp_solutions/chapter_10_sorting_and_searching): `10 / 11` complete.
 11. Chapter 11 - Testing: `0 / 6` complete.
-12. [Chapter 12 - C and C++](cpp_solutions/chapter_12_cpp): `4 / 11`
+12. [Chapter 12 - C and C++](cpp_solutions/chapter_12_cpp): `5 / 11`
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: `0 / 7` complete.
 15. Chapter 15 - Threads and Locks: `0 / 4` complete.
 16. Chapter 16 - Moderate: `0 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
 
-C++ Total: `61` solutions complete.
+C++ Total: `62` solutions complete.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -64,7 +64,7 @@ C++ Total: `61` solutions complete.
 
 Python Total: `56` solutions complete.
 
-##### Grand Total: `117` unique solutions complete.
+##### Grand Total: `118` unique solutions complete.
 
 ### Building: 
 #### Mac:
