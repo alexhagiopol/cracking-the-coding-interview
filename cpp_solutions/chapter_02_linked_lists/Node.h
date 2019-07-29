@@ -5,12 +5,12 @@ namespace chapter_02{
     // Node base class
     template <typename T>
     class Node{
-    protected:
+    private:
         T _value;
     public:
         Node(const T& value) : _value(value) {}  // constructor
         Node(const Node& other) : _value(other.getValue()) {}  // copy constructor
-        ~Node(){}  // destructor
+        virtual ~Node(){}  // destructor
         bool operator== (const Node& other) {return _value == other.getValue();}  // equality check
         T getValue() const {return _value;}
         void setValue(const T& value) {_value = value;}
