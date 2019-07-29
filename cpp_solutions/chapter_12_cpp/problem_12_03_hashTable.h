@@ -1,5 +1,5 @@
 /*
- * PROBLEM:
+ * QUESTION:
  * Compare and contrast hash table and STL map.
  *
  * a. How is a hash table implemented?
@@ -7,7 +7,7 @@
  * hash table?
  *
  *
- * Discussion for Part (a):
+ * DISCUSSION PART (a):
  *
  * A hash table is a key-value pair data structure that allows O(1) time lookup of a value given its key.
  *
@@ -47,7 +47,7 @@
  * it has been depleted. This expansion operation would require copying all contents of the hash table, and so
  * must not be done too often.
  *
- * Discussion for Part (b):
+ * DISCUSSION PART (b):
  *
  * If the keys support >, <, = relationships, a map could be implemented as a binary search tree or a derivative
  * of a binary search tree. In this case, the lookup time is O(long(N)), but if N is small this time could be negligible.
