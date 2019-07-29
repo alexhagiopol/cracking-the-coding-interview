@@ -40,5 +40,4 @@
  * interface which costs a couple of bytes. In practice these are very small costs but they are non-zero. The storage
  * cost would become significant if there are many many objects with few member variables and thus the vtable memory
  * consumption may become significant.
- *
  */
