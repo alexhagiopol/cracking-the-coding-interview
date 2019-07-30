@@ -51,6 +51,8 @@ set(SOURCE_FILES
 		cpp_solutions/chapter_10_sorting_and_searching/problem_10_10_rankFromStream.cpp
 		# CHAPTER 12
 		cpp_solutions/chapter_12_cpp/problem_12_02_reverse.cpp
+		# CHAPTER 16
+		cpp_solutions/chapter_16_moderate/problem_16_03_intersection.cpp
         cpp_solutions/misc_exercises/integralImage.cpp)
 # create executable
 add_executable(tests ${SOURCE_FILES})

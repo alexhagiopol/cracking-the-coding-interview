@@ -10,6 +10,7 @@
 #include "cpp_solutions/chapter_08_recursion_and_dynamic_programming/chapter_08_includes.h"
 #include "cpp_solutions/chapter_10_sorting_and_searching/chapter_10_includes.h"
 #include "cpp_solutions/chapter_12_cpp/chapter_12_includes.h"
+#include "cpp_solutions/chapter_16_moderate/chapter_16_includes.h"
 #include "cpp_solutions/misc_exercises/misc_includes.h"
 #define CATCH_CONFIG_MAIN
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
@@ -1435,6 +1436,30 @@ TEST_CASE("Chapter 12 - Problem 12 - copyNode()", "test"){
         head = head->getNext();
         copy = copy->getNext();
     }
+}
+
+TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
+    // follow book implementation: ignore vertical slopes, ignore colinear overlap
+    /*
+    segment1 = p_16_03.LineSegment(p_16_03.Point2(5, 5), p_16_03.Point2(0, 0))
+    segment2 = p_16_03.LineSegment(p_16_03.Point2(0, 3), p_16_03.Point2(3, 0))
+    segment3 = p_16_03.LineSegment(p_16_03.Point2(3, 0), p_16_03.Point2(6, 0))
+    segment4 = p_16_03.LineSegment(p_16_03.Point2(4, 0), p_16_03.Point2(7, 0))
+    segment5 = p_16_03.LineSegment(p_16_03.Point2(7, 7), p_16_03.Point2(5, 5))
+    self.assertEqual(p_16_03.Point2(1.5, 1.5), p_16_03.intersection(segment1, segment2))
+    self.assertEqual(None, p_16_03.intersection(segment1, segment3))
+    self.assertEqual(None, p_16_03.intersection(segment4, segment3))
+    self.assertEqual(p_16_03.Point2(5, 5), p_16_03.intersection(segment1, segment5))
+     */
+    auto s1 = chapter_16::LineSegment2(chapter_16::Point2(5, 5), chapter_16::Point2(0, 0));
+    auto s2 = chapter_16::LineSegment2(chapter_16::Point2(0, 3), chapter_16::Point2(3, 0));
+    auto s3 = chapter_16::LineSegment2(chapter_16::Point2(3, 0), chapter_16::Point2(6, 0));
+    auto s4 = chapter_16::LineSegment2(chapter_16::Point2(4, 0), chapter_16::Point2(7, 0));
+    auto s5 = chapter_16::LineSegment2(chapter_16::Point2(7, 7), chapter_16::Point2(5, 5));
+    REQUIRE(chapter_16::Point2(1.5, 1.5) == *chapter_16::intersection(s1, s2));
+    REQUIRE(nullptr == chapter_16::intersection(s1, s3));
+    REQUIRE(nullptr == chapter_16::intersection(s4, s3));
+    REQUIRE(chapter_16::Point2(5, 5) == *chapter_16::intersection(s1, s5));
 }
 
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
