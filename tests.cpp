@@ -1440,26 +1440,22 @@ TEST_CASE("Chapter 12 - Problem 12 - copyNode()", "test"){
 
 TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     // follow book implementation: ignore vertical slopes, ignore colinear overlap
-    /*
-    segment1 = p_16_03.LineSegment(p_16_03.Point2(5, 5), p_16_03.Point2(0, 0))
-    segment2 = p_16_03.LineSegment(p_16_03.Point2(0, 3), p_16_03.Point2(3, 0))
-    segment3 = p_16_03.LineSegment(p_16_03.Point2(3, 0), p_16_03.Point2(6, 0))
-    segment4 = p_16_03.LineSegment(p_16_03.Point2(4, 0), p_16_03.Point2(7, 0))
-    segment5 = p_16_03.LineSegment(p_16_03.Point2(7, 7), p_16_03.Point2(5, 5))
-    self.assertEqual(p_16_03.Point2(1.5, 1.5), p_16_03.intersection(segment1, segment2))
-    self.assertEqual(None, p_16_03.intersection(segment1, segment3))
-    self.assertEqual(None, p_16_03.intersection(segment4, segment3))
-    self.assertEqual(p_16_03.Point2(5, 5), p_16_03.intersection(segment1, segment5))
-     */
     auto s1 = chapter_16::LineSegment2(chapter_16::Point2(5, 5), chapter_16::Point2(0, 0));
     auto s2 = chapter_16::LineSegment2(chapter_16::Point2(0, 3), chapter_16::Point2(3, 0));
     auto s3 = chapter_16::LineSegment2(chapter_16::Point2(3, 0), chapter_16::Point2(6, 0));
     auto s4 = chapter_16::LineSegment2(chapter_16::Point2(4, 0), chapter_16::Point2(7, 0));
     auto s5 = chapter_16::LineSegment2(chapter_16::Point2(7, 7), chapter_16::Point2(5, 5));
-    REQUIRE(chapter_16::Point2(1.5, 1.5) == *chapter_16::intersection(s1, s2));
-    REQUIRE(nullptr == chapter_16::intersection(s1, s3));
-    REQUIRE(nullptr == chapter_16::intersection(s4, s3));
-    REQUIRE(chapter_16::Point2(5, 5) == *chapter_16::intersection(s1, s5));
+    chapter_16::Point2 expected_p1(1.5, 1.5);
+    chapter_16::Point2 expected_p4(5, 5);
+    auto actual_p1 = chapter_16::intersection(s1, s2);
+    auto actual_p2 = chapter_16::intersection(s1, s3);
+    auto actual_p3 = chapter_16::intersection(s4, s3);
+    auto actual_p4 = chapter_16::intersection(s1, s5);
+    REQUIRE(expected_p1 == *actual_p1);
+    REQUIRE(nullptr == actual_p2);
+    REQUIRE(nullptr == actual_p3);
+    REQUIRE(expected_p4 == *actual_p4);
+    delete actual_p1, actual_p2, actual_p3, actual_p4;
 }
 
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
