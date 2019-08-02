@@ -29,13 +29,9 @@ def intersection(segment1, segment2):
         if segment1.start.x <= x_intersection <= segment1.end.x and segment2.start.x <= x_intersection <= segment2.end.x:
             intersection_point = Point2(x_intersection, y_intersection_1)
             return intersection_point
-    else:
+    else:  # slopes equal: intersection happens only if endpoints are identical
         if segment1.start == segment2.start or segment1.start == segment2.end:
             return segment1.start
         if segment1.end == segment2.start or segment1.end == segment2.end:
             return segment1.end
-        if segment2.start == segment1.start or segment2.start == segment1.end:
-            return segment2.start
-        if segment2.end == segment1.start or segment2.end == segment1.end:
-            return segment2.end
     return None
