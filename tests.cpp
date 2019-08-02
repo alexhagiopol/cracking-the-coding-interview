@@ -1424,7 +1424,7 @@ TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
     REQUIRE(strcmp(&s2[0], &s2Rev[0]) == 0);
 }
 
-TEST_CASE("Chapter 12 - Problem 12 - copyNode()", "test"){
+TEST_CASE("Chapter 12 - Problem 08 - copyNode()", "test"){
     std::vector<int> targetVector = {1,2,3,4,5,6,7};
     chapter_02::SinglyLinkedNode<int>* head = chapter_02::vectorToList(targetVector);
     chapter_02::SinglyLinkedNode<int>* copy = chapter_12::copyNode(head);
@@ -1436,6 +1436,20 @@ TEST_CASE("Chapter 12 - Problem 12 - copyNode()", "test"){
         head = head->getNext();
         copy = copy->getNext();
     }
+}
+
+TEST_CASE("Chapter 12 - Problem 09 - smartPointer()", "test"){
+    chapter_12::SmartPointer<int> intSP(new int(5));
+    REQUIRE(intSP.getRefCount() == 1);
+    auto doSomethingLambda = [](chapter_12::SmartPointer<int> sp){
+        sp.setValue(6);
+        REQUIRE(sp.getRefCount() == 2);
+        chapter_12::SmartPointer<int> intSP2(sp);
+        REQUIRE(intSP2.getRefCount() == 3);
+        REQUIRE(sp.getRefCount() == 3);
+    };
+    doSomethingLambda(intSP);
+    REQUIRE(intSP.getRefCount() == 1);
 }
 
 TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
@@ -1455,7 +1469,10 @@ TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     REQUIRE(nullptr == actual_p2);
     REQUIRE(nullptr == actual_p3);
     REQUIRE(expected_p4 == *actual_p4);
-    delete actual_p1, actual_p2, actual_p3, actual_p4;
+    delete actual_p1;
+    delete actual_p2;
+    delete actual_p3;
+    delete actual_p4;
 }
 
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
