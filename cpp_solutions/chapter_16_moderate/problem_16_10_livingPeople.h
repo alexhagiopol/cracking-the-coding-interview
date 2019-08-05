@@ -38,7 +38,7 @@ namespace chapter_16 {
             }
             if (p.death >= startYear && p.death < endYear) { // strict less than to conform to rule (see below)
                 years[p.death + 1 - startYear] --;  // rule in problem statement: if someone was alive for any part of a year
-                                        // they are considered to have been alive the whole year
+                                                    // they are considered to have been alive the whole year
             }
         }
         int bestYear = startYear;
