@@ -1452,6 +1452,40 @@ TEST_CASE("Chapter 12 - Problem 09 - smartPointer()", "test"){
     REQUIRE(intSP.getRefCount() == 1);
 }
 
+TEST_CASE("Chapter 16 - Problem 02 - wordFrequencies()") {
+    std::vector<std::string> book = {"Invictus\n",
+                                     "By",
+                                     "William","Ernest","Henley\n",
+                                     "\n",
+                                     "Out", "of", "the", "night", "that","covers","me,\n",
+                                     "Black","as","the","pit","from","pole","to","pole,\n",
+                                     "I","thank","whatever","gods","may","be\n",
+                                     "For","my","unconquerable soul.\n",
+                                     "\n",
+                                     "In","the","fell","clutch","of","circumstance\n",
+                                     "I","have","not","winced","nor","cried","aloud.\n",
+                                     "Under","the","bludgeonings","of","chance\n",
+                                     "My","head","is","bloody,","but","unbowed.\n",
+                                     "\n",
+                                     "Beyond","this","place","of","wrath","and","tears\n",
+                                     "Looms","but","the","Horror","of","the","shade,\n",
+                                     "And","yet","the","menace","of","the","years\n",
+                                     "Finds","and","shall","find","me","unafraid.\n",
+                                     "\n",
+                                     "It","matters","not","how","strait","the","gate,\n",
+                                     "How","charged","with","punishments","the","scroll,\n",
+                                     "I","am","the","master","of","my","fate,\n",
+                                     "I","am","the","captain","of","my","soul."};
+    std::unordered_map<std::string, int> database;
+    chapter_16::makeDatabase(book, database);
+    REQUIRE(8 == chapter_16::wordFrequencies("of", database));
+    REQUIRE(1 == chapter_16::wordFrequencies("captain", database));
+    REQUIRE(4 == chapter_16::wordFrequencies("my", database));
+    REQUIRE(12 == chapter_16::wordFrequencies("the", database));
+    REQUIRE(1 == chapter_16::wordFrequencies("it", database));
+    REQUIRE(2 == chapter_16::wordFrequencies("but", database));
+}
+
 TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     // follow book implementation: ignore vertical slopes, ignore colinear overlap
     auto s1 = chapter_16::LineSegment2(chapter_16::Point2(5, 5), chapter_16::Point2(0, 0));
@@ -1473,6 +1507,23 @@ TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     delete actual_p2;
     delete actual_p3;
     delete actual_p4;
+}
+
+TEST_CASE("Chapter 16 - Problem 05 - factorialZeros()") {
+    REQUIRE(-1 == chapter_16::factorialZeros(-1));
+    REQUIRE(0 == chapter_16::factorialZeros(1));
+    REQUIRE(0 == chapter_16::factorialZeros(2));
+    REQUIRE(1 == chapter_16::factorialZeros(5));
+    REQUIRE(1 == chapter_16::factorialZeros(7));
+    REQUIRE(2 == chapter_16::factorialZeros(10));
+    REQUIRE(2 == chapter_16::factorialZeros(14));
+    REQUIRE(3 == chapter_16::factorialZeros(15));
+    REQUIRE(3 == chapter_16::factorialZeros(16));
+    REQUIRE(3 == chapter_16::factorialZeros(19));
+    REQUIRE(4 == chapter_16::factorialZeros(20));
+    REQUIRE(4 == chapter_16::factorialZeros(21));
+    REQUIRE(6 == chapter_16::factorialZeros(25));
+    REQUIRE(6 == chapter_16::factorialZeros(26));
 }
 
 TEST_CASE("Chapter 16 - Problem 06 - smallestDifference()") {
