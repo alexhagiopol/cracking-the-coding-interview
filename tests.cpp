@@ -1489,6 +1489,22 @@ TEST_CASE("Chapter 16 - Problem 06 - smallestDifference()") {
     REQUIRE(std::numeric_limits<int>::max() == chapter_16::smallestDifference(example6, example6));
 }
 
+TEST_CASE("Chapter 16 - Problem 10 - livingPeople()") {
+    std::vector<chapter_16::Person> people1 = {
+            chapter_16::Person(1930, 2000),
+            chapter_16::Person(1940, 2010),
+            chapter_16::Person(1920, 2000),
+            chapter_16::Person(1980, 1990),
+            chapter_16::Person(1982, 1982),
+            chapter_16::Person(1900, 1920),
+            chapter_16::Person(1910, 1920),
+            chapter_16::Person(1945, 1995)};
+    std::vector<chapter_16::Person> people2 = {};
+    REQUIRE(1982 == livingPeople(people1, 1900, 2020));
+    REQUIRE(1945 == livingPeople(people1, 1900, 1950));
+    REQUIRE(1900 == livingPeople(people2, 1900, 2020));
+};
+
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
     Eigen::MatrixXd input1(4, 4);
     input1 << 1, 1, 1, 1,
