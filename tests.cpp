@@ -1475,6 +1475,23 @@ TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     delete actual_p4;
 }
 
+TEST_CASE("Chapter 16 - Problem 05 - factorialZeros()") {
+    REQUIRE(-1 == chapter_16::factorialZeros(-1));
+    REQUIRE(0 == chapter_16::factorialZeros(1));
+    REQUIRE(0 == chapter_16::factorialZeros(2));
+    REQUIRE(1 == chapter_16::factorialZeros(5));
+    REQUIRE(1 == chapter_16::factorialZeros(7));
+    REQUIRE(2 == chapter_16::factorialZeros(10));
+    REQUIRE(2 == chapter_16::factorialZeros(14));
+    REQUIRE(3 == chapter_16::factorialZeros(15));
+    REQUIRE(3 == chapter_16::factorialZeros(16));
+    REQUIRE(3 == chapter_16::factorialZeros(19));
+    REQUIRE(4 == chapter_16::factorialZeros(20));
+    REQUIRE(4 == chapter_16::factorialZeros(21));
+    REQUIRE(6 == chapter_16::factorialZeros(25));
+    REQUIRE(6 == chapter_16::factorialZeros(26));
+}
+
 TEST_CASE("Chapter 16 - Problem 06 - smallestDifference()") {
     std::vector<int> example1 = {1, 3, 15, 11, 2};
     std::vector<int> example2 = {23, 127, 235, 19, 8};
