@@ -1475,6 +1475,36 @@ TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     delete actual_p4;
 }
 
+TEST_CASE("Chapter 16 - Problem 06 - smallestDifference()") {
+    std::vector<int> example1 = {1, 3, 15, 11, 2};
+    std::vector<int> example2 = {23, 127, 235, 19, 8};
+    std::vector<int> example3 = {-5, 4, -3, 2, 12};
+    std::vector<int> example4 = {-7, 6, 12, 1, -3};
+    std::vector<int> example5 = {-5, 3};
+    std::vector<int> example6 = {};
+    REQUIRE(3 == chapter_16::smallestDifference(example1, example2));
+    REQUIRE(0 == chapter_16::smallestDifference(example3, example4));
+    REQUIRE(2 == chapter_16::smallestDifference(example4, example5));
+    REQUIRE(std::numeric_limits<int>::max() == chapter_16::smallestDifference(example5, example6));
+    REQUIRE(std::numeric_limits<int>::max() == chapter_16::smallestDifference(example6, example6));
+}
+
+TEST_CASE("Chapter 16 - Problem 10 - livingPeople()") {
+    std::vector<chapter_16::Person> people1 = {
+            chapter_16::Person(1930, 2000),
+            chapter_16::Person(1940, 2010),
+            chapter_16::Person(1920, 2000),
+            chapter_16::Person(1980, 1990),
+            chapter_16::Person(1982, 1982),
+            chapter_16::Person(1900, 1920),
+            chapter_16::Person(1910, 1920),
+            chapter_16::Person(1945, 1995)};
+    std::vector<chapter_16::Person> people2 = {};
+    REQUIRE(1982 == livingPeople(people1, 1900, 2020));
+    REQUIRE(1945 == livingPeople(people1, 1900, 1950));
+    REQUIRE(1900 == livingPeople(people2, 1900, 2020));
+};
+
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
     Eigen::MatrixXd input1(4, 4);
     input1 << 1, 1, 1, 1,
