@@ -2,7 +2,7 @@
 
 namespace chapter_16 {
     int livingPeople(const std::vector<Person>& people, int startYear, int endYear) {
-        assert(startYear < endYear);
+        if (startYear >= endYear) return startYear;
         const int numYears = endYear - startYear + 1;  // 101 years from 1900 to 2000
         std::vector<int> years(numYears, 0);
         for (const Person& p : people) {
