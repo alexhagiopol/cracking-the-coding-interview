@@ -1475,6 +1475,20 @@ TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     delete actual_p4;
 }
 
+TEST_CASE("Chapter 16 - Problem 06 - smallestDifference()") {
+    std::vector<int> example1 = {1, 3, 15, 11, 2};
+    std::vector<int> example2 = {23, 127, 235, 19, 8};
+    std::vector<int> example3 = {-5, 4, -3, 2, 12};
+    std::vector<int> example4 = {-7, 6, 12, 1, -3};
+    std::vector<int> example5 = {-5, 3};
+    std::vector<int> example6 = {};
+    REQUIRE(3 == chapter_16::smallestDifference(example1, example2));
+    REQUIRE(0 == chapter_16::smallestDifference(example3, example4));
+    REQUIRE(2 == chapter_16::smallestDifference(example4, example5));
+    REQUIRE(std::numeric_limits<int>::max() == chapter_16::smallestDifference(example5, example6));
+    REQUIRE(std::numeric_limits<int>::max() == chapter_16::smallestDifference(example6, example6));
+}
+
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
     Eigen::MatrixXd input1(4, 4);
     input1 << 1, 1, 1, 1,
