@@ -1452,6 +1452,14 @@ TEST_CASE("Chapter 12 - Problem 09 - smartPointer()", "test"){
     REQUIRE(intSP.getRefCount() == 1);
 }
 
+TEST_CASE("Chapter 12 - Problem 10 - alignedMalloc()", "test"){
+
+}
+
+TEST_CASE("Chapter 12 - Problem 11 - malloc2D()", "test"){
+
+}
+
 TEST_CASE("Chapter 16 - Problem 02 - wordFrequencies()") {
     std::vector<std::string> book = {"Invictus\n",
                                      "By",
