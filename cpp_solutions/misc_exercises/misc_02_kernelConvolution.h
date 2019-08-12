@@ -5,6 +5,7 @@
  */
 #pragma once
 #include <Eigen/Dense>
+#include <memory>
 
 namespace misc {
     std::shared_ptr<Eigen::MatrixXd> kernelConvolution(const Eigen::MatrixXd& image, const Eigen::MatrixXd& kernel);
