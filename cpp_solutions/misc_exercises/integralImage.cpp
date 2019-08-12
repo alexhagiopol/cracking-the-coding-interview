@@ -1,5 +1,4 @@
 #include "integralImage.h"
-#include <iostream>
 
 namespace misc{
     Eigen::MatrixXd makeIntegralImage(const Eigen::MatrixXd& input){
