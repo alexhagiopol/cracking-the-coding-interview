@@ -1579,11 +1579,29 @@ TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
                2,  4,  6,  8,
                3,  6,  9, 12,
                4,  8, 12, 16;
-    REQUIRE(output1.isApprox(misc::makeIntegralImage(input1)));
+    REQUIRE(output1.isApprox(*misc::makeIntegralImage(input1)));
     Eigen::MatrixXd output2(4, 4);
     output2 << 1,   3,  6,  10,
                3,   9, 18,  30,
                6,  18, 36,  60,
                10, 30, 60, 100;
-    REQUIRE(output2.isApprox(misc::makeIntegralImage(output1)));
+    REQUIRE(output2.isApprox(*misc::makeIntegralImage(output1)));
+}
+
+TEST_CASE("Misc Exercises - kernelConvolution()", "test") {
+       Eigen::MatrixXd input1(4,4);
+       input1 << 0, 0, 0, 1,
+                 0, 1, 0, 0,
+                 0, 0, 0, 0,
+                 0, 0, 0, 0;
+       Eigen::MatrixXd kernel1(3, 3);
+       kernel1 << 0, 1, 0,
+                  1, 1, 1,
+                  0, 1, 0;
+       Eigen::MatrixXd output1(4, 4);
+       output1 << 0, 1, 1, 1,
+                  1, 1, 1, 1,
+                  0, 1, 0, 0,
+                  0, 0, 0, 0;
+       REQUIRE(output1.isApprox(*misc::kernelConvolution(input1, kernel1)));
 }

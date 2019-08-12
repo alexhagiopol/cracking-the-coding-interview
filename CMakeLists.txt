@@ -56,6 +56,8 @@ set(SOURCE_FILES
 		cpp_solutions/chapter_16_moderate/problem_16_03_intersection.cpp
 		cpp_solutions/chapter_16_moderate/problem_16_05_factorialZeros.cpp
 		cpp_solutions/chapter_16_moderate/problem_16_10_livingPeople.cpp
-        cpp_solutions/misc_exercises/integralImage.cpp)
+		# MISC
+        cpp_solutions/misc_exercises/misc_01_integralImage.cpp
+		cpp_solutions/misc_exercises/misc_02_kernelConvolution.cpp)
 # create executable
 add_executable(tests ${SOURCE_FILES})

@@ -39,8 +39,9 @@ reference and contribute solutions with confidence.
 15. Chapter 15 - Threads and Locks: `0 / 4` complete.
 16. Chapter 16 - Moderate: `5 / 26` complete.
 17. Chapter 17 - Hard: `0 / 26` complete.
+18. [Miscellaneous Exercises](cpp_solutions/misc_exercises): `2` complete.
 
-C++ Total: `72` solutions complete.
+C++ Total: `74` solutions complete.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -64,7 +65,7 @@ C++ Total: `72` solutions complete.
 
 Python Total: `56` solutions complete.
 
-##### Grand Total: `128` unique solutions complete.
+##### Grand Total: `130` unique solutions complete.
 
 ### Building: 
 #### Mac:
