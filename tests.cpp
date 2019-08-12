@@ -1453,11 +1453,15 @@ TEST_CASE("Chapter 12 - Problem 09 - smartPointer()", "test"){
 }
 
 TEST_CASE("Chapter 12 - Problem 10 - alignedMalloc()", "test"){
-
-}
-
-TEST_CASE("Chapter 12 - Problem 11 - malloc2D()", "test"){
-
+    int* intPointer = (int*) chapter_12::alignedMalloc(sizeof(int), 128);
+    double* doublePointer = (double*) chapter_12::alignedMalloc(sizeof(double), 32);
+    long* longPointer = (long*) chapter_12::alignedMalloc(sizeof(long), 64);
+    REQUIRE(reinterpret_cast<long>(intPointer) % 128 == 0);
+    REQUIRE(reinterpret_cast<long>(doublePointer) % 32 == 0);
+    REQUIRE(reinterpret_cast<long>(longPointer) % 64 == 0);
+    chapter_12::alignedFree(intPointer);
+    chapter_12::alignedFree(doublePointer);
+    chapter_12::alignedFree(longPointer);
 }
 
 TEST_CASE("Chapter 16 - Problem 02 - wordFrequencies()") {

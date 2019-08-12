@@ -25,18 +25,25 @@
  * 2. The core feature to implement is returning a memory address whose value is
  * divisible by the alignment parameter of the function and which points to the required
  * number of bytes.
- *
- *
  */
 
 #pragma once
 
 namespace chapter_12 {
     void* alignedMalloc(size_t required_bytes, size_t alignment) {
-        return nullptr;
+        // allocate enough space for required bytes, pointer to full memory block that enables alignedFree(), and alignment space
+        void* p1; // initial block
+        void* p2; // aligned block inside initial block
+        int offset = alignment - 1 + sizeof(void*);  // offset to achieve alignment - includes size of extra pointer
+        p1 = (void*)malloc(required_bytes + offset);
+        if (p1 == NULL) return NULL;  // handle case where user tries to allocate more memory than they have
+        p2 = (void*)(((size_t)(p1) + offset) & ~(alignment - 1));
+        ((void**)p2)[-1] = p1;
+        return p2;
     }
 
-    void alignedFree(void* pointer) {
-
+    void alignedFree(void* p2) {
+        void* p1 = ((void**)p2)[-1];
+        free(p1);
     }
 }
