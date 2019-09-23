@@ -11,6 +11,7 @@
 #include "cpp_solutions/chapter_10_sorting_and_searching/chapter_10_includes.h"
 #include "cpp_solutions/chapter_12_cpp/chapter_12_includes.h"
 #include "cpp_solutions/chapter_16_moderate/chapter_16_includes.h"
+#include "cpp_solutions/chapter_17_hard/chapter_17_includes.h"
 #include "cpp_solutions/misc_exercises/misc_includes.h"
 #define CATCH_CONFIG_MAIN
 #include "cpp_solutions/third_party/Catch/include/catch.hpp"
@@ -1552,7 +1553,7 @@ TEST_CASE("Chapter 16 - Problem 06 - smallestDifference()") {
     REQUIRE(std::numeric_limits<int>::max() == chapter_16::smallestDifference(example6, example6));
 }
 
-TEST_CASE("Chapter 16 - Problem 10 - livingPeople()") {
+TEST_CASE("Chapter 16 - Problem 10 - livingPeople()", "test") {
     std::vector<chapter_16::Person> people1 = {
             chapter_16::Person(1930, 2000),
             chapter_16::Person(1940, 2010),
@@ -1567,6 +1568,15 @@ TEST_CASE("Chapter 16 - Problem 10 - livingPeople()") {
     REQUIRE(1945 == livingPeople(people1, 1900, 1950));
     REQUIRE(1900 == livingPeople(people2, 1900, 2020));
 };
+
+TEST_CASE("Chapter 17 - Problem 21 - histogramVolume()", "test") {
+    const std::vector<int> histogram1 = {0, 0, 4, 0, 0, 6, 0, 0, 3, 0, 8, 0, 2, 0, 5, 2, 0, 3, 0, 0};
+    const std::vector<int> histogram2 = {5, 0, 0, 0, 1};
+    const std::vector<int> histogram3 = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};  // test case from leetcode problem https://leetcode.com/problems/trapping-rain-water/
+    REQUIRE(chapter_17::histogramVolume(histogram1) == 46);
+    REQUIRE(chapter_17::histogramVolume(histogram2) == 3);
+    REQUIRE(chapter_17::histogramVolume(histogram3) == 6);
+}
 
 TEST_CASE("Misc Exercises - makeIntegralImage()", "test"){
     Eigen::MatrixXd input1(4, 4);
