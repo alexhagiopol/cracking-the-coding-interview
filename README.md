@@ -37,11 +37,11 @@ reference and contribute solutions with confidence.
 13. Chapter 13 - Java: N/A
 14. Chapter 14 - Databases: `0 / 7` complete.
 15. Chapter 15 - Threads and Locks: `0 / 4` complete.
-16. [Chapter 16 - Moderate](cpp_solutions/chapter_16_moderate): `5 / 26` complete.
+16. [Chapter 16 - Moderate](cpp_solutions/chapter_16_moderate): `6 / 26` complete.
 17. [Chapter 17 - Hard](cpp_solutions/chapter_17_hard): `1 / 26` complete.
 18. [Miscellaneous Exercises](cpp_solutions/misc_exercises): `2` complete.
 
-C++ Total: `75` solutions complete.
+C++ Total: `76` solutions complete.
 
 #### [Python Solutions](python_solutions):
 0. [Python Unit tests](tests.py)
@@ -65,7 +65,7 @@ C++ Total: `75` solutions complete.
 
 Python Total: `56` solutions complete.
 
-##### Grand Total: `131` unique solutions complete.
+##### Grand Total: `132` unique solutions complete.
 
 ### Building: 
 #### Mac:
