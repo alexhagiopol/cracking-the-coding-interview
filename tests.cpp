@@ -1465,6 +1465,24 @@ TEST_CASE("Chapter 12 - Problem 10 - alignedMalloc()", "test"){
     chapter_12::alignedFree(longPointer);
 }
 
+TEST_CASE("Chapter 16 - Problem 01 - swapNumbers()") {
+    int a = 5;
+    int b = 9;
+    chapter_16::swapNumbers(a, b);
+    REQUIRE(a == 9);
+    REQUIRE(b == 5);
+    float c = 5.1f;
+    float d = -9.6f;
+    chapter_16::swapNumbers(c, d);
+    REQUIRE(c == -9.6f);
+    REQUIRE(d == 5.1f);
+    long e = -50435;
+    long f = -89048;
+    chapter_16::swapNumbers(e, f);
+    REQUIRE(e == -89048);
+    REQUIRE(f == -50435);
+}
+
 TEST_CASE("Chapter 16 - Problem 02 - wordFrequencies()") {
     std::vector<std::string> book = {"Invictus\n",
                                      "By",
