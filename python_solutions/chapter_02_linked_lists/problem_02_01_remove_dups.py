@@ -1,3 +1,11 @@
+"""
+Chapter 02 - Problem 01 - remove duplicates - CTCI 6th Edition
+Problem Statement:
+Write code to remove duplicates from unsorted linked list
+
+FOLLOW UP : How would you solve this problem if temporary buffer is not allowed.
+
+"""
 def remove_dups(head):  # O(n) speed with O(n) space for hash table
     hash_table = {head.value: True}
     while head is not None:
