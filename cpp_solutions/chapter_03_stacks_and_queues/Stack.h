@@ -5,7 +5,7 @@ namespace chapter_03{
     template <typename T>
     class Stack{
     protected:
-        chapter_02::SinglyLinkedNode<T>* _head;
+        std::shared_ptr<chapter_02::SinglyLinkedNode<T>> _head;
         int _stackSize;
     public:
         Stack(){
@@ -16,23 +16,21 @@ namespace chapter_03{
         bool isEmpty() const {return _head == nullptr;}
         // add item to top of stack
         virtual void push(const T& data) {
-            chapter_02::SinglyLinkedNode<T>* node = new chapter_02::SinglyLinkedNode<T>(data, _head);
+            auto node = std::make_shared<chapter_02::SinglyLinkedNode<T>>(data, _head);
             _head = node;
             _stackSize ++;
         }
         // remove item from top of stack
         virtual T pop(){
             if (_head != nullptr){
-                chapter_02::SinglyLinkedNode<T>* temp = _head;
+                auto temp = _head;
                 T tempValue =  temp->getValue();
                 _head = _head->getNext();
-                delete temp;
                 _stackSize --;
                 return tempValue;
             } else {
                 return static_cast<T>(0);  // nothing to return if stack is empty;
             }
-
         }
         // inspect item at top of stack without removing
         T peek(){
@@ -46,15 +44,14 @@ namespace chapter_03{
         // destructor
         ~Stack(){
             while (_head != nullptr){
-                chapter_02::SinglyLinkedNode<T>* temp = _head;
+                auto temp = _head;
                 _head = _head->getNext();
-                delete temp;
             }
         }
 
         // compare values in stack top-to-bottom to values in vector front-to-back for easy unit testing
         bool operator==(const std::vector<T>& vector){
-            chapter_02::SinglyLinkedNode<T>* temp = _head;
+            auto temp = _head;
             for (T item : vector){
                 if (temp == nullptr || item != temp->getValue()){
                     return false;  // vector length > stack height

@@ -162,17 +162,17 @@ TEST_CASE("Chapter 02 - Problem 01 - removeDups()", "test"){
     const std::vector<int> emptyVec;
 
     // check that remove dups function doesn't affect lists with no dups
-    chapter_02::SinglyLinkedNode<int>* noDupsHead = chapter_02::vectorToList(noDups);
+    auto noDupsHead = chapter_02::vectorToList(noDups);
     chapter_02::removeDups(noDupsHead);
     REQUIRE(noDups == chapter_02::listToVector(noDupsHead));
 
     // check case with duplicates
-    chapter_02::SinglyLinkedNode<int>* dupsHead = chapter_02::vectorToList(dups);
+    auto dupsHead = chapter_02::vectorToList(dups);
     chapter_02::removeDups(dupsHead);
     REQUIRE(fixedDups == chapter_02::listToVector(dupsHead));
 
     // check case with empty list
-    chapter_02::SinglyLinkedNode<int>* emptyHead = chapter_02::vectorToList(emptyVec);
+    auto emptyHead = chapter_02::vectorToList(emptyVec);
     chapter_02::removeDups(emptyHead);
     REQUIRE(emptyVec == chapter_02::listToVector(emptyHead));
 }
@@ -181,9 +181,9 @@ TEST_CASE("Chapter 02 - Problem 02 - returnKthToLast()", "test"){
     const std::vector<int> testVec1 = {1,7,3,6,5,4,2};
     const std::vector<int> testVec2 = {2,2,1,5,6,2,5,2,7,7};
     const std::vector<int> testVec3;
-    const chapter_02::SinglyLinkedNode<int>* testVec1Head = chapter_02::vectorToList(testVec1);
-    const chapter_02::SinglyLinkedNode<int>* testVec2Head = chapter_02::vectorToList(testVec2);
-    const chapter_02::SinglyLinkedNode<int>* testVec3Head = chapter_02::vectorToList(testVec3);
+    const std::shared_ptr<const chapter_02::SinglyLinkedNode<int>> testVec1Head = chapter_02::vectorToList(testVec1);
+    const std::shared_ptr<const chapter_02::SinglyLinkedNode<int>> testVec2Head = chapter_02::vectorToList(testVec2);
+    const std::shared_ptr<const chapter_02::SinglyLinkedNode<int>> testVec3Head = chapter_02::vectorToList(testVec3);
     REQUIRE(5 == chapter_02::returnKthToLast(testVec1Head, 3)->getValue());
     REQUIRE(2 == chapter_02::returnKthToLast(testVec1Head, 1)->getValue());
     REQUIRE(1 == chapter_02::returnKthToLast(testVec1Head, testVec1.size())->getValue());
@@ -199,10 +199,10 @@ TEST_CASE("Chapter 02 - Problem 03 - deleteMiddleNode()", "test"){
     // create test dataset
     const std::vector<std::string> testVec = {"a", "b", "c", "d", "e", "f"};
     const std::vector<std::string> expectedVec = {"a", "b", "d", "e", "f"};
-    chapter_02::SinglyLinkedNode<std::string>* testVecHead = chapter_02::vectorToList(testVec);
-    const chapter_02::SinglyLinkedNode<std::string>* expectedVecHead = chapter_02::vectorToList(expectedVec);
+    auto testVecHead = chapter_02::vectorToList(testVec);
+    std::shared_ptr<const chapter_02::SinglyLinkedNode<std::string>> expectedVecHead = chapter_02::vectorToList(expectedVec);
     // traverse input to find node with content "c"
-    chapter_02::SinglyLinkedNode<std::string>* head = testVecHead;
+    auto head = testVecHead;
     while (head != nullptr && head->getValue() != "c"){
         head = head->getNext();
     }
@@ -220,8 +220,8 @@ TEST_CASE("Chapter 02 - Problem 04 - partition()", "test"){
     // create test dataset
     const std::vector<int> inputVec = {3, 5, 8, 5, 10, 2, 1};
     const std::vector<int> expectedVec = {1, 2, 3, 5, 8, 5, 10};
-    chapter_02::SinglyLinkedNode<int>* inputVecHead = chapter_02::vectorToList(inputVec);
-    const chapter_02::SinglyLinkedNode<int>* expectedVecHead = chapter_02::vectorToList(expectedVec);
+    auto inputVecHead = chapter_02::vectorToList(inputVec);
+    std::shared_ptr<const chapter_02::SinglyLinkedNode<int>> expectedVecHead = chapter_02::vectorToList(expectedVec);
     // perform partition
     inputVecHead = chapter_02::partition(inputVecHead, 5);
     // check that vec 1 and vec 2 are the same
@@ -238,8 +238,8 @@ TEST_CASE("Chapter 02 - Problem 05 - sumLists()", "test"){
     const std::vector<uint8_t> n1Vec = {3, 2, 4, 9};
     const std::vector<uint8_t> n2Vec = {1, 5, 9};
     const std::vector<uint8_t> sumVecExpected = {4, 7, 3, 0, 1};
-    const chapter_02::SinglyLinkedNode<uint8_t>* n1Head = chapter_02::vectorToList(n1Vec);
-    const chapter_02::SinglyLinkedNode<uint8_t>* n2Head = chapter_02::vectorToList(n2Vec);
+    const auto n1Head = chapter_02::vectorToList(n1Vec);
+    const auto n2Head = chapter_02::vectorToList(n2Vec);
     const std::vector<uint8_t> sumVecActual = chapter_02::listToVector(chapter_02::sumLists(n1Head, n2Head));
     REQUIRE(sumVecExpected == sumVecActual);
 }
@@ -250,11 +250,11 @@ TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
     const std::vector<int> list3 = {0, 1, 0, 1, 0, 1};
     const std::vector<std::string> list4 = {"a", "l", "e",  "x"};
     const std::vector<std::string> list5 = {"A", "B", "B",  "A"};
-    const chapter_02::SinglyLinkedNode<int>* head1 = chapter_02::vectorToList(list1);
-    const chapter_02::SinglyLinkedNode<int>* head2 = chapter_02::vectorToList(list2);
-    const chapter_02::SinglyLinkedNode<int>* head3 = chapter_02::vectorToList(list3);
-    const chapter_02::SinglyLinkedNode<std::string>* head4 = chapter_02::vectorToList(list4);
-    const chapter_02::SinglyLinkedNode<std::string>* head5 = chapter_02::vectorToList(list5);
+    std::shared_ptr<const chapter_02::SinglyLinkedNode<int>> head1 = chapter_02::vectorToList(list1);
+    std::shared_ptr<const chapter_02::SinglyLinkedNode<int>> head2 = chapter_02::vectorToList(list2);
+    std::shared_ptr<const chapter_02::SinglyLinkedNode<int>> head3 = chapter_02::vectorToList(list3);
+    std::shared_ptr<const chapter_02::SinglyLinkedNode<std::string>> head4 = chapter_02::vectorToList(list4);
+    std::shared_ptr<const chapter_02::SinglyLinkedNode<std::string>> head5 = chapter_02::vectorToList(list5);
     REQUIRE(chapter_02::palindrome(head1));
     REQUIRE(chapter_02::palindrome(head2));
     REQUIRE(!chapter_02::palindrome(head3));
@@ -264,57 +264,59 @@ TEST_CASE("Chapter 02 - Problem 06 - palindrome()", "test"){
 
 TEST_CASE("Chapter 02 - Problem 07 - intersection()", "test") {
 	// list 1
-    chapter_02::SinglyLinkedNode<int>* node1_6 = new chapter_02::SinglyLinkedNode<int>(1, nullptr);
-    chapter_02::SinglyLinkedNode<int>* node1_5 = new chapter_02::SinglyLinkedNode<int>(2, node1_6);
-    chapter_02::SinglyLinkedNode<int>* node1_4 = new chapter_02::SinglyLinkedNode<int>(7, node1_5);
-    chapter_02::SinglyLinkedNode<int>* node1_3 = new chapter_02::SinglyLinkedNode<int>(9, node1_4);
-    chapter_02::SinglyLinkedNode<int>* node1_2 = new chapter_02::SinglyLinkedNode<int>(5, node1_3);
-    chapter_02::SinglyLinkedNode<int>* node1_1 = new chapter_02::SinglyLinkedNode<int>(1, node1_2);
-    chapter_02::SinglyLinkedNode<int>* node1_0 = new chapter_02::SinglyLinkedNode<int>(3, node1_1);
+    auto node1_6 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(1, nullptr);
+    auto node1_5 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(2, node1_6);
+    auto node1_4 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(7, node1_5);
+    auto node1_3 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(9, node1_4);
+    auto node1_2 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(5, node1_3);
+    auto node1_1 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(1, node1_2);
+    auto node1_0 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(3, node1_1);
 	// list 2
-    chapter_02::SinglyLinkedNode<int>* node2_1 = new chapter_02::SinglyLinkedNode<int>(6, node1_4);  // intersection point
-    chapter_02::SinglyLinkedNode<int>* node2_0 = new chapter_02::SinglyLinkedNode<int>(4, node2_1);
+    auto node2_1 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(6, node1_4);  // intersection point
+    auto node2_0 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(4, node2_1);
 	// list 3
-    chapter_02::SinglyLinkedNode<int>* node3_1 = new chapter_02::SinglyLinkedNode<int>(6, nullptr);
-    chapter_02::SinglyLinkedNode<int>* node3_0 = new chapter_02::SinglyLinkedNode<int>(4, node3_1);
+    auto node3_1 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(6, nullptr);
+    auto node3_0 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(4, node3_1);
 	REQUIRE(node1_4 == chapter_02::intersection(node1_0, node2_0));
 	REQUIRE(nullptr == chapter_02::intersection(node1_0, node3_0));
-	REQUIRE(nullptr == chapter_02::intersection(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr), static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr)));
+	REQUIRE(nullptr == chapter_02::intersection(
+	        static_cast<std::shared_ptr<chapter_02::SinglyLinkedNode<int>>>(nullptr),
+	        static_cast<std::shared_ptr<chapter_02::SinglyLinkedNode<int>>>(nullptr)));
 }
 
 TEST_CASE("Chapter 02 - Problem 08 - findLoop()", "test") {
 	// see problem_2_8_explanation.pdf
 	// example 1
-	chapter_02::SinglyLinkedNode<int>* node1_7 = new chapter_02::SinglyLinkedNode<int>(7, nullptr);
-	chapter_02::SinglyLinkedNode<int>* node1_6 = new chapter_02::SinglyLinkedNode<int>(6, node1_7);
-	chapter_02::SinglyLinkedNode<int>* node1_5 = new chapter_02::SinglyLinkedNode<int>(5, node1_6);
-	chapter_02::SinglyLinkedNode<int>* node1_4 = new chapter_02::SinglyLinkedNode<int>(4, node1_5);
-	chapter_02::SinglyLinkedNode<int>* node1_3 = new chapter_02::SinglyLinkedNode<int>(3, node1_4);
-	chapter_02::SinglyLinkedNode<int>* node1_2 = new chapter_02::SinglyLinkedNode<int>(2, node1_3);
-	chapter_02::SinglyLinkedNode<int>* node1_1 = new chapter_02::SinglyLinkedNode<int>(1, node1_2);
-	chapter_02::SinglyLinkedNode<int>* node1_0 = new chapter_02::SinglyLinkedNode<int>(0, node1_1);
+	auto node1_7 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(7, nullptr);
+    auto node1_6 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(6, node1_7);
+    auto node1_5 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(5, node1_6);
+    auto node1_4 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(4, node1_5);
+    auto node1_3 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(3, node1_4);
+    auto node1_2 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(2, node1_3);
+    auto node1_1 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(1, node1_2);
+    auto node1_0 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(0, node1_1);
 	node1_7->setNext(node1_5);
 	REQUIRE(node1_5 == chapter_02::findLoop(node1_0));
 
 	// example 2
-	chapter_02::SinglyLinkedNode<int>* node2_10 = new chapter_02::SinglyLinkedNode<int>(10, nullptr);
-	chapter_02::SinglyLinkedNode<int>* node2_9 = new chapter_02::SinglyLinkedNode<int>(9, node2_10);
-	chapter_02::SinglyLinkedNode<int>* node2_8 = new chapter_02::SinglyLinkedNode<int>(8, node2_9);
-	chapter_02::SinglyLinkedNode<int>* node2_7 = new chapter_02::SinglyLinkedNode<int>(7, node2_8);
-	chapter_02::SinglyLinkedNode<int>* node2_6 = new chapter_02::SinglyLinkedNode<int>(6, node2_7);
-	chapter_02::SinglyLinkedNode<int>* node2_5 = new chapter_02::SinglyLinkedNode<int>(5, node2_6);
-	chapter_02::SinglyLinkedNode<int>* node2_4 = new chapter_02::SinglyLinkedNode<int>(4, node2_5);
-	chapter_02::SinglyLinkedNode<int>* node2_3 = new chapter_02::SinglyLinkedNode<int>(3, node2_4);
-	chapter_02::SinglyLinkedNode<int>* node2_2 = new chapter_02::SinglyLinkedNode<int>(2, node2_3);
-	chapter_02::SinglyLinkedNode<int>* node2_1 = new chapter_02::SinglyLinkedNode<int>(1, node2_2);
-	chapter_02::SinglyLinkedNode<int>* node2_0 = new chapter_02::SinglyLinkedNode<int>(0, node2_1);
+    auto node2_10 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(10, nullptr);
+    auto node2_9 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(9, node2_10);
+    auto node2_8 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(8, node2_9);
+    auto node2_7 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(7, node2_8);
+    auto node2_6 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(6, node2_7);
+    auto node2_5 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(5, node2_6);
+    auto node2_4 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(4, node2_5);
+    auto node2_3 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(3, node2_4);
+    auto node2_2 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(2, node2_3);
+    auto node2_1 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(1, node2_2);
+    auto node2_0 = std::make_shared<chapter_02::SinglyLinkedNode<int>>(0, node2_1);
 	node2_10->setNext(node2_3);
 	REQUIRE(node2_3 == chapter_02::findLoop(node2_0));
 
 	// example 3
-	REQUIRE(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr) == chapter_02::findLoop(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr)));
+	REQUIRE(static_cast<std::shared_ptr<chapter_02::SinglyLinkedNode<int>>>(nullptr) == chapter_02::findLoop(static_cast<std::shared_ptr<chapter_02::SinglyLinkedNode<int>>>(nullptr)));
 }
-
+/*
 TEST_CASE("Chapter 03 - Stack", "test"){
     chapter_03::Stack<int> myStack;
     for (int i = 1; i <= 4; i++){
@@ -427,16 +429,16 @@ TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
 }
 
 TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
-    /*
-    Implements this directed graph:
-    1 -> 2 -> 3
-         |
-         v
-         4 -> 5 -> 6
-         |    ^
-         v    |
-         7 -> 8
-     */
+
+    // Implements this directed graph:
+    // 1 -> 2 -> 3
+    //      |
+    //      v
+    //      4 -> 5 -> 6
+    //      |    ^
+    //      v    |
+    //      7 -> 8
+
     chapter_02::TetraGraphNode<int>* node1 = new chapter_02::TetraGraphNode<int>(1);
     chapter_02::TetraGraphNode<int>* node2 = new chapter_02::TetraGraphNode<int>(2);
     chapter_02::TetraGraphNode<int>* node3 = new chapter_02::TetraGraphNode<int>(3);
@@ -494,12 +496,10 @@ TEST_CASE("Chapter 04 - Problem 02 - minimalTree()", "test"){
 }
 
 TEST_CASE("Chapter 04 - Problem 03 - makeLL()", "test"){
-    /*
-     * Construct a binary tree of the form
-     * 0
-     * 12
-     * 3456
-     */
+    // Construct a binary tree of the form
+    // 0
+    // 12
+    // 3456
     chapter_02::BinaryNode<int>* head = new chapter_02::BinaryNode<int>(0);
     chapter_02::BinaryNode<int>* child1 = new chapter_02::BinaryNode<int>(1);
     chapter_02::BinaryNode<int>* child2 = new chapter_02::BinaryNode<int>(2);
@@ -526,43 +526,39 @@ TEST_CASE("Chapter 04 - Problem 03 - makeLL()", "test"){
 }
 
 TEST_CASE("Chapter 04 - Problem 04 - checkBalanced()", "test") {
-/*
-balanced tree:
+    // balanced tree:
+    //
+    // node111,
+    // node121,node122,
+    // node131,node132,nullptr,nullptr,
+    // nullptr,nullptr,nullptr,nullptr,
 
-node111,
-node121,node122,
-node131,node132,nullptr,nullptr,
-nullptr,nullptr,nullptr,nullptr,
-*/
+    chapter_02::BinaryNode<int> node132(132, nullptr, nullptr);
+    chapter_02::BinaryNode<int> node131(131, nullptr, nullptr);
+    chapter_02::BinaryNode<int> node122(122, nullptr, nullptr);
+    chapter_02::BinaryNode<int> node121(121, &node131, &node132);
+    chapter_02::BinaryNode<int> node111(111, &node121, &node122);
+    chapter_04::NodeStatus status1 = chapter_04::checkBalanced(&node111);
+    REQUIRE(status1.balanced);
+    REQUIRE(status1.subtreeSize == 3);
 
-chapter_02::BinaryNode<int> node132(132, nullptr, nullptr);
-chapter_02::BinaryNode<int> node131(131, nullptr, nullptr);
-chapter_02::BinaryNode<int> node122(122, nullptr, nullptr);
-chapter_02::BinaryNode<int> node121(121, &node131, &node132);
-chapter_02::BinaryNode<int> node111(111, &node121, &node122);
-chapter_04::NodeStatus status1 = chapter_04::checkBalanced(&node111);
-REQUIRE(status1.balanced);
-REQUIRE(status1.subtreeSize == 3);
+    // unbalanced tree:
+    //
+    // node211,
+    // node221,node222,
+    // node231,node232,nullptr,nullptr,
+    // node241,nullptr,nullptr,nullptr,
+    // nullptr,nullptr,
 
-/*
-unbalanced tree:
-
-node211,
-node221,node222,
-node231,node232,nullptr,nullptr,
-node241,nullptr,nullptr,nullptr,
-nullptr,nullptr,
-*/
-
-chapter_02::BinaryNode<int> node241(241, nullptr, nullptr);
-chapter_02::BinaryNode<int> node232(232, nullptr, nullptr);
-chapter_02::BinaryNode<int> node231(231, &node241, nullptr);
-chapter_02::BinaryNode<int> node222(222, nullptr, nullptr);
-chapter_02::BinaryNode<int> node221(221, &node231, &node232);
-chapter_02::BinaryNode<int> node211(211, &node221, &node222);
-chapter_04::NodeStatus status2 = chapter_04::checkBalanced(&node211);
-REQUIRE(!status2.balanced);
-REQUIRE(status2.subtreeSize == 4);
+    chapter_02::BinaryNode<int> node241(241, nullptr, nullptr);
+    chapter_02::BinaryNode<int> node232(232, nullptr, nullptr);
+    chapter_02::BinaryNode<int> node231(231, &node241, nullptr);
+    chapter_02::BinaryNode<int> node222(222, nullptr, nullptr);
+    chapter_02::BinaryNode<int> node221(221, &node231, &node232);
+    chapter_02::BinaryNode<int> node211(211, &node221, &node222);
+    chapter_04::NodeStatus status2 = chapter_04::checkBalanced(&node211);
+    REQUIRE(!status2.balanced);
+    REQUIRE(status2.subtreeSize == 4);
 }
 
 TEST_CASE("Chpater 04 - Problem 05 - validateBST()", "test") {
@@ -575,12 +571,11 @@ TEST_CASE("Chpater 04 - Problem 05 - validateBST()", "test") {
     chapter_02::BinaryNode<int> node6(6);
     chapter_02::BinaryNode<int> node8(8);
     chapter_02::BinaryNode<int> node10(10);
-    /*
-                   8
-            4,            10
-       2,       6,
-    1,    3, 5,
-    */
+
+    //                   8
+    //            4,            10
+    //       2,       6,
+    //    1,    3, 5,
     node8.setLeft(&node4);
     node8.setRight(&node10);
     node4.setLeft(&node2);
@@ -609,15 +604,15 @@ TEST_CASE("Chapter 04 - Problem 06 - successor()", "test"){
     chapter_02::BinaryNode<int>* node8 = new chapter_02::BinaryNode<int>(8);
     chapter_02::BinaryNode<int>* node9 = new chapter_02::BinaryNode<int>(9);
     chapter_02::BinaryNode<int>* node10 = new chapter_02::BinaryNode<int>(10);
-    /*
-                            8
-                4                       10
-        2               6
-    1       3       5
-           0 9
-    In-order traversal:
-    1, 2, 0, 3, 9, 4, 5, 6, 8, 10
-    */
+
+    //                            8
+    //                4                       10
+    //        2               6
+    //    1       3       5
+    //           0 9
+    //    In-order traversal:
+    //    1, 2, 0, 3, 9, 4, 5, 6, 8, 10
+
     node0->setParent(node3);
     node1->setParent(node2);
     node3->setParent(node2);
@@ -692,16 +687,14 @@ TEST_CASE("Chapter 04 - Problem 07 - buildOrder()", "test") {
 }
 
 TEST_CASE("Chapter 04 - Problem 08 - firstCommonAncestor()", "test") {
-    /*
-    construct binary tree
-                    7
-            4               3
-        10      5       6       15
-                            21      17
-
-
-                            25
-    */
+    //    construct binary tree
+    //                    7
+    //            4               3
+    //        10      5       6       15
+    //                            21      17
+    //
+    //
+    //                            25
     chapter_02::BinaryNode<int> n21(21);
     chapter_02::BinaryNode<int> n17(17);
     chapter_02::BinaryNode<int> n15(15, &n21, &n17);
@@ -721,16 +714,14 @@ TEST_CASE("Chapter 04 - Problem 08 - firstCommonAncestor()", "test") {
 }
 
 TEST_CASE("Chapter 04 - Problem 10 - checkSubtree()", "test") {
-    /*
-    construct binary tree
-                    7
-            4               3
-        10      5       6       15
-                            21      17
-
-
-                            25
-    */
+    // construct binary tree
+    //                 7
+    //         4               3
+    //     10      5       6       15
+    //                         21      17
+    //
+    //
+    //                         25
     chapter_02::BinaryNode<int> n21(21);
     chapter_02::BinaryNode<int> n17(17);
     chapter_02::BinaryNode<int> n15(15, &n21, &n17);
@@ -741,11 +732,11 @@ TEST_CASE("Chapter 04 - Problem 10 - checkSubtree()", "test") {
     chapter_02::BinaryNode<int> n4(4, &n10, &n5);
     chapter_02::BinaryNode<int> n7(7, &n4, &n3);
     chapter_02::BinaryNode<int> n25(25);
-    /*
-    construct disconnected binary tree
-        30
-    31      32
-    */
+
+    // construct disconnected binary tree
+    //     30
+    // 31      32
+
     chapter_02::BinaryNode<int> n31(31);
     chapter_02::BinaryNode<int> n32(32);
     chapter_02::BinaryNode<int> n30(30, &n31, &n32);
@@ -791,13 +782,13 @@ TEST_CASE("Chapter 04 - Problem 11 - randomBST()", "test"){
 }
 
 TEST_CASE("Chapter 04 - Problem 12 - pathsWithSum()", "test"){
-    /*
-    construct binary tree like in textbook example
-                        10
-                5                   -3
-        3              1        __      11
-    3     -2         __    2
-    */
+
+    // construct binary tree like in textbook example
+    //                     10
+    //             5                   -3
+    //     3              1        __      11
+    // 3     -2         __    2
+
     // leaf nodes at depth = 3
     chapter_02::BinaryNode<int> n3_leaf(3);
     chapter_02::BinaryNode<int> n_minus2(-2);
@@ -1633,3 +1624,4 @@ TEST_CASE("Misc Exercises - kernelConvolution()", "test") {
                   0, 0, 0, 0;
        REQUIRE(output1.isApprox(*misc::kernelConvolution(input1, kernel1)));
 }
+*/

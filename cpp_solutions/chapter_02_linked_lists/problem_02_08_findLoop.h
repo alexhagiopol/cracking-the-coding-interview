@@ -23,10 +23,10 @@ Space complexity: O(1)
 */
 
 namespace chapter_02 {
-	template <typename T>
-	const SinglyLinkedNode<T>* findLoop(const SinglyLinkedNode<T>* head) {
-		const SinglyLinkedNode<T>* F = head;  // fast
-		const SinglyLinkedNode<T>* S = head;  // slow
+    template <typename T>
+	std::shared_ptr<SinglyLinkedNode<T>> findLoop(std::shared_ptr<SinglyLinkedNode<T>> head) {
+		auto F = head;  // fast
+		auto S = head;  // slow
 		// set up first meeting
 		while (true) {
 			// if there is no loop, return nullptr

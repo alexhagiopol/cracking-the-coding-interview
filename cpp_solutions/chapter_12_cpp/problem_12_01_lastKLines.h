@@ -45,10 +45,10 @@ namespace chapter_12 {
         if (K <= 0) return; // handle empty lines vector
 
         // initialize circular array
-        auto head = new chapter_02::SinglyLinkedNode<std::string>("");
+        auto head = std::make_shared<chapter_02::SinglyLinkedNode<std::string>>("");
         auto prev = head;
         for (int i = 1; i < K; i++) {
-            auto node = new chapter_02::SinglyLinkedNode<std::string>("");
+            auto node = std::make_shared<chapter_02::SinglyLinkedNode<std::string>>("");
             prev->setNext(node);
             prev = node;
         }
@@ -73,12 +73,10 @@ namespace chapter_12 {
             }
         }
 
-        // copy contents of circular array to vector of strings; clean up allocated memory
+        // copy contents of circular array to vector of strings
         for (int i = 0; i < K; i++) {
             lines[i] = head->getValue();
-            auto temp = head;
             head=head->getNext();
-            delete temp;
         }
     }
 }

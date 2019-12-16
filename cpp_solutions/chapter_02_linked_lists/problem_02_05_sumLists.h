@@ -25,16 +25,16 @@ Space complexity: O(N)
 #include "Node.h"
 
 namespace chapter_02{
-    SinglyLinkedNode<uint8_t>* sumLists(const SinglyLinkedNode<uint8_t>* head1, const SinglyLinkedNode<uint8_t>* head2){
+    std::shared_ptr<SinglyLinkedNode<uint8_t>> sumLists(std::shared_ptr<const SinglyLinkedNode<uint8_t>> head1, std::shared_ptr<const SinglyLinkedNode<uint8_t>> head2){
         uint8_t carry = 0;
-        SinglyLinkedNode<uint8_t>* outputRunner = nullptr;
-        SinglyLinkedNode<uint8_t>* outputHead = nullptr;
+        std::shared_ptr<SinglyLinkedNode<uint8_t>> outputRunner = nullptr;
+        std::shared_ptr<SinglyLinkedNode<uint8_t>> outputHead = nullptr;
         while (head1 != nullptr || head2 != nullptr){  // continue traversing so long as one pointer is not null
             if (outputRunner == nullptr){  // create head of output linked list
-                outputRunner = new SinglyLinkedNode<uint8_t>(0);
+                outputRunner = std::make_shared<SinglyLinkedNode<uint8_t>>(0);
                 outputHead = outputRunner;
             } else {  // add new node to existing list
-                SinglyLinkedNode<uint8_t>* temp = new SinglyLinkedNode<uint8_t>(0);
+                auto temp = std::make_shared<SinglyLinkedNode<uint8_t>>(0);
                 outputRunner->setNext(temp);
                 outputRunner = outputRunner->getNext();
             }
@@ -60,7 +60,7 @@ namespace chapter_02{
             }
             outputRunner->setValue(sum);
         }
-        if (carry > 0) outputRunner->setNext(new SinglyLinkedNode<uint8_t>(carry));  // traversal is over but carry value still remains
+        if (carry > 0) outputRunner->setNext(std::make_shared<SinglyLinkedNode<uint8_t>>(carry));  // traversal is over but carry value still remains
         return outputHead;
     }
 }

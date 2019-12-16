@@ -22,13 +22,12 @@ Space complexity: O(1).
 
 namespace chapter_02{
     template <typename T>
-    void deleteMiddleNode(SinglyLinkedNode<T>* middle){
+    void deleteMiddleNode(std::shared_ptr<SinglyLinkedNode<T>> middle){
         if (middle == nullptr || middle->getNext() == nullptr){
             return; // given node is not in the middle. do nothing.
         }
-        SinglyLinkedNode<T>* next = middle->getNext();
+        auto next = middle->getNext();
         middle->setValue(next->getValue());
         middle->setNext(next->getNext());
-        delete next;
     }
 }

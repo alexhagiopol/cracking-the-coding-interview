@@ -25,15 +25,15 @@ Space complexity: O(1) (we need no additional space in addition to the O(N) spac
 
 namespace chapter_02{
     template <typename T>
-    SinglyLinkedNode<T>* partition(SinglyLinkedNode<T>* head, T partition){
+    std::shared_ptr<SinglyLinkedNode<T>> partition(std::shared_ptr<SinglyLinkedNode<T>> head, T partition){
         if (head == nullptr){
             return nullptr;
         }
-        SinglyLinkedNode<T>* newHead = head;
-        SinglyLinkedNode<T>* newTail = head;
+        auto newHead = head;
+        auto newTail = head;
         head = head->getNext();
         while (head != nullptr){
-            SinglyLinkedNode<T>* temp = head;
+            auto temp = head;
             head = head->getNext();
             if (temp->getValue() < partition){ // add node in front of new head
                 temp->setNext(newHead);

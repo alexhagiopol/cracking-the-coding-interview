@@ -22,19 +22,19 @@ Space complexity: O(N)
 
 namespace chapter_02{
     template <typename T>
-    bool palindrome(const SinglyLinkedNode<T>* head){
-        const SinglyLinkedNode<T>* runner = head;
+    bool palindrome(std::shared_ptr<const SinglyLinkedNode<T>> head){
+        std::shared_ptr<const SinglyLinkedNode<T>> runner = head;
         int count = 0;
         while (runner != nullptr){  // traverse list forwards once
             count ++;  // count length of input list
             runner = runner->getNext();
         }
         int halfLength = count / 2;  // integer division to compute half length; odd lengths get truncated
-        SinglyLinkedNode<T>* revHead = new SinglyLinkedNode<T>(head->getValue());
+        std::shared_ptr<SinglyLinkedNode<T>> revHead = std::make_shared<SinglyLinkedNode<T>>(head->getValue());
         runner = head;
         for (int i = 1; i < halfLength; i++){  // create a list that is reverse of first half of input list
             runner = runner->getNext();
-            SinglyLinkedNode<T>* temp = new SinglyLinkedNode<T>(runner->getValue(), revHead);
+            auto temp = std::make_shared<SinglyLinkedNode<T>>(runner->getValue(), revHead);
             revHead = temp;
         }
         runner = runner->getNext();  // advance runner from first half to second half

@@ -66,7 +66,7 @@ namespace chapter_04 {
             chapter_02::GraphNode<char>* node = Q.front();
             Q.pop();
             buildOrder.push_back(node->getValue());
-            chapter_02::SinglyLinkedNode<chapter_02::GraphNode<char>*>* child = node->getHeadOfDescendants();
+            auto child = node->getHeadOfDescendants();
             while (child != nullptr) {
                 child->getValue()->decAncestors();
                 totalEdges --;  // keep track of total edges in graph as we remove them

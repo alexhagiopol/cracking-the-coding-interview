@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include <vector>
 
 namespace chapter_02{
@@ -20,21 +21,22 @@ namespace chapter_02{
     template <typename T>
     class SinglyLinkedNode : public Node<T>{
     private:
-        SinglyLinkedNode* _next;
+        std::shared_ptr<SinglyLinkedNode> _next;
     public:
-        SinglyLinkedNode(T value, SinglyLinkedNode* next = nullptr) : Node<T>(value), _next(next) {}  // constructor
+        SinglyLinkedNode(T value, std::shared_ptr<SinglyLinkedNode> next = nullptr) : Node<T>(value), _next(next) {}  // constructor
         SinglyLinkedNode(const SinglyLinkedNode& other) : Node<T>::_value(other.getValue()), _next(other.getNext()){}  // copy constructor
+        //SinglyLinkedNode& operator=(const SinglyLinkedNode& other) {Node<T>::_value = other.getValue(); _next = other.getNext();}
         ~SinglyLinkedNode(){}
-        SinglyLinkedNode* getNext() const {return _next;}
-        void setNext(SinglyLinkedNode* next) {_next = next;}
+        std::shared_ptr<SinglyLinkedNode> getNext() const {return _next;}
+        void setNext(std::shared_ptr<SinglyLinkedNode> next) {_next = next;}
     };  // class SinglyLinkedNode
 
     // general graph node. supports infinite number of children by maintaining pointer to head of linked list of child pointers
     template <typename T>
     class GraphNode : public Node<T> {
     private:
-        SinglyLinkedNode<GraphNode<T>*>* _head;
-        SinglyLinkedNode<GraphNode<T>*>* _tail;
+        std::shared_ptr<SinglyLinkedNode<GraphNode<T>*>> _head;
+        std::shared_ptr<SinglyLinkedNode<GraphNode<T>*>> _tail;
         int _numAncestors;
     public:
         GraphNode(T value) : Node<T>(value) {
@@ -43,10 +45,10 @@ namespace chapter_02{
         }
         void push(GraphNode<T>* node) {
             if (_head == nullptr) {
-                _head = new SinglyLinkedNode<GraphNode<T>*>(node);
+                _head = std::make_shared<SinglyLinkedNode<GraphNode<T>*>>(node); // new SinglyLinkedNode<GraphNode<T>*>(node);
                 _tail = _head;
             } else {
-                _tail->setNext(new SinglyLinkedNode<GraphNode<T>*>(node));
+                _tail->setNext(std::make_shared<SinglyLinkedNode<GraphNode<T>*>>(node));
                 _tail = _tail->getNext();
             }
         }
@@ -59,9 +61,7 @@ namespace chapter_02{
                 _head = nullptr;
                 _tail = nullptr;
             } else {
-                SinglyLinkedNode<GraphNode<T>*>* tempHead = _head;
                 _head = _head->getNext();
-                delete tempHead;
             }
             return tempGN;
         }
@@ -74,7 +74,7 @@ namespace chapter_02{
         int getNumAncestors() {
             return _numAncestors;
         }
-        SinglyLinkedNode<GraphNode<T>*>* getHeadOfDescendants() {
+        std::shared_ptr<SinglyLinkedNode<GraphNode<T>*>> getHeadOfDescendants() {
             return _head;
         }
     };
@@ -153,14 +153,14 @@ namespace chapter_02{
 
     // utility function that converts contents of std::vector to linked list
     template <typename T>
-    SinglyLinkedNode<T>* vectorToList(const std::vector<T> numbers){
+    std::shared_ptr<SinglyLinkedNode<T>> vectorToList(const std::vector<T> numbers){
         if(numbers.size() <= 0){
             return nullptr;
         }
-        SinglyLinkedNode<T>* head = new SinglyLinkedNode<T>(numbers[0]);
-        SinglyLinkedNode<T>* runner = head;
+        auto head = std::make_shared<SinglyLinkedNode<T>>(numbers[0]);
+        auto runner = head;
         for (int i = 1; i < numbers.size(); i++ ){
-            SinglyLinkedNode<T>* temp = new SinglyLinkedNode<T>(numbers[i]);
+            auto temp = std::make_shared<SinglyLinkedNode<T>>(numbers[i]);
             runner->setNext(temp);
             runner = runner->getNext();
         }
@@ -169,9 +169,9 @@ namespace chapter_02{
 
     // utility function that converts contents of linked list to std::vector
     template <typename T>
-    std::vector<T> listToVector(SinglyLinkedNode<T>* head){
+    std::vector<T> listToVector(std::shared_ptr<SinglyLinkedNode<T>> head){
         std::vector<T> vector;
-        SinglyLinkedNode<T>* runner = head;
+        auto runner = head;
         while (runner != nullptr){
             vector.push_back(runner->getValue());
             runner = runner->getNext();

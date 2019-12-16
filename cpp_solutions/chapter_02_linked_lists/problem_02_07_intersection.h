@@ -49,9 +49,9 @@ return smaller
 
 namespace chapter_02 {
 	template <typename T>
-	const SinglyLinkedNode<T>* intersection(const SinglyLinkedNode<T>* head1, const SinglyLinkedNode<T>* head2) {
-		const SinglyLinkedNode<T>* runner1 = head1;
-		const SinglyLinkedNode<T>* runner2 = head2;
+	std::shared_ptr<SinglyLinkedNode<T>> intersection(std::shared_ptr<SinglyLinkedNode<T>> head1, std::shared_ptr<SinglyLinkedNode<T>> head2) {
+		auto runner1 = head1;
+		auto runner2 = head2;
 		int length1 = 0;
 		int length2 = 0;
 		while (runner1 != nullptr) {  // advance pointer 1 to end and compute list size
@@ -67,8 +67,8 @@ namespace chapter_02 {
 		}
 		int sizeDiff = length1 - length2;
 		// determine which list is longer
-		const SinglyLinkedNode<T>* larger = nullptr;
-		const SinglyLinkedNode<T>* smaller = nullptr;
+        std::shared_ptr<SinglyLinkedNode<T>> larger = nullptr;
+        std::shared_ptr<SinglyLinkedNode<T>> smaller = nullptr;
 		if (sizeDiff > 0) {
 			larger = head1;
 			smaller = head2;

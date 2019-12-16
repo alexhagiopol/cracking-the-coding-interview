@@ -3,10 +3,10 @@
 
 namespace chapter_02{
     template <typename T>
-    const SinglyLinkedNode<T>* returnKthToLast(const SinglyLinkedNode<T>* head, int k) {
+    std::shared_ptr<const SinglyLinkedNode<T>> returnKthToLast(const std::shared_ptr<const SinglyLinkedNode<T>> head, int k) {
         if (head == nullptr) return nullptr;
-        const SinglyLinkedNode<T>* slowRunner = head;
-        const SinglyLinkedNode<T>* fastRunner = head;
+        std::shared_ptr<const SinglyLinkedNode<T>> slowRunner = head;
+        std::shared_ptr<const SinglyLinkedNode<T>> fastRunner = head;
         while(k > 0){
             if (fastRunner == nullptr) return nullptr;
             fastRunner = fastRunner->getNext();
