@@ -1,10 +1,9 @@
 cmake_minimum_required(VERSION 3.2)
 project(ctci)
 set(CMAKE_CXX_STANDARD 17)
-# include source folder
-include_directories(cpp_solutions)
-# include Eigen
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp_solutions/third_party/eigen)
+add_definitions(-Wfatal-errors)  # GCC parameter to stop compiling after the first error
+include_directories(cpp_solutions)  # include source folder
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp_solutions/third_party/eigen)  # include Eigen
 
 # set source files
 set(SOURCE_FILES
