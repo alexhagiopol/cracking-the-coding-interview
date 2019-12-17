@@ -38,28 +38,28 @@ namespace chapter_02{
     template <typename T>
     class GraphNode : public Node<T> {
     private:
-        std::shared_ptr<SinglyLinkedNode<GraphNode<T>*>> _head;
-        std::shared_ptr<SinglyLinkedNode<GraphNode<T>*>> _tail;
+        std::shared_ptr<SinglyLinkedNode<std::shared_ptr<GraphNode<T>>>> _head;
+        std::shared_ptr<SinglyLinkedNode<std::shared_ptr<GraphNode<T>>>> _tail;
         int _numAncestors;
     public:
         GraphNode(T value) : Node<T>(value) {
             _head = nullptr;
             _tail = nullptr;
         }
-        void push(GraphNode<T>* node) {
+        void push(std::shared_ptr<GraphNode<T>> node) {
             if (_head == nullptr) {
-                _head = std::make_shared<SinglyLinkedNode<GraphNode<T>*>>(node); // new SinglyLinkedNode<GraphNode<T>*>(node);
+                _head = std::make_shared<SinglyLinkedNode<std::shared_ptr<GraphNode<T>>>>(node);
                 _tail = _head;
             } else {
-                _tail->setNext(std::make_shared<SinglyLinkedNode<GraphNode<T>*>>(node));
+                _tail->setNext(std::make_shared<SinglyLinkedNode<std::shared_ptr<GraphNode<T>>>>(node));
                 _tail = _tail->getNext();
             }
         }
-        GraphNode<T>* pop() {
+        std::shared_ptr<GraphNode<T>> pop() {
             if (_head == nullptr) {
                 return nullptr;
             }
-            GraphNode<T>* tempGN = _head->getValue();
+            std::shared_ptr<GraphNode<T>> tempGN = _head->getValue();
             if (_tail == _head) {
                 _head = nullptr;
                 _tail = nullptr;
@@ -77,7 +77,7 @@ namespace chapter_02{
         int getNumAncestors() {
             return _numAncestors;
         }
-        std::shared_ptr<SinglyLinkedNode<GraphNode<T>*>> getHeadOfDescendants() {
+        std::shared_ptr<SinglyLinkedNode<std::shared_ptr<GraphNode<T>>>> getHeadOfDescendants() {
             return _head;
         }
     };

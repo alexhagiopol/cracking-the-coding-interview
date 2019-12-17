@@ -37,33 +37,33 @@ Space complexity: O(V)
 namespace chapter_04 {
     void buildOrder(std::vector<char>& projects, std::vector<std::pair<char, char>>& dependencies, std::vector<char>& buildOrder) {
         // convert list of project identifiers to graph nodes
-        std::vector<chapter_02::GraphNode<char>*> projectsGN = {};  // store pointers to GraphNodes used in topological sort
+        std::vector<std::shared_ptr<chapter_02::GraphNode<char>>> projectsGN = {};  // store pointers to GraphNodes used in topological sort
         std::unordered_map<char, int> charToIndexMap;  // map project identifier char to index for fast lookup based on project identifier
         for (int i = 0; i < projects.size(); i++) {
             auto iterator = charToIndexMap.find(projects[i]);  // check for project uniqueness
             if (iterator != charToIndexMap.end()) return;  // the same project exists twice in the project manifest
-            projectsGN.push_back(new chapter_02::GraphNode<char>(projects[i]));
+            projectsGN.push_back(std::make_shared<chapter_02::GraphNode<char>>(projects[i]));
             charToIndexMap[projects[i]] = i;
         }
         // convert list of project dependencies to graph edges
         int totalEdges = 0;
         for (auto dependency : dependencies) {
             // the first node in a pair must be build before the second.
-            chapter_02::GraphNode<char>* first = projectsGN[charToIndexMap[dependency.first]];
-            chapter_02::GraphNode<char>* second = projectsGN[charToIndexMap[dependency.second]];
+            auto first = projectsGN[charToIndexMap[dependency.first]];
+            auto second = projectsGN[charToIndexMap[dependency.second]];
             // add edge from the first node to the second node
             first->push(second);
             second->incAncestors();
             totalEdges ++;
         }
         // create queue containing all nodes with no dependencies
-        std::queue<chapter_02::GraphNode<char>*> Q;
+        std::queue<std::shared_ptr<chapter_02::GraphNode<char>>> Q;
         for (auto node : projectsGN) {
             if (node->getNumAncestors() == 0) Q.push(node);
         }
         // traverse graph in depth first order starting from nodes without dependencies
         while (!Q.empty()) {
-            chapter_02::GraphNode<char>* node = Q.front();
+            auto node = Q.front();
             Q.pop();
             buildOrder.push_back(node->getValue());
             auto child = node->getHeadOfDescendants();
@@ -78,10 +78,6 @@ namespace chapter_04 {
         // if edges remain in the graph, at least one circular dependency exists
         if (totalEdges != 0) {
             buildOrder.clear();
-        }
-        // free memory consumed by graph nodes
-        for (auto node : projectsGN) {
-            delete node;
         }
     }
 }  // namespace chapter_04
