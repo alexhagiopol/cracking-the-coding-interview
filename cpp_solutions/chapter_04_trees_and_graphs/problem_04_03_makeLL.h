@@ -26,10 +26,10 @@ Space complexity: O(N)
 namespace chapter_04 {
     // utility function to test correctness of vector of linked lists
     template <typename T>
-    std::vector<T> vectorFromVectorOfLLs(std::vector<chapter_02::SinglyLinkedNode<T>*>& vector) {
+    std::vector<T> vectorFromVectorOfLLs(std::vector<std::shared_ptr<chapter_02::SinglyLinkedNode<T>>>& vector) {
         std::vector<T> contents = {};
         for (int i = 0; i < vector.size(); i++) {
-            chapter_02::SinglyLinkedNode<T>* node = vector[i];
+            auto node = vector[i];
             while (node != nullptr) {
                 contents.push_back(node->getValue());
                 node = node->getNext();
@@ -40,20 +40,20 @@ namespace chapter_04 {
     // convert BST into vector of linked lists. one linked list at every BST depth
     template <typename T>
     void makeLL(
-            std::vector<chapter_02::SinglyLinkedNode<T>*>& vectorOfHeads,
-            std::vector<chapter_02::SinglyLinkedNode<T>*>& vectorOfTails,
+            std::vector<std::shared_ptr<chapter_02::SinglyLinkedNode<T>>>& vectorOfHeads,
+            std::vector<std::shared_ptr<chapter_02::SinglyLinkedNode<T>>>& vectorOfTails,
             const chapter_02::BinaryNode<T>* bstHead,
             int depth = 0) {  // we cast the problem as a vector of linked lists
         if (bstHead == nullptr) {  // terminating condition: do nothing if BST head is null
             return;
         }
         if (depth >= vectorOfHeads.size()) {  // case where head of new linked list needs to be added to vector
-            auto newNode = new chapter_02::SinglyLinkedNode<T>(bstHead->getValue(), nullptr);
+            auto newNode = std::make_shared<chapter_02::SinglyLinkedNode<T>>(bstHead->getValue(), nullptr);
             vectorOfHeads.push_back(newNode);
             vectorOfTails.push_back(newNode);
         } else { // case where current node ("bstHead") needs to be appended to end of existing linked list
-            chapter_02::SinglyLinkedNode<T>* depthTail = vectorOfTails[depth];
-            depthTail->setNext(new chapter_02::SinglyLinkedNode<T>(bstHead->getValue(), nullptr));
+            auto depthTail = vectorOfTails[depth];
+            depthTail->setNext(std::make_unique<chapter_02::SinglyLinkedNode<T>>(bstHead->getValue(), nullptr));
             vectorOfTails[depth] = depthTail->getNext();
         }
         // recursive function calls

@@ -23,8 +23,7 @@ namespace chapter_03{
         // remove item from top of stack
         virtual T pop(){
             if (_head != nullptr){
-                auto temp = _head;
-                T tempValue =  temp->getValue();
+                T tempValue =  _head->getValue();
                 _head = _head->getNext();
                 _stackSize --;
                 return tempValue;
@@ -44,7 +43,6 @@ namespace chapter_03{
         // destructor
         ~Stack(){
             while (_head != nullptr){
-                auto temp = _head;
                 _head = _head->getNext();
             }
         }

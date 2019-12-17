@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <memory>
 #include <vector>
 
@@ -18,6 +19,9 @@ namespace chapter_02{
     };
 
     // specialized node for singly linked lists
+    // generally, a true singly linked list is implemented with std::unique_ptr linkage
+    // however to allow for checking for loops, intersections, and other traversals
+    // we implement using std::shared_ptr
     template <typename T>
     class SinglyLinkedNode : public Node<T>{
     private:
@@ -25,10 +29,9 @@ namespace chapter_02{
     public:
         SinglyLinkedNode(T value, std::shared_ptr<SinglyLinkedNode> next = nullptr) : Node<T>(value), _next(next) {}  // constructor
         SinglyLinkedNode(const SinglyLinkedNode& other) : Node<T>::_value(other.getValue()), _next(other.getNext()){}  // copy constructor
-        //SinglyLinkedNode& operator=(const SinglyLinkedNode& other) {Node<T>::_value = other.getValue(); _next = other.getNext();}
-        ~SinglyLinkedNode(){}
         std::shared_ptr<SinglyLinkedNode> getNext() const {return _next;}
         void setNext(std::shared_ptr<SinglyLinkedNode> next) {_next = next;}
+        ~SinglyLinkedNode(){}
     };  // class SinglyLinkedNode
 
     // general graph node. supports infinite number of children by maintaining pointer to head of linked list of child pointers

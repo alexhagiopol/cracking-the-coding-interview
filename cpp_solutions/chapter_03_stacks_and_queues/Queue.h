@@ -5,6 +5,7 @@ namespace chapter_03 {
     template <typename T>
     class Queue {
     private:
+        // we add to the front of the list and take away from the back of the list
         std::shared_ptr<chapter_02::SinglyLinkedNode<T>> _first;
         std::shared_ptr<chapter_02::SinglyLinkedNode<T>> _last;
     public:

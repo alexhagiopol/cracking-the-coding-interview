@@ -23,10 +23,10 @@ Space complexity: O(N) - because of recursion, N function calls go on the stack.
 
 namespace chapter_12{
     template <typename T>
-    chapter_02::SinglyLinkedNode<T>* copyNode(const chapter_02::SinglyLinkedNode<T>* target){
+    std::shared_ptr<chapter_02::SinglyLinkedNode<T>> copyNode(std::shared_ptr<chapter_02::SinglyLinkedNode<T>> target){
         if (target == nullptr){
             return nullptr;
         }
-        return new chapter_02::SinglyLinkedNode<T>(target->getValue(), copyNode(target->getNext()));
+        return std::make_shared<chapter_02::SinglyLinkedNode<T>>(target->getValue(), copyNode(target->getNext()));
     }
 }

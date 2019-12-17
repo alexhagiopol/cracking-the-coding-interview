@@ -177,6 +177,7 @@ TEST_CASE("Chapter 02 - Problem 01 - removeDups()", "test"){
     REQUIRE(emptyVec == chapter_02::listToVector(emptyHead));
 }
 
+
 TEST_CASE("Chapter 02 - Problem 02 - returnKthToLast()", "test"){
     const std::vector<int> testVec1 = {1,7,3,6,5,4,2};
     const std::vector<int> testVec2 = {2,2,1,5,6,2,5,2,7,7};
@@ -202,13 +203,13 @@ TEST_CASE("Chapter 02 - Problem 03 - deleteMiddleNode()", "test"){
     auto testVecHead = chapter_02::vectorToList(testVec);
     std::shared_ptr<const chapter_02::SinglyLinkedNode<std::string>> expectedVecHead = chapter_02::vectorToList(expectedVec);
     // traverse input to find node with content "c"
-    auto head = testVecHead;
-    while (head != nullptr && head->getValue() != "c"){
-        head = head->getNext();
+    auto toBeDeleted = testVecHead;
+    while (toBeDeleted != nullptr && toBeDeleted->getValue() != "c"){
+        toBeDeleted = toBeDeleted->getNext();
     }
-    // head is not at location "c". call delete function
-    chapter_02::deleteMiddleNode(head);
-    // check that vec 1 and vec 2 are the same
+    // toBeDeleted is now at location "c". call delete function
+    chapter_02::deleteMiddleNode(toBeDeleted);
+    // check that vec 1 and vec 2 are the same after deletion
     while (testVecHead != nullptr && expectedVecHead != nullptr){
         REQUIRE(testVecHead->getValue() == expectedVecHead->getValue());
         testVecHead = testVecHead->getNext();
@@ -316,7 +317,7 @@ TEST_CASE("Chapter 02 - Problem 08 - findLoop()", "test") {
 	// example 3
 	REQUIRE(static_cast<std::shared_ptr<chapter_02::SinglyLinkedNode<int>>>(nullptr) == chapter_02::findLoop(static_cast<std::shared_ptr<chapter_02::SinglyLinkedNode<int>>>(nullptr)));
 }
-/*
+
 TEST_CASE("Chapter 03 - Stack", "test"){
     chapter_03::Stack<int> myStack;
     for (int i = 1; i <= 4; i++){
@@ -514,8 +515,8 @@ TEST_CASE("Chapter 04 - Problem 03 - makeLL()", "test"){
     child2->setLeft(child5);
     child2->setRight(child6);
     // execute conversion to linked list
-    std::vector<chapter_02::SinglyLinkedNode<int>*> vectorOfHeads;
-    std::vector<chapter_02::SinglyLinkedNode<int>*> vectorOfTails;
+    std::vector<std::shared_ptr<chapter_02::SinglyLinkedNode<int>>> vectorOfHeads;
+    std::vector<std::shared_ptr<chapter_02::SinglyLinkedNode<int>>> vectorOfTails;
     std::vector<int> expected = {0, 1, 2, 3, 4, 5, 6};
     chapter_04::makeLL(vectorOfHeads, vectorOfTails, head);
     std::vector<int> actual = chapter_04::vectorFromVectorOfLLs(vectorOfHeads);
@@ -1418,8 +1419,8 @@ TEST_CASE("Chapter 12 - Problem 02 - reverse()", "test"){
 
 TEST_CASE("Chapter 12 - Problem 08 - copyNode()", "test"){
     std::vector<int> targetVector = {1,2,3,4,5,6,7};
-    chapter_02::SinglyLinkedNode<int>* head = chapter_02::vectorToList(targetVector);
-    chapter_02::SinglyLinkedNode<int>* copy = chapter_12::copyNode(head);
+    std::shared_ptr<chapter_02::SinglyLinkedNode<int>> head = chapter_02::vectorToList(targetVector);
+    std::shared_ptr<chapter_02::SinglyLinkedNode<int>> copy = chapter_12::copyNode(head);
     REQUIRE(targetVector == chapter_02::listToVector(copy));  //  check that the values contained in nodes are identical
     // Check that the pointers in the head linked list are *not* the same as the pointers in the copy linked list
     // This is to verify a copy was actually made.
@@ -1624,4 +1625,3 @@ TEST_CASE("Misc Exercises - kernelConvolution()", "test") {
                   0, 0, 0, 0;
        REQUIRE(output1.isApprox(*misc::kernelConvolution(input1, kernel1)));
 }
-*/
