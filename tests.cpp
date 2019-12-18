@@ -405,15 +405,15 @@ TEST_CASE("Chapter 03 - Problem 06 - AnimalShelter", "test") {
 
 TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
     chapter_02::TetraGraphNode<int> node(1);
-    chapter_02::TetraGraphNode<int>* child0 = new chapter_02::TetraGraphNode<int>(0);
-    chapter_02::TetraGraphNode<int>* child1 = new chapter_02::TetraGraphNode<int>(1);
-    chapter_02::TetraGraphNode<int>* child2 = new chapter_02::TetraGraphNode<int>(2);
-    chapter_02::TetraGraphNode<int>* child3 = new chapter_02::TetraGraphNode<int>(3);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> child0 = std::make_shared<chapter_02::TetraGraphNode<int>>(0);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> child1 = std::make_shared<chapter_02::TetraGraphNode<int>>(1);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> child2 = std::make_shared<chapter_02::TetraGraphNode<int>>(2);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> child3 = std::make_shared<chapter_02::TetraGraphNode<int>>(3);
     node.addChild(child0, 0);
     node.addChild(child1, 1);
     node.addChild(child2, 2);
     node.addChild(child3, 3);
-    std::vector<chapter_02::TetraGraphNode<int>*> children;
+    std::vector<std::shared_ptr<chapter_02::TetraGraphNode<int>>> children;
     node.getChildren(children);
     REQUIRE(children[0] == child0);
     REQUIRE(children[1] == child1);
@@ -423,10 +423,9 @@ TEST_CASE("Chapter 04 - Basic Graph Functionality", "test"){
     node.removeChild(1);
     node.removeChild(2);
     node.removeChild(3);
-    std::vector<chapter_02::TetraGraphNode<int>*> deletedChildren;
+    std::vector<std::shared_ptr<chapter_02::TetraGraphNode<int>>> deletedChildren;
     node.getChildren(deletedChildren);
     REQUIRE(deletedChildren.size() == 0);
-    // no need to delete children, because removeChildren does that for us.
 }
 
 TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
@@ -440,14 +439,14 @@ TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     //      v    |
     //      7 -> 8
 
-    chapter_02::TetraGraphNode<int>* node1 = new chapter_02::TetraGraphNode<int>(1);
-    chapter_02::TetraGraphNode<int>* node2 = new chapter_02::TetraGraphNode<int>(2);
-    chapter_02::TetraGraphNode<int>* node3 = new chapter_02::TetraGraphNode<int>(3);
-    chapter_02::TetraGraphNode<int>* node4 = new chapter_02::TetraGraphNode<int>(4);
-    chapter_02::TetraGraphNode<int>* node5 = new chapter_02::TetraGraphNode<int>(5);
-    chapter_02::TetraGraphNode<int>* node6 = new chapter_02::TetraGraphNode<int>(6);
-    chapter_02::TetraGraphNode<int>* node7 = new chapter_02::TetraGraphNode<int>(7);
-    chapter_02::TetraGraphNode<int>* node8 = new chapter_02::TetraGraphNode<int>(8);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> node1 = std::make_shared<chapter_02::TetraGraphNode<int>>(1);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> node2 = std::make_shared<chapter_02::TetraGraphNode<int>>(2);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> node3 = std::make_shared<chapter_02::TetraGraphNode<int>>(3);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> node4 = std::make_shared<chapter_02::TetraGraphNode<int>>(4);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> node5 = std::make_shared<chapter_02::TetraGraphNode<int>>(5);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> node6 = std::make_shared<chapter_02::TetraGraphNode<int>>(6);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> node7 = std::make_shared<chapter_02::TetraGraphNode<int>>(7);
+    std::shared_ptr<chapter_02::TetraGraphNode<int>> node8 = std::make_shared<chapter_02::TetraGraphNode<int>>(8);
     node1->addChild(node2, 0);
     node2->addChild(node3, 0);
     node2->addChild(node4, 1);
@@ -460,16 +459,10 @@ TEST_CASE("Chapter 04 - Problem 01 - Route Between Nodes", "test"){
     REQUIRE(chapter_04::pathExistsDFS(node7, node5));
     REQUIRE(!chapter_04::pathExistsDFS(node3, node8));
     REQUIRE(chapter_04::pathExistsDFS(node1, node8));
-    REQUIRE(!chapter_04::pathExistsDFS(static_cast<chapter_02::TetraGraphNode<int>*>(nullptr), static_cast<chapter_02::TetraGraphNode<int>*>(nullptr)));
-    REQUIRE(!chapter_04::pathExistsDFS(node1, static_cast<chapter_02::TetraGraphNode<int>*>(nullptr)));
-    delete node1;
-    delete node2;
-    delete node3;
-    delete node4;
-    delete node5;
-    delete node6;
-    delete node7;
-    delete node8;
+    REQUIRE(!chapter_04::pathExistsDFS(
+            static_cast<std::shared_ptr<chapter_02::TetraGraphNode<int>>>(nullptr),
+            static_cast<std::shared_ptr<chapter_02::TetraGraphNode<int>>>(nullptr)));
+    REQUIRE(!chapter_04::pathExistsDFS(node1, static_cast<std::shared_ptr<chapter_02::TetraGraphNode<int>>>(nullptr)));
 }
 
 TEST_CASE("Chapter 04 - Problem 02 - minimalTree()", "test"){

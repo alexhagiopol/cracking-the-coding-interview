@@ -19,13 +19,15 @@ Space complexity: O(N)
 
 namespace chapter_04{
     template <typename T>
-    bool pathExistsDFS(const chapter_02::TetraGraphNode<T>* start, const chapter_02::TetraGraphNode<T>* end){
+    bool pathExistsDFS(
+            std::shared_ptr<chapter_02::TetraGraphNode<T>> start,
+            std::shared_ptr<chapter_02::TetraGraphNode<T>> end){
         if (start == nullptr || end == nullptr) return false;
         if (start == end) return true;
-        std::vector<chapter_02::TetraGraphNode<T>*> nextChildren;
+        std::vector<std::shared_ptr<chapter_02::TetraGraphNode<T>>> nextChildren;
         start->getChildren(nextChildren);
         bool returnValue = false;
-        for (chapter_02::TetraGraphNode<T>* child : nextChildren){
+        for (auto child : nextChildren){
             returnValue = returnValue || pathExistsDFS(child, end);
         }
         return returnValue;

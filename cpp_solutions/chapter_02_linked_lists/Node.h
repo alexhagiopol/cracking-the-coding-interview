@@ -86,7 +86,7 @@ namespace chapter_02{
     template <typename T>
     class TetraGraphNode : public Node<T>{
     private:
-        TetraGraphNode* _children[4];
+        std::shared_ptr<TetraGraphNode> _children[4];
     public:
         TetraGraphNode(T value) : Node<T>(value) {
             _children[0] = nullptr;
@@ -94,16 +94,15 @@ namespace chapter_02{
             _children[2] = nullptr;
             _children[3] = nullptr;
         }
-        void addChild(TetraGraphNode* child, int index) {
+        void addChild(std::shared_ptr<TetraGraphNode> child, int index) {
             if (index > 3 || index < 0) return;
             _children[index] = child;
         }
         void removeChild(int index) {
             if (index > 3 || index < 0) return;
-            delete _children[index];
             _children[index] = nullptr;
         }
-        void getChildren(std::vector<TetraGraphNode*>& children) const {
+        void getChildren(std::vector<std::shared_ptr<TetraGraphNode>>& children) const {
             for (int i = 0; i < 4; i++){
                 if (_children[i] != nullptr){
                     children.push_back(_children[i]);
