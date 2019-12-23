@@ -61,6 +61,7 @@ from python_solutions.chapter_08_recursion_and_dynamic_programming import proble
 from python_solutions.chapter_10_sorting_and_searching import merge_sort
 from python_solutions.chapter_10_sorting_and_searching import quick_sort
 from python_solutions.chapter_10_sorting_and_searching import problem_10_01_sorted_merge as p_10_1
+from python_solutions.chapter_16_moderate import problem_16_01_swap_numbers as p_16_01
 from python_solutions.chapter_16_moderate import problem_16_03_intersection as p_16_03
 from python_solutions.chapter_17_hard import problem_17_10_majority_element as p_17_10
 from python_solutions.chapter_17_hard import problem_17_15_longest_combination as p_17_15
@@ -1139,6 +1140,17 @@ class Tests(unittest.TestCase):
         lastE = 5
         p_10_1.sorted_merge(D, lastD, E, lastE)
         self.assertEqual(D, C)
+
+    def test_problem_16_01(self):
+        pair_ab = [5, 9]
+        p_16_01.swap_numbers(pair_ab)
+        self.assertEqual(pair_ab, [9, 5])
+        pair_cd = [5.1, -9.6]
+        p_16_01.swap_numbers(pair_cd)
+        self.assertEqual(pair_cd, [-9.6, 5.1])
+        pair_ef = [-50435, -89048]
+        p_16_01.swap_numbers(pair_ef)
+        self.assertEqual(pair_ef, [-89048, -50435])
 
     def test_problem_16_03(self):
         segment1 = p_16_03.LineSegment(p_16_03.Point2(5, 5), p_16_03.Point2(0, 0))
