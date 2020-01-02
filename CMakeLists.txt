@@ -54,6 +54,7 @@ set(SOURCE_FILES
 		# CHAPTER 16
 		cpp_solutions/chapter_16_moderate/problem_16_02_wordFrequencies.cpp
 		cpp_solutions/chapter_16_moderate/problem_16_03_intersection.cpp
+		cpp_solutions/chapter_16_moderate/problem_16_04_ticTacWin.cpp
 		cpp_solutions/chapter_16_moderate/problem_16_05_factorialZeros.cpp
 		cpp_solutions/chapter_16_moderate/problem_16_10_livingPeople.cpp
 		# MISC

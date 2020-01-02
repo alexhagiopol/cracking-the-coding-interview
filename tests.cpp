@@ -1540,6 +1540,82 @@ TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     delete actual_p4;
 }
 
+TEST_CASE("Chapter 16 - Problem 04 - ticTacWin()") {
+    // store data in row major order
+    char board0[9] = {'O', 'O', 'X',
+                      'O', 'X', '_',
+                      'X', '_', '_'};
+    char board1[9] = {'_', '_', 'O',
+                      '_', 'X', 'O',
+                      'X', 'X', 'O'};
+    // this is a board that violates TTT rules but we still judge it as a winner
+    char board2[9] = {'X', 'X', 'X',
+                      'O', 'O', 'O',
+                      'X', 'O', 'O'};
+    // we judge a character that is not X or O as a blank
+    char board3[9] = {'_', '_', 'X',
+                      '_', '_', 'O',
+                      '_', 'Z', '_'};
+    // complete garbage board
+    char board4[9] = {'a', 'l', 'e',
+                      'x', 'a', 'l',
+                      'e', 'x', 'a'};
+    char board5[9] = {'O', 'O', 'X',
+                      'X', 'X', 'X',
+                      'X', 'O', 'O'};
+    char board6[9] = {'X', 'X', 'X',
+                      'O', 'O', 'X',
+                      'X', 'O', 'O'};
+    char board7[9] = {'O', 'O', 'X',
+                      'X', 'O', 'O',
+                      'X', 'X', 'X'};
+    char board8[9] = {'X', 'O', 'X',
+                      'X', 'O', 'X',
+                      'O', 'X', 'O'};
+    char board9[9] = {'O', 'X', 'O',
+                      'O', 'X', 'X',
+                      'O', 'O', 'X'};
+    char board10[9] = {'X', 'O', 'O',
+                       'X', 'O', 'X',
+                       'O', 'O', 'X'};
+    char board11[9] = {'X', 'O', 'O',
+                       'X', 'X', 'O',
+                       'O', 'X', 'O'};
+    char board12[9] = {'X', 'X', 'O',
+                       'X', 'O', '_',
+                       'O', '_', '_'};
+    char board13[9] = {'X', 'O', 'O',
+                       'X', 'X', '_',
+                       'O', '_', 'X'};
+    char board14[9] = {'_', '_', 'X',
+                       '_', '_', 'O',
+                       '_', 'X', '_'};
+    char board15[9] = {'X', '_', 'X',
+                       '_', 'O', 'O',
+                       'X', 'X', '_'};
+    char board16[9] = {'X', 'O', '_',
+                       'O', 'X', 'O',
+                       'X', 'X', '_'};
+    auto database = chapter_16::TTTDatabase();
+    REQUIRE(database.ticTacWin(&board0[0]) == true);
+    REQUIRE(database.ticTacWin(&board1[0]) == true);
+    REQUIRE(database.ticTacWin(&board2[0]) == true);
+    REQUIRE(database.ticTacWin(&board3[0]) == false);
+    REQUIRE(database.ticTacWin(&board4[0]) == false);
+    REQUIRE(database.ticTacWin(&board5[0]) == true);
+    REQUIRE(database.ticTacWin(&board6[0]) == true);
+    REQUIRE(database.ticTacWin(&board7[0]) == true);
+    REQUIRE(database.ticTacWin(&board8[0]) == false);
+    REQUIRE(database.ticTacWin(&board9[0]) == true);
+    REQUIRE(database.ticTacWin(&board10[0]) == true);
+    REQUIRE(database.ticTacWin(&board11[0]) == true);
+    REQUIRE(database.ticTacWin(&board12[0]) == true);
+    REQUIRE(database.ticTacWin(&board13[0]) == true);
+    REQUIRE(database.ticTacWin(&board14[0]) == false);
+    REQUIRE(database.ticTacWin(&board15[0]) == false);
+    REQUIRE(database.ticTacWin(&board16[0]) == false);
+}
+
 TEST_CASE("Chapter 16 - Problem 05 - factorialZeros()") {
     REQUIRE(-1 == chapter_16::factorialZeros(-1));
     REQUIRE(0 == chapter_16::factorialZeros(1));
