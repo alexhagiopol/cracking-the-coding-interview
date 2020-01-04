@@ -1661,7 +1661,36 @@ TEST_CASE("Chapter 16 - Problem 10 - livingPeople()", "test") {
     REQUIRE(1982 == livingPeople(people1, 1900, 2020));
     REQUIRE(1945 == livingPeople(people1, 1900, 1950));
     REQUIRE(1900 == livingPeople(people2, 1900, 2020));
-};
+}
+
+TEST_CASE("Chapter 16 - Problem 11 - divingBoard()") {
+    const int short1 = 2;
+    const int long1 = 3;
+    const int K1 = 5;
+    const std::unordered_set<int> lengths1Expected = {10,  // 0 long + 5 short
+                                                      11,  // 1 long + 4 short
+                                                      12,  // 2 long + 3 short
+                                                      13,  // 3 long + 2 short
+                                                      14,  // 4 long + 1 short
+                                                      15}; // 5 long + 0 short
+
+    const int short2 = 2;
+    const int long2 = 2;
+    const int K2 = 5;
+    const std::unordered_set<int> lengths2Expected = {10};
+    const int short3 = 1;
+    const int long3 = 5;
+    const int K3 = 5;
+    const std::unordered_set<int> lengths3Expected = {5,  // 0 long + 5 short
+                                                      9,  // 1 long + 4 short
+                                                      13,  // 2 long + 3 short
+                                                      17,  // 3 long + 2 short
+                                                      21,  // 4 long + 1 short
+                                                      25}; // 5 long + 0 short
+    REQUIRE(chapter_16::divingBoard(short1, long1, K1) == lengths1Expected);
+    REQUIRE(chapter_16::divingBoard(short2, long2, K2) == lengths2Expected);
+    REQUIRE(chapter_16::divingBoard(short3, long3, K3) == lengths3Expected);
+}
 
 TEST_CASE("Chapter 17 - Problem 21 - histogramVolume()", "test") {
     const std::vector<int> histogram1 = {0, 0, 4, 0, 0, 6, 0, 0, 3, 0, 8, 0, 2, 0, 5, 2, 0, 3, 0, 0};

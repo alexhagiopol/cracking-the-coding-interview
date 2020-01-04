@@ -57,6 +57,7 @@ set(SOURCE_FILES
 		cpp_solutions/chapter_16_moderate/problem_16_04_ticTacWin.cpp
 		cpp_solutions/chapter_16_moderate/problem_16_05_factorialZeros.cpp
 		cpp_solutions/chapter_16_moderate/problem_16_10_livingPeople.cpp
+		cpp_solutions/chapter_16_moderate/problem_16_11_divingBoard.cpp
 		# MISC
         cpp_solutions/misc_exercises/misc_01_integralImage.cpp
 		cpp_solutions/misc_exercises/misc_02_kernelConvolution.cpp)
