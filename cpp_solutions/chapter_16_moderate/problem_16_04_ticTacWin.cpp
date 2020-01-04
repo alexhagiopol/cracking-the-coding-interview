@@ -1,4 +1,6 @@
 #include "problem_16_04_ticTacWin.h"
+#include <cmath>
+
 namespace chapter_16 {
     TTTDatabase::TTTDatabase() {
         // build database
