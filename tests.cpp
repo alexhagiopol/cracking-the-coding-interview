@@ -1540,6 +1540,82 @@ TEST_CASE("Chapter 16 - Problem 03 - intersection()") {
     delete actual_p4;
 }
 
+TEST_CASE("Chapter 16 - Problem 04 - ticTacWin()") {
+    // store data in row major order
+    char board0[9] = {'O', 'O', 'X',
+                      'O', 'X', '_',
+                      'X', '_', '_'};
+    char board1[9] = {'_', '_', 'O',
+                      '_', 'X', 'O',
+                      'X', 'X', 'O'};
+    // this is a board that violates TTT rules but we still judge it as a winner
+    char board2[9] = {'X', 'X', 'X',
+                      'O', 'O', 'O',
+                      'X', 'O', 'O'};
+    // we judge a character that is not X or O as a blank
+    char board3[9] = {'_', '_', 'X',
+                      '_', '_', 'O',
+                      '_', 'Z', '_'};
+    // complete garbage board
+    char board4[9] = {'a', 'l', 'e',
+                      'x', 'a', 'l',
+                      'e', 'x', 'a'};
+    char board5[9] = {'O', 'O', 'X',
+                      'X', 'X', 'X',
+                      'X', 'O', 'O'};
+    char board6[9] = {'X', 'X', 'X',
+                      'O', 'O', 'X',
+                      'X', 'O', 'O'};
+    char board7[9] = {'O', 'O', 'X',
+                      'X', 'O', 'O',
+                      'X', 'X', 'X'};
+    char board8[9] = {'X', 'O', 'X',
+                      'X', 'O', 'X',
+                      'O', 'X', 'O'};
+    char board9[9] = {'O', 'X', 'O',
+                      'O', 'X', 'X',
+                      'O', 'O', 'X'};
+    char board10[9] = {'X', 'O', 'O',
+                       'X', 'O', 'X',
+                       'O', 'O', 'X'};
+    char board11[9] = {'X', 'O', 'O',
+                       'X', 'X', 'O',
+                       'O', 'X', 'O'};
+    char board12[9] = {'X', 'X', 'O',
+                       'X', 'O', '_',
+                       'O', '_', '_'};
+    char board13[9] = {'X', 'O', 'O',
+                       'X', 'X', '_',
+                       'O', '_', 'X'};
+    char board14[9] = {'_', '_', 'X',
+                       '_', '_', 'O',
+                       '_', 'X', '_'};
+    char board15[9] = {'X', '_', 'X',
+                       '_', 'O', 'O',
+                       'X', 'X', '_'};
+    char board16[9] = {'X', 'O', '_',
+                       'O', 'X', 'O',
+                       'X', 'X', '_'};
+    auto database = chapter_16::TTTDatabase();
+    REQUIRE(database.ticTacWin(&board0[0]) == true);
+    REQUIRE(database.ticTacWin(&board1[0]) == true);
+    REQUIRE(database.ticTacWin(&board2[0]) == true);
+    REQUIRE(database.ticTacWin(&board3[0]) == false);
+    REQUIRE(database.ticTacWin(&board4[0]) == false);
+    REQUIRE(database.ticTacWin(&board5[0]) == true);
+    REQUIRE(database.ticTacWin(&board6[0]) == true);
+    REQUIRE(database.ticTacWin(&board7[0]) == true);
+    REQUIRE(database.ticTacWin(&board8[0]) == false);
+    REQUIRE(database.ticTacWin(&board9[0]) == true);
+    REQUIRE(database.ticTacWin(&board10[0]) == true);
+    REQUIRE(database.ticTacWin(&board11[0]) == true);
+    REQUIRE(database.ticTacWin(&board12[0]) == true);
+    REQUIRE(database.ticTacWin(&board13[0]) == true);
+    REQUIRE(database.ticTacWin(&board14[0]) == false);
+    REQUIRE(database.ticTacWin(&board15[0]) == false);
+    REQUIRE(database.ticTacWin(&board16[0]) == false);
+}
+
 TEST_CASE("Chapter 16 - Problem 05 - factorialZeros()") {
     REQUIRE(-1 == chapter_16::factorialZeros(-1));
     REQUIRE(0 == chapter_16::factorialZeros(1));
@@ -1585,7 +1661,36 @@ TEST_CASE("Chapter 16 - Problem 10 - livingPeople()", "test") {
     REQUIRE(1982 == livingPeople(people1, 1900, 2020));
     REQUIRE(1945 == livingPeople(people1, 1900, 1950));
     REQUIRE(1900 == livingPeople(people2, 1900, 2020));
-};
+}
+
+TEST_CASE("Chapter 16 - Problem 11 - divingBoard()") {
+    const int short1 = 2;
+    const int long1 = 3;
+    const int K1 = 5;
+    const std::unordered_set<int> lengths1Expected = {10,  // 0 long + 5 short
+                                                      11,  // 1 long + 4 short
+                                                      12,  // 2 long + 3 short
+                                                      13,  // 3 long + 2 short
+                                                      14,  // 4 long + 1 short
+                                                      15}; // 5 long + 0 short
+
+    const int short2 = 2;
+    const int long2 = 2;
+    const int K2 = 5;
+    const std::unordered_set<int> lengths2Expected = {10};
+    const int short3 = 1;
+    const int long3 = 5;
+    const int K3 = 5;
+    const std::unordered_set<int> lengths3Expected = {5,  // 0 long + 5 short
+                                                      9,  // 1 long + 4 short
+                                                      13,  // 2 long + 3 short
+                                                      17,  // 3 long + 2 short
+                                                      21,  // 4 long + 1 short
+                                                      25}; // 5 long + 0 short
+    REQUIRE(chapter_16::divingBoard(short1, long1, K1) == lengths1Expected);
+    REQUIRE(chapter_16::divingBoard(short2, long2, K2) == lengths2Expected);
+    REQUIRE(chapter_16::divingBoard(short3, long3, K3) == lengths3Expected);
+}
 
 TEST_CASE("Chapter 17 - Problem 21 - histogramVolume()", "test") {
     const std::vector<int> histogram1 = {0, 0, 4, 0, 0, 6, 0, 0, 3, 0, 8, 0, 2, 0, 5, 2, 0, 3, 0, 0};
