@@ -8,3 +8,4 @@
 #include "problem_16_06_smallestDifference.h"
 #include "problem_16_10_livingPeople.h"
 #include "problem_16_11_divingBoard.h"
+#include "problem_16_17_contiguousSequence.h"

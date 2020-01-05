@@ -1692,6 +1692,14 @@ TEST_CASE("Chapter 16 - Problem 11 - divingBoard()") {
     REQUIRE(chapter_16::divingBoard(short3, long3, K3) == lengths3Expected);
 }
 
+TEST_CASE("Chapter 16 - Problem 17 - contiguousSubarray()", "test") {
+    REQUIRE(0 == chapter_16::contiguousSequence({}));
+    REQUIRE(29 == chapter_16::contiguousSequence({2, 8, 3, 2, 4, 10}));
+    REQUIRE(-2 == chapter_16::contiguousSequence({-2, -8, -3, -2, -4, -10}));
+    REQUIRE(5 == chapter_16::contiguousSequence({2, -8, 3, -2, 4, -10}));
+    REQUIRE(6 == chapter_16::contiguousSequence({-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+};
+
 TEST_CASE("Chapter 17 - Problem 21 - histogramVolume()", "test") {
     const std::vector<int> histogram1 = {0, 0, 4, 0, 0, 6, 0, 0, 3, 0, 8, 0, 2, 0, 5, 2, 0, 3, 0, 0};
     const std::vector<int> histogram2 = {5, 0, 0, 0, 1};
