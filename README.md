@@ -63,9 +63,9 @@ C++ Total: `80` solutions complete.
 16. [Chapter 16 - Moderate](python_solutions/chapter_16_moderate): `2 / 26` complete.
 17. [Chapter 17 - Hard](python_solutions/chapter_17_hard): `3 / 26` complete.
 
-Python Total: `57` solutions complete.
+Python Total: `58` solutions complete.
 
-##### Grand Total: `140` unique solutions complete.
+##### Grand Total: `138` unique solutions complete.
 
 ### Building: 
 #### Mac:
