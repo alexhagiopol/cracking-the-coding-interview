@@ -1647,6 +1647,17 @@ TEST_CASE("Chapter 16 - Problem 06 - smallestDifference()") {
     REQUIRE(std::numeric_limits<int>::max() == chapter_16::smallestDifference(example6, example6));
 }
 
+TEST_CASE("Chapter 16 - Problem 07 - numberMax()", "test") {
+    REQUIRE(8 == chapter_16::numberMax(8,4));
+    REQUIRE(8 == chapter_16::numberMax(4,8));
+    REQUIRE(65535 == chapter_16::numberMax(65535, 65534));
+    REQUIRE(1 == chapter_16::numberMax(1,0));
+    REQUIRE(0b10001 == chapter_16::numberMax(0b10001,0b1001));
+    REQUIRE(0 == chapter_16::numberMax(0,0));
+    REQUIRE(5 == chapter_16::numberMax(5,0));
+    REQUIRE(8 == chapter_16::numberMax(8,8));
+}
+
 TEST_CASE("Chapter 16 - Problem 10 - livingPeople()", "test") {
     std::vector<chapter_16::Person> people1 = {
             chapter_16::Person(1930, 2000),
