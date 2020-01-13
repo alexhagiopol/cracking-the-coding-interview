@@ -1647,6 +1647,17 @@ TEST_CASE("Chapter 16 - Problem 06 - smallestDifference()") {
     REQUIRE(std::numeric_limits<int>::max() == chapter_16::smallestDifference(example6, example6));
 }
 
+TEST_CASE("Chapter 16 - Problem 07 - numberMax()", "test") {
+    REQUIRE(8 == chapter_16::numberMax(8,4));
+    REQUIRE(8 == chapter_16::numberMax(4,8));
+    REQUIRE(65535 == chapter_16::numberMax(65535, 65534));
+    REQUIRE(1 == chapter_16::numberMax(1,0));
+    REQUIRE(0b10001 == chapter_16::numberMax(0b10001,0b1001));
+    REQUIRE(0 == chapter_16::numberMax(0,0));
+    REQUIRE(5 == chapter_16::numberMax(5,0));
+    REQUIRE(8 == chapter_16::numberMax(8,8));
+}
+
 TEST_CASE("Chapter 16 - Problem 10 - livingPeople()", "test") {
     std::vector<chapter_16::Person> people1 = {
             chapter_16::Person(1930, 2000),
@@ -1691,6 +1702,14 @@ TEST_CASE("Chapter 16 - Problem 11 - divingBoard()") {
     REQUIRE(chapter_16::divingBoard(short2, long2, K2) == lengths2Expected);
     REQUIRE(chapter_16::divingBoard(short3, long3, K3) == lengths3Expected);
 }
+
+TEST_CASE("Chapter 16 - Problem 17 - contiguousSubarray()", "test") {
+    REQUIRE(0 == chapter_16::contiguousSequence({}));
+    REQUIRE(29 == chapter_16::contiguousSequence({2, 8, 3, 2, 4, 10}));
+    REQUIRE(-2 == chapter_16::contiguousSequence({-2, -8, -3, -2, -4, -10}));
+    REQUIRE(5 == chapter_16::contiguousSequence({2, -8, 3, -2, 4, -10}));
+    REQUIRE(6 == chapter_16::contiguousSequence({-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+};
 
 TEST_CASE("Chapter 17 - Problem 21 - histogramVolume()", "test") {
     const std::vector<int> histogram1 = {0, 0, 4, 0, 0, 6, 0, 0, 3, 0, 8, 0, 2, 0, 5, 2, 0, 3, 0, 0};
