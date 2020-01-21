@@ -5,8 +5,12 @@
  * connected water cells. Write a method to compute the sizes of all ponds in the matrix.
  *
  * ALGORITHM:
- * Iterate over every cell of the matrix.
+ * Iterate over every cell of the matrix. At each zero cell, start a DFS that searches through all 8-connected
+ * zero cells and marks them invalid along the way. The DFS procedure will increment a counter for every cell
+ * explored. For every DFS done, add the returned counter to a multiset and return the multiset.
  *
+ * TIME: O(N*N) (assuming matrix is N*N size)
+ * SPACE: O(N*N)
  */
 
 #pragma once

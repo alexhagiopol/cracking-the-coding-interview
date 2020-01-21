@@ -1729,17 +1729,17 @@ TEST_CASE("Chapter 16 - problem 19 - pondSizes()", "test") {
     REQUIRE(chapter_16::pondSizes(plot3) == expected3);
     // test 4
     const std::vector<std::vector<int>> plot4 = {{0, 2, 1, 0},
-                                                 {0, 0, 0, 1},
+                                                 {0, 0, 1, 1},
                                                  {0, 1, 0, 1},
                                                  {0, 0, 0, 1}};
-    std::multiset<int> expected4 = {9, 1};
+    std::multiset<int> expected4 = {8, 1};
     REQUIRE(chapter_16::pondSizes(plot4) == expected4);
     // test 5
     const std::vector<std::vector<int>> plot5= {{0, 2, 0, 2},
                                                 {2, 0, 1, 0},
-                                                {0, 1, 0, 1},
-                                                {1, 0, 0, 0}};
-    std::multiset<int> expected5 = {1, 1, 1, 1, 1, 4};
+                                                {0, 1, 3, 1},
+                                                {1, 0, 2, 0}};
+    std::multiset<int> expected5 = {6, 1};
     REQUIRE(chapter_16::pondSizes(plot5) == expected5);
 };
 
