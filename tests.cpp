@@ -1711,6 +1711,38 @@ TEST_CASE("Chapter 16 - Problem 17 - contiguousSubarray()", "test") {
     REQUIRE(6 == chapter_16::contiguousSequence({-2, 1, -3, 4, -1, 2, 1, -5, 4}));
 };
 
+TEST_CASE("Chapter 16 - problem 19 - pondSizes()", "test") {
+    // test 1
+    const std::vector<std::vector<int>> plot1 = {{0, 2, 1, 0},
+                                                 {0, 1, 0, 1},
+                                                 {1, 1, 0, 1},
+                                                 {0, 1, 0, 1}};
+    std::multiset<int> expected1 = {2, 4, 1};
+    REQUIRE(chapter_16::pondSizes(plot1) == expected1);
+    // test 2
+    const std::vector<std::vector<int>> plot2 = {{}};
+    std::multiset<int> expected2 = {};
+    REQUIRE(chapter_16::pondSizes(plot2) == expected2);
+    // test 3
+    const std::vector<std::vector<int>> plot3 = {{0, 2, 1, 0}};
+    std::multiset<int> expected3 = {1, 1};
+    REQUIRE(chapter_16::pondSizes(plot3) == expected3);
+    // test 4
+    const std::vector<std::vector<int>> plot4 = {{0, 2, 1, 0},
+                                                 {0, 0, 1, 1},
+                                                 {0, 1, 0, 1},
+                                                 {0, 0, 0, 1}};
+    std::multiset<int> expected4 = {8, 1};
+    REQUIRE(chapter_16::pondSizes(plot4) == expected4);
+    // test 5
+    const std::vector<std::vector<int>> plot5= {{0, 2, 0, 2},
+                                                {2, 0, 1, 0},
+                                                {0, 1, 3, 1},
+                                                {1, 0, 2, 0}};
+    std::multiset<int> expected5 = {6, 1};
+    REQUIRE(chapter_16::pondSizes(plot5) == expected5);
+};
+
 TEST_CASE("Chapter 17 - Problem 21 - histogramVolume()", "test") {
     const std::vector<int> histogram1 = {0, 0, 4, 0, 0, 6, 0, 0, 3, 0, 8, 0, 2, 0, 5, 2, 0, 3, 0, 0};
     const std::vector<int> histogram2 = {5, 0, 0, 0, 1};
