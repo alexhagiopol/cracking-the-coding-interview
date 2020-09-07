@@ -4,6 +4,10 @@ Chapter 02 - Problem 06 - Palindrome - CTCI 6th Edition page 95
 Problem Statement:
 Implement a function to check if a linked list is a palindrome.
 
+Example:
+Input: 1 -> 3 -> 5 -> 3 -> 1
+Output: True
+
 Solution:
 
 A palindrome is a list that is the same forwards as it is backwards. We traverse the input list
