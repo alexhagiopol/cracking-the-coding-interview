@@ -5,8 +5,8 @@ Problem Statement:
 Implement a function to check if a linked list is a palindrome.
 
 Example:
-Input: (7 -> 1 -> 6) + (5 -> 9 -> 2). That is, 617 + 295.
-Output: (2 -> 1 -> 9). That is, 912.
+Input: 1 -> 3 -> 5 -> 3 -> 1
+Output: true
 
 Solution:
 
