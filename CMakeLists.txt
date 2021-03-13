@@ -22,6 +22,7 @@ set(SOURCE_FILES
 		# CHAPTER 2
 		# .cpp files not included because they are template functions implemented in .h files
 		# CHAPTER 3
+		cpp_solutions/chapter_03_stacks_and_queues/problem_03_01_threeInOne.cpp
 		cpp_solutions/chapter_03_stacks_and_queues/problem_03_06_animalShelter.cpp
 		# CHAPTER 4
 		cpp_solutions/chapter_04_trees_and_graphs/problem_04_07_buildOrder.cpp
