@@ -315,6 +315,42 @@ TEST_CASE("Chapter 02 - Problem 08 - findLoop()", "test") {
 	REQUIRE(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr) == chapter_02::findLoop(static_cast<chapter_02::SinglyLinkedNode<int>*>(nullptr)));
 }
 
+TEST_CASE("Chapter 03 - Three in one", "test"){
+    constexpr const int max_int = 10000;
+    constexpr const int stack_max = 10;
+
+    static std::random_device r;
+    static std::default_random_engine r_eng(r());
+    static std::uniform_int_distribution<> distr(0, max_int);
+
+    const std::size_t stack_count = abs(distr(r_eng)) % stack_max + 1;
+    std::vector<std::vector<chapter_03::MultiStack::TVal>> arrays(stack_count);
+    chapter_03::MultiStack stack(stack_count);
+
+    for(int i = 1000; --i >= 0;) {
+        const std::size_t stack_i = static_cast<std::size_t>(distr(r_eng)) % stack_count;
+        const chapter_03::MultiStack::TVal val = distr(r_eng);
+        arrays[stack_i].push_back(val);
+        stack.push(stack_i, val);
+    }
+
+    for(int i = 25; --i >= 0;) {
+        const std::size_t stack_i = static_cast<std::size_t>(distr(r_eng)) % stack_count;
+        assert(arrays[stack_i].size() > 0);
+        arrays[stack_i].pop_back();
+        stack.pop(stack_i);
+    }
+
+    for(std::size_t stack_i = 0; stack_i < stack_count; ++stack_i) {
+        auto & ar = arrays[stack_i];
+
+        for(std::size_t j = ar.size(); j > 1; --j) {
+            assert(stack.pop(stack_i) == ar.back());
+            ar.pop_back();
+        }
+    }
+}
+
 TEST_CASE("Chapter 03 - Stack", "test"){
     chapter_03::Stack<int> myStack;
     for (int i = 1; i <= 4; i++){
